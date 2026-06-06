@@ -241,10 +241,12 @@
     },
     {
       "id": "GH-COS",
-      "title": "COSXOUBOROS",
-      "description": "repository for cosxouboros.",
+      "title": "Cos-X Ouroboros",
+      "description": "a self-evolving web application that continuously rewrites its own html using the gemini ai.",
       "tags": [
-        "HTML"
+        "AI",
+        "Flask",
+        "Self-Evolving"
       ],
       "link": "https://cosxouboros.vercel.app"
     },
