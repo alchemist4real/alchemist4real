@@ -9,7 +9,8 @@
         "Bilingual",
         "Dark"
       ],
-      "link": "https://nosmoke-six.vercel.app/"
+      "link": "https://nosmoke-six.vercel.app/",
+      "repo_link": "https://github.com/alchemist4real/nosmoke"
     },
     {
       "id": "02",
@@ -24,7 +25,7 @@
     {
       "id": "03",
       "title": "#FuckAllRapist",
-      "description": "consent, UU TPKS, bystander 5D \u2014 no sugarcoating.",
+      "description": "consent, UU TPKS, bystander 5D — no sugarcoating.",
       "tags": [
         "Anti-Violence",
         "Certificate"
@@ -40,7 +41,8 @@
         "Supabase",
         "Spotify"
       ],
-      "link": "https://174-three.vercel.app/"
+      "link": "https://174-three.vercel.app/",
+      "repo_link": "https://github.com/alchemist4real/174"
     },
     {
       "id": "05",
@@ -62,7 +64,8 @@
         "Surveillance",
         "Indonesia"
       ],
-      "link": "https://prisma-rdk-simulator.vercel.app/"
+      "link": "https://prisma-rdk-simulator.vercel.app/",
+      "repo_link": "https://github.com/alchemist4real/prisma-rdk-simulator"
     },
     {
       "id": "07",
@@ -73,7 +76,8 @@
         "Application",
         "Oracle"
       ],
-      "link": "https://msgfromoracle.vercel.app/"
+      "link": "https://msgfromoracle.vercel.app/",
+      "repo_link": "https://github.com/alchemist4real/msgfromoracle"
     },
     {
       "id": "08",
@@ -84,7 +88,8 @@
         "Logger",
         "Movies"
       ],
-      "link": "https://beenboxd.vercel.app/"
+      "link": "https://beenboxd.vercel.app/",
+      "repo_link": "https://github.com/alchemist4real/beenboxd"
     },
     {
       "id": "09",
@@ -106,7 +111,8 @@
         "calculator",
         "text gen"
       ],
-      "link": "https://beentexter.vercel.app/"
+      "link": "https://beentexter.vercel.app/",
+      "repo_link": "https://github.com/alchemist4real/beentexter"
     },
     {
       "id": "11",
@@ -139,7 +145,8 @@
         "file sharing",
         "real-time"
       ],
-      "link": "https://beenhollow.vercel.app/"
+      "link": "https://beenhollow.vercel.app/",
+      "repo_link": "https://github.com/alchemist4real/BEENHOLLOW"
     },
     {
       "id": "14",
@@ -150,7 +157,8 @@
         "healthcare",
         "antibiotics"
       ],
-      "link": "https://prisma-rdk-guide.vercel.app/"
+      "link": "https://prisma-rdk-guide.vercel.app/",
+      "repo_link": "https://github.com/alchemist4real/prisma-rdk-guide"
     },
     {
       "id": "15",
@@ -172,7 +180,8 @@
         "nutrition",
         "coaching"
       ],
-      "link": "https://soyproteinbyaltaf.vercel.app/"
+      "link": "https://soyproteinbyaltaf.vercel.app/",
+      "repo_link": "https://github.com/alchemist4real/soyproteinbyaltaf"
     }
   ],
   "extensions": [
@@ -185,6 +194,15 @@
         "Productivity"
       ],
       "link": "https://github.com/alchemist4real/example-extension"
+    },
+    {
+      "id": "GH-TIM",
+      "title": "TIMEMARU",
+      "description": "an productivity ekstension with daily schedule, upcoming task, weather, and funny float",
+      "tags": [
+        "Code"
+      ],
+      "link": "https://github.com/alchemist4real/timemaru"
     }
   ],
   "research": [
@@ -237,7 +255,8 @@
       "tags": [
         "HTML"
       ],
-      "link": "https://beenonexamaccess.vercel.app"
+      "link": "https://beenonexamaccess.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/beenonexamaccess"
     },
     {
       "id": "GH-FRI",
@@ -255,7 +274,8 @@
       "tags": [
         "HTML"
       ],
-      "link": "https://live-one-beta.vercel.app"
+      "link": "https://live-one-beta.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/live"
     },
     {
       "id": "GH-LON",
@@ -264,7 +284,8 @@
       "tags": [
         "HTML"
       ],
-      "link": "https://longlifehisto.vercel.app"
+      "link": "https://longlifehisto.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/longlifehisto"
     },
     {
       "id": "GH-MON",
@@ -327,7 +348,8 @@
       "tags": [
         "Python"
       ],
-      "link": "https://sinxv.vercel.app"
+      "link": "https://sinxv.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/sinxv"
     },
     {
       "id": "GH-SOA",
@@ -345,7 +367,8 @@
       "tags": [
         "HTML"
       ],
-      "link": "https://soexsoex.vercel.app"
+      "link": "https://soexsoex.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/soexsoex"
     },
     {
       "id": "GH-SOY",
@@ -357,13 +380,22 @@
       "link": "https://soyproteinbyaltaf.vercel.app"
     },
     {
-      "id": "GH-TIM",
-      "title": "TIMEMARU",
-      "description": "an productivity ekstension with daily schedule, upcoming task, weather, and funny float",
+      "id": "GH-COS",
+      "title": "COSXOUBOROS",
+      "description": "auto-synced repository.",
       "tags": [
-        "Code"
+        "HTML"
       ],
-      "link": "https://github.com/alchemist4real/timemaru"
+      "link": "https://cosxouboros.vercel.app"
+    },
+    {
+      "id": "GH-GEM",
+      "title": "GEMINIBEENSPACE",
+      "description": "auto-synced repository.",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://geminibeenspace.vercel.app"
     }
   ]
 }

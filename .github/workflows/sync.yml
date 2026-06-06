@@ -1,0 +1,36 @@
+name: Auto-Sync Catalog
+
+on:
+  schedule:
+    # 01:00 WIB is 18:00 UTC (previous day). So cron format: 0 18 * * *
+    - cron: '0 18 * * *'
+  workflow_dispatch: # Allows manual triggering from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Need full history to push correctly
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run sync script
+        run: node scripts/sync-catalog.js
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git commit -m "chore: auto-sync catalog from github api" || echo "No changes to commit"
+          git push
