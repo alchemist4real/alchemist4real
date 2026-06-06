@@ -35,7 +35,7 @@
     {
       "id": "04",
       "title": "174 ARCHIVE",
-      "description": "classified vault. supabase backend, live chat, spotify api.",
+      "description": "an immersive, dark-themed digital archive and web-based desktop simulation.",
       "tags": [
         "Academic",
         "Supabase",
@@ -82,7 +82,7 @@
     {
       "id": "08",
       "title": "BEENBOXD",
-      "description": "ai-powered letterboxd logger and csv export tool.",
+      "description": "an ai-powered letterboxd logger and csv exporter with a slick glassmorphic interface.",
       "tags": [
         "Letterboxd",
         "Logger",
@@ -105,7 +105,7 @@
     {
       "id": "10",
       "title": "BEENTEXTER",
-      "description": "retro calculator style text gen by beentexter.",
+      "description": "a brutalist retro-calculator style text generator with tactile vintage web aesthetics.",
       "tags": [
         "retro",
         "calculator",
@@ -139,7 +139,7 @@
     {
       "id": "13",
       "title": "BEENHOLLOW",
-      "description": "real-time p2p file and message sharing.",
+      "description": "ephemeral p2p file and message sharing directly into the void.",
       "tags": [
         "p2p",
         "file sharing",
@@ -233,7 +233,7 @@
     {
       "id": "GH-ACA",
       "title": "ACADEMICCONTROLCENTER",
-      "description": "repository for academiccontrolcenter.",
+      "description": "gamified single-page academic dashboard for task and mission tracking.",
       "tags": [
         "HTML"
       ],
@@ -242,7 +242,7 @@
     {
       "id": "GH-BEE",
       "title": "BEENMONEY",
-      "description": "Been's Money - Aplikasi Budgeting Simpel & Offline  Sebuah aplikasi web budgeting modern yang berjalan sepenuhnya di browser Anda. Lacak pemasukan dan pengeluaran dengan mudah tanpa perlu instalasi. Fitur lengkap: kustomisasi kategori & tema, ekspor ke CSV/PDF, dan 100% privat dengan penyimpanan lokal. Cukup unduh file HTML-nya dan mulai gunakan!",
+      "description": "a sleek, dark-themed single-file html budgeting app.",
       "tags": [
         "HTML"
       ],
@@ -251,7 +251,7 @@
     {
       "id": "GH-BEE",
       "title": "BEENONEXAMACCESS",
-      "description": "repository for beenonexamaccess.",
+      "description": "decentralized web3 wallet authentication protocol for secure exam access.",
       "tags": [
         "HTML"
       ],
@@ -261,7 +261,7 @@
     {
       "id": "GH-FRI",
       "title": "FRIDAY",
-      "description": "repository for friday.",
+      "description": "an aesthetic, dark-mode personal ai assistant powered by cloudflare workers ai.",
       "tags": [
         "JavaScript"
       ],
@@ -382,20 +382,22 @@
     {
       "id": "GH-COS",
       "title": "COSXOUBOROS",
-      "description": "auto-synced repository.",
+      "description": "an autonomous web entity that endlessly rewrites its own code via ai.",
       "tags": [
         "HTML"
       ],
-      "link": "https://cosxouboros.vercel.app"
+      "link": "https://cosxouboros.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/cosxouboros"
     },
     {
       "id": "GH-GEM",
       "title": "GEMINIBEENSPACE",
-      "description": "auto-synced repository.",
+      "description": "an aesthetic, tailwind-powered guide for indonesian students to unlock their free 1-year google gemini trial.",
       "tags": [
         "HTML"
       ],
-      "link": "https://geminibeenspace.vercel.app"
+      "link": "https://geminibeenspace.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/geminibeenspace"
     }
   ]
 }
