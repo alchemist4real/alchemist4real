@@ -470,9 +470,34 @@
             ghData.forEach(repo => {
               const url1 = (repo.homepage || '').toLowerCase().replace(/\/$/, '');
               const url2 = (repo.html_url || '').toLowerCase().replace(/\/$/, '');
-              if ((url1 && existingLinks.has(url1)) || existingLinks.has(url2) || existingTitles.has(repo.name.toLowerCase())) {
-                return; // skip duplicate
+              
+              let isDuplicate = false;
+              
+              if (url1 && existingLinks.has(url1)) {
+                let matchedItem = allCatalogItems.find(i => i.link.toLowerCase().replace(/\/$/, '') === url1);
+                if (matchedItem && repo.html_url && matchedItem.link !== repo.html_url) {
+                  matchedItem.repo_link = repo.html_url;
+                }
+                isDuplicate = true;
               }
+              if (!isDuplicate && existingLinks.has(url2)) {
+                let matchedItem = allCatalogItems.find(i => i.link.toLowerCase().replace(/\/$/, '') === url2);
+                if (matchedItem && repo.homepage && matchedItem.link !== repo.homepage) {
+                  matchedItem.web_link = repo.homepage;
+                }
+                isDuplicate = true;
+              }
+              if (!isDuplicate && existingTitles.has(repo.name.toLowerCase())) {
+                let matchedItem = allCatalogItems.find(i => i.title.toLowerCase() === repo.name.toLowerCase());
+                if (matchedItem) {
+                   if (repo.html_url && matchedItem.link !== repo.html_url) matchedItem.repo_link = repo.html_url;
+                   if (repo.homepage && matchedItem.link !== repo.homepage) matchedItem.web_link = repo.homepage;
+                }
+                isDuplicate = true;
+              }
+              
+              if (isDuplicate) return;
+
               // Add new live repo
               allCatalogItems.push({
                 id: "GH-" + repo.name.substring(0,3).toUpperCase(),
@@ -518,7 +543,24 @@
       const container = document.getElementById('catalog-container');
       if (!container) return;
       
-      container.innerHTML = items.map(item => `
+      container.innerHTML = items.map(item => {
+        let linksHtml = '';
+        const isGithubLink = item.link && item.link.includes('github.com');
+        const webUrl = item.web_link || (!isGithubLink ? item.link : null);
+        const repoUrl = item.repo_link || (isGithubLink ? item.link : null);
+        
+        if (webUrl) {
+          linksHtml += `<a href="${webUrl}" class="project-link label" style="margin-bottom:8px; display:block; text-align:right;" target="_blank" rel="noopener noreferrer">Visit Web -></a>`;
+        }
+        if (repoUrl && repoUrl !== webUrl) {
+          linksHtml += `<a href="${repoUrl}" class="project-link label" style="display:block; text-align:right; opacity:0.7;" target="_blank" rel="noopener noreferrer">Visit Repo -></a>`;
+        }
+        // Fallback if neither
+        if (!webUrl && !repoUrl) {
+           linksHtml = `<a href="${item.link}" class="project-link label" style="display:block; text-align:right;" target="_blank" rel="noopener noreferrer">Visit -></a>`;
+        }
+
+        return `
         <div class="project-row">
           <div class="project-meta">
             <span class="project-index label">${item.id}</span>
@@ -531,9 +573,11 @@
               ${item.tags.map(t => `<span class="tag">${t}</span>`).join('')}
             </div>
           </div>
-          <a href="${item.link}" class="project-link label" target="_blank" rel="noopener noreferrer">Visit -></a>
+          <div class="project-actions">
+            ${linksHtml}
+          </div>
         </div>
-      `).join('');
+      `}).join('');
 
       document.querySelectorAll('.project-row').forEach(row => {
         row.addEventListener('mouseenter', () => row.classList.add('active'));
