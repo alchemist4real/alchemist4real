@@ -160,6 +160,11 @@
     #projects .section-header { margin-bottom: 48px; }
     #projects .section-header .label { display: block; margin-bottom: 8px; }
     
+    .filters { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
+    .filter-btn { background: transparent; border: 1px solid var(--fg-faint); color: var(--fg-muted); padding: 8px 16px; border-radius: 20px; font-family: 'DM Mono', monospace; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; }
+    .filter-btn:hover { border-color: var(--fg); color: var(--fg); }
+    .filter-btn.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
     .project-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
     
     .project-row { 
@@ -283,25 +288,14 @@
         <h2 class="heading">what we shipped.</h2>
       </div>
 
-      <div id="projects-container" class="project-list"></div>
-
-      <div class="section-header" style="margin-top: 80px;">
-        <span class="label">The Toolbox</span>
-        <h2 class="heading">extensions & tools.</h2>
+      <div class="filters" id="catalog-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="projects">Apps</button>
+        <button class="filter-btn" data-filter="extensions">Extensions</button>
+        <button class="filter-btn" data-filter="research">Research</button>
+        <button class="filter-btn" data-filter="repos">Repos</button>
       </div>
-      <div id="extensions-container" class="project-list"></div>
-
-      <div class="section-header" style="margin-top: 80px;">
-        <span class="label">The Papers</span>
-        <h2 class="heading">research & writing.</h2>
-      </div>
-      <div id="research-container" class="project-list"></div>
-
-      <div class="section-header" style="margin-top: 80px;">
-        <span class="label">Open Source</span>
-        <h2 class="heading">repositories.</h2>
-      </div>
-      <div id="repos-container" class="project-list"></div>
+      <div id="catalog-container" class="project-list"></div>
     </section>
 
     <section id="about" class="container">
@@ -458,48 +452,69 @@
     document.querySelectorAll('.card, .partner-row').forEach(el => observer.observe(el));
 
     // Dynamic Data Loader
+    let allCatalogItems = [];
+
     async function loadCatalog() {
       try {
         const res = await fetch('data.json');
         const data = await res.json();
         
-        const renderGroup = (containerId, items) => {
-          const container = document.getElementById(containerId);
-          if (!container || !items) return;
-          
-          container.innerHTML = items.map(item => `
-            <div class="project-row">
-              <div class="project-meta">
-                <span class="project-index label">${item.id}</span>
-                <span class="live-dot" aria-label="live"></span>
-              </div>
-              <div class="project-body">
-                <h3 class="project-title">${item.title}</h3>
-                <p class="project-desc muted">${item.description}</p>
-                <div class="project-tags">
-                  ${item.tags.map(t => `<span class="tag">${t}</span>`).join('')}
-                </div>
-              </div>
-              <a href="${item.link}" class="project-link label" target="_blank" rel="noopener noreferrer">Visit -></a>
-            </div>
-          `).join('');
-        };
+        // Flatten into a single array with types
+        allCatalogItems = [
+          ...(data.projects || []).map(item => ({ ...item, type: 'projects' })),
+          ...(data.extensions || []).map(item => ({ ...item, type: 'extensions' })),
+          ...(data.research || []).map(item => ({ ...item, type: 'research' })),
+          ...(data.repos || []).map(item => ({ ...item, type: 'repos' }))
+        ];
 
-        renderGroup('projects-container', data.projects);
-        renderGroup('extensions-container', data.extensions);
-        renderGroup('research-container', data.research);
-        renderGroup('repos-container', data.repos);
+        renderCatalog(allCatalogItems);
 
-        // Re-attach hover effects and scroll observer to dynamically created rows
-        document.querySelectorAll('.project-row').forEach(row => {
-          row.addEventListener('mouseenter', () => row.classList.add('active'));
-          row.addEventListener('mouseleave', () => row.classList.remove('active'));
-          observer.observe(row);
+        // Setup filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            
+            const filter = e.target.getAttribute('data-filter');
+            if (filter === 'all') {
+              renderCatalog(allCatalogItems);
+            } else {
+              renderCatalog(allCatalogItems.filter(item => item.type === filter));
+            }
+          });
         });
 
       } catch (err) {
         console.error("Failed to load catalog data:", err);
       }
+    }
+
+    function renderCatalog(items) {
+      const container = document.getElementById('catalog-container');
+      if (!container) return;
+      
+      container.innerHTML = items.map(item => `
+        <div class="project-row">
+          <div class="project-meta">
+            <span class="project-index label">${item.id}</span>
+            <span class="live-dot" aria-label="live"></span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">${item.title}</h3>
+            <p class="project-desc muted">${item.description}</p>
+            <div class="project-tags">
+              ${item.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+            </div>
+          </div>
+          <a href="${item.link}" class="project-link label" target="_blank" rel="noopener noreferrer">Visit -></a>
+        </div>
+      `).join('');
+
+      document.querySelectorAll('.project-row').forEach(row => {
+        row.addEventListener('mouseenter', () => row.classList.add('active'));
+        row.addEventListener('mouseleave', () => row.classList.remove('active'));
+        observer.observe(row);
+      });
     }
     
     // Load immediately
