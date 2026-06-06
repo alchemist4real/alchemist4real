@@ -261,20 +261,12 @@
         
         <div class="stats-row">
           <div class="stat-item">
-            <span class="stat-number">16</span>
+            <span class="stat-number" id="stat-projects">—</span>
             <span class="label">Live Projects</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number">40+</span>
-            <span class="label">Quiz Questions</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">20+</span>
-            <span class="label">Edu Topics</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-number">∞</span>
-            <span class="label">Certificates Generated</span>
+            <span class="stat-number">100%</span>
+            <span class="label">Server Uptime</span>
           </div>
         </div>
         
@@ -469,6 +461,10 @@
 
         renderCatalog(allCatalogItems);
 
+        // Update live projects count
+        const statProjects = document.getElementById('stat-projects');
+        if(statProjects) statProjects.textContent = allCatalogItems.length;
+
         // Setup filter buttons
         document.querySelectorAll('.filter-btn').forEach(btn => {
           btn.addEventListener('click', (e) => {
@@ -519,6 +515,23 @@
     
     // Load immediately
     loadCatalog();
+
+    async function loadGitHubStats() {
+      try {
+        const res = await fetch('https://api.github.com/users/alchemist4real');
+        const data = await res.json();
+        const reposEl = document.getElementById('gh-repos');
+        const followersEl = document.getElementById('gh-followers');
+        const followingEl = document.getElementById('gh-following');
+        
+        if(reposEl) reposEl.textContent = data.public_repos || '0';
+        if(followersEl) followersEl.textContent = data.followers || '0';
+        if(followingEl) followingEl.textContent = data.following || '0';
+      } catch(err) {
+        console.error("Failed to fetch Github stats:", err);
+      }
+    }
+    loadGitHubStats();
   </script>
 </body>
 </html>
