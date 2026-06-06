@@ -240,17 +240,6 @@
       "link": "https://beenonexamaccess.vercel.app"
     },
     {
-      "id": "GH-COS",
-      "title": "Cos-X Ouroboros",
-      "description": "a self-evolving web application that continuously rewrites its own html using the gemini ai.",
-      "tags": [
-        "AI",
-        "Flask",
-        "Self-Evolving"
-      ],
-      "link": "https://cosxouboros.vercel.app"
-    },
-    {
       "id": "GH-FRI",
       "title": "FRIDAY",
       "description": "repository for friday.",
@@ -258,15 +247,6 @@
         "JavaScript"
       ],
       "link": "https://github.com/alchemist4real/friday"
-    },
-    {
-      "id": "GH-GEM",
-      "title": "GEMINIBEENSPACE",
-      "description": "repository for geminibeenspace.",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://geminibeenspace.vercel.app"
     },
     {
       "id": "GH-LIV",
