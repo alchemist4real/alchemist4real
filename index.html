@@ -475,15 +475,17 @@
               
               if (url1 && existingLinks.has(url1)) {
                 let matchedItem = allCatalogItems.find(i => i.link.toLowerCase().replace(/\/$/, '') === url1);
-                if (matchedItem && repo.html_url && matchedItem.link !== repo.html_url) {
-                  matchedItem.repo_link = repo.html_url;
+                if (matchedItem) {
+                  if (repo.html_url && matchedItem.link !== repo.html_url) matchedItem.repo_link = repo.html_url;
+                  if (repo.description && repo.description !== matchedItem.description) matchedItem.description = repo.description.toLowerCase() + (repo.description.endsWith('.') ? '' : '.');
                 }
                 isDuplicate = true;
               }
               if (!isDuplicate && existingLinks.has(url2)) {
                 let matchedItem = allCatalogItems.find(i => i.link.toLowerCase().replace(/\/$/, '') === url2);
-                if (matchedItem && repo.homepage && matchedItem.link !== repo.homepage) {
-                  matchedItem.web_link = repo.homepage;
+                if (matchedItem) {
+                  if (repo.homepage && matchedItem.link !== repo.homepage) matchedItem.web_link = repo.homepage;
+                  if (repo.description && repo.description !== matchedItem.description) matchedItem.description = repo.description.toLowerCase() + (repo.description.endsWith('.') ? '' : '.');
                 }
                 isDuplicate = true;
               }
@@ -492,6 +494,7 @@
                 if (matchedItem) {
                    if (repo.html_url && matchedItem.link !== repo.html_url) matchedItem.repo_link = repo.html_url;
                    if (repo.homepage && matchedItem.link !== repo.homepage) matchedItem.web_link = repo.homepage;
+                   if (repo.description && repo.description !== matchedItem.description) matchedItem.description = repo.description.toLowerCase() + (repo.description.endsWith('.') ? '' : '.');
                 }
                 isDuplicate = true;
               }
