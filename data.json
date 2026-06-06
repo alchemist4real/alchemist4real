@@ -1,0 +1,143 @@
+{
+  "projects": [
+    {
+      "id": "01",
+      "title": "NO SMOKE",
+      "description": "confrontational anti-smoking scroll story. backed by research.",
+      "tags": ["Anti-Smoking", "Bilingual", "Dark"],
+      "link": "https://nosmoke-six.vercel.app/"
+    },
+    {
+      "id": "02",
+      "title": "#SayNoToDrugs",
+      "description": "pretest -> 5 NAPZA topics -> posttest -> certificate.",
+      "tags": ["Anti-Drugs", "Certificate"],
+      "link": "https://saynotodrugs-two.vercel.app/"
+    },
+    {
+      "id": "03",
+      "title": "#FuckAllRapist",
+      "description": "consent, UU TPKS, bystander 5D — no sugarcoating.",
+      "tags": ["Anti-Violence", "Certificate"],
+      "link": "https://fuckallrapist.vercel.app/"
+    },
+    {
+      "id": "04",
+      "title": "174 ARCHIVE",
+      "description": "classified vault. supabase backend, live chat, spotify api.",
+      "tags": ["Academic", "Supabase", "Spotify"],
+      "link": "https://174-three.vercel.app/"
+    },
+    {
+      "id": "05",
+      "title": "AETHERIAL",
+      "description": "a spatial cognition test and mental rotation exercise.",
+      "tags": ["spatial", "cognition", "game"],
+      "link": "https://aetherial-beta.vercel.app/"
+    },
+    {
+      "id": "06",
+      "title": "PRISMA SIMULATOR",
+      "description": "national antibiotic surveillance system.",
+      "tags": ["Healthcare", "Surveillance", "Indonesia"],
+      "link": "https://prisma-rdk-simulator.vercel.app/"
+    },
+    {
+      "id": "07",
+      "title": "MSG FROM ORACLE",
+      "description": "web application to receive messages from an oracle.",
+      "tags": ["Web", "Application", "Oracle"],
+      "link": "https://msgfromoracle.vercel.app/"
+    },
+    {
+      "id": "08",
+      "title": "BEENBOXD",
+      "description": "ai-powered letterboxd logger and csv export tool.",
+      "tags": ["Letterboxd", "Logger", "Movies"],
+      "link": "https://beenboxd.vercel.app/"
+    },
+    {
+      "id": "09",
+      "title": "SAY NO TO CHOLESTEROL",
+      "description": "program edukasi interaktif tentang kolesterol.",
+      "tags": ["Edukasi", "Kesehatan", "Kolesterol"],
+      "link": "https://saynotocholestrol.vercel.app/"
+    },
+    {
+      "id": "10",
+      "title": "BEENTEXTER",
+      "description": "retro calculator style text gen by beentexter.",
+      "tags": ["retro", "calculator", "text gen"],
+      "link": "https://beentexter.vercel.app/"
+    },
+    {
+      "id": "11",
+      "title": "HIPERTENSI MENGINTAI GEN Z",
+      "description": "interactive health education about hypertension for gen z.",
+      "tags": ["Health", "Education", "Hypertension"],
+      "link": "https://hipertensimengintaigenz.vercel.app/"
+    },
+    {
+      "id": "12",
+      "title": "BEENCODE",
+      "description": "industrial matrix encoder terminal. raw edge.",
+      "tags": ["Encoder", "Industrial", "Utility"],
+      "link": "https://beencode.vercel.app/"
+    },
+    {
+      "id": "13",
+      "title": "BEENHOLLOW",
+      "description": "real-time p2p file and message sharing.",
+      "tags": ["p2p", "file sharing", "real-time"],
+      "link": "https://beenhollow.vercel.app/"
+    },
+    {
+      "id": "14",
+      "title": "PRISMA RDK GUIDE",
+      "description": "a blockchain system tracking antibiotic distribution.",
+      "tags": ["blockchain", "healthcare", "antibiotics"],
+      "link": "https://prisma-rdk-guide.vercel.app/"
+    },
+    {
+      "id": "15",
+      "title": "LIMITLESS OMNIPRESENT",
+      "description": "gojo satoru technique simulator with 100k gpu particles.",
+      "tags": ["Simulator", "Mediapipe", "WebGL"],
+      "link": "https://zenlimitless.vercel.app/"
+    },
+    {
+      "id": "16",
+      "title": "NUTRI SOY BY ALTAF",
+      "description": "ai-powered nutrition coaching and subscription platform.",
+      "tags": ["ai", "nutrition", "coaching"],
+      "link": "https://soyproteinbyaltaf.vercel.app/"
+    }
+  ],
+  "extensions": [
+    {
+      "id": "EX01",
+      "title": "Example Extension",
+      "description": "Chrome extension to boost productivity.",
+      "tags": ["Chrome", "Productivity"],
+      "link": "https://github.com/alchemist4real/example-extension"
+    }
+  ],
+  "research": [
+    {
+      "id": "R01",
+      "title": "Example Research Paper",
+      "description": "A study on interactive health education effectiveness.",
+      "tags": ["Paper", "Health", "Study"],
+      "link": "https://github.com/alchemist4real/research"
+    }
+  ],
+  "repos": [
+    {
+      "id": "RP01",
+      "title": "Open Source Lib",
+      "description": "A lightweight JavaScript library.",
+      "tags": ["Library", "JS", "Open Source"],
+      "link": "https://github.com/alchemist4real/os-lib"
+    }
+  ]
+}
