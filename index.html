@@ -471,10 +471,16 @@
               const url1 = (repo.homepage || '').toLowerCase().replace(/\/$/, '');
               const url2 = (repo.html_url || '').toLowerCase().replace(/\/$/, '');
               
+              const isExtension = 
+                repo.name.toLowerCase().includes('extension') || 
+                (repo.description && (repo.description.toLowerCase().includes('ekstensi') || repo.description.toLowerCase().includes('extension'))) ||
+                (repo.topics && repo.topics.some(t => t.toLowerCase().includes('extension')));
+
               let isDuplicate = false;
+              let matchedItem = null;
               
               if (url1 && existingLinks.has(url1)) {
-                let matchedItem = allCatalogItems.find(i => i.link.toLowerCase().replace(/\/$/, '') === url1);
+                matchedItem = allCatalogItems.find(i => i.link.toLowerCase().replace(/\/$/, '') === url1);
                 if (matchedItem) {
                   if (repo.html_url && matchedItem.link !== repo.html_url) matchedItem.repo_link = repo.html_url;
                   if (repo.description && repo.description !== matchedItem.description) matchedItem.description = repo.description.toLowerCase() + (repo.description.endsWith('.') ? '' : '.');
@@ -482,7 +488,7 @@
                 isDuplicate = true;
               }
               if (!isDuplicate && existingLinks.has(url2)) {
-                let matchedItem = allCatalogItems.find(i => i.link.toLowerCase().replace(/\/$/, '') === url2);
+                matchedItem = allCatalogItems.find(i => i.link.toLowerCase().replace(/\/$/, '') === url2);
                 if (matchedItem) {
                   if (repo.homepage && matchedItem.link !== repo.homepage) matchedItem.web_link = repo.homepage;
                   if (repo.description && repo.description !== matchedItem.description) matchedItem.description = repo.description.toLowerCase() + (repo.description.endsWith('.') ? '' : '.');
@@ -490,7 +496,7 @@
                 isDuplicate = true;
               }
               if (!isDuplicate && existingTitles.has(repo.name.toLowerCase())) {
-                let matchedItem = allCatalogItems.find(i => i.title.toLowerCase() === repo.name.toLowerCase());
+                matchedItem = allCatalogItems.find(i => i.title.toLowerCase() === repo.name.toLowerCase());
                 if (matchedItem) {
                    if (repo.html_url && matchedItem.link !== repo.html_url) matchedItem.repo_link = repo.html_url;
                    if (repo.homepage && matchedItem.link !== repo.homepage) matchedItem.web_link = repo.homepage;
@@ -499,16 +505,20 @@
                 isDuplicate = true;
               }
               
+              if (matchedItem && isExtension) {
+                matchedItem.type = 'extensions';
+              }
+              
               if (isDuplicate) return;
 
               // Add new live repo
               allCatalogItems.push({
                 id: "GH-" + repo.name.substring(0,3).toUpperCase(),
                 title: repo.name.toUpperCase().replace(/-/g, ' '),
-                description: repo.description || "auto-synced repository.",
+                description: repo.description ? repo.description.toLowerCase() + (repo.description.endsWith('.') ? '' : '.') : "auto-synced repository.",
                 tags: repo.topics && repo.topics.length > 0 ? repo.topics.slice(0, 2) : (repo.language ? [repo.language] : ['Code']),
                 link: repo.homepage || repo.html_url,
-                type: 'repos'
+                type: isExtension ? 'extensions' : 'repos'
               });
             });
           }
