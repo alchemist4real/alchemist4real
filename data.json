@@ -4,112 +4,174 @@
       "id": "01",
       "title": "NO SMOKE",
       "description": "confrontational anti-smoking scroll story. backed by research.",
-      "tags": ["Anti-Smoking", "Bilingual", "Dark"],
+      "tags": [
+        "Anti-Smoking",
+        "Bilingual",
+        "Dark"
+      ],
       "link": "https://nosmoke-six.vercel.app/"
     },
     {
       "id": "02",
       "title": "#SayNoToDrugs",
       "description": "pretest -> 5 NAPZA topics -> posttest -> certificate.",
-      "tags": ["Anti-Drugs", "Certificate"],
+      "tags": [
+        "Anti-Drugs",
+        "Certificate"
+      ],
       "link": "https://saynotodrugs-two.vercel.app/"
     },
     {
       "id": "03",
       "title": "#FuckAllRapist",
-      "description": "consent, UU TPKS, bystander 5D — no sugarcoating.",
-      "tags": ["Anti-Violence", "Certificate"],
+      "description": "consent, UU TPKS, bystander 5D \u2014 no sugarcoating.",
+      "tags": [
+        "Anti-Violence",
+        "Certificate"
+      ],
       "link": "https://fuckallrapist.vercel.app/"
     },
     {
       "id": "04",
       "title": "174 ARCHIVE",
       "description": "classified vault. supabase backend, live chat, spotify api.",
-      "tags": ["Academic", "Supabase", "Spotify"],
+      "tags": [
+        "Academic",
+        "Supabase",
+        "Spotify"
+      ],
       "link": "https://174-three.vercel.app/"
     },
     {
       "id": "05",
       "title": "AETHERIAL",
       "description": "a spatial cognition test and mental rotation exercise.",
-      "tags": ["spatial", "cognition", "game"],
+      "tags": [
+        "spatial",
+        "cognition",
+        "game"
+      ],
       "link": "https://aetherial-beta.vercel.app/"
     },
     {
       "id": "06",
       "title": "PRISMA SIMULATOR",
       "description": "national antibiotic surveillance system.",
-      "tags": ["Healthcare", "Surveillance", "Indonesia"],
+      "tags": [
+        "Healthcare",
+        "Surveillance",
+        "Indonesia"
+      ],
       "link": "https://prisma-rdk-simulator.vercel.app/"
     },
     {
       "id": "07",
       "title": "MSG FROM ORACLE",
       "description": "web application to receive messages from an oracle.",
-      "tags": ["Web", "Application", "Oracle"],
+      "tags": [
+        "Web",
+        "Application",
+        "Oracle"
+      ],
       "link": "https://msgfromoracle.vercel.app/"
     },
     {
       "id": "08",
       "title": "BEENBOXD",
       "description": "ai-powered letterboxd logger and csv export tool.",
-      "tags": ["Letterboxd", "Logger", "Movies"],
+      "tags": [
+        "Letterboxd",
+        "Logger",
+        "Movies"
+      ],
       "link": "https://beenboxd.vercel.app/"
     },
     {
       "id": "09",
       "title": "SAY NO TO CHOLESTEROL",
       "description": "program edukasi interaktif tentang kolesterol.",
-      "tags": ["Edukasi", "Kesehatan", "Kolesterol"],
+      "tags": [
+        "Edukasi",
+        "Kesehatan",
+        "Kolesterol"
+      ],
       "link": "https://saynotocholestrol.vercel.app/"
     },
     {
       "id": "10",
       "title": "BEENTEXTER",
       "description": "retro calculator style text gen by beentexter.",
-      "tags": ["retro", "calculator", "text gen"],
+      "tags": [
+        "retro",
+        "calculator",
+        "text gen"
+      ],
       "link": "https://beentexter.vercel.app/"
     },
     {
       "id": "11",
       "title": "HIPERTENSI MENGINTAI GEN Z",
       "description": "interactive health education about hypertension for gen z.",
-      "tags": ["Health", "Education", "Hypertension"],
+      "tags": [
+        "Health",
+        "Education",
+        "Hypertension"
+      ],
       "link": "https://hipertensimengintaigenz.vercel.app/"
     },
     {
       "id": "12",
       "title": "BEENCODE",
       "description": "industrial matrix encoder terminal. raw edge.",
-      "tags": ["Encoder", "Industrial", "Utility"],
+      "tags": [
+        "Encoder",
+        "Industrial",
+        "Utility"
+      ],
       "link": "https://beencode.vercel.app/"
     },
     {
       "id": "13",
       "title": "BEENHOLLOW",
       "description": "real-time p2p file and message sharing.",
-      "tags": ["p2p", "file sharing", "real-time"],
+      "tags": [
+        "p2p",
+        "file sharing",
+        "real-time"
+      ],
       "link": "https://beenhollow.vercel.app/"
     },
     {
       "id": "14",
       "title": "PRISMA RDK GUIDE",
       "description": "a blockchain system tracking antibiotic distribution.",
-      "tags": ["blockchain", "healthcare", "antibiotics"],
+      "tags": [
+        "blockchain",
+        "healthcare",
+        "antibiotics"
+      ],
       "link": "https://prisma-rdk-guide.vercel.app/"
     },
     {
       "id": "15",
       "title": "LIMITLESS OMNIPRESENT",
       "description": "gojo satoru technique simulator with 100k gpu particles.",
-      "tags": ["Simulator", "Mediapipe", "WebGL"],
+      "tags": [
+        "Simulator",
+        "Mediapipe",
+        "WebGL"
+      ],
       "link": "https://zenlimitless.vercel.app/"
     },
     {
       "id": "16",
       "title": "NUTRI SOY BY ALTAF",
       "description": "ai-powered nutrition coaching and subscription platform.",
-      "tags": ["ai", "nutrition", "coaching"],
+      "tags": [
+        "ai",
+        "nutrition",
+        "coaching"
+      ],
       "link": "https://soyproteinbyaltaf.vercel.app/"
     }
   ],
@@ -118,7 +180,10 @@
       "id": "EX01",
       "title": "Example Extension",
       "description": "Chrome extension to boost productivity.",
-      "tags": ["Chrome", "Productivity"],
+      "tags": [
+        "Chrome",
+        "Productivity"
+      ],
       "link": "https://github.com/alchemist4real/example-extension"
     }
   ],
@@ -127,7 +192,11 @@
       "id": "R01",
       "title": "Example Research Paper",
       "description": "A study on interactive health education effectiveness.",
-      "tags": ["Paper", "Health", "Study"],
+      "tags": [
+        "Paper",
+        "Health",
+        "Study"
+      ],
       "link": "https://github.com/alchemist4real/research"
     }
   ],
@@ -136,8 +205,183 @@
       "id": "RP01",
       "title": "Open Source Lib",
       "description": "A lightweight JavaScript library.",
-      "tags": ["Library", "JS", "Open Source"],
+      "tags": [
+        "Library",
+        "JS",
+        "Open Source"
+      ],
       "link": "https://github.com/alchemist4real/os-lib"
+    },
+    {
+      "id": "GH-ACA",
+      "title": "ACADEMICCONTROLCENTER",
+      "description": "repository for academiccontrolcenter.",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://github.com/alchemist4real/academiccontrolcenter"
+    },
+    {
+      "id": "GH-BEE",
+      "title": "BEENMONEY",
+      "description": "Been's Money - Aplikasi Budgeting Simpel & Offline  Sebuah aplikasi web budgeting modern yang berjalan sepenuhnya di browser Anda. Lacak pemasukan dan pengeluaran dengan mudah tanpa perlu instalasi. Fitur lengkap: kustomisasi kategori & tema, ekspor ke CSV/PDF, dan 100% privat dengan penyimpanan lokal. Cukup unduh file HTML-nya dan mulai gunakan!",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://github.com/alchemist4real/beenmoney"
+    },
+    {
+      "id": "GH-BEE",
+      "title": "BEENONEXAMACCESS",
+      "description": "repository for beenonexamaccess.",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://beenonexamaccess.vercel.app"
+    },
+    {
+      "id": "GH-COS",
+      "title": "COSXOUBOROS",
+      "description": "repository for cosxouboros.",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://cosxouboros.vercel.app"
+    },
+    {
+      "id": "GH-FRI",
+      "title": "FRIDAY",
+      "description": "repository for friday.",
+      "tags": [
+        "JavaScript"
+      ],
+      "link": "https://github.com/alchemist4real/friday"
+    },
+    {
+      "id": "GH-GEM",
+      "title": "GEMINIBEENSPACE",
+      "description": "repository for geminibeenspace.",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://geminibeenspace.vercel.app"
+    },
+    {
+      "id": "GH-LIV",
+      "title": "LIVE",
+      "description": "repository for live.",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://live-one-beta.vercel.app"
+    },
+    {
+      "id": "GH-LON",
+      "title": "LONGLIFEHISTO",
+      "description": "repository for longlifehisto.",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://longlifehisto.vercel.app"
+    },
+    {
+      "id": "GH-MON",
+      "title": "MONDAY",
+      "description": "repository for monday.",
+      "tags": [
+        "JavaScript"
+      ],
+      "link": "https://github.com/alchemist4real/monday"
+    },
+    {
+      "id": "GH-MSG",
+      "title": "MSGFROMORACLE",
+      "description": "repository for msgfromoracle.",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://msgfromoracle.vercel.app"
+    },
+    {
+      "id": "GH-NOS",
+      "title": "NOSMOKE",
+      "description": "repository for nosmoke.",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://nosmoke-six.vercel.app"
+    },
+    {
+      "id": "GH-PRI",
+      "title": "PRISMA RDK GUIDE",
+      "description": "repository for prisma-rdk-guide.",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://prisma-rdk-guide.vercel.app"
+    },
+    {
+      "id": "GH-PRI",
+      "title": "PRISMA RDK SIMULATOR",
+      "description": "repository for prisma-rdk-simulator.",
+      "tags": [
+        "TypeScript"
+      ],
+      "link": "https://prisma-rdk-simulator.vercel.app"
+    },
+    {
+      "id": "GH-SAT",
+      "title": "SATURDAY",
+      "description": "repository for saturday.",
+      "tags": [
+        "TypeScript"
+      ],
+      "link": "https://github.com/alchemist4real/saturday"
+    },
+    {
+      "id": "GH-SIN",
+      "title": "SINXV",
+      "description": "repository for sinxv.",
+      "tags": [
+        "Python"
+      ],
+      "link": "https://sinxv.vercel.app"
+    },
+    {
+      "id": "GH-SOA",
+      "title": "SOALGANJILGENAP",
+      "description": "membuat soal kecermatan ganjil genap",
+      "tags": [
+        "Code"
+      ],
+      "link": "https://github.com/alchemist4real/soalganjilgenap"
+    },
+    {
+      "id": "GH-SOE",
+      "title": "SOEXSOEX",
+      "description": "repository for soexsoex.",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://soexsoex.vercel.app"
+    },
+    {
+      "id": "GH-SOY",
+      "title": "SOYPROTEINBYALTAF",
+      "description": "repository for soyproteinbyaltaf.",
+      "tags": [
+        "TypeScript"
+      ],
+      "link": "https://soyproteinbyaltaf.vercel.app"
+    },
+    {
+      "id": "GH-TIM",
+      "title": "TIMEMARU",
+      "description": "an productivity ekstension with daily schedule, upcoming task, weather, and funny float",
+      "tags": [
+        "Code"
+      ],
+      "link": "https://github.com/alchemist4real/timemaru"
     }
   ]
 }
