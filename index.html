@@ -325,60 +325,96 @@
         <span class="label">Pull Up</span>
         <h2 class="heading">let's connect.</h2>
       </div>
+      <style>
+        .unified-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .unified-col { padding: 24px; border-right: 1px solid var(--fg-faint); display: flex; flex-direction: column; }
+        .unified-col:last-child { border-right: none; }
+        @media (max-width: 800px) {
+          .unified-card-grid { grid-template-columns: minmax(0, 1fr); }
+          .unified-col { border-right: none; border-bottom: 1px solid var(--fg-faint); }
+          .unified-col:last-child { border-bottom: none; }
+        }
+      </style>
+      <div class="card" style="padding: 0;">
+        <div class="unified-card-grid">
+          
+          <!-- GitHub Section -->
+          <div class="unified-col">
+            <span class="card-label label">GITHUB</span>
+            <div class="card-handle">@alchemist4real</div>
+            <p class="card-desc muted">source code lives here. open source health edu projects.</p>
+            <div class="card-meta">
+              <span>
+                <span class="body-text" id="gh-repos">—</span>
+                <span class="label">Repos</span>
+              </span>
+              <span>
+                <span class="body-text" id="gh-followers">—</span>
+                <span class="label">Followers</span>
+              </span>
+              <span>
+                <span class="body-text" id="gh-following">—</span>
+                <span class="label">Following</span>
+              </span>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: auto;">
+              <a href="https://github.com/alchemist4real" class="btn-ghost" target="_blank" rel="noopener noreferrer">View Profile</a>
+              <button onclick="showQR('github')" class="btn-ghost" style="padding: 8px 12px; display:flex; align-items:center; justify-content:center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              </button>
+            </div>
+          </div>
 
-      <div class="connect-grid">
-        <!-- Card A -->
-        <div class="card">
-          <span class="card-label label">GITHUB</span>
-          <div class="card-handle">@alchemist4real</div>
-          <p class="card-desc muted">source code lives here. open source health edu projects.</p>
-          <div class="card-meta">
-            <span>
-              <span class="body-text" id="gh-repos">—</span>
-              <span class="label">Repos</span>
-            </span>
-            <span>
-              <span class="body-text" id="gh-followers">—</span>
-              <span class="label">Followers</span>
-            </span>
-            <span>
-              <span class="body-text" id="gh-following">—</span>
-              <span class="label">Following</span>
-            </span>
+          <!-- WhatsApp Section -->
+          <div class="unified-col">
+            <span class="card-label label">WHATSAPP BUSINESS</span>
+            <div class="card-handle">@alchemist4real</div>
+            <p class="card-desc muted">custom education web app? project collab? hit the line.</p>
+            <div class="card-meta">
+              <span>
+                <span class="body-text">24/7</span>
+                <span class="label">Availability</span>
+              </span>
+              <span>
+                <span class="body-text">&lt;1h</span>
+                <span class="label">Response</span>
+              </span>
+              <span>
+                <span class="body-text">ID</span>
+                <span class="label">Language</span>
+              </span>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: auto;">
+              <a href="https://wa.me/6285778120332" class="btn-ghost" target="_blank" rel="noopener noreferrer">Send Message</a>
+              <button onclick="showQR('whatsapp')" class="btn-ghost" style="padding: 8px 12px; display:flex; align-items:center; justify-content:center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              </button>
+            </div>
           </div>
-          <div style="display: flex; gap: 8px;">
-            <a href="https://github.com/alchemist4real" class="btn-ghost" target="_blank" rel="noopener noreferrer">View Profile</a>
-            <button onclick="showQR('github')" class="btn-ghost" style="padding: 8px 12px; display:flex; align-items:center; justify-content:center;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-            </button>
-          </div>
-        </div>
 
-        <!-- Card B -->
-        <div class="card">
-          <span class="card-label label">WHATSAPP BUSINESS</span>
-          <div class="card-handle">@alchemist4real</div>
-          <p class="card-desc muted">custom education web app? project collab? hit the line.</p>
-          <div class="card-meta">
-            <span>
-              <span class="body-text">24/7</span>
-              <span class="label">Availability</span>
-            </span>
-            <span>
-              <span class="body-text">&lt;1h</span>
-              <span class="label">Response</span>
-            </span>
-            <span>
-              <span class="body-text">ID</span>
-              <span class="label">Language</span>
-            </span>
+          <!-- Instagram Section -->
+          <div class="unified-col">
+            <span class="card-label label">INSTAGRAM</span>
+            <div class="card-handle">@alchemist4real</div>
+            <p class="card-desc muted">visual documentation, updates, and daily snippets.</p>
+            <div class="card-meta">
+              <span>
+                <span class="body-text">Daily</span>
+                <span class="label">Activity</span>
+              </span>
+              <span>
+                <span class="body-text">Visual</span>
+                <span class="label">Content</span>
+              </span>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: auto;">
+              <a href="https://instagram.com/alchemist4real" class="btn-ghost" target="_blank" rel="noopener noreferrer">View Profile</a>
+              <button onclick="showQR('instagram')" class="btn-ghost" style="padding: 8px 12px; display:flex; align-items:center; justify-content:center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              </button>
+            </div>
           </div>
-          <div style="display: flex; gap: 8px;">
-            <a href="https://wa.me/6285778120332" class="btn-ghost" target="_blank" rel="noopener noreferrer">Send Message</a>
-            <button onclick="showQR('whatsapp')" class="btn-ghost" style="padding: 8px 12px; display:flex; align-items:center; justify-content:center;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-            </button>
-          </div>
+
         </div>
       </div>
 
