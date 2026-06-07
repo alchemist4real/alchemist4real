@@ -498,7 +498,11 @@
         
         if (item.type === 'research') {
           const whatsappMsg = encodeURIComponent(`Hello Alchemist, I would like to request full access to your research document: ${item.title}`);
-          linksHtml = `<a href="https://wa.me/6285778120332?text=${whatsappMsg}" class="project-link label" style="display:block; text-align:right; color:var(--live-dot);" target="_blank" rel="noopener noreferrer">Request Full Access -></a>`;
+          const fileUrl = \`research/\${item.file_name}\`;
+          linksHtml = \`<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+            <a href="\${fileUrl}" class="project-link label" style="text-align:right;" target="_blank" rel="noopener noreferrer">Display File -></a>
+            <a href="https://wa.me/6285778120332?text=\${whatsappMsg}" class="project-link label" style="text-align:right; color:var(--live-dot);" target="_blank" rel="noopener noreferrer">Request Full Access -></a>
+          </div>\`;
         } else {
           const isGithubLink = item.link && item.link.includes('github.com');
           const webUrl = item.web_link || (!isGithubLink ? item.link : null);
