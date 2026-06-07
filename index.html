@@ -495,19 +495,25 @@
       
       container.innerHTML = items.map(item => {
         let linksHtml = '';
-        const isGithubLink = item.link && item.link.includes('github.com');
-        const webUrl = item.web_link || (!isGithubLink ? item.link : null);
-        const repoUrl = item.repo_link || (isGithubLink ? item.link : null);
         
-        if (webUrl) {
-          linksHtml += `<a href="${webUrl}" class="project-link label" style="margin-bottom:8px; display:block; text-align:right;" target="_blank" rel="noopener noreferrer">Visit Web -></a>`;
-        }
-        if (repoUrl && repoUrl !== webUrl) {
-          linksHtml += `<a href="${repoUrl}" class="project-link label" style="display:block; text-align:right; opacity:0.7;" target="_blank" rel="noopener noreferrer">Visit Repo -></a>`;
-        }
-        // Fallback if neither
-        if (!webUrl && !repoUrl) {
-           linksHtml = `<a href="${item.link}" class="project-link label" style="display:block; text-align:right;" target="_blank" rel="noopener noreferrer">Visit -></a>`;
+        if (item.type === 'research') {
+          const whatsappMsg = encodeURIComponent(`Hello Alchemist, I would like to request full access to your research document: ${item.title}`);
+          linksHtml = `<a href="https://wa.me/6285778120332?text=${whatsappMsg}" class="project-link label" style="display:block; text-align:right; color:var(--live-dot);" target="_blank" rel="noopener noreferrer">Request Full Access -></a>`;
+        } else {
+          const isGithubLink = item.link && item.link.includes('github.com');
+          const webUrl = item.web_link || (!isGithubLink ? item.link : null);
+          const repoUrl = item.repo_link || (isGithubLink ? item.link : null);
+          
+          if (webUrl) {
+            linksHtml += `<a href="${webUrl}" class="project-link label" style="margin-bottom:8px; display:block; text-align:right;" target="_blank" rel="noopener noreferrer">Visit Web -></a>`;
+          }
+          if (repoUrl && repoUrl !== webUrl) {
+            linksHtml += `<a href="${repoUrl}" class="project-link label" style="display:block; text-align:right; opacity:0.7;" target="_blank" rel="noopener noreferrer">Visit Repo -></a>`;
+          }
+          // Fallback if neither
+          if (!webUrl && !repoUrl && item.link) {
+             linksHtml = `<a href="${item.link}" class="project-link label" style="display:block; text-align:right;" target="_blank" rel="noopener noreferrer">Visit -></a>`;
+          }
         }
 
         return `

@@ -223,6 +223,29 @@
         "Study"
       ],
       "link": "https://github.com/alchemist4real/research"
+    },
+    {
+      "id": "R02",
+      "title": "RESEARCH DOCUMENT MANAGEMENT GUIDE",
+      "description": "this document provides instructions for uploading and linking research documents, and defines the ai assistant's role in data extraction.",
+      "tags": [
+        "Research",
+        "Documents",
+        "Data Extraction",
+        "File Management"
+      ],
+      "file_name": "README.md"
+    },
+    {
+      "id": "R03",
+      "title": "DARK MODE: FUNCTIONAL IMPERATIVE",
+      "description": "This document outlines an experiment demonstrating dark mode's benefits for user interaction, showing increased session duration and focus for complex, data-heavy applications.",
+      "tags": [
+        "Dark Mode",
+        "User Retention",
+        "UI Design"
+      ],
+      "file_name": "sample_experiment.md"
     }
   ],
   "repos": [
