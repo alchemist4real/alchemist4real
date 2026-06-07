@@ -12,12 +12,12 @@ KEYS_FILE = r"D:\DOWNLOAD\api_keys_collection.json"
 
 # API Keys Configuration
 gemini_keys = []
-hf_key = os.environ.get("HUGGINGFACE_API_KEY", "").strip()
+hf_key = os.environ.get("HUGGINGFACE_API_KEY", "").strip().replace('\r', '').replace('\n', '')
 
 # Load GEMINI Keys from Env (comma-separated)
 env_gemini = os.environ.get("GEMINI_API_KEYS")
 if env_gemini:
-    gemini_keys = [k.strip() for k in env_gemini.split(",") if k.strip()]
+    gemini_keys = [k.strip().replace('\r', '').replace('\n', '') for k in env_gemini.split(",") if k.strip()]
 
 # Fallback: Load Local Keys if Environment is empty
 if not gemini_keys or not hf_key:

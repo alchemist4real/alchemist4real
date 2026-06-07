@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "python3 scripts/sync-research.py"
+    "build": "python3 build.py || python build.py"
   }
 }
