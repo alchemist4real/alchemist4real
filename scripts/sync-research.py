@@ -120,7 +120,7 @@ def extract_metadata(file_path):
         print(f"-> Attempting Gemini API Key {i+1}...")
         try:
             data = gemini_extract(file_path, key)
-            if data: return data
+            if data: return data, f"Gemini (Key {i+1})"
         except Exception as e:
             print(f"   [Gemini Key {i+1} Failed]: {e}")
             time.sleep(1) # brief pause before rotation
@@ -128,10 +128,10 @@ def extract_metadata(file_path):
     # Fallback to HuggingFace (Tier 3)
     print("-> All Gemini keys exhausted. Falling back to HuggingFace API...")
     hf_data = hf_extract(file_path)
-    if hf_data: return hf_data
+    if hf_data: return hf_data, "HuggingFace"
     
     print("-> All AI processing tiers failed for this file.")
-    return None
+    return None, "FAILED"
 
 def main():
     if not gemini_keys and not hf_key:
@@ -153,6 +153,8 @@ def main():
     supported_extensions = ('.pdf', '.docx', '.md', '.jpg', '.jpeg', '.png')
     new_files_processed = 0
 
+    last_provider = "NONE"
+
     for filename in os.listdir(RESEARCH_DIR):
         if not filename.lower().endswith(supported_extensions):
             continue
@@ -160,9 +162,10 @@ def main():
             continue
             
         file_path = os.path.join(RESEARCH_DIR, filename)
-        metadata = extract_metadata(file_path)
+        metadata, provider = extract_metadata(file_path)
         
         if metadata:
+            last_provider = provider
             new_id = f"R{len(db['research']) + 1:02d}"
             entry = {
                 "id": new_id,
@@ -183,6 +186,20 @@ def main():
         print(f"\nSaved {new_files_processed} new research entries to data.json")
     else:
         print("\nNo new research files to process.")
+
+    # --- Write Heartbeat Log ---
+    from datetime import datetime
+    heartbeat_path = os.path.join(BASE_DIR, "heartbeat.json")
+    heartbeat_data = {
+        "timestamp": datetime.utcnow().isoformat() + "Z",
+        "status": "OPERATIONAL" if new_files_processed > 0 or last_provider == "NONE" else "DEGRADED",
+        "provider": last_provider,
+        "files_processed": new_files_processed,
+        "total_research_files": len(db["research"])
+    }
+    with open(heartbeat_path, "w") as f:
+        json.dump(heartbeat_data, f, indent=2)
+    print(f"Heartbeat updated: {heartbeat_data['status']}")
 
 if __name__ == "__main__":
     main()
