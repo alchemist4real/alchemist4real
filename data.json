@@ -26,7 +26,7 @@
     {
       "id": "03",
       "title": "#FuckAllRapist",
-      "description": "consent, UU TPKS, bystander 5D \u00e2\u20ac\u201d no sugarcoating.",
+      "description": "consent, UU TPKS, bystander 5D â€” no sugarcoating.",
       "tags": [
         "Anti-Violence",
         "Certificate"
@@ -212,6 +212,26 @@
         "Code"
       ],
       "link": "https://github.com/alchemist4real/timemaru"
+    },
+    {
+      "id": "GH-OMN",
+      "title": "OMNIFORM AUTOFILLER",
+      "description": "GForm dominator with robust React-safe injection.",
+      "tags": [
+        "Extension",
+        "JavaScript"
+      ],
+      "link": "https://github.com/alchemist4real/OmniForm-Autofiller"
+    },
+    {
+      "id": "GH-PEE",
+      "title": "PEERASSESS NINJA",
+      "description": "Single-click peer assessment automation extension.",
+      "tags": [
+        "Extension",
+        "JavaScript"
+      ],
+      "link": "https://github.com/alchemist4real/PeerAssess-Ninja"
     }
   ],
   "research": [
@@ -498,6 +518,26 @@
       ],
       "link": "https://geminibeenspace.vercel.app",
       "repo_link": "https://github.com/alchemist4real/geminibeenspace"
+    },
+    {
+      "id": "GH-OMN",
+      "title": "OMNIFORM AUTOFILLER",
+      "description": "GForm dominator with robust React-safe injection.",
+      "tags": [
+        "Extension",
+        "JavaScript"
+      ],
+      "link": "https://github.com/alchemist4real/OmniForm-Autofiller"
+    },
+    {
+      "id": "GH-PEE",
+      "title": "PEERASSESS NINJA",
+      "description": "Single-click peer assessment automation extension.",
+      "tags": [
+        "Extension",
+        "JavaScript"
+      ],
+      "link": "https://github.com/alchemist4real/PeerAssess-Ninja"
     }
   ]
 }
