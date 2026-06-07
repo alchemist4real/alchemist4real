@@ -1,8 +1,8 @@
 import os
 import json
 import time
-import google.generativeai as genai
-import requests
+import urllib.request
+import base64
 
 # Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -38,20 +38,14 @@ def hf_extract(file_path):
         print("[HF Fallback] Failed: HUGGINGFACE_API_KEY is missing.")
         return None
     
-    # Read text content safely
     try:
-        with open(file_path, "r", encoding="utf-8") as f:
-            content = f.read()
+        with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+            content = f.read()[:4000]
     except Exception as e:
         print(f"[HF Fallback] Failed to read file: {e}")
         return None
         
-    # Truncate to save tokens (HF models have smaller context limits via Inference API)
-    content = content[:4000] 
-    
-    headers = {"Authorization": f"Bearer {hf_key}"}
     API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2"
-    
     prompt = f"""[INST] You are an expert AI data extractor. Analyze the document below and generate a JSON object with this EXACT structure:
 {{
   "title": "UPPERCASE TITLE MAX 5 WORDS",
@@ -63,54 +57,76 @@ Document:
 {content}
 [/INST]"""
 
+    data = json.dumps({"inputs": prompt, "parameters": {"max_new_tokens": 150}}).encode("utf-8")
+    req = urllib.request.Request(API_URL, data=data, headers={
+        "Authorization": f"Bearer {hf_key}",
+        "Content-Type": "application/json"
+    })
+    
     try:
-        response = requests.post(API_URL, headers=headers, json={"inputs": prompt, "parameters": {"max_new_tokens": 150}})
-        if response.status_code != 200:
-            print(f"[HF Fallback] API Error {response.status_code}: {response.text}")
-            return None
-        
-        result = response.json()
-        generated_text = result[0].get("generated_text", "")
-        # Remove the prompt part if included
-        if "[/INST]" in generated_text:
-            generated_text = generated_text.split("[/INST]")[-1]
-            
-        text = generated_text.strip()
-        if text.startswith('```json'): text = text[7:]
-        if text.endswith('```'): text = text[:-3]
-        
-        return json.loads(text.strip())
+        with urllib.request.urlopen(req) as response:
+            result = json.loads(response.read().decode())
+            generated_text = result[0].get("generated_text", "")
+            if "[/INST]" in generated_text:
+                generated_text = generated_text.split("[/INST]")[-1]
+            text = generated_text.strip()
+            if text.startswith('```json'): text = text[7:]
+            if text.endswith('```'): text = text[:-3]
+            return json.loads(text.strip())
     except Exception as e:
         print(f"[HF Fallback] Exception occurred: {e}")
         return None
 
 def gemini_extract(file_path, api_key):
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-2.5-flash')
-    
-    # Upload file to Gemini
-    uploaded_file = genai.upload_file(path=file_path)
-    prompt = """
-    You are an expert AI data extractor and research assistant.
-    Analyze the attached document and generate a JSON object with the following structure:
-    {
-      "title": "A catchy, uppercase title for this document (max 5 words)",
-      "description": "A brief, one-sentence lowercase description of what this document is about.",
-      "tags": ["Tag1", "Tag2", "Tag3"]
+    try:
+        with open(file_path, "rb") as f:
+            file_data = f.read()
+    except Exception as e:
+        print(f"[Gemini] Failed to read file: {e}")
+        return None
+        
+    ext = os.path.splitext(file_path)[1].lower()
+    mime_map = {
+        '.pdf': 'application/pdf',
+        '.md': 'text/plain',
+        '.txt': 'text/plain',
+        '.jpg': 'image/jpeg',
+        '.jpeg': 'image/jpeg',
+        '.png': 'image/png'
     }
-    Do not include any markdown formatting like ```json or ``` in your response, just the raw JSON string. Make sure the output is perfectly valid JSON. Keep tags brief (1-2 words max, capitalize first letter).
-    """
-    response = model.generate_content([uploaded_file, prompt])
+    mime_type = mime_map.get(ext, 'text/plain')
     
-    # Clean response string
-    text = response.text.strip()
-    if text.startswith('```json'): text = text[7:]
-    if text.endswith('```'): text = text[:-3]
-    text = text.strip()
+    encoded_data = base64.b64encode(file_data).decode('utf-8')
+    prompt = """You are an expert AI data extractor and research assistant.
+Analyze the attached document and generate a JSON object with the following structure:
+{
+  "title": "A catchy, uppercase title for this document (max 5 words)",
+  "description": "A brief, one-sentence lowercase description of what this document is about.",
+  "tags": ["Tag1", "Tag2", "Tag3"]
+}
+Do not include any markdown formatting like ```json or ``` in your response, just the raw JSON string. Make sure the output is perfectly valid JSON. Keep tags brief (1-2 words max, capitalize first letter)."""
+
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
+    payload = {
+        "contents": [{
+            "parts": [
+                {"text": prompt},
+                {"inline_data": {"mime_type": mime_type, "data": encoded_data}}
+            ]
+        }]
+    }
     
-    data = json.loads(text)
-    genai.delete_file(uploaded_file.name)
-    return data
+    req = urllib.request.Request(url, data=json.dumps(payload).encode('utf-8'), headers={'Content-Type': 'application/json'})
+    try:
+        with urllib.request.urlopen(req) as response:
+            result = json.loads(response.read().decode())
+            text = result['candidates'][0]['content']['parts'][0]['text'].strip()
+            if text.startswith('```json'): text = text[7:]
+            if text.endswith('```'): text = text[:-3]
+            return json.loads(text.strip())
+    except urllib.error.HTTPError as e:
+        error_msg = e.read().decode()
+        raise Exception(f"HTTP {e.code}: {error_msg}")
 
 def extract_metadata(file_path):
     print(f"\nProcessing {file_path}...")
