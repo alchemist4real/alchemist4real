@@ -13,12 +13,13 @@
       --bg-card: #FFFFFF;
       --fg: #0D0D0D;
       --fg-muted: #6B6B6B;
-      --fg-faint: #C4C4C4;
+      --fg-faint: #E5E5E5;
       --tag-bg: #F0F0F0;
       --tag-fg: #3D3D3D;
       --success: #10b981;
       --warning: #f59e0b;
       --error: #ef4444;
+      --accent: #2563eb;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,22 +33,7 @@
       padding: 40px 20px;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-repeat: repeat;
-      background-size: 128px;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+    .container { max-width: 900px; margin: 0 auto; }
 
     .display {
       font-family: 'Cormorant Garamond', serif;
@@ -76,116 +62,118 @@
       font-size: 13.5px;
       color: var(--fg-muted);
     }
-
-    .mission-statement strong {
-      color: var(--fg);
-      font-weight: 500;
-    }
+    .mission-statement strong { color: var(--fg); font-weight: 500; }
 
     .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 16px;
+      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;
     }
-
     .tag {
-      background: var(--tag-bg);
-      color: var(--tag-fg);
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 20px;
-      border: 1px solid var(--fg-faint);
+      background: var(--tag-bg); color: var(--tag-fg);
+      font-size: 11px; padding: 4px 10px; border-radius: 20px; border: 1px solid var(--fg-faint);
     }
 
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-bottom: 40px;
+    /* PIPELINE ANIMATION */
+    .pipeline-wrapper {
+      position: relative;
+      margin-bottom: 60px;
+      padding: 20px 0;
+      overflow-x: auto;
+    }
+    .pipeline-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      min-width: 700px;
+    }
+    
+    .pipeline-row {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
     }
 
-    .stat-card {
+    .node {
       background: var(--bg-card);
       border: 1px solid var(--fg-faint);
-      padding: 20px;
+      padding: 16px;
+      width: 180px;
+      z-index: 2;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .node-header {
+      font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--accent); margin-bottom: 8px; font-weight: 600;
+    }
+    .node-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 4px; }
+    .node-desc { font-size: 11px; color: var(--fg-muted); line-height: 1.4; }
+
+    /* Flow Lines */
+    .flow-line {
+      position: absolute;
+      background: transparent;
+      border: 1.5px dashed var(--fg-faint);
+      z-index: 1;
+    }
+    
+    .flow-horizontal {
+      top: 50%; left: 0; right: 0; height: 1.5px; border-bottom: none; border-left: none; border-right: none;
     }
 
-    .stat-val {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: var(--fg);
-      line-height: 1.2;
-    }
-
-    .status-dot {
-      display: inline-block;
-      width: 8px; height: 8px;
+    /* Animated Particle */
+    .particle {
+      position: absolute;
+      width: 6px; height: 6px;
+      background: var(--accent);
       border-radius: 50%;
-      margin-right: 8px;
-    }
-    .status-dot.operational { background: var(--success); }
-    .status-dot.degraded { background: var(--warning); }
-    .status-dot.failed { background: var(--error); }
-
-    .logs-container {
-      margin-top: 40px;
+      box-shadow: 0 0 8px var(--accent);
+      z-index: 3;
     }
 
-    .log-node {
-      display: flex;
-      gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--fg-faint);
+    /* Animations */
+    @keyframes moveRight {
+      0% { left: 10%; opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { left: 90%; opacity: 0; }
     }
+    .particle.p1 { top: calc(50% - 3px); animation: moveRight 3s linear infinite; }
+    .particle.p2 { top: calc(50% - 3px); animation: moveRight 3s linear infinite; animation-delay: 1.5s; }
 
-    .log-time {
-      font-size: 12px;
-      color: var(--fg-muted);
-      min-width: 70px;
-      padding-top: 2px;
-    }
-
-    .log-content {
-      flex: 1;
-    }
-
-    .log-msg {
-      font-size: 13.5px;
-      color: var(--fg);
-    }
-
-    .log-badge {
-      display: inline-block;
-      font-size: 9px;
-      padding: 2px 6px;
-      border-radius: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-top: 6px;
-      font-weight: 500;
-    }
-
-    .badge-info { background: var(--tag-bg); color: var(--tag-fg); border: 1px solid var(--fg-faint); }
-    .badge-success { background: rgba(16, 185, 129, 0.1); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.3); }
-    .badge-warning { background: rgba(245, 158, 11, 0.1); color: var(--warning); border: 1px solid rgba(245, 158, 11, 0.3); }
-    .badge-error { background: rgba(239, 68, 68, 0.1); color: var(--error); border: 1px solid rgba(239, 68, 68, 0.3); }
-
+    .pulse { animation: pulse 2s infinite; }
     @keyframes pulse {
       0% { opacity: 1; }
       50% { opacity: 0.4; }
       100% { opacity: 1; }
     }
-    .pulse { animation: pulse 2s infinite; }
+
+    /* Logs & Stats */
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 40px;
+    }
+    .stat-card {
+      background: var(--bg-card); border: 1px solid var(--fg-faint); padding: 20px;
+    }
+    .stat-val { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--fg); line-height: 1.2; }
     
+    .logs-container { margin-top: 40px; }
+    .log-node {
+      display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px dashed var(--fg-faint);
+    }
+    .log-time { font-size: 12px; color: var(--fg-muted); min-width: 70px; padding-top: 2px; }
+    .log-content { flex: 1; }
+    .log-msg { font-size: 13.5px; color: var(--fg); }
+    .log-badge {
+      display: inline-block; font-size: 9px; padding: 2px 6px; border-radius: 4px;
+      text-transform: uppercase; letter-spacing: 0.05em; margin-top: 6px; font-weight: 500;
+    }
+    .badge-info { background: var(--tag-bg); color: var(--tag-fg); border: 1px solid var(--fg-faint); }
+    .badge-success { background: rgba(16, 185, 129, 0.1); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-warning { background: rgba(245, 158, 11, 0.1); color: var(--warning); border: 1px solid rgba(245, 158, 11, 0.3); }
+    .badge-error { background: rgba(239, 68, 68, 0.1); color: var(--error); border: 1px solid rgba(239, 68, 68, 0.3); }
+
     a.back-btn {
-      display: inline-block;
-      margin-bottom: 32px;
-      text-decoration: none;
-      color: var(--fg-muted);
-      font-size: 13px;
-      transition: color 0.2s;
+      display: inline-block; margin-bottom: 32px; text-decoration: none; color: var(--fg-muted);
+      font-size: 13px; transition: color 0.2s;
     }
     a.back-btn:hover { color: var(--fg); }
   </style>
@@ -199,20 +187,75 @@
     <h1 class="display">automation pipeline.</h1>
     
     <div class="mission-statement">
-      <strong>EXHIBITION NOTICE:</strong> This monitoring dashboard is intentionally made public to demonstrate the raw automation pipeline and the sophistication of my digital alchemy workflow. Behind the scenes, an autonomous Python script orchestrates data extraction from research files using cascading AI providers during the Vercel build phase. It ensures zero manual data entry while maintaining high availability.
-      
+      <strong>EXHIBITION NOTICE:</strong> This monitoring dashboard is intentionally made public to demonstrate the raw automation pipeline and the sophistication of my digital alchemy workflow. 
+      It illustrates a multi-layered automation: GitHub Actions fetch repos daily, while Vercel hooks trigger Python AI scripts to parse research documents. 
       <div class="tech-stack">
         <span class="tag">Python 3</span>
         <span class="tag">Google Gemini API</span>
-        <span class="tag">HuggingFace Inference</span>
-        <span class="tag">Serverless Build Hooks</span>
-        <span class="tag">Vanilla JS</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">Vercel Build Hooks</span>
       </div>
     </div>
 
+    <!-- PIPELINE ANIMATION DIAGRAM -->
+    <span class="label">Pipeline Architecture Walkthrough</span>
+    <div class="pipeline-wrapper">
+      
+      <!-- Top Row: Data Ingestion (GitHub & Local) -->
+      <div class="pipeline-grid">
+        <div class="pipeline-row">
+          <div class="flow-line flow-horizontal"></div>
+          <div class="particle p1"></div>
+          
+          <div class="node">
+            <div class="node-header">Phase 1: Sync</div>
+            <div class="node-title">GitHub Actions</div>
+            <div class="node-desc"><code>sync-catalog.js</code> runs daily at 01:00 WIB to pull new repos via GitHub API.</div>
+          </div>
+
+          <div class="node">
+            <div class="node-header">Phase 2: Trigger</div>
+            <div class="node-title">Vercel Hooks</div>
+            <div class="node-desc">Code push triggers Vercel Edge build environment dynamically.</div>
+          </div>
+
+          <div class="node">
+            <div class="node-header">Phase 3: AI Engine</div>
+            <div class="node-title">sync-research.py</div>
+            <div class="node-desc">Python orchestrates Gemini & HF APIs to extract metadata from PDFs/MDs.</div>
+          </div>
+        </div>
+
+        <div class="pipeline-row">
+          <div class="flow-line flow-horizontal"></div>
+          <div class="particle p2"></div>
+          
+          <div class="node">
+            <div class="node-header">Phase 4: Database</div>
+            <div class="node-title">data.json</div>
+            <div class="node-desc">Extracted intel and repo lists merge into the central JSON state.</div>
+          </div>
+
+          <div class="node">
+            <div class="node-header">Phase 5: Compile</div>
+            <div class="node-title">build.py</div>
+            <div class="node-desc">Stitches HTML, assets, and JSON into a flat, highly-optimized <code>dist/</code> folder.</div>
+          </div>
+
+          <div class="node" style="border-color: var(--success); box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);">
+            <div class="node-header" style="color: var(--success);">Phase 6: Live</div>
+            <div class="node-title">Edge Deploy</div>
+            <div class="node-desc">Vercel broadcasts the static assets globally in milliseconds.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DYNAMIC LOGS & STATS -->
     <div id="dashboard-content">
       <div style="text-align: center; color: var(--fg-muted); padding: 40px 0; font-size: 13px;" class="pulse">
-        Establishing connection to build core...
+        Fetching live execution logs from Edge...
       </div>
     </div>
   </div>
@@ -234,38 +277,34 @@
         if (data.status === 'DEGRADED') statusClass = 'degraded';
         if (data.status === 'FAILED') statusClass = 'failed';
 
-        // Render Stats
         let html = `
           <div class="stats-grid">
             <div class="stat-card">
-              <span class="label">System Status</span>
-              <div class="stat-val"><span class="status-dot ${statusClass} pulse"></span>${data.status}</div>
+              <span class="label">AI Sync Status</span>
+              <div class="stat-val"><span class="status-dot ${statusClass} pulse" style="background:var(--${statusClass}); width:8px; height:8px; display:inline-block; border-radius:50%; margin-right:8px;"></span>${data.status}</div>
             </div>
             <div class="stat-card">
-              <span class="label">Last Build Sync</span>
+              <span class="label">Last Build Target</span>
               <div class="stat-val" style="font-size: 1.4rem;">${formattedDate}</div>
             </div>
             <div class="stat-card">
-              <span class="label">Active AI Provider</span>
-              <div class="stat-val" style="font-size: 1.4rem;">${data.provider}</div>
+              <span class="label">Primary API Engine</span>
+              <div class="stat-val" style="font-size: 1.4rem;">${data.provider || 'STANDBY'}</div>
             </div>
             <div class="stat-card">
-              <span class="label">Files Extracted</span>
-              <div class="stat-val">${data.files_processed} <span style="font-size: 14px; font-family: 'DM Mono'; color: var(--fg-muted)">/ ${data.total_research_files}</span></div>
+              <span class="label">Files Processed</span>
+              <div class="stat-val">${data.files_processed || 0} <span style="font-size: 14px; font-family: 'DM Mono'; color: var(--fg-muted)">/ ${data.total_research_files || 0}</span></div>
             </div>
           </div>
         `;
 
-        // Render Logs
         if (data.logs && data.logs.length > 0) {
           html += `
             <div class="logs-container">
-              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; border-bottom: 1px solid var(--fg); padding-bottom: 12px;">
-                <span class="label" style="margin: 0; color: var(--fg)">Pipeline Execution Logs</span>
-                <span style="font-size: 11px; color: var(--fg-muted)">Read-only nodes</span>
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; border-bottom: 1px solid var(--fg); padding-bottom: 12px;">
+                <span class="label" style="margin: 0; color: var(--fg)">Vercel Build Phase Logs</span>
               </div>
           `;
-          
           data.logs.forEach(log => {
             const badgeClass = 'badge-' + (log.status || 'info');
             html += `
@@ -278,12 +317,10 @@
               </div>
             `;
           });
-          
           html += `</div>`;
         }
 
         container.innerHTML = html;
-
       } catch (err) {
         container.innerHTML = `
           <div class="stat-card" style="text-align: center; border-color: var(--error);">
@@ -293,8 +330,7 @@
         `;
       }
     }
-
-    setTimeout(fetchHeartbeat, 600);
+    setTimeout(fetchHeartbeat, 500);
   </script>
 </body>
 </html>
