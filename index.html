@@ -209,6 +209,14 @@
     #about .stack-items { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-direction: column; gap: 8px; }
     #about p { margin-bottom: 16px; }
 
+    .timeline { margin-top: 48px; border-left: 1px solid var(--fg-faint); padding-left: 20px; display: flex; flex-direction: column; gap: 32px; }
+    .timeline-item { position: relative; }
+    .timeline-item::before { content: ''; position: absolute; left: -25px; top: 6px; width: 9px; height: 9px; background: var(--bg); border: 1px solid var(--fg-muted); border-radius: 50%; }
+    .timeline-item.active::before { background: var(--fg); border-color: var(--fg); }
+    .timeline-year { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--fg-muted); letter-spacing: 0.1em; display: block; margin-bottom: 4px; }
+    .timeline-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--fg); margin-bottom: 6px; line-height: 1.2; }
+    .timeline-desc { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--fg-muted); line-height: 1.6; }
+
     #connect { padding-top: 80px; padding-bottom: 80px; border-top: 1px solid var(--fg-faint); }
     .connect-header { margin-bottom: 40px; }
     .connect-header .label { display: block; margin-bottom: 8px; }
@@ -306,6 +314,40 @@
         <div class="about-text">
           <p class="body-text">med student by day, experimental coder by night. evolving past simple web experiences into the realms of headless ai, web3 surveillance, and interactive cognition.</p>
           <p class="body-text">still keeping it raw. deploying brutalist interfaces, ai-driven logic, and decentralized systems straight to the edge.</p>
+          
+          <div class="timeline">
+            <span class="label" style="margin-bottom: 8px; display: block; margin-left: -20px; color: var(--fg);">Academic Trajectory</span>
+            <div class="timeline-item active">
+              <span class="timeline-year">2025 — PRESENT (SEM 2)</span>
+              <div class="timeline-title">State University Medical School</div>
+              <div class="timeline-desc">Current pursuit. Intertwining biomedical sciences with clinical practice and public health to attain a Medical Doctor (M.D.) degree.</div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2022 — 2025</span>
+              <div class="timeline-title">Elite State Islamic Science College</div>
+              <div class="timeline-desc">Rigorous, highly selective STEM-focused senior high school program emphasizing advanced sciences, research, and analytical thinking.</div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2020 — 2022</span>
+              <div class="timeline-title">Integrated Islamic Middle School</div>
+              <div class="timeline-desc">Completed middle school with a dual-curriculum approach, successfully combining national STEM standards with core religious values.</div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2019 — 2020</span>
+              <div class="timeline-title">Traditional Islamic Boarding Middle School</div>
+              <div class="timeline-desc">Grade 7 intensive immersion in classical religious studies and Arabic literature. Transferred later to pursue a more balanced national curriculum.</div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2016 — 2019</span>
+              <div class="timeline-title">Islamic Boarding Primary School</div>
+              <div class="timeline-desc">Completed primary education within a disciplined, character-building boarding environment.</div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-year">2013 — 2016</span>
+              <div class="timeline-title">Local Islamic Primary School</div>
+              <div class="timeline-desc">Early foundational years (Grades 1-3). Transferred subsequently to seek a broader formal academic curriculum.</div>
+            </div>
+          </div>
         </div>
         <div class="about-stack">
           <span class="label">Stack</span>
