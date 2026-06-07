@@ -190,10 +190,12 @@
       <strong>EXHIBITION NOTICE:</strong> This monitoring dashboard is intentionally made public to demonstrate the raw automation pipeline and the sophistication of my digital alchemy workflow. 
       It illustrates a multi-layered automation: GitHub Actions fetch repos daily, while Vercel hooks trigger Python AI scripts to parse research documents. 
       <div class="tech-stack">
+        <span class="tag">Antigravity AI</span>
         <span class="tag">Python 3</span>
         <span class="tag">Google Gemini API</span>
         <span class="tag">Node.js</span>
         <span class="tag">GitHub Actions</span>
+        <span class="tag">Private GitHub</span>
         <span class="tag">Vercel Build Hooks</span>
       </div>
     </div>
@@ -209,21 +211,21 @@
           <div class="particle p1"></div>
           
           <div class="node">
-            <div class="node-header">Phase 1: Sync</div>
+            <div class="node-header">Phase 1: Antigravity AI</div>
+            <div class="node-title">Project Count Updater</div>
+            <div class="node-desc">Autonomous "Antigravity" agent updates project counters directly via Private GitHub integration.</div>
+          </div>
+
+          <div class="node">
+            <div class="node-header">Phase 2: Auto-Sync</div>
             <div class="node-title">GitHub Actions</div>
-            <div class="node-desc"><code>sync-catalog.js</code> runs daily at 01:00 WIB to pull new repos via GitHub API.</div>
+            <div class="node-desc"><code>sync-catalog.js</code> runs daily at 01:00 WIB to pull new repos and merge into the catalog.</div>
           </div>
 
           <div class="node">
-            <div class="node-header">Phase 2: Trigger</div>
+            <div class="node-header">Phase 3: Trigger</div>
             <div class="node-title">Vercel Hooks</div>
-            <div class="node-desc">Code push triggers Vercel Edge build environment dynamically.</div>
-          </div>
-
-          <div class="node">
-            <div class="node-header">Phase 3: AI Engine</div>
-            <div class="node-title">sync-research.py</div>
-            <div class="node-desc">Python orchestrates Gemini & HF APIs to extract metadata from PDFs/MDs.</div>
+            <div class="node-desc">Code push dynamically triggers the serverless Vercel Edge build environment.</div>
           </div>
         </div>
 
@@ -232,21 +234,21 @@
           <div class="particle p2"></div>
           
           <div class="node">
-            <div class="node-header">Phase 4: Database</div>
-            <div class="node-title">data.json</div>
-            <div class="node-desc">Extracted intel and repo lists merge into the central JSON state.</div>
+            <div class="node-header">Phase 4: AI Extraction</div>
+            <div class="node-title">sync-research.py</div>
+            <div class="node-desc">Python orchestrates Gemini & HF APIs to extract metadata from raw PDFs/MDs.</div>
           </div>
 
           <div class="node">
-            <div class="node-header">Phase 5: Compile</div>
+            <div class="node-header">Phase 5: State Compile</div>
             <div class="node-title">build.py</div>
-            <div class="node-desc">Stitches HTML, assets, and JSON into a flat, highly-optimized <code>dist/</code> folder.</div>
+            <div class="node-desc">Stitches Extracted AI intel, <code>data.json</code>, HTML, and assets into an optimized <code>dist/</code> folder.</div>
           </div>
 
           <div class="node" style="border-color: var(--success); box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);">
             <div class="node-header" style="color: var(--success);">Phase 6: Live</div>
             <div class="node-title">Edge Deploy</div>
-            <div class="node-desc">Vercel broadcasts the static assets globally in milliseconds.</div>
+            <div class="node-desc">Vercel Edge network broadcasts the static dashboard and portfolio globally.</div>
           </div>
         </div>
       </div>
