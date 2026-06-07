@@ -130,7 +130,7 @@
       font-size: 13px;
       cursor: pointer;
       letter-spacing: 0.05em;
-      transition: background 0.15s, color 0.15s;
+      transition: background 0s, color 0s;
       text-decoration: none;
       display: inline-block;
     }
@@ -139,6 +139,23 @@
       background: var(--fg);
       color: var(--bg);
     }
+    
+    @keyframes glitch {
+      0% { filter: blur(12px); opacity: 0; transform: translateY(10px); }
+      40% { filter: blur(0); opacity: 1; transform: translateY(0); }
+      45% { filter: blur(2px); transform: translateX(2px); }
+      50% { filter: blur(0); transform: translateX(0); }
+      100% { filter: blur(0); opacity: 1; }
+    }
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+      20%, 22%, 24%, 55% { opacity: 0; }
+    }
+    .anim-glitch { animation: glitch 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards; opacity: 0; }
+    .anim-flicker { animation: flicker 3s infinite linear; }
+    
+    .reveal-item { opacity: 0; filter: blur(10px); transform: translateY(12px); transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); will-change: opacity, filter, transform; }
+    .reveal-item.visible { opacity: 1; filter: blur(0); transform: translateY(0); }
 
     /* Layout rules */
     nav { position: sticky; top: 0; z-index: 100; height: 52px; display: flex; align-items: center; background: var(--bg); border-bottom: 1px solid var(--fg-faint); transition: background 0.2s, backdrop-filter 0.2s; }
@@ -186,10 +203,9 @@
       flex-direction: column; 
       height: 100%;
       min-width: 0;
-      opacity: 0; transform: translateY(12px); transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.2s; 
+      transition: border-color 0s, transform 0.1s, box-shadow 0.1s; 
     }
-    .project-row.visible { opacity: 1; transform: translateY(0); }
-    .project-row:hover { border-color: var(--fg); }
+    .project-row:hover { border-color: var(--fg); transform: translate(-2px, -2px); box-shadow: 2px 2px 0 var(--fg); }
     
     .project-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--fg); margin-bottom: 8px; line-height: 1.2; word-break: break-word; }
     .project-desc { margin-bottom: 24px; word-break: break-word; font-size: 0.9rem; }
@@ -200,7 +216,7 @@
     .btn-ghost-sm {
       border: 1px solid var(--fg); color: var(--fg); background: transparent; padding: 6px 12px;
       font-family: 'DM Mono', monospace; font-weight: 500; font-size: 11px; cursor: pointer;
-      letter-spacing: 0.05em; transition: background 0.15s, color 0.15s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+      letter-spacing: 0.05em; transition: background 0s, color 0s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
     }
     .btn-ghost-sm:hover { background: var(--fg); color: var(--bg); }
 
@@ -228,10 +244,11 @@
     .card .card-meta { margin-bottom: 20px; display: flex; gap: 12px; flex-wrap: wrap; }
     .card .card-meta span { display: flex; flex-direction: column; gap: 4px; }
     .card .btn-ghost { margin-top: auto; align-self: flex-start; }
-    .card, .partner-row { opacity: 0; transform: translateY(12px); transition: opacity 0.4s ease, transform 0.4s ease; }
-    .card.visible, .partner-row.visible { opacity: 1; transform: translateY(0); }
+    .card { transition: border-color 0s, transform 0.1s, box-shadow 0.1s; }
+    .card:hover { border-color: var(--fg); transform: translate(-2px, -2px); box-shadow: 2px 2px 0 var(--fg); }
     
-    .partner-row { display: flex; align-items: baseline; gap: 24px; padding: 20px 24px; border: 1px solid var(--fg-faint); border-radius: 2px; margin-top: 20px; flex-wrap: wrap; }
+    .partner-row { display: flex; align-items: baseline; gap: 24px; padding: 20px 24px; border: 1px solid var(--fg-faint); border-radius: 2px; margin-top: 20px; flex-wrap: wrap; transition: border-color 0s, transform 0.1s, box-shadow 0.1s; }
+    .partner-row:hover { border-color: var(--fg); transform: translate(-2px, -2px); box-shadow: 2px 2px 0 var(--fg); }
     .partner-row .muted { flex: 1; }
     .partner-row a { text-decoration: none; transition: color 0.2s; }
     .partner-row a:hover { color: var(--fg); }
@@ -274,11 +291,11 @@
   <main>
     <section class="hero container" id="top">
       <div class="hero-content">
-        <span class="label">THE LAB</span>
-        <h1 class="display">digital alchemy<br>at scale.</h1>
-        <p class="body-text" style="max-width:480px">transmuting experimental concepts into autonomous ai tools, decentralized architectures, and raw web elements. no cap.</p>
+        <span class="label anim-flicker">THE LAB</span>
+        <h1 class="display anim-glitch">digital alchemy<br>at scale.</h1>
+        <p class="body-text anim-glitch" style="max-width:480px; animation-delay: 0.2s;">transmuting experimental concepts into autonomous ai tools, decentralized architectures, and raw web elements. no cap.</p>
         
-        <div class="stats-row">
+        <div class="stats-row anim-glitch" style="animation-delay: 0.4s;">
           <div class="stat-item">
             <span class="stat-number" id="stat-projects">—</span>
             <span class="label">Live Projects</span>
@@ -289,7 +306,7 @@
           </div>
         </div>
         
-        <a href="#projects" class="btn-ghost">See The Work</a>
+        <a href="#projects" class="btn-ghost anim-glitch" style="animation-delay: 0.6s;">See The Work</a>
       </div>
     </section>
 
@@ -312,11 +329,11 @@
     <section id="about" class="container">
       <span class="label">The Alchemist</span>
       <div class="about-grid">
-        <div class="about-text">
+        <div class="about-text reveal-item">
           <p class="body-text">med student by day, experimental coder by night. evolving past simple web experiences into the realms of headless ai, web3 surveillance, and interactive cognition.</p>
           <p class="body-text">still keeping it raw. deploying brutalist interfaces, ai-driven logic, and decentralized systems straight to the edge.</p>
         </div>
-        <div class="about-stack">
+        <div class="about-stack reveal-item">
           <span class="label" style="margin-bottom: 16px; display: block;">Stack</span>
           <div style="display: flex; gap: 8px; flex-wrap: wrap;">
             <span class="tag">Vanilla HTML/CSS/JS</span>
@@ -334,32 +351,32 @@
       <div style="margin-top: 60px;">
         <span class="label" style="color: var(--fg); display: block; margin-bottom: 16px;">Academic Trajectory</span>
         <div class="timeline-grid">
-          <div class="timeline-item active">
+          <div class="timeline-item reveal-item active">
             <span class="timeline-year">2025 — PRESENT (SEM 2)</span>
             <div class="timeline-title">State University Medical School</div>
             <div class="timeline-desc">Current pursuit. Intertwining biomedical sciences with clinical practice and public health to attain a Medical Doctor (M.D.) degree.</div>
           </div>
-          <div class="timeline-item">
+          <div class="timeline-item reveal-item">
             <span class="timeline-year">2022 — 2025</span>
             <div class="timeline-title">Elite State Islamic Science College</div>
             <div class="timeline-desc">Rigorous, highly selective STEM-focused senior high school program emphasizing advanced sciences, research, and analytical thinking.</div>
           </div>
-          <div class="timeline-item">
+          <div class="timeline-item reveal-item">
             <span class="timeline-year">2020 — 2022</span>
             <div class="timeline-title">Integrated Islamic Middle School</div>
             <div class="timeline-desc">Completed middle school with a dual-curriculum approach, successfully combining national STEM standards with core religious values.</div>
           </div>
-          <div class="timeline-item">
+          <div class="timeline-item reveal-item">
             <span class="timeline-year">2019 — 2020</span>
             <div class="timeline-title">Traditional Islamic Boarding Middle School</div>
             <div class="timeline-desc">Grade 7 intensive immersion in classical religious studies and Arabic literature. Transferred later to pursue a more balanced national curriculum.</div>
           </div>
-          <div class="timeline-item">
+          <div class="timeline-item reveal-item">
             <span class="timeline-year">2016 — 2019</span>
             <div class="timeline-title">Islamic Boarding Primary School</div>
             <div class="timeline-desc">Completed primary education within a disciplined, character-building boarding environment.</div>
           </div>
-          <div class="timeline-item">
+          <div class="timeline-item reveal-item">
             <span class="timeline-year">2013 — 2016</span>
             <div class="timeline-title">Local Islamic Primary School</div>
             <div class="timeline-desc">Early foundational years (Grades 1-3). Transferred subsequently to seek a broader formal academic curriculum.</div>
@@ -388,7 +405,7 @@
         <div class="unified-card-grid">
           
           <!-- GitHub Section -->
-          <div class="unified-col">
+          <div class="unified-col reveal-item">
             <span class="card-label label">GITHUB</span>
             <div class="card-handle">Open Source</div>
             <p class="card-desc muted">source code lives here. open source health edu projects.</p>
@@ -415,7 +432,7 @@
           </div>
 
           <!-- WhatsApp Section -->
-          <div class="unified-col">
+          <div class="unified-col reveal-item">
             <span class="card-label label">WHATSAPP BUSINESS</span>
             <div class="card-handle">Direct Line</div>
             <p class="card-desc muted">custom education web app? project collab? hit the line.</p>
@@ -467,7 +484,7 @@
         </div>
       </div>
 
-      <div class="partner-row">
+      <div class="partner-row reveal-item">
         <span class="label">The Partner — Sir. Yaon</span>
         <span class="muted">co-architect of the 174 Archive. @ghaffarsyafiq-arch on GitHub.</span>
         <div style="display: flex; gap: 16px; align-items: center;">
@@ -547,16 +564,32 @@
       });
     });
 
-    // Fade In on Scroll
+    // Fade In on Scroll (Staggered Reveal)
+    let itemsToReveal = [];
+    let staggerTimeout = null;
+    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          itemsToReveal.push(entry.target);
+          observer.unobserve(entry.target);
         }
       });
+      
+      if (itemsToReveal.length > 0 && !staggerTimeout) {
+        staggerTimeout = setInterval(() => {
+          if (itemsToReveal.length === 0) {
+            clearInterval(staggerTimeout);
+            staggerTimeout = null;
+            return;
+          }
+          const el = itemsToReveal.shift();
+          el.classList.add('visible');
+        }, 100);
+      }
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.card, .partner-row').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal-item').forEach(el => observer.observe(el));
 
     // Dynamic Data Loader
     let allCatalogItems = [];
@@ -634,7 +667,7 @@
         }
 
         return `
-        <div class="project-row">
+        <div class="project-row reveal-item">
           <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
             <span class="card-label label" style="margin: 0;">${item.id}</span>
             <span class="live-dot" aria-label="live" style="width: 6px; height: 6px; border-radius: 50%; background: var(--live-dot); display: block;"></span>
