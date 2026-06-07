@@ -193,16 +193,6 @@
   ],
   "extensions": [
     {
-      "id": "EX01",
-      "title": "Example Extension",
-      "description": "Chrome extension to boost productivity.",
-      "tags": [
-        "Chrome",
-        "Productivity"
-      ],
-      "link": "https://github.com/alchemist4real/example-extension"
-    },
-    {
       "id": "GH-TIM",
       "title": "TIMEMARU",
       "description": "a browser extension merging daily productivity tools with an interactive, screen-roaming pixel art demon.",
@@ -213,17 +203,6 @@
     }
   ],
   "research": [
-    {
-      "id": "R01",
-      "title": "Example Research Paper",
-      "description": "A study on interactive health education effectiveness.",
-      "tags": [
-        "Paper",
-        "Health",
-        "Study"
-      ],
-      "link": "https://github.com/alchemist4real/research"
-    },
     {
       "id": "R02",
       "title": "RESEARCH DOCUMENT MANAGEMENT GUIDE",
@@ -249,17 +228,6 @@
     }
   ],
   "repos": [
-    {
-      "id": "RP01",
-      "title": "Open Source Lib",
-      "description": "A lightweight JavaScript library.",
-      "tags": [
-        "Library",
-        "JS",
-        "Open Source"
-      ],
-      "link": "https://github.com/alchemist4real/os-lib"
-    },
     {
       "id": "GH-ACA",
       "title": "ACADEMICCONTROLCENTER",
