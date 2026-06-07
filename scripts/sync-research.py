@@ -10,6 +10,17 @@ RESEARCH_DIR = os.path.join(BASE_DIR, "research")
 DATA_FILE = os.path.join(BASE_DIR, "data.json")
 KEYS_FILE = r"D:\DOWNLOAD\api_keys_collection.json"
 
+activity_logs = []
+def add_log(msg, status="info"):
+    print(msg)
+    # status can be: info, success, warning, error
+    from datetime import datetime
+    activity_logs.append({
+        "time": datetime.utcnow().strftime("%H:%M:%S"),
+        "message": msg,
+        "status": status
+    })
+
 # API Keys Configuration
 gemini_keys = []
 hf_key = os.environ.get("HUGGINGFACE_API_KEY", "").strip().replace('\r', '').replace('\n', '')
@@ -129,24 +140,28 @@ Do not include any markdown formatting like ```json or ``` in your response, jus
         raise Exception(f"HTTP {e.code}: {error_msg}")
 
 def extract_metadata(file_path):
-    print(f"\nProcessing {file_path}...")
+    add_log(f"Processing {os.path.basename(file_path)}...", "info")
     
     # Try all Gemini keys in sequence (Tier 1 & 2)
     for i, key in enumerate(gemini_keys):
-        print(f"-> Attempting Gemini API Key {i+1}...")
+        add_log(f"Attempting Gemini API Key {i+1}...", "info")
         try:
             data = gemini_extract(file_path, key)
-            if data: return data, f"Gemini (Key {i+1})"
+            if data: 
+                add_log(f"Successfully extracted with Gemini API", "success")
+                return data, f"Gemini (Key {i+1})"
         except Exception as e:
-            print(f"   [Gemini Key {i+1} Failed]: {e}")
+            add_log(f"Gemini Key {i+1} Failed: {e}", "warning")
             time.sleep(1) # brief pause before rotation
             
     # Fallback to HuggingFace (Tier 3)
-    print("-> All Gemini keys exhausted. Falling back to HuggingFace API...")
+    add_log("All Gemini keys exhausted. Falling back to HuggingFace API...", "warning")
     hf_data = hf_extract(file_path)
-    if hf_data: return hf_data, "HuggingFace"
+    if hf_data: 
+        add_log(f"Successfully extracted with HuggingFace API", "success")
+        return hf_data, "HuggingFace"
     
-    print("-> All AI processing tiers failed for this file.")
+    add_log("All AI processing tiers failed for this file.", "error")
     return None, "FAILED"
 
 def main():
@@ -193,29 +208,30 @@ def main():
             db["research"].append(entry)
             existing_files.append(filename)
             new_files_processed += 1
-            print(f"Successfully processed: {filename}")
+            add_log(f"Saved metadata for {filename}", "success")
             time.sleep(2) 
 
     if new_files_processed > 0:
         with open(DATA_FILE, "w") as f:
             json.dump(db, f, indent=2)
-        print(f"\nSaved {new_files_processed} new research entries to data.json")
+        add_log(f"Saved {new_files_processed} new research entries to data.json", "success")
     else:
-        print("\nNo new research files to process.")
+        add_log("No new research files to process. Cache is up to date.", "info")
 
     # --- Write Heartbeat Log ---
     from datetime import datetime
     heartbeat_path = os.path.join(BASE_DIR, "heartbeat.json")
     heartbeat_data = {
         "timestamp": datetime.utcnow().isoformat() + "Z",
-        "status": "OPERATIONAL" if new_files_processed > 0 or last_provider == "NONE" else "DEGRADED",
+        "status": "OPERATIONAL" if new_files_processed > 0 or last_provider == "STANDBY (CACHED)" else "DEGRADED",
         "provider": last_provider,
         "files_processed": new_files_processed,
-        "total_research_files": len(db["research"])
+        "total_research_files": len(db["research"]),
+        "logs": activity_logs
     }
     with open(heartbeat_path, "w") as f:
         json.dump(heartbeat_data, f, indent=2)
-    print(f"Heartbeat updated: {heartbeat_data['status']}")
+    add_log(f"Heartbeat updated: {heartbeat_data['status']}", "info")
 
 if __name__ == "__main__":
     main()
