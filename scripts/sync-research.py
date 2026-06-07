@@ -10,18 +10,28 @@ DATA_FILE = os.path.join(BASE_DIR, "data.json")
 KEYS_FILE = r"D:\DOWNLOAD\api_keys_collection.json"
 
 # Load API Key
-try:
-    with open(KEYS_FILE, "r") as f:
-        keys = json.load(f)
-        gemini_keys = keys.get("GEMINI_API_KEYS", [])
-        if not gemini_keys:
-            print("No Gemini API keys found.")
-            exit(1)
-        # Using the first key
-        genai.configure(api_key=gemini_keys[0])
-except Exception as e:
-    print(f"Failed to load API keys: {e}")
-    exit(1)
+api_key = os.environ.get("GEMINI_API_KEY")
+if api_key:
+    api_key = api_key.strip()
+
+if not api_key:
+    # Local fallback
+    if os.path.exists(KEYS_FILE):
+        try:
+            with open(KEYS_FILE, "r") as f:
+                keys = json.load(f)
+                gemini_keys = keys.get("GEMINI_API_KEYS", [])
+                if gemini_keys:
+                    api_key = gemini_keys[0]
+        except Exception as e:
+            print(f"Failed to read local keys: {e}")
+
+if not api_key:
+    print("WARNING: GEMINI_API_KEY not found in environment and local fallback unavailable.")
+    print("Skipping AI research synchronization to allow build to continue.")
+    exit(0)
+
+genai.configure(api_key=api_key)
 
 def init_model():
     # Use flash for fast processing, or pro for better reasoning
