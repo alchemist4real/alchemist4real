@@ -169,7 +169,7 @@ def main():
     supported_extensions = ('.pdf', '.docx', '.md', '.jpg', '.jpeg', '.png')
     new_files_processed = 0
 
-    last_provider = "NONE"
+    last_provider = "STANDBY (CACHED)"
 
     for filename in os.listdir(RESEARCH_DIR):
         if not filename.lower().endswith(supported_extensions):

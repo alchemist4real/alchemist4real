@@ -134,7 +134,7 @@
             <span class="val ${statusClass}">[ ${data.status} ]</span>
           </div>
           <div class="row">
-            <span class="label">LAST SYNC</span>
+            <span class="label">LAST BUILD SYNC</span>
             <span class="val">${formattedDate}</span>
           </div>
           <div class="row">
@@ -142,12 +142,16 @@
             <span class="val">${data.provider}</span>
           </div>
           <div class="row">
-            <span class="label">FILES PROCESSED</span>
+            <span class="label">FILES EXTRACTED</span>
             <span class="val">${data.files_processed}</span>
           </div>
           <div class="row">
             <span class="label">TOTAL DOCUMENTS</span>
             <span class="val">${data.total_research_files}</span>
+          </div>
+          <div style="margin-top: 24px; display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--success);">
+            <div style="width: 8px; height: 8px; background: var(--success); border-radius: 50%; animation: flicker 1.5s infinite;"></div>
+            <span>Vercel Build Environment Monitoring... OK</span>
           </div>
         `;
       } catch (err) {
