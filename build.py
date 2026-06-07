@@ -23,6 +23,7 @@ def main():
     targets = [
         "index.html",
         "dashboard.html",
+        "viewer.html",
         "data.json",
         "heartbeat.json",
         "assets",
