@@ -3,7 +3,7 @@
     {
       "id": "01",
       "title": "NO SMOKE",
-      "description": "confrontational anti-smoking scroll story. backed by research.",
+      "description": "a science-backed minimalist landing page addressing nicotine automaticity and urge regulation.",
       "tags": [
         "Anti-Smoking",
         "Bilingual",
@@ -58,7 +58,7 @@
     {
       "id": "06",
       "title": "PRISMA SIMULATOR",
-      "description": "national antibiotic surveillance system.",
+      "description": "national antibiotic distribution monitoring and e-prescription validator powered by blockchain.",
       "tags": [
         "Healthcare",
         "Surveillance",
@@ -70,7 +70,7 @@
     {
       "id": "07",
       "title": "MSG FROM ORACLE",
-      "description": "web application to receive messages from an oracle.",
+      "description": "the sarcastic ai oracle that feeds on your futile wishes, real-time news, and market odds to weave poetic desolation.",
       "tags": [
         "Web",
         "Application",
@@ -151,7 +151,7 @@
     {
       "id": "14",
       "title": "PRISMA RDK GUIDE",
-      "description": "a blockchain system tracking antibiotic distribution.",
+      "description": "a blockchain-powered health chain system designed to prevent antibiotic double-redeeming and mitigate antimicrobial resistance.",
       "tags": [
         "blockchain",
         "healthcare",
@@ -174,7 +174,7 @@
     {
       "id": "16",
       "title": "NUTRI SOY BY ALTAF",
-      "description": "ai-powered nutrition coaching and subscription platform.",
+      "description": "personalized ai nutrition coaching and habit tracking powered by physical product qr code redemptions.",
       "tags": [
         "ai",
         "nutrition",
@@ -198,7 +198,7 @@
     {
       "id": "GH-TIM",
       "title": "TIMEMARU",
-      "description": "an productivity ekstension with daily schedule, upcoming task, weather, and funny float",
+      "description": "a browser extension merging daily productivity tools with an interactive, screen-roaming pixel art demon.",
       "tags": [
         "Code"
       ],
@@ -270,7 +270,7 @@
     {
       "id": "GH-LIV",
       "title": "LIVE",
-      "description": "repository for live.",
+      "description": "realtime voice conversations with gemini using web speech transcription and native gemini tts.",
       "tags": [
         "HTML"
       ],
@@ -280,7 +280,7 @@
     {
       "id": "GH-LON",
       "title": "LONGLIFEHISTO",
-      "description": "repository for longlifehisto.",
+      "description": "an interactive web-based histology simulator to practice microscopic slide identification.",
       "tags": [
         "HTML"
       ],
@@ -290,7 +290,7 @@
     {
       "id": "GH-MON",
       "title": "MONDAY",
-      "description": "repository for monday.",
+      "description": "a sleek, minimalist chat application powered by cloudflare workers ai.",
       "tags": [
         "JavaScript"
       ],
@@ -335,7 +335,7 @@
     {
       "id": "GH-SAT",
       "title": "SATURDAY",
-      "description": "repository for saturday.",
+      "description": "a serverless ai assistant backend on cloudflare workers for audio transcription and structured command parsing.",
       "tags": [
         "TypeScript"
       ],
@@ -344,7 +344,7 @@
     {
       "id": "GH-SIN",
       "title": "SINXV",
-      "description": "repository for sinxv.",
+      "description": "a headless whatsapp ai assistant controlled via telegram and powered by playwright and llms.",
       "tags": [
         "Python"
       ],
@@ -354,7 +354,7 @@
     {
       "id": "GH-SOA",
       "title": "SOALGANJILGENAP",
-      "description": "membuat soal kecermatan ganjil genap",
+      "description": "a minimal tool to generate odd-even speed accuracy tests for psychological exam preparation.",
       "tags": [
         "Code"
       ],
@@ -363,7 +363,7 @@
     {
       "id": "GH-SOE",
       "title": "SOEXSOEX",
-      "description": "repository for soexsoex.",
+      "description": "an ai-powered collaborative question bank utilizing gemini content validation, grammar refinement, and vercel kv answer consolidation.",
       "tags": [
         "HTML"
       ],
