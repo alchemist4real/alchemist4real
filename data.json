@@ -189,6 +189,18 @@
       ],
       "link": "https://soyproteinbyaltaf.vercel.app/",
       "repo_link": "https://github.com/alchemist4real/soyproteinbyaltaf"
+    },
+    {
+      "id": "17",
+      "title": "DERMAMAXXING",
+      "description": "skin intelligence system for automated dermatology anamnesis and tailored product routines.",
+      "tags": [
+        "Dermatology",
+        "Skincare",
+        "System"
+      ],
+      "link": "https://dermamaxxing.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/dermamaxxing"
     }
   ],
   "extensions": [
@@ -225,6 +237,96 @@
         "UI Design"
       ],
       "file_name": "sample_experiment.md"
+    },
+    {
+      "id": "R03",
+      "title": "174 ARCHIVE SYSTEM",
+      "description": "this document outlines the 174 archive, an immersive web operating system and digital archive simulation.",
+      "tags": [
+        "Web OS",
+        "Digital Archive",
+        "Desktop Simulation"
+      ],
+      "file_name": "174.md"
+    },
+    {
+      "id": "R04",
+      "title": "ACADEMIC CONTROL CENTER",
+      "description": "a stylized, gamified, and responsive academic dashboard for tracking tasks, missions, and student progress.",
+      "tags": [
+        "Academic Dashboard",
+        "Gamified",
+        "Web Application"
+      ],
+      "file_name": "academiccontrolcenter.md"
+    },
+    {
+      "id": "R05",
+      "title": "BEENHOLLOW: THE VOID",
+      "description": "a peer-to-peer, real-time message and file-sharing interface for ephemeral data transfer.",
+      "tags": [
+        "P2P Sharing",
+        "File Transfer",
+        "Real-time",
+        "Web App",
+        "Ephemeral Data"
+      ],
+      "file_name": "BEENHOLLOW.md"
+    },
+    {
+      "id": "R06",
+      "title": "BEENMONEY FINANCIAL TRACKER",
+      "description": "beenmoney is an ultra-minimalist, client-side budgeting tool for tracking income and expenses entirely within a single html file.",
+      "tags": [
+        "Financial Tracking",
+        "Single File",
+        "Client Side"
+      ],
+      "file_name": "beenmoney.md"
+    },
+    {
+      "id": "R07",
+      "title": "COS-X OUROBOROS: Self-Evolving AI",
+      "description": "this document describes an autonomous web entity that endlessly rewrites its own code via ai.",
+      "tags": [
+        "Self-Evolving AI",
+        "Autonomous Code",
+        "Web Application"
+      ],
+      "file_name": "cosxouboros.md"
+    },
+    {
+      "id": "R08",
+      "title": "FRIDAY EDGE AI ASSISTANT",
+      "description": "this document describes the friday ai assistant, an aesthetic, dark-themed web application powered by cloudflare workers ai with dual chat and call modes.",
+      "tags": [
+        "AI Assistant",
+        "Cloudflare",
+        "Edge Computing"
+      ],
+      "file_name": "friday.md"
+    },
+    {
+      "id": "R09",
+      "title": "MONDAY: EDGE AI CHAT",
+      "description": "monday is a sleek, minimalist chat application running entirely on the edge, powered by cloudflare workers ai and meta llama 3.3.",
+      "tags": [
+        "Edge AI",
+        "Cloudflare",
+        "Chat App"
+      ],
+      "file_name": "monday.md"
+    },
+    {
+      "id": "R10",
+      "title": "MSG FROM ORACLE APP",
+      "description": "this document details an ai oracle web application that generates sarcastic, cynical indonesian poetry prophecies, outlining its functionality, architecture, tech stack, and deployment.",
+      "tags": [
+        "AI Oracle",
+        "Web App",
+        "Serverless"
+      ],
+      "file_name": "msgfromoracle.md"
     }
   ],
   "repos": [
