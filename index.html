@@ -172,16 +172,19 @@
 
     .filter-btn.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 
-    .project-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .project-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
     
+    @media (max-width: 1024px) { .project-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 768px) { .project-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 480px) { .project-list { grid-template-columns: minmax(0, 1fr); } }
+
     .project-row { 
       background: var(--bg-card); 
       border: 1px solid var(--fg-faint); 
-      padding: 24px; 
+      padding: 20px; 
       border-radius: 2px; 
       display: flex; 
       flex-direction: column; 
-      gap: 16px; 
       height: 100%;
       min-width: 0;
       opacity: 0; transform: translateY(12px); transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.2s; 
@@ -189,17 +192,18 @@
     .project-row.visible { opacity: 1; transform: translateY(0); }
     .project-row:hover { border-color: var(--fg); }
     
-    .project-meta { display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding-top: 0; min-width: auto; }
-    .project-index { color: var(--fg-muted); }
-    .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--live-dot); display: block; }
+    .project-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--fg); margin-bottom: 8px; line-height: 1.2; word-break: break-word; }
+    .project-desc { margin-bottom: 20px; word-break: break-word; font-size: 0.85rem; }
     
-    .project-body { flex: 1; display: flex; flex-direction: column; min-width: 0; }
-    .project-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--fg); margin-bottom: 4px; line-height: 1.2; word-break: break-word; }
-    .project-desc { margin-bottom: 10px; word-break: break-word; }
-    .project-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; }
+    .project-meta-grid { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+    .project-meta-grid > span { display: flex; flex-direction: column; gap: 4px; }
     
-    .project-link { color: var(--fg-muted); text-decoration: none; white-space: nowrap; padding-top: 4px; transition: color 0.15s; margin-top: auto; }
-    .project-link:hover { color: var(--fg); }
+    .btn-ghost-sm {
+      border: 1px solid var(--fg); color: var(--fg); background: transparent; padding: 6px 12px;
+      font-family: 'DM Mono', monospace; font-weight: 500; font-size: 11px; cursor: pointer;
+      letter-spacing: 0.05em; transition: background 0.15s, color 0.15s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+    }
+    .btn-ghost-sm:hover { background: var(--fg); color: var(--bg); }
 
     #about { padding-top: 80px; padding-bottom: 80px; border-top: 1px solid var(--fg-faint); }
     #about .about-grid { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 60px; align-items: start; margin-top: 40px; }
@@ -564,41 +568,43 @@
           if (item.file_name && item.file_name.toLowerCase().endsWith('.md')) {
             fileUrl = `viewer.html?file=${encodeURIComponent(fileUrl)}`;
           }
-          linksHtml = `<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
-            <a href="${fileUrl}" class="project-link label" style="text-align:right;" target="_blank" rel="noopener noreferrer">Display File -></a>
-            <a href="https://wa.me/6285778120332?text=${whatsappMsg}" class="project-link label" style="text-align:right; color:var(--live-dot);" target="_blank" rel="noopener noreferrer">Request Full Access -></a>
-          </div>`;
+          linksHtml = `
+            <a href="${fileUrl}" class="btn-ghost-sm" target="_blank" rel="noopener noreferrer">Display File</a>
+            <a href="https://wa.me/6285778120332?text=${whatsappMsg}" class="btn-ghost-sm" target="_blank" rel="noopener noreferrer">Full Access</a>
+          `;
         } else {
           const isGithubLink = item.link && item.link.includes('github.com');
           const webUrl = item.web_link || (!isGithubLink ? item.link : null);
           const repoUrl = item.repo_link || (isGithubLink ? item.link : null);
           
           if (webUrl) {
-            linksHtml += `<a href="${webUrl}" class="project-link label" style="margin-bottom:8px; display:block; text-align:right;" target="_blank" rel="noopener noreferrer">Visit Web -></a>`;
+            linksHtml += `<a href="${webUrl}" class="btn-ghost-sm" target="_blank" rel="noopener noreferrer">Visit Web</a> `;
           }
           if (repoUrl && repoUrl !== webUrl) {
-            linksHtml += `<a href="${repoUrl}" class="project-link label" style="display:block; text-align:right; opacity:0.7;" target="_blank" rel="noopener noreferrer">Visit Repo -></a>`;
+            linksHtml += `<a href="${repoUrl}" class="btn-ghost-sm" target="_blank" rel="noopener noreferrer">Visit Repo</a>`;
           }
-          // Fallback if neither
           if (!webUrl && !repoUrl && item.link) {
-             linksHtml = `<a href="${item.link}" class="project-link label" style="display:block; text-align:right;" target="_blank" rel="noopener noreferrer">Visit -></a>`;
+             linksHtml = `<a href="${item.link}" class="btn-ghost-sm" target="_blank" rel="noopener noreferrer">Visit</a>`;
           }
         }
 
         return `
         <div class="project-row">
-          <div class="project-meta">
-            <span class="project-index label">${item.id}</span>
-            <span class="live-dot" aria-label="live"></span>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
+            <span class="card-label label" style="margin: 0;">${item.id}</span>
+            <span class="live-dot" aria-label="live" style="width: 6px; height: 6px; border-radius: 50%; background: var(--live-dot); display: block;"></span>
           </div>
-          <div class="project-body">
-            <h3 class="project-title">${item.title}</h3>
-            <p class="project-desc muted">${item.description}</p>
-            <div class="project-tags">
-              ${item.tags.map(t => `<span class="tag">${t}</span>`).join('')}
-            </div>
+          <div class="project-title">${item.title}</div>
+          <p class="project-desc muted">${item.description}</p>
+          <div class="project-meta-grid">
+            ${item.tags ? item.tags.map((t, idx) => `
+              <span>
+                <span class="body-text" style="font-size: 0.85rem;">${t}</span>
+                <span class="label" style="font-size: 0.7rem;">Tag ${idx + 1}</span>
+              </span>
+            `).join('') : ''}
           </div>
-          <div class="project-actions">
+          <div style="display: flex; gap: 8px; margin-top: auto; flex-wrap: wrap;">
             ${linksHtml}
           </div>
         </div>
