@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "pip3 install -r requirements.txt -t .dependencies && PYTHONPATH=.dependencies python3 scripts/sync-research.py"
+    "build": "pip3 install -r requirements-ai.txt -t .dependencies && PYTHONPATH=.dependencies python3 scripts/sync-research.py"
   }
 }
