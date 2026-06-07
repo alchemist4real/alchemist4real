@@ -25,7 +25,7 @@
     {
       "id": "03",
       "title": "#FuckAllRapist",
-      "description": "consent, UU TPKS, bystander 5D — no sugarcoating.",
+      "description": "consent, UU TPKS, bystander 5D \u00e2\u20ac\u201d no sugarcoating.",
       "tags": [
         "Anti-Violence",
         "Certificate"
@@ -82,7 +82,7 @@
     {
       "id": "08",
       "title": "BEENBOXD",
-      "description": "an ai-powered letterboxd logger and csv exporter with a slick glassmorphic interface.",
+      "description": "an ai-powered letterboxd logger.",
       "tags": [
         "Letterboxd",
         "Logger",
@@ -151,7 +151,7 @@
     {
       "id": "14",
       "title": "PRISMA RDK GUIDE",
-      "description": "a blockchain-powered health chain system designed to prevent antibiotic double-redeeming and mitigate antimicrobial resistance.",
+      "description": "blockchain-powered health chain system.",
       "tags": [
         "blockchain",
         "healthcare",
@@ -242,7 +242,7 @@
     {
       "id": "GH-BEE",
       "title": "BEENMONEY",
-      "description": "a sleek, dark-themed single-file html budgeting app.",
+      "description": "a minimal html budgeting app.",
       "tags": [
         "HTML"
       ],
@@ -261,7 +261,7 @@
     {
       "id": "GH-FRI",
       "title": "FRIDAY",
-      "description": "an aesthetic, dark-mode personal ai assistant powered by cloudflare workers ai.",
+      "description": "a dark-mode personal ai assistant.",
       "tags": [
         "JavaScript"
       ],
@@ -270,7 +270,7 @@
     {
       "id": "GH-LIV",
       "title": "LIVE",
-      "description": "realtime voice conversations with gemini using web speech transcription and native gemini tts.",
+      "description": "realtime voice conversations with gemini.",
       "tags": [
         "HTML"
       ],
@@ -280,7 +280,7 @@
     {
       "id": "GH-LON",
       "title": "LONGLIFEHISTO",
-      "description": "an interactive web-based histology simulator to practice microscopic slide identification.",
+      "description": "an interactive histology simulator.",
       "tags": [
         "HTML"
       ],
@@ -290,7 +290,7 @@
     {
       "id": "GH-MON",
       "title": "MONDAY",
-      "description": "a sleek, minimalist chat application powered by cloudflare workers ai.",
+      "description": "a sleek minimalist chat app.",
       "tags": [
         "JavaScript"
       ],
@@ -299,7 +299,7 @@
     {
       "id": "GH-MSG",
       "title": "MSGFROMORACLE",
-      "description": "repository for msgfromoracle.",
+      "description": "a sarcastic ai oracle.",
       "tags": [
         "HTML"
       ],
@@ -308,7 +308,7 @@
     {
       "id": "GH-NOS",
       "title": "NOSMOKE",
-      "description": "repository for nosmoke.",
+      "description": "a minimalist landing page for nicotine regulation.",
       "tags": [
         "HTML"
       ],
@@ -317,7 +317,7 @@
     {
       "id": "GH-PRI",
       "title": "PRISMA RDK GUIDE",
-      "description": "repository for prisma-rdk-guide.",
+      "description": "blockchain-powered health chain system.",
       "tags": [
         "HTML"
       ],
@@ -326,7 +326,7 @@
     {
       "id": "GH-PRI",
       "title": "PRISMA RDK SIMULATOR",
-      "description": "repository for prisma-rdk-simulator.",
+      "description": "antibiotic distribution monitoring simulator.",
       "tags": [
         "TypeScript"
       ],
@@ -335,7 +335,7 @@
     {
       "id": "GH-SAT",
       "title": "SATURDAY",
-      "description": "a serverless ai assistant backend on cloudflare workers for audio transcription and structured command parsing.",
+      "description": "a serverless ai assistant backend.",
       "tags": [
         "TypeScript"
       ],
@@ -344,7 +344,7 @@
     {
       "id": "GH-SIN",
       "title": "SINXV",
-      "description": "a headless whatsapp ai assistant controlled via telegram and powered by playwright and llms.",
+      "description": "a headless whatsapp ai assistant.",
       "tags": [
         "Python"
       ],
@@ -354,7 +354,7 @@
     {
       "id": "GH-SOA",
       "title": "SOALGANJILGENAP",
-      "description": "a minimal tool to generate odd-even speed accuracy tests for psychological exam preparation.",
+      "description": "an odd-even speed accuracy test generator.",
       "tags": [
         "Code"
       ],
@@ -363,7 +363,7 @@
     {
       "id": "GH-SOE",
       "title": "SOEXSOEX",
-      "description": "an ai-powered collaborative question bank utilizing gemini content validation, grammar refinement, and vercel kv answer consolidation.",
+      "description": "an ai-powered collaborative question bank.",
       "tags": [
         "HTML"
       ],
@@ -373,7 +373,7 @@
     {
       "id": "GH-SOY",
       "title": "SOYPROTEINBYALTAF",
-      "description": "repository for soyproteinbyaltaf.",
+      "description": "personalized ai nutrition coaching.",
       "tags": [
         "TypeScript"
       ],
@@ -382,7 +382,7 @@
     {
       "id": "GH-COS",
       "title": "COSXOUBOROS",
-      "description": "an autonomous web entity that endlessly rewrites its own code via ai.",
+      "description": "an autonomous self-rewriting web entity.",
       "tags": [
         "HTML"
       ],
@@ -392,7 +392,7 @@
     {
       "id": "GH-GEM",
       "title": "GEMINIBEENSPACE",
-      "description": "an aesthetic, tailwind-powered guide for indonesian students to unlock their free 1-year google gemini trial.",
+      "description": "a guide to unlock gemini trial.",
       "tags": [
         "HTML"
       ],

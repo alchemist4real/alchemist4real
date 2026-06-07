@@ -52,7 +52,7 @@ async function sync() {
         matchedItem = allCatalogItems.find(i => (i.link || '').toLowerCase().replace(/\/$/, '') === url1);
         if (matchedItem) {
           if (repo.html_url && matchedItem.link !== repo.html_url) matchedItem.repo_link = repo.html_url;
-          if (repo.description && repo.description !== matchedItem.description) matchedItem.description = repo.description.toLowerCase() + (repo.description.endsWith('.') ? '' : '.');
+          // if (repo.description && repo.description !== matchedItem.description) matchedItem.description = repo.description.toLowerCase() + (repo.description.endsWith('.') ? '' : '.');
         }
         isDuplicate = true;
       }
@@ -60,7 +60,7 @@ async function sync() {
         matchedItem = allCatalogItems.find(i => (i.link || '').toLowerCase().replace(/\/$/, '') === url2);
         if (matchedItem) {
           if (repo.homepage && matchedItem.link !== repo.homepage) matchedItem.web_link = repo.homepage;
-          if (repo.description && repo.description !== matchedItem.description) matchedItem.description = repo.description.toLowerCase() + (repo.description.endsWith('.') ? '' : '.');
+          // if (repo.description && repo.description !== matchedItem.description) matchedItem.description = repo.description.toLowerCase() + (repo.description.endsWith('.') ? '' : '.');
         }
         isDuplicate = true;
       }
@@ -69,7 +69,7 @@ async function sync() {
         if (matchedItem) {
            if (repo.html_url && matchedItem.link !== repo.html_url) matchedItem.repo_link = repo.html_url;
            if (repo.homepage && matchedItem.link !== repo.homepage) matchedItem.web_link = repo.homepage;
-           if (repo.description && repo.description !== matchedItem.description) matchedItem.description = repo.description.toLowerCase() + (repo.description.endsWith('.') ? '' : '.');
+           // if (repo.description && repo.description !== matchedItem.description) matchedItem.description = repo.description.toLowerCase() + (repo.description.endsWith('.') ? '' : '.');
         }
         isDuplicate = true;
       }
