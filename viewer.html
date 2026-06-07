@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document Viewer — alchemist4real</title>
+  
+  <!-- FAVICON -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230D0D0D'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' fill='%23FAFAFA' font-size='20' font-family='serif' font-weight='600'%3EA%3C/text%3E%3C/svg%3E">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- marked.js for Markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
+  <style>
+    :root {
+      --bg: #FAFAFA;
+      --fg: #0D0D0D;
+      --fg-muted: #6B6B6B;
+      --fg-faint: #C4C4C4;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'DM Mono', monospace;
+      margin: 0; 
+      padding: 60px 24px;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 128px;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .back-btn {
+      display: inline-block; 
+      margin-bottom: 48px; 
+      text-decoration: none;
+      border: 1px solid var(--fg); 
+      padding: 8px 20px; 
+      color: var(--fg);
+      font-size: 13px; 
+      text-transform: uppercase; 
+      letter-spacing: 0.05em;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .back-btn:hover { 
+      background: var(--fg); 
+      color: var(--bg); 
+    }
+
+    #content {
+      font-size: 15px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      color: var(--fg);
+      margin-top: 2em;
+      margin-bottom: 0.5em;
+      line-height: 1.2;
+    }
+
+    h1 { font-size: clamp(2rem, 4vw, 3rem); margin-top: 0; margin-bottom: 1em; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); border-bottom: 1px solid var(--fg-faint); padding-bottom: 8px; }
+    h3 { font-size: 1.5rem; }
+
+    p { margin-bottom: 1.5em; color: var(--fg); }
+    
+    a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--fg-faint); text-underline-offset: 4px; transition: text-decoration-color 0.2s; }
+    a:hover { text-decoration-color: var(--fg); }
+
+    blockquote {
+      border-left: 2px solid var(--fg);
+      padding-left: 20px;
+      margin-left: 0;
+      color: var(--fg-muted);
+      font-style: italic;
+    }
+
+    ul, ol { margin-bottom: 1.5em; padding-left: 24px; }
+    li { margin-bottom: 0.5em; }
+
+    pre {
+      background: #EAEAEA;
+      padding: 20px;
+      border-radius: 2px;
+      overflow-x: auto;
+      border: 1px solid var(--fg-faint);
+      font-size: 13px;
+      margin-bottom: 1.5em;
+    }
+
+    code { 
+      font-family: 'DM Mono', monospace; 
+      background: #EAEAEA; 
+      padding: 2px 6px; 
+      border-radius: 2px;
+      font-size: 0.9em;
+    }
+    pre code { background: transparent; padding: 0; }
+
+    img { 
+      max-width: 100%; 
+      height: auto;
+      border: 1px solid var(--fg-faint); 
+      border-radius: 2px;
+      margin-bottom: 1.5em;
+      display: block;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5em;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid var(--fg-faint);
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #EAEAEA;
+      font-weight: 500;
+    }
+
+    .loading { font-style: italic; color: var(--fg-muted); }
+    .error { color: #DC2626; border: 1px solid #DC2626; padding: 16px; background: #FEF2F2; }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="back-btn"><- Back to Lab</a>
+    <div id="content" class="loading">Loading document...</div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get('file');
+    const contentDiv = document.getElementById('content');
+
+    if (!file) {
+      contentDiv.innerHTML = '<div class="error">Error: No file specified.</div>';
+    } else {
+      // Validate file path to prevent arbitrary fetching (basic security)
+      if (!file.startsWith('research/')) {
+        contentDiv.innerHTML = '<div class="error">Error: Invalid file path.</div>';
+      } else {
+        fetch(file)
+          .then(response => {
+            if (!response.ok) throw new Error("Document not found or unavailable.");
+            return response.text();
+          })
+          .then(text => {
+            contentDiv.innerHTML = marked.parse(text);
+            const fileName = file.split('/').pop();
+            document.title = fileName + " — alchemist4real";
+          })
+          .catch(err => {
+            contentDiv.innerHTML = `<div class="error">Error loading document: ${err.message}</div>`;
+          });
+      }
+    }
+  </script>
+</body>
+</html>
