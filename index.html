@@ -498,7 +498,10 @@
         
         if (item.type === 'research') {
           const whatsappMsg = encodeURIComponent(`Hello Alchemist, I would like to request full access to your research document: ${item.title}`);
-          const fileUrl = `research/${item.file_name}`;
+          let fileUrl = `research/${item.file_name}`;
+          if (item.file_name && item.file_name.toLowerCase().endsWith('.md')) {
+            fileUrl = `viewer.html?file=${encodeURIComponent(fileUrl)}`;
+          }
           linksHtml = `<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
             <a href="${fileUrl}" class="project-link label" style="text-align:right;" target="_blank" rel="noopener noreferrer">Display File -></a>
             <a href="https://wa.me/6285778120332?text=${whatsappMsg}" class="project-link label" style="text-align:right; color:var(--live-dot);" target="_blank" rel="noopener noreferrer">Request Full Access -></a>
