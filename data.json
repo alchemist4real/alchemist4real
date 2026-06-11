@@ -583,6 +583,15 @@
         "JavaScript"
       ],
       "link": "https://github.com/alchemist4real/zenlimitless"
+    },
+    {
+      "id": "GH-COO",
+      "title": "COOKWITHALCHEMIST4REAL",
+      "description": "unified masterclass web app by @alchemist4real.",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://cookwithalchemist4real.vercel.app"
     }
   ]
 }
