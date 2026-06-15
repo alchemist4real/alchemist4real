@@ -593,6 +593,15 @@
       ],
       "link": "https://cookwithalchemist4real.vercel.app",
       "repo_link": "https://github.com/alchemist4real/cookwithalchemist4real"
+    },
+    {
+      "id": "GH-MR-",
+      "title": "MR CAPSULES",
+      "description": "a learning platform initiated in august 2025, evolving from simple html files shared among friends to a web-based iframe platform. what began as a collection of previous years' study materials has grown into a comprehensive resource featuring lecture notes, question banks, and faculty presentation slides.",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://mr-capsules.vercel.app"
     }
   ]
 }
