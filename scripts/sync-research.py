@@ -189,6 +189,8 @@ def main():
     for filename in os.listdir(RESEARCH_DIR):
         if not filename.lower().endswith(supported_extensions):
             continue
+        if filename.lower() in ('readme.md', 'sample_experiment.md'):
+            continue
         if filename in existing_files:
             continue
             
