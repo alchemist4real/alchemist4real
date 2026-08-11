@@ -3,6 +3,7 @@
  * Cryptographically secured using AES-256-GCM (WebCrypto API).
  * Zero plain-text identity leaks in source code or Chrome DevTools.
  * Zero emojis across all UI states and modals.
+ * Recruiter token links show ONLY verified candidate profile (admin tools hidden).
  */
 
 const CRYPTO_PAYLOAD = {
@@ -15,6 +16,7 @@ const CRYPTO_PAYLOAD = {
 class IdentityController {
   constructor() {
     this.isVerified = false;
+    this.isRecruiter = false;
     this.tokenInfo = null;
     this.verifiedData = null;
     this.activeKey = null;
@@ -65,16 +67,28 @@ class IdentityController {
   async init() {
     const searchStr = (typeof window !== 'undefined' && window.location) ? window.location.search : '';
     const params = new URLSearchParams(searchStr);
-    const token = params.get('access_token') || params.get('token') || params.get('unlock');
+    const token = params.get('access_token') || params.get('token');
+    const unlockKey = params.get('unlock');
 
     if (token) {
       await this.validateToken(token);
+    } else if (unlockKey) {
+      const data = await this.decryptPayload(unlockKey);
+      if (data) {
+        this.isVerified = true;
+        this.isRecruiter = false; // Owner access
+        this.verifiedData = data;
+        this.activeKey = unlockKey;
+        if (typeof sessionStorage !== 'undefined') sessionStorage.setItem('alchemist_key', unlockKey);
+      }
     } else {
       const storedKey = (typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('alchemist_key') : null) || (typeof localStorage !== 'undefined' ? localStorage.getItem('alchemist_key') : null);
+      const storedRecruiter = typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('alchemist_recruiter') : null;
       if (storedKey) {
         const data = await this.decryptPayload(storedKey);
         if (data) {
           this.isVerified = true;
+          this.isRecruiter = storedRecruiter === 'true';
           this.verifiedData = data;
           this.activeKey = storedKey;
         }
@@ -87,8 +101,8 @@ class IdentityController {
   async validateToken(tokenStr) {
     try {
       let keyToTry = tokenStr;
+      let isRecruiterToken = true;
 
-      // Check if Base64 JSON token
       try {
         const jsonStr = atob(tokenStr);
         const payload = JSON.parse(jsonStr);
@@ -105,47 +119,41 @@ class IdentityController {
           keyToTry = payload.key;
         }
       } catch (e) {
-        // Direct string key token
+        // Direct string key
+        isRecruiterToken = false;
       }
 
       const data = await this.decryptPayload(keyToTry);
       if (data) {
         this.isVerified = true;
+        this.isRecruiter = isRecruiterToken;
         this.verifiedData = data;
         this.activeKey = keyToTry;
-        sessionStorage.setItem('alchemist_key', keyToTry);
+        if (typeof sessionStorage !== 'undefined') {
+          sessionStorage.setItem('alchemist_key', keyToTry);
+          sessionStorage.setItem('alchemist_recruiter', isRecruiterToken ? 'true' : 'false');
+        }
       }
     } catch (e) {
       console.warn("Invalid token string", e);
     }
   }
 
-  async unlockWithPasscode(passcode) {
-    if (!passcode) return false;
-    const cleanPass = passcode.trim();
-    const data = await this.decryptPayload(cleanPass);
-
-    if (data) {
-      this.isVerified = true;
-      this.verifiedData = data;
-      this.activeKey = cleanPass;
-      sessionStorage.setItem('alchemist_key', cleanPass);
-      localStorage.setItem('alchemist_key', cleanPass);
-      this.render();
-      return true;
-    }
-
-    alert('Invalid passcode. Access denied.');
-    return false;
-  }
-
   lockIdentity() {
     this.isVerified = false;
+    this.isRecruiter = false;
     this.verifiedData = null;
     this.activeKey = null;
-    sessionStorage.removeItem('alchemist_key');
-    localStorage.removeItem('alchemist_key');
-    window.history.replaceState({}, document.title, window.location.pathname);
+    if (typeof sessionStorage !== 'undefined') {
+      sessionStorage.removeItem('alchemist_key');
+      sessionStorage.removeItem('alchemist_recruiter');
+    }
+    if (typeof localStorage !== 'undefined') {
+      localStorage.removeItem('alchemist_key');
+    }
+    if (typeof window !== 'undefined' && window.history) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
     this.render();
   }
 
@@ -203,15 +211,21 @@ class IdentityController {
         linkedinBtn.href = data.links.linkedin;
       }
 
+      // Hide generator modal button from recruiters
       if (genModalBtn) {
-        genModalBtn.style.display = 'inline-flex';
+        genModalBtn.style.display = this.isRecruiter ? 'none' : 'inline-flex';
       }
 
+      // Hide lock button from recruiters
       if (unlockBtn) {
-        unlockBtn.style.display = 'inline-flex';
-        unlockBtn.innerHTML = `LOCK`;
-        unlockBtn.title = "Click to Lock Profile";
-        unlockBtn.onclick = () => this.lockIdentity();
+        if (this.isRecruiter) {
+          unlockBtn.style.display = 'none';
+        } else {
+          unlockBtn.style.display = 'inline-flex';
+          unlockBtn.innerHTML = `LOCK`;
+          unlockBtn.title = "Click to Lock Profile";
+          unlockBtn.onclick = () => this.lockIdentity();
+        }
       }
 
       // Update Education Section if present
