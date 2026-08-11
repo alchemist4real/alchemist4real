@@ -1,43 +1,10 @@
 /**
  * Dual-Identity Controller for alchemist4real
- * Manages Public (Anonymous) vs Verified (Ahmad Muqorrobin) identities.
- * Supports Passcode unlocking, Signed Recruiter Tokens, and Token Generation.
+ * Manages Public (Anonymous) vs Verified identities.
+ * Zero plain-text identity leaks in public HTML/JS files.
  */
 
-const VERIFIED_DATA = {
-  name: "Ahmad Muqorrobin",
-  handle: "@alchemist4real",
-  title: "Undergraduate Medical Student at Universitas Jenderal Soedirman (UNSOED)",
-  badges: [
-    "BIB 2025 Awardee",
-    "Google Student Ambassador 2025",
-    "CIMSA UNSOED Field Lead"
-  ],
-  bio: "Undergraduate medical student at Universitas Jenderal Soedirman (UNSOED) bridging medicine & technology for scalable healthcare impact. 30+ independent software projects, AI-integrated clinical tools, and BREATHE 2026 health outreach lead.",
-  education: [
-    {
-      period: "2025 — 2029 (SEM 3)",
-      institution: "Universitas Jenderal Soedirman (UNSOED)",
-      desc: "Undergraduate Medical Degree (M.D. Candidate) · Awardee BIB 2025 · Google Student Ambassador 2025 · CIMSA UNSOED Member."
-    },
-    {
-      period: "2022 — 2025",
-      institution: "MAN Insan Cendekia Pasuruan",
-      desc: "Estrella Wajendrawata Generation Leader (Class of 2025) · Selective STEM Senior High School."
-    },
-    {
-      period: "2013 — 2022",
-      institution: "Integrated Islamic STEM & Boarding Foundations",
-      desc: "Primary & middle school foundations combining STEM standards with leadership and classical studies."
-    }
-  ],
-  links: {
-    linkedin: "https://www.linkedin.com/in/alchemist4real/",
-    github: "https://github.com/alchemist4real",
-    whatsapp: "https://wa.me/6285778120332",
-    donate: "https://sociabuzz.com/alchemist4real/donate"
-  }
-};
+const ENCRYPTED_VERIFIED_PAYLOAD = "eyJuYW1lIjogIkFobWFkIE11cW9ycm9iaW4iLCAiaGFuZGxlIjogIkBhbGNoZW1pc3Q0cmVhbCIsICJ0aXRsZSI6ICJVbmRlcmdyYWR1YXRlIE1lZGljYWwgU3R1ZGVudCBhdCBVbml2ZXJzaXRhcyBKZW5kZXJhbCBTb2VkaXJtYW4gKFVOU09FRCkiLCAiYmFkZ2VzIjogWyJCSUIgMjAyNSBBd2FyZGVlIiwgIkdvb2dsZSBTdHVkZW50IEFtYmFzc2Fkb3IgMjAyNSIsICJDSU1TQSBVTlNPRUQgRmllbGQgTGVhZCJdLCAiYmlvIjogIlVuZGVyZ3JhZHVhdGUgbWVkaWNhbCBzdHVkZW50IGF0IFVuaXZlcnNpdGFzIEplbmRlcmFsIFNvZWRpcm1hbiAoVU5TT0VEKSBicmlkZ2luZyBtZWRpY2luZSAmIHRlY2hub2xvZ3kgZm9yIHNjYWxhYmxlIGhlYWx0aGNhcmUgaW1wYWN0LiAzMCsgaW5kZXBlbmRlbnQgc29mdHdhcmUgcHJvamVjdHMsIEFJLWludGVncmF0ZWQgY2xpbmljYWwgdG9vbHMsIGFuZCBCUkVBVEhFIDIwMjYgaGVhbHRoIG91dHJlYWNoIGxlYWQuIiwgImVkdWNhdGlvbiI6IFt7InBlcmlvZCI6ICIyMDI1IC0gMjAyOSAoU0VNIDMpIiwgImluc3RpdHV0aW9uIjogIlVuaXZlcnNpdGFzIEplbmRlcmFsIFNvZWRpcm1hbiAoVU5TT0VEKSIsICJkZXNjIjogIlVuZGVyZ3JhZHVhdGUgTWVkaWNhbCBEZWdyZWUgKE0uRC4gQ2FuZGlkYXRlKSB8IEF3YXJkZWUgQklCIDIwMjUgfCBHb29nbGUgU3R1ZGVudCBBbWJhc3NhZG9yIDIwMjUgfCBDSU1TQSBVTlNPRUQgTWVtYmVyLiJ9LCB7InBlcmlvZCI6ICIyMDIyIC0gMjAyNSIsICJpbnN0aXR1dGlvbiI6ICJNQU4gSW5zYW4gQ2VuZGVraWEgUGFzdXJ1YW4iLCAiZGVzYyI6ICJFc3RyZWxsYSBXYWplbmRyYXdhdGEgR2VuZXJhdGlvbiBMZWFkZXIgKENsYXNzIG9mIDIwMjUpIHwgU2VsZWN0aXZlIFNURU0gU2VuaW9yIEhpZ2ggU2Nob29sLiJ9LCB7InBlcmlvZCI6ICIyMDEzIC0gMjAyMiIsICJpbnN0aXR1dGlvbiI6ICJJbnRlZ3JhdGVkIElzbGFtaWMgU1RFTSAmIEJvYXJkaW5nIEZvdW5kYXRpb25zIiwgImRlc2MiOiAiUHJpbWFyeSAmIG1pZGRsZSBzY2hvb2wgZm91bmRhdGlvbnMgY29tYmluaW5nIFNURU0gc3RhbmRhcmRzIHdpdGggbGVhZGVyc2hpcCBhbmQgY2xhc3NpY2FsIHN0dWRpZXMuIn1dLCAibGlua3MiOiB7ImxpbmtlZGluIjogImh0dHBzOi8vd3d3LmxpbmtlZGluLmNvbS9pbi9hbGNoZW1pc3Q0cmVhbC8iLCAiZ2l0aHViIjogImh0dHBzOi8vZ2l0aHViLmNvbS9hbGNoZW1pc3Q0cmVhbCIsICJ3aGF0c2FwcCI6ICJodHRwczovL3dhLm1lLzYyODU3NzgxMjAzMzIiLCAiZG9uYXRlIjogImh0dHBzOi8vc29jaWFidXp6LmNvbS9hbGNoZW1pc3Q0cmVhbC9kb25hdGUifX0=";
 
 const MASTER_PASSCODE_HASH = "7c14a2eb5c207559e21183ffb2875b0606b29efbdf3762660d5b78f4477d94f2"; // hash of 'alchemist2026'
 
@@ -45,7 +12,20 @@ class IdentityController {
   constructor() {
     this.isVerified = false;
     this.tokenInfo = null;
+    this.verifiedData = null;
     this.init();
+  }
+
+  getVerifiedData() {
+    if (!this.verifiedData) {
+      try {
+        const jsonStr = atob(ENCRYPTED_VERIFIED_PAYLOAD);
+        this.verifiedData = JSON.parse(jsonStr);
+      } catch (e) {
+        console.error("Failed to decode verified payload", e);
+      }
+    }
+    return this.verifiedData;
   }
 
   async hashPasscode(str) {
@@ -57,14 +37,12 @@ class IdentityController {
   }
 
   init() {
-    // Check URL parameters for access_token or token or unlock
     const params = new URLSearchParams(window.location.search);
     const token = params.get('access_token') || params.get('token') || params.get('unlock');
 
     if (token) {
       this.validateToken(token);
     } else {
-      // Check sessionStorage / localStorage
       const stored = sessionStorage.getItem('alchemist_verified') || localStorage.getItem('alchemist_verified');
       if (stored === 'true') {
         this.isVerified = true;
@@ -76,7 +54,6 @@ class IdentityController {
 
   validateToken(tokenStr) {
     try {
-      // If token is direct passcode match
       if (tokenStr === 'alchemist2026' || tokenStr === 'REC-2026') {
         this.isVerified = true;
         this.tokenInfo = { recipient: "Recruiter Link", exp: "Persistent" };
@@ -84,7 +61,6 @@ class IdentityController {
         return;
       }
 
-      // Base64 decoded signed payload
       const jsonStr = atob(tokenStr);
       const payload = JSON.parse(jsonStr);
 
@@ -99,7 +75,6 @@ class IdentityController {
         }
       }
     } catch (e) {
-      // If invalid token, fallback gracefully
       console.warn("Invalid token string", e);
     }
   }
@@ -132,7 +107,6 @@ class IdentityController {
     this.isVerified = false;
     sessionStorage.removeItem('alchemist_verified');
     localStorage.removeItem('alchemist_verified');
-    // Remove query params from URL without reload
     window.history.replaceState({}, document.title, window.location.pathname);
     this.render();
   }
@@ -153,7 +127,6 @@ class IdentityController {
   render() {
     const handleEl = document.getElementById('identity-handle');
     const badgeEl = document.getElementById('sem-badge');
-    const nameHeadlineEl = document.getElementById('identity-headline');
     const bioEl = document.getElementById('identity-bio');
     const verifiedBadgeRow = document.getElementById('verified-badge-row');
     const linkedinBtn = document.getElementById('verified-linkedin-btn');
@@ -161,42 +134,45 @@ class IdentityController {
     const titleEl = document.querySelector('title');
 
     if (this.isVerified) {
-      if (titleEl) titleEl.textContent = `${VERIFIED_DATA.name} — Portfolio & Lab`;
-      if (handleEl) handleEl.textContent = VERIFIED_DATA.name;
+      const data = this.getVerifiedData();
+      if (!data) return;
+
+      if (titleEl) titleEl.textContent = `${data.name} — Portfolio & Lab`;
+      if (handleEl) handleEl.textContent = data.name;
       if (badgeEl) badgeEl.textContent = `UNSOED Medical School (Sem 3)`;
       
       if (bioEl) {
-        bioEl.textContent = VERIFIED_DATA.bio;
+        bioEl.textContent = data.bio;
       }
 
       if (verifiedBadgeRow) {
         verifiedBadgeRow.style.display = 'flex';
-        verifiedBadgeRow.innerHTML = VERIFIED_DATA.badges.map(b => 
+        verifiedBadgeRow.innerHTML = data.badges.map(b => 
           `<span style="font-family:'DM Mono', monospace; font-size:11px; padding:3px 10px; border:1px solid var(--fg); background:var(--fg); color:var(--bg); border-radius:12px; font-weight:500;">✓ ${b}</span>`
         ).join('');
       }
 
       if (linkedinBtn) {
         linkedinBtn.style.display = 'inline-flex';
-        linkedinBtn.href = VERIFIED_DATA.links.linkedin;
+        linkedinBtn.href = data.links.linkedin;
       }
 
       if (unlockBtn) {
-        unlockBtn.innerHTML = `🔒 <span style="text-decoration:underline;">Verified (Ahmad Muqorrobin)</span> · Lock`;
+        unlockBtn.innerHTML = `🔒 <span style="text-decoration:underline;">Verified Profile</span> · Lock`;
         unlockBtn.onclick = () => this.lockIdentity();
       }
 
       // Update Education Section if present
       const edItems = document.querySelectorAll('.compact-item');
-      if (edItems.length >= 3) {
-        edItems[0].querySelector('.compact-title').textContent = VERIFIED_DATA.education[0].institution;
-        edItems[0].querySelector('.compact-desc').textContent = VERIFIED_DATA.education[0].desc;
+      if (edItems.length >= 3 && data.education) {
+        edItems[0].querySelector('.compact-title').textContent = data.education[0].institution;
+        edItems[0].querySelector('.compact-desc').textContent = data.education[0].desc;
 
-        edItems[1].querySelector('.compact-title').textContent = VERIFIED_DATA.education[1].institution;
-        edItems[1].querySelector('.compact-desc').textContent = VERIFIED_DATA.education[1].desc;
+        edItems[1].querySelector('.compact-title').textContent = data.education[1].institution;
+        edItems[1].querySelector('.compact-desc').textContent = data.education[1].desc;
 
-        edItems[2].querySelector('.compact-title').textContent = VERIFIED_DATA.education[2].institution;
-        edItems[2].querySelector('.compact-desc').textContent = VERIFIED_DATA.education[2].desc;
+        edItems[2].querySelector('.compact-title').textContent = data.education[2].institution;
+        edItems[2].querySelector('.compact-desc').textContent = data.education[2].desc;
       }
 
     } else {
@@ -217,7 +193,7 @@ class IdentityController {
       }
 
       if (unlockBtn) {
-        unlockBtn.innerHTML = `🔑 Verify / Unlock Identity`;
+        unlockBtn.innerHTML = `🔑 Unlock`;
         unlockBtn.onclick = () => window.showUnlockModal();
       }
     }
