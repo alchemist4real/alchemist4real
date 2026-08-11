@@ -211,12 +211,12 @@ class IdentityController {
       if (footerBrandEl) footerBrandEl.textContent = data.name;
       if (footerCopyrightEl) footerCopyrightEl.textContent = `© 2025 ${data.name} | Co-architect Sir. Yaon (@ghaffarsyafiq-arch)`;
       if (badgeEl) badgeEl.textContent = data.status || `BIB 2025 Awardee -- Sem 3`;
-      if (orgLabel) orgLabel.textContent = data.education ? data.education[0].institution : data.name;
+      if (orgLabel) orgLabel.textContent = 'alchemist4real';
       if (roleEl) roleEl.textContent = data.role || 'Undergraduate Medical Student';
       const cardType = document.getElementById('id-card-type');
       if (cardType) cardType.textContent = 'Verified Identity';
       const stamp = document.getElementById('id-stamp');
-      if (stamp) stamp.textContent = data.name;
+      if (stamp) stamp.textContent = `VERIFIED // ${data.name.toUpperCase()}`;
 
       // Show decrypted private photo in verified mode
       if (photoReal) {
@@ -236,10 +236,14 @@ class IdentityController {
         ).join('');
       }
 
+      const linkedinRow = document.getElementById('id-linkedin-row');
+      const linkedinLink = document.getElementById('verified-linkedin-link');
       if (linkedinBtn) {
         linkedinBtn.style.display = 'inline-flex';
         linkedinBtn.href = data.links.linkedin;
       }
+      if (linkedinRow) linkedinRow.style.display = 'flex';
+      if (linkedinLink && data.links) linkedinLink.href = data.links.linkedin;
 
       // Hide generator modal button from recruiters
       if (genModalBtn) {
@@ -283,7 +287,7 @@ class IdentityController {
       const cardType = document.getElementById('id-card-type');
       if (cardType) cardType.textContent = 'Identification Card';
       const stamp = document.getElementById('id-stamp');
-      if (stamp) stamp.textContent = '@alchemist4real';
+      if (stamp) stamp.textContent = 'ID // @alchemist4real';
 
       // Show public photo (Masked Alchemist) in public mode
       if (photoReal) {
@@ -303,6 +307,8 @@ class IdentityController {
       if (linkedinBtn) {
         linkedinBtn.style.display = 'none';
       }
+      const linkedinRow = document.getElementById('id-linkedin-row');
+      if (linkedinRow) linkedinRow.style.display = 'none';
 
       if (genModalBtn) {
         genModalBtn.style.display = 'none';
