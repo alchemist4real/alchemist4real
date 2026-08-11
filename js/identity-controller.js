@@ -3,7 +3,7 @@
  * Cryptographically secured using AES-256-GCM (WebCrypto API).
  * Zero plain-text identity leaks in source code or Chrome DevTools.
  * Zero emojis across all UI states and modals.
- * Recruiter token links show ONLY verified candidate profile (admin tools hidden).
+ * Zero browser storage persistence: public URL (without query params) ALWAYS renders 100% public.
  */
 
 const CRYPTO_PAYLOAD = {
@@ -17,7 +17,6 @@ class IdentityController {
   constructor() {
     this.isVerified = false;
     this.isRecruiter = false;
-    this.tokenInfo = null;
     this.verifiedData = null;
     this.activeKey = null;
     this.init();
@@ -65,11 +64,22 @@ class IdentityController {
   }
 
   async init() {
+    // Purge all legacy storage items to prevent auto-unlock persistence across sessions
+    if (typeof sessionStorage !== 'undefined') {
+      sessionStorage.removeItem('alchemist_key');
+      sessionStorage.removeItem('alchemist_recruiter');
+    }
+    if (typeof localStorage !== 'undefined') {
+      localStorage.removeItem('alchemist_key');
+      localStorage.removeItem('alchemist_recruiter');
+    }
+
     const searchStr = (typeof window !== 'undefined' && window.location) ? window.location.search : '';
     const params = new URLSearchParams(searchStr);
     const token = params.get('access_token') || params.get('token');
     const unlockKey = params.get('unlock');
 
+    // ONLY unlock if URL contains explicit query parameter token/key
     if (token) {
       await this.validateToken(token);
     } else if (unlockKey) {
@@ -79,20 +89,13 @@ class IdentityController {
         this.isRecruiter = false; // Owner access
         this.verifiedData = data;
         this.activeKey = unlockKey;
-        if (typeof sessionStorage !== 'undefined') sessionStorage.setItem('alchemist_key', unlockKey);
       }
     } else {
-      const storedKey = (typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('alchemist_key') : null) || (typeof localStorage !== 'undefined' ? localStorage.getItem('alchemist_key') : null);
-      const storedRecruiter = typeof sessionStorage !== 'undefined' ? sessionStorage.getItem('alchemist_recruiter') : null;
-      if (storedKey) {
-        const data = await this.decryptPayload(storedKey);
-        if (data) {
-          this.isVerified = true;
-          this.isRecruiter = storedRecruiter === 'true';
-          this.verifiedData = data;
-          this.activeKey = storedKey;
-        }
-      }
+      // Default: 100% Public Mode. No auto-unlock from storage.
+      this.isVerified = false;
+      this.isRecruiter = false;
+      this.verifiedData = null;
+      this.activeKey = null;
     }
 
     this.render();
@@ -119,7 +122,7 @@ class IdentityController {
           keyToTry = payload.key;
         }
       } catch (e) {
-        // Direct string key
+        // Direct string key token
         isRecruiterToken = false;
       }
 
@@ -129,10 +132,6 @@ class IdentityController {
         this.isRecruiter = isRecruiterToken;
         this.verifiedData = data;
         this.activeKey = keyToTry;
-        if (typeof sessionStorage !== 'undefined') {
-          sessionStorage.setItem('alchemist_key', keyToTry);
-          sessionStorage.setItem('alchemist_recruiter', isRecruiterToken ? 'true' : 'false');
-        }
       }
     } catch (e) {
       console.warn("Invalid token string", e);
@@ -144,13 +143,6 @@ class IdentityController {
     this.isRecruiter = false;
     this.verifiedData = null;
     this.activeKey = null;
-    if (typeof sessionStorage !== 'undefined') {
-      sessionStorage.removeItem('alchemist_key');
-      sessionStorage.removeItem('alchemist_recruiter');
-    }
-    if (typeof localStorage !== 'undefined') {
-      localStorage.removeItem('alchemist_key');
-    }
     if (typeof window !== 'undefined' && window.history) {
       window.history.replaceState({}, document.title, window.location.pathname);
     }
