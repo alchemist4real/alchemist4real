@@ -316,10 +316,12 @@ for r in gh_repos:
     name = r["name"]
     name_clean = name.lower().replace("-", "").replace(".", "").replace("_", "")
     
-    # Skip if excluded or extension
+    # Skip if excluded, extension, or already in curated_projects
     if name.lower() in excluded_repo_names:
         continue
     if any(ext["link"].lower().rstrip("/") == html_url for ext in curated_extensions):
+        continue
+    if any(p.get("repo_link", "").lower().rstrip("/") == html_url for p in curated_projects):
         continue
         
     live_link = vercel_map.get(name_clean) or r.get("homepage")
