@@ -6,8 +6,12 @@
   <meta name="description" content="Portfolio catalog by @alchemist4real. Health education web apps that actually hit different.">
   <title>alchemist4real — The Lab</title>
   
-  <!-- FAVICON: inline SVG favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230D0D0D'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' fill='%23FAFAFA' font-size='20' font-family='serif' font-weight='600'%3EA%3C/text%3E%3C/svg%3E">
+  <!-- FAVICON & BRANDING ASSETS -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -164,11 +168,18 @@
     nav .nav-links { display: flex; gap: 28px; }
     nav .nav-links a { text-decoration: none; color: var(--fg-muted); transition: color 0.2s; }
     nav .nav-links a:hover { color: var(--fg); }
+    nav .brand-link { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg); }
+    nav .brand-logo-img { height: 26px; width: 26px; object-fit: contain; transition: transform 0.25s ease, filter 0.25s ease; }
+    nav .brand-link:hover .brand-logo-img { transform: scale(1.12) rotate(-4deg); }
     nav .logo-text { text-transform: none; font-size: 13px; color: var(--fg); }
 
     .hero { min-height: calc(100vh - 52px); display: flex; align-items: center; }
-    .hero-content { max-width: 680px; }
+    .hero-layout { display: flex; justify-content: space-between; align-items: center; gap: 48px; width: 100%; }
+    .hero-content { max-width: 540px; }
     .hero-content .display { margin: 12px 0 20px; }
+    .hero-crest-container { flex-shrink: 0; display: flex; justify-content: center; align-items: center; }
+    .hero-crest { width: 210px; height: 210px; object-fit: contain; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.07)); transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease; }
+    .hero-crest:hover { transform: scale(1.06) rotate(1deg); filter: drop-shadow(0 12px 32px rgba(0,0,0,0.14)); }
     .stats-row { display: flex; gap: 40px; margin: 40px 0 32px; flex-wrap: wrap; }
     .stat-item { display: flex; flex-direction: column; gap: 4px; }
     .stat-number { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; color: var(--fg); line-height: 1; }
@@ -265,6 +276,8 @@
       nav .nav-links { gap: 16px; }
       nav .nav-links a.hide-mobile { display: none; }
       .hero { min-height: auto; padding-top: 60px; padding-bottom: 60px; }
+      .hero-layout { flex-direction: column-reverse; align-items: flex-start; gap: 32px; }
+      .hero-crest { width: 140px; height: 140px; }
       .stats-row { gap: 24px; }
       .connect-grid { grid-template-columns: minmax(0, 1fr); }
       #about .about-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
@@ -278,7 +291,10 @@
 
   <nav id="nav">
     <div class="container">
-      <span class="label logo-text">alchemist4real</span>
+      <a href="#top" class="brand-link">
+        <img src="assets/logo-icon.png" alt="alchemist4real logo mark" class="brand-logo-img">
+        <span class="label logo-text">alchemist4real</span>
+      </a>
       <div class="nav-links">
         <a href="#projects" class="label">Projects</a>
         <a href="#about" class="label hide-mobile">About</a>
@@ -290,24 +306,29 @@
 
   <main>
     <section class="hero container" id="top">
-      <div class="hero-content">
-        <span class="label anim-flicker">THE LAB</span>
-        <h1 class="display anim-glitch">digital alchemy<br>at scale.</h1>
-        <p class="body-text anim-glitch" style="max-width:480px; animation-delay: 0.2s;">transmuting experimental concepts into autonomous ai tools, decentralized architectures, and raw web elements. no cap.</p>
-        
-        <div class="stats-row anim-glitch" style="animation-delay: 0.4s;">
-          <div class="stat-item">
-            <span class="stat-number" id="stat-projects">—</span>
-            <span class="label">Live Projects</span>
+      <div class="hero-layout">
+        <div class="hero-content">
+          <span class="label anim-flicker">THE LAB</span>
+          <h1 class="display anim-glitch">digital alchemy<br>at scale.</h1>
+          <p class="body-text anim-glitch" style="max-width:480px; animation-delay: 0.2s;">transmuting experimental concepts into autonomous ai tools, decentralized architectures, and raw web elements. no cap.</p>
+          
+          <div class="stats-row anim-glitch" style="animation-delay: 0.4s;">
+            <div class="stat-item">
+              <span class="stat-number" id="stat-projects">—</span>
+              <span class="label">Live Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="label">Server Uptime</span>
+            </div>
           </div>
-          <div class="stat-item">
-            <span class="stat-number">100%</span>
-            <span class="label">Server Uptime</span>
+          
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px;" class="anim-glitch" style="animation-delay: 0.6s;">
+            <a href="#projects" class="btn-ghost">See The Work</a>
           </div>
         </div>
-        
-        <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px;" class="anim-glitch" style="animation-delay: 0.6s;">
-          <a href="#projects" class="btn-ghost">See The Work</a>
+        <div class="hero-crest-container anim-glitch" style="animation-delay: 0.3s;">
+          <img src="assets/logo.png" alt="alchemist4real crest logo" class="hero-crest">
         </div>
       </div>
     </section>
@@ -505,7 +526,10 @@
   </div>
   <footer class="container">
     <div class="footer-top">
-      <span class="muted">© 2025 @alchemist4real · built with insomnia and vscode.</span>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="assets/logo-icon.png" alt="alchemist4real logo mark" style="height: 22px; width: 22px; opacity: 0.9;">
+        <span class="muted">© 2025 @alchemist4real · built with insomnia and vscode.</span>
+      </div>
       <div class="footer-links">
         <a href="https://github.com/alchemist4real" class="label" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://wa.me/6285778120332" class="label" target="_blank" rel="noopener noreferrer">WhatsApp</a>
