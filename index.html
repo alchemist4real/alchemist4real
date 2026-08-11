@@ -17,9 +17,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="js/identity-controller.js?v=20260811_13"></script>
+  <script src="js/identity-controller.js?v=20260811_14"></script>
   
   <style>
+    /* Default Public Theme (Joker Heraldic Crest Palette) */
     :root {
       --bg: #F7F4EE;
       --bg-card: #FFFFFF;
@@ -31,6 +32,20 @@
       --live-dot: #D4941B;
       --tag-bg: #EFECE6;
       --tag-fg: #0D111A;
+    }
+
+    /* Private / Verified Theme (Alchemist Minimal Laboratory Palette) */
+    body.verified-theme {
+      --bg: #FAFAFA;
+      --bg-card: #FFFFFF;
+      --fg: #0A0A0A;
+      --fg-muted: #666666;
+      --fg-faint: #E0E0E0;
+      --accent-gold: #0070F3;
+      --accent-red: #E00000;
+      --live-dot: #00E5FF;
+      --tag-bg: #F0F0F0;
+      --tag-fg: #0A0A0A;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -523,7 +538,7 @@
   <nav id="nav">
     <div class="container">
       <a href="#top" class="brand-link">
-        <img src="assets/logo-icon.png" alt="alchemist4real logo mark" class="brand-logo-img">
+        <img src="assets/logo-icon.png" id="nav-logo" alt="alchemist4real logo mark" class="brand-logo-img">
         <span class="label logo-text" id="identity-handle">@alchemist4real</span>
       </a>
       <div class="nav-links">
@@ -539,10 +554,10 @@
   <main>
     <section class="hero container" id="top">
       <div class="id-card anim-glitch" onclick="openCardModal(event)" title="Click to view large preview">
-        <img src="assets/logo-monochrome.png" alt="watermark stamp" class="id-card-watermark">
+        <img src="assets/logo-monochrome.png" id="id-watermark" alt="watermark stamp" class="id-card-watermark">
 
         <div class="id-card-top">
-          <img src="assets/logo-icon.png" alt="logo" class="id-logo">
+          <img src="assets/logo-icon.png" id="id-top-logo" alt="logo" class="id-logo">
           <div class="id-card-title">
             <span class="id-card-title-main" id="id-card-type">Identification Card</span>
           </div>
@@ -628,7 +643,7 @@
   <footer class="container" style="padding-top: 30px; padding-bottom: 30px; border-top: 1px solid var(--fg-faint); margin-top: 50px;">
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
       <div style="display: flex; align-items: center; gap: 10px;">
-        <img src="assets/logo-icon.png" alt="alchemist4real logo mark" style="height: 20px; width: 20px;">
+        <img src="assets/logo-icon.png" id="footer-logo" alt="alchemist4real logo mark" style="height: 20px; width: 20px;">
         <span class="muted" id="footer-copyright" style="font-size: 12px;">© 2025 @alchemist4real | Co-architect Sir. Yaon (@ghaffarsyafiq-arch)</span>
       </div>
       <div style="display: flex; gap: 16px; align-items: center;">
@@ -987,7 +1002,7 @@
     <div class="qr-modal-content connect-modal-content" onclick="event.stopPropagation()">
       <button class="qr-close" onclick="closeConnectModal()">&times;</button>
       <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-        <img src="assets/logo-icon.png" alt="logo" style="width: 22px; height: 22px;">
+        <img src="assets/logo-icon.png" id="connect-modal-logo" alt="logo" style="width: 22px; height: 22px;">
         <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin: 0; color: var(--fg);">Connect // Lab</h3>
       </div>
       <p class="muted" style="font-size: 12px; margin-bottom: 20px; line-height: 1.5;">Direct channels & social profiles to transmute ideas into reality.</p>

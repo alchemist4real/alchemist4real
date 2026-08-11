@@ -205,6 +205,26 @@ class IdentityController {
     if (this.isVerified && this.verifiedData) {
       const data = this.verifiedData;
 
+      if (typeof document !== 'undefined' && document.body) {
+        document.body.classList.add('verified-theme');
+      }
+
+      // Switch to Private / Verified Alchemist Logos & Watermark
+      const navLogo = document.getElementById('nav-logo');
+      const cardWatermark = document.getElementById('id-watermark');
+      const cardTopLogo = document.getElementById('id-top-logo');
+      const connectLogo = document.getElementById('connect-modal-logo');
+      const footerLogo = document.getElementById('footer-logo');
+
+      if (navLogo) navLogo.src = 'assets/logo-white.png';
+      if (cardWatermark) {
+        cardWatermark.src = 'assets/logo-white.png';
+        cardWatermark.style.opacity = '0.07';
+      }
+      if (cardTopLogo) cardTopLogo.src = 'assets/logo-white.png';
+      if (connectLogo) connectLogo.src = 'assets/logo-white.png';
+      if (footerLogo) footerLogo.src = 'assets/logo-white.png';
+
       if (titleEl) titleEl.textContent = `${data.name} — Portfolio & Lab`;
       if (handleEl) handleEl.textContent = data.name;
       if (heroHandleEl) heroHandleEl.textContent = data.name;
@@ -282,6 +302,26 @@ class IdentityController {
       }
 
     } else {
+      if (typeof document !== 'undefined' && document.body) {
+        document.body.classList.remove('verified-theme');
+      }
+
+      // Switch to Public Joker Coat-of-Arms Heraldic Logos & Watermark
+      const navLogo = document.getElementById('nav-logo');
+      const cardWatermark = document.getElementById('id-watermark');
+      const cardTopLogo = document.getElementById('id-top-logo');
+      const connectLogo = document.getElementById('connect-modal-logo');
+      const footerLogo = document.getElementById('footer-logo');
+
+      if (navLogo) navLogo.src = 'assets/logo-icon.png';
+      if (cardWatermark) {
+        cardWatermark.src = 'assets/logo-monochrome.png';
+        cardWatermark.style.opacity = '0.12';
+      }
+      if (cardTopLogo) cardTopLogo.src = 'assets/logo-icon.png';
+      if (connectLogo) connectLogo.src = 'assets/logo-icon.png';
+      if (footerLogo) footerLogo.src = 'assets/logo-icon.png';
+
       if (titleEl) titleEl.textContent = `alchemist4real — The Lab`;
       if (handleEl) handleEl.textContent = `@alchemist4real`;
       if (heroHandleEl) heroHandleEl.textContent = `@alchemist4real`;
