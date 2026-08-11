@@ -147,6 +147,7 @@ class IdentityController {
       this.isRecruiter = false;
       this.verifiedData = data;
       this.activeKey = passcodeStr.trim();
+      this.triggerTransmuteEffect();
       this.render();
       return true;
     } else {
@@ -163,6 +164,7 @@ class IdentityController {
     if (typeof window !== 'undefined' && window.history) {
       window.history.replaceState({}, document.title, window.location.pathname);
     }
+    this.triggerTransmuteEffect();
     this.render();
   }
 
@@ -179,6 +181,16 @@ class IdentityController {
     const origin = (typeof window !== 'undefined' && window.location && window.location.origin) ? (window.location.origin + window.location.pathname) : 'https://alchemist4real.vercel.app/';
     const fullUrl = `${origin}?access_token=${encodeURIComponent(tokenStr)}`;
     return { tokenStr, fullUrl, expDate: new Date(expSec * 1000).toLocaleDateString() };
+  }
+
+  triggerTransmuteEffect() {
+    if (typeof document === 'undefined' || !document.body) return;
+    document.body.classList.remove('transmute-glitch');
+    void document.body.offsetWidth;
+    document.body.classList.add('transmute-glitch');
+    setTimeout(() => {
+      document.body.classList.remove('transmute-glitch');
+    }, 600);
   }
 
   render() {
