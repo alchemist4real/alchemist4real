@@ -737,7 +737,7 @@
       transform: rotate(-12deg);
       z-index: 0;
     }
-    .id-card-top { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 48px 7px 16px; flex-shrink: 0; position: relative; z-index: 1; }
+    .id-card-top { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 92px 7px 16px; flex-shrink: 0; position: relative; z-index: 1; }
     .id-card-top .id-logo { width: 22px; height: 22px; object-fit: contain; }
     .id-card-title { text-align: center; flex-shrink: 0; }
     .id-card-title-main { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg); line-height: 1; }
@@ -1051,7 +1051,7 @@
         height: auto !important;
         aspect-ratio: auto !important;
       }
-      .id-card-top { padding: 8px 85px 6px 12px !important; }
+      .id-card-top { padding: 8px 75px 6px 12px !important; }
       .id-top-actions { right: 8px; gap: 3px; }
       .id-top-actions .id-zoom-btn { font-size: 7.5px; padding: 1px 4px; }
       .id-card-top .id-logo { width: 18px; height: 18px; }
@@ -1538,7 +1538,7 @@
       const qrSub = document.getElementById('qr-float-sub');
       const qrImg = document.getElementById('qr-float-img');
       
-      if (qrImg) qrImg.src = 'assets/qr/card.png';
+      if (qrImg) qrImg.src = 'assets/qr/partner.png';
       if (qrTitle) qrTitle.textContent = isVerified ? 'DOWNLOAD VERIFIED CARD' : 'DOWNLOAD CARD ON PHONE';
       if (qrSub) qrSub.textContent = isVerified ? 'Scan to view & save verified card on mobile' : 'Scan with phone camera to download card';
 
@@ -1600,7 +1600,8 @@
       const modal = document.getElementById('qr-modal');
       const img = document.getElementById('qr-image');
       const title = document.getElementById('qr-modal-title');
-      img.src = `assets/qr/${id}.png`;
+      const qrFile = (id === 'card' || id === 'linkedin') ? 'partner.png' : `${id}.png`;
+      img.src = `assets/qr/${qrFile}`;
       if (title) {
         const titles = {
           'card': 'ID Card Verification QR',
@@ -1748,8 +1749,8 @@
       <div id="card-modal-container" style="display: flex; justify-content: center; align-items: center; padding: 20px 0 10px;"></div>
       
       <div class="card-modal-actions">
-        <div class="qr-float-badge" onclick="showQR('card')" style="cursor: pointer;" title="Click to enlarge QR code for scanning">
-          <img src="assets/qr/card.png" id="qr-float-img" alt="Mobile Download QR" class="qr-float-img">
+        <div class="qr-float-badge" onclick="showQR('partner')" style="cursor: pointer;" title="Click to enlarge QR code for scanning">
+          <img src="assets/qr/partner.png" id="qr-float-img" alt="Mobile Download QR" class="qr-float-img">
           <div class="qr-float-info">
             <span class="qr-float-title" id="qr-float-title">DOWNLOAD CARD ON PHONE</span>
             <span class="qr-float-sub" id="qr-float-sub">Scan with phone camera to download card</span>
