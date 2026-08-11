@@ -693,33 +693,35 @@
     .id-card-bottom { border-top: 1px solid var(--fg-faint); padding: 5px 16px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; position: relative; z-index: 1; }
     .id-stamp { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-muted); opacity: 0.7; }
     
-    /* Enlarged ID Card Modal Styling */
-    #card-modal-container .id-card {
-      max-width: 600px !important;
-      width: 90vw !important;
-      aspect-ratio: 1.586 / 1 !important;
-      transform: none !important;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.4) !important;
-      cursor: default !important;
+    /* Enlarged ID Card Modal Styling (Desktop) */
+    @media (min-width: 641px) {
+      #card-modal-container .id-card {
+        max-width: 600px !important;
+        width: 90vw !important;
+        aspect-ratio: 1.586 / 1 !important;
+        transform: none !important;
+        box-shadow: 0 24px 60px rgba(0,0,0,0.4) !important;
+        cursor: default !important;
+      }
+      #card-modal-container .id-card .id-zoom-btn { display: none !important; }
+      #card-modal-container .id-card-watermark { width: 270px !important; height: 270px !important; right: -30px !important; bottom: -30px !important; }
+      #card-modal-container .id-card-top { padding: 14px 24px 10px !important; gap: 12px !important; }
+      #card-modal-container .id-card-top .id-logo { width: 30px !important; height: 30px !important; }
+      #card-modal-container .id-card-title-main { font-size: 1.55rem !important; }
+      #card-modal-container .id-card-divider { margin: 0 24px !important; }
+      #card-modal-container .id-card-body { padding: 14px 24px 10px !important; gap: 20px !important; }
+      #card-modal-container .id-photo { width: 118px !important; height: 148px !important; }
+      #card-modal-container .id-photo-label { font-size: 8px !important; padding: 2px 6px !important; }
+      #card-modal-container .id-fields { gap: 5px !important; }
+      #card-modal-container .id-row-label { font-size: 14px !important; min-width: 66px !important; }
+      #card-modal-container .id-row-value { font-size: 14px !important; }
+      #card-modal-container .id-row-value.id-name-value { font-size: 14px !important; font-weight: 600 !important; }
+      #card-modal-container .id-link-item { font-size: 14px !important; }
+      #card-modal-container .id-qr-btn { font-size: 11px !important; padding: 1px 7px !important; }
+      #card-modal-container .id-card-bio { font-size: 10px !important; line-height: 1.45 !important; margin: 0 24px 8px !important; padding-top: 6px !important; }
+      #card-modal-container .id-card-bottom { padding: 8px 24px !important; }
+      #card-modal-container .id-stamp { font-size: 11px !important; }
     }
-    #card-modal-container .id-card .id-zoom-btn { display: none !important; }
-    #card-modal-container .id-card-watermark { width: 270px !important; height: 270px !important; right: -30px !important; bottom: -30px !important; }
-    #card-modal-container .id-card-top { padding: 14px 24px 10px !important; gap: 12px !important; }
-    #card-modal-container .id-card-top .id-logo { width: 30px !important; height: 30px !important; }
-    #card-modal-container .id-card-title-main { font-size: 1.55rem !important; }
-    #card-modal-container .id-card-divider { margin: 0 24px !important; }
-    #card-modal-container .id-card-body { padding: 14px 24px 10px !important; gap: 20px !important; }
-    #card-modal-container .id-photo { width: 118px !important; height: 148px !important; }
-    #card-modal-container .id-photo-label { font-size: 8px !important; padding: 2px 6px !important; }
-    #card-modal-container .id-fields { gap: 5px !important; }
-    #card-modal-container .id-row-label { font-size: 14px !important; min-width: 66px !important; }
-    #card-modal-container .id-row-value { font-size: 14px !important; }
-    #card-modal-container .id-row-value.id-name-value { font-size: 14px !important; font-weight: 600 !important; }
-    #card-modal-container .id-link-item { font-size: 14px !important; }
-    #card-modal-container .id-qr-btn { font-size: 11px !important; padding: 1px 7px !important; }
-    #card-modal-container .id-card-bio { font-size: 10px !important; line-height: 1.45 !important; margin: 0 24px 8px !important; padding-top: 6px !important; }
-    #card-modal-container .id-card-bottom { padding: 8px 24px !important; }
-    #card-modal-container .id-stamp { font-size: 11px !important; }
 
     /* Floating QR & Download Bar in Zoom Modal */
     .card-modal-actions {
@@ -922,21 +924,73 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      nav .nav-links { gap: 16px; }
+      nav .nav-links { gap: 14px; }
       nav .nav-links a.hide-mobile { display: none; }
-      .hero { min-height: auto; padding-top: 50px; padding-bottom: 50px; gap: 16px; }
-      .id-card { max-width: 350px; aspect-ratio: 1.586 / 1; }
-      .id-card-body { gap: 10px; padding: 10px 12px; }
-      .id-photo { width: 72px; height: 92px; }
-      .id-row-label { min-width: 40px; font-size: 7.5px; }
-      .id-row-value { font-size: 9.5px; }
-      .id-row-value.id-name-value { font-size: 1rem; }
-      .id-link-item { font-size: 8px; }
-      .id-card-bottom { padding-left: 12px; padding-right: 12px; }
-      .id-card-top { padding: 8px 42px 6px 12px; }
+      .hero { min-height: auto; padding-top: 30px; padding-bottom: 30px; gap: 12px; }
+      
+      /* Mobile Normal ID Card */
+      .id-card { 
+        max-width: 360px; 
+        width: 100%; 
+        aspect-ratio: 1.586 / 1;
+      }
+      .id-card-top { padding: 7px 42px 5px 12px !important; }
+      .id-card-top .id-logo { width: 18px; height: 18px; }
       .id-card-title-main { font-size: 0.92rem !important; letter-spacing: 0.1em; }
-      .id-zoom-btn { font-size: 7.5px; padding: 2px 5px; right: 8px; top: 50%; transform: translateY(-50%); }
+      .id-zoom-btn { font-size: 7.5px; padding: 1px 5px; right: 8px; top: 50%; transform: translateY(-50%); }
       .id-card-divider { margin: 0 12px; }
+      .id-card-body { gap: 8px; padding: 6px 12px 4px; flex: 1; min-height: 0; }
+      .id-photo { width: 68px !important; height: 86px !important; flex-shrink: 0; }
+      .id-fields { gap: 2.5px; min-width: 0; }
+      .id-row { gap: 4px; }
+      .id-row-label { min-width: 40px; font-size: 7.5px; }
+      .id-row-value { font-size: 8.5px; }
+      .id-row-value.id-name-value { font-size: 9px; }
+      .id-link-item { font-size: 7.5px; }
+      .id-qr-btn { font-size: 7px; padding: 0px 3px; }
+      .id-card-bio { font-size: 6.8px; line-height: 1.3; margin: 0 12px 3px; padding-top: 3px; }
+      .id-card-bottom { padding: 3px 12px 4px; }
+      .id-stamp { font-size: 7.5px; }
+
+      /* Mobile Zoom Preview Modal Card */
+      #card-modal-container .id-card {
+        max-width: 360px !important;
+        width: 92vw !important;
+        aspect-ratio: 1.586 / 1 !important;
+        transform: none !important;
+        box-shadow: 0 16px 40px rgba(0,0,0,0.4) !important;
+        cursor: default !important;
+      }
+      #card-modal-container .id-card .id-zoom-btn { display: none !important; }
+      #card-modal-container .id-card-watermark { width: 170px !important; height: 170px !important; right: -15px !important; bottom: -15px !important; }
+      #card-modal-container .id-card-top { padding: 8px 12px 5px !important; gap: 8px !important; }
+      #card-modal-container .id-card-top .id-logo { width: 20px !important; height: 20px !important; }
+      #card-modal-container .id-card-title-main { font-size: 0.95rem !important; }
+      #card-modal-container .id-card-divider { margin: 0 12px !important; }
+      #card-modal-container .id-card-body { padding: 7px 12px 5px !important; gap: 10px !important; }
+      #card-modal-container .id-photo { width: 72px !important; height: 92px !important; }
+      #card-modal-container .id-photo-label { font-size: 7px !important; padding: 1px 4px !important; }
+      #card-modal-container .id-fields { gap: 3px !important; }
+      #card-modal-container .id-row-label { font-size: 8px !important; min-width: 42px !important; }
+      #card-modal-container .id-row-value { font-size: 9px !important; }
+      #card-modal-container .id-row-value.id-name-value { font-size: 9.5px !important; font-weight: 600 !important; }
+      #card-modal-container .id-link-item { font-size: 8px !important; }
+      #card-modal-container .id-qr-btn { font-size: 7.5px !important; padding: 0px 3px !important; }
+      #card-modal-container .id-card-bio { font-size: 7px !important; line-height: 1.35 !important; margin: 0 12px 4px !important; padding-top: 3px !important; }
+      #card-modal-container .id-card-bottom { padding: 4px 12px !important; }
+      #card-modal-container .id-stamp { font-size: 8px !important; }
+
+      .card-modal-actions {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important;
+        padding: 10px 14px !important;
+      }
+      .btn-download-card {
+        width: 100% !important;
+        justify-content: center !important;
+      }
+
       .hero-actions { gap: 8px; }
       .connect-grid { grid-template-columns: minmax(0, 1fr); }
       .project-list { grid-template-columns: minmax(0, 1fr); }
