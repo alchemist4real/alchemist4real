@@ -17,14 +17,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="js/identity-controller.js?v=20260811_15"></script>
+  <script src="js/identity-controller.js?v=20260811_16"></script>
   
   <style>
     /* =========================================================
        PUBLIC THEME — Vibrant Harlequin Joker Crest Palette
        ========================================================= */
     :root {
-      --bg: #FBF8F1; /* Warm parchment cream */
+      --bg: #FBF7F0; /* Soft warm cream parchment */
       --bg-card: #FFFFFF;
       --fg: #0D111A; /* Deep obsidian navy */
       --fg-muted: #4B5563;
@@ -32,100 +32,176 @@
       --accent-gold: #E8A825; /* Harlequin Amber Gold */
       --accent-red: #D62828; /* Harlequin Crimson Red */
       --accent-teal: #059669; /* Harlequin Emerald Teal */
+      --accent-purple: #7C3AED; /* Harlequin Purple */
       --live-dot: #D62828;
       --tag-bg: #FFFBEB;
       --tag-fg: #92400E;
     }
 
-    /* Public Mode ID Card & Web Enhancements */
+    /* Top Harlequin 4-Color Accent Line */
+    .harlequin-bar {
+      height: 4px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10001;
+      background: linear-gradient(90deg, #D62828 0%, #E8A825 33%, #059669 66%, #7C3AED 100%);
+      transition: background 0.3s ease;
+    }
+
+    /* Public Mode ID Card & Web Colorful Enhancements */
     body:not(.verified-theme) .id-card {
-      border: 1.5px solid var(--fg);
-      box-shadow: 0 8px 24px rgba(214, 40, 40, 0.08), 0 2px 8px rgba(232, 168, 37, 0.12);
+      border: 2px solid transparent;
+      background: linear-gradient(#FFFFFF, #FFFFFF) padding-box, linear-gradient(135deg, #D62828, #E8A825, #059669, #7C3AED) border-box;
+      box-shadow: 0 12px 32px rgba(214, 40, 40, 0.12), 0 4px 12px rgba(232, 168, 37, 0.16);
     }
     body:not(.verified-theme) .id-card-title-main {
-      color: var(--accent-red);
+      background: linear-gradient(90deg, #D62828, #E8A825);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
       letter-spacing: 0.18em;
     }
     body:not(.verified-theme) .id-photo-label {
-      background: var(--accent-red);
+      background: linear-gradient(135deg, #D62828, #B91C1C);
       color: #FFFFFF;
-      border-color: var(--accent-red);
-      font-weight: 500;
+      border: none;
+      font-weight: 600;
     }
     body:not(.verified-theme) .id-stamp {
-      color: var(--accent-red);
-      font-weight: 500;
+      color: #D62828;
+      font-weight: 600;
+    }
+    body:not(.verified-theme) .id-zoom-btn {
+      border-color: #E8A825;
+      color: #D62828;
+      font-weight: 600;
+    }
+    body:not(.verified-theme) .id-zoom-btn:hover {
+      background: #E8A825;
+      color: #FFFFFF;
     }
     body:not(.verified-theme) .id-qr-btn {
-      border-color: var(--accent-gold);
-      color: var(--fg);
+      border-color: #E2D9C8;
+      color: #0D111A;
+      font-weight: 500;
     }
-    body:not(.verified-theme) .id-qr-btn:hover {
-      background: var(--accent-gold);
-      color: #FFFFFF;
-      border-color: var(--accent-gold);
+    body:not(.verified-theme) .id-qr-btn:nth-child(1):hover { background: #D62828; color: #FFF; border-color: #D62828; }
+    body:not(.verified-theme) .id-qr-btn:nth-child(2):hover { background: #059669; color: #FFF; border-color: #059669; }
+    body:not(.verified-theme) .id-qr-btn:nth-child(3):hover { background: #E8A825; color: #FFF; border-color: #E8A825; }
+    body:not(.verified-theme) .id-qr-btn:nth-child(4):hover { background: #7C3AED; color: #FFF; border-color: #7C3AED; }
+
+    /* Public Mode Filter Buttons */
+    body:not(.verified-theme) .filter-btn {
+      border-color: #E2D9C8;
+      color: #4B5563;
+      font-weight: 500;
     }
     body:not(.verified-theme) .filter-btn:hover {
-      border-color: var(--accent-red);
-      color: var(--accent-red);
+      border-color: #D62828;
+      color: #D62828;
     }
     body:not(.verified-theme) .filter-btn.active {
-      background: var(--accent-red);
+      background: linear-gradient(135deg, #D62828, #E8A825);
       color: #FFFFFF;
-      border-color: var(--accent-red);
-    }
-    body:not(.verified-theme) .card:hover {
-      border-color: var(--accent-gold);
-      box-shadow: 0 8px 24px rgba(232, 168, 37, 0.12);
-    }
-    body:not(.verified-theme) ::selection {
-      background: var(--accent-gold);
-      color: var(--fg);
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(214, 40, 40, 0.25);
     }
 
+    /* Public Mode Project Row Cards */
+    body:not(.verified-theme) .project-row {
+      border: 1px solid #EAE4D8;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+      transition: all 0.25s ease;
+    }
+    body:not(.verified-theme) .project-row:hover {
+      border-color: #E8A825;
+      box-shadow: 0 10px 30px rgba(232, 168, 37, 0.15), 0 4px 12px rgba(214, 40, 40, 0.08);
+      transform: translateY(-2px);
+    }
+    body:not(.verified-theme) ::selection {
+      background: #E8A825;
+      color: #0D111A;
+    }
+
+    /* Public Mode Colorful Tag Pills */
+    body:not(.verified-theme) .tag.tag-red { background: #FEE2E2; color: #991B1B; border: 1px solid #FCA5A5; font-weight: 500; }
+    body:not(.verified-theme) .tag.tag-gold { background: #FEF3C7; color: #92400E; border: 1px solid #FCD34D; font-weight: 500; }
+    body:not(.verified-theme) .tag.tag-teal { background: #D1FAE5; color: #065F46; border: 1px solid #6EE7B7; font-weight: 500; }
+    body:not(.verified-theme) .tag.tag-purple { background: #EDE9FE; color: #5B21B6; border: 1px solid #C4B5FD; font-weight: 500; }
+
     /* =========================================================
-       PRIVATE / VERIFIED THEME — Minimal Alchemist Geometry
+       PRIVATE / VERIFIED THEME — Dark Obsidian Laboratory
        ========================================================= */
     body.verified-theme {
-      --bg: #FAFAFA;
-      --bg-card: #FFFFFF;
-      --fg: #0A0A0A;
-      --fg-muted: #666666;
-      --fg-faint: #E0E0E0;
+      --bg: #0B0F19; /* Sleek Dark Obsidian Laboratory */
+      --bg-card: #151F30;
+      --fg: #F8FAFC;
+      --fg-muted: #94A3B8;
+      --fg-faint: #334155;
       --accent-gold: #0070F3;
-      --accent-red: #E00000;
+      --accent-red: #FF0080;
       --live-dot: #00E5FF;
-      --tag-bg: #F0F0F0;
-      --tag-fg: #0A0A0A;
+      --tag-bg: #1E293B;
+      --tag-fg: #F8FAFC;
+    }
+    body.verified-theme .harlequin-bar {
+      background: linear-gradient(90deg, #0070F3 0%, #00E5FF 50%, #FF0080 100%);
     }
     body.verified-theme .id-card {
-      border: 1.5px solid #0A0A0A;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      border: 1.5px solid #334155;
+      background: #151F30;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
     }
     body.verified-theme .id-card-title-main {
-      color: #0A0A0A;
+      color: #F8FAFC;
     }
     body.verified-theme .id-photo-label {
-      background: #0A0A0A;
+      background: #0070F3;
       color: #FFFFFF;
-      border-color: #0A0A0A;
+      border-color: #0070F3;
     }
     body.verified-theme .id-stamp {
-      color: #0070F3;
+      color: #00E5FF;
       font-weight: 500;
     }
     body.verified-theme .filter-btn.active {
-      background: #0A0A0A;
+      background: #0070F3;
       color: #FFFFFF;
-      border-color: #0A0A0A;
+      border-color: #0070F3;
+    }
+    body.verified-theme .project-row {
+      background: #151F30;
+      border-color: #1E293B;
+    }
+    body.verified-theme .project-row:hover {
+      border-color: #0070F3;
+      box-shadow: 0 8px 30px rgba(0, 112, 243, 0.2);
+    }
+    body.verified-theme .btn-ghost {
+      border-color: #F8FAFC;
+      color: #F8FAFC;
+    }
+    body.verified-theme .btn-ghost:hover {
+      background: #F8FAFC;
+      color: #0B0F19;
     }
 
-    /* Smooth Theme & Logo Transitions */
-    body, .id-card, .card, nav, .qr-modal-content {
-      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    }
+    /* Logo Visibility & Switching Filters */
     .brand-logo-img, .id-logo, .id-card-watermark, #connect-modal-logo, #footer-logo {
       transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    body.verified-theme .brand-logo-img,
+    body.verified-theme .id-logo,
+    body.verified-theme #connect-modal-logo,
+    body.verified-theme #footer-logo {
+      filter: drop-shadow(0 0 4px rgba(255,255,255,0.4));
+    }
+
+    /* Smooth Theme Transitions */
+    body, .id-card, .card, nav, .qr-modal-content, .project-row {
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -614,6 +690,7 @@
   </style>
 </head>
 <body>
+  <div class="harlequin-bar"></div>
 
   <nav id="nav">
     <div class="container">
@@ -901,6 +978,14 @@
           }
         }
 
+        function getTagClass(tag) {
+          const t = tag.toLowerCase();
+          if (t.includes('ai') || t.includes('medical') || t.includes('nlp') || t.includes('genom') || t.includes('bio')) return 'tag-red';
+          if (t.includes('rust') || t.includes('system') || t.includes('cli') || t.includes('crypto')) return 'tag-gold';
+          if (t.includes('web') || t.includes('ui') || t.includes('extension') || t.includes('frontend')) return 'tag-teal';
+          return 'tag-purple';
+        }
+
         return `
         <div class="project-row reveal-item">
           <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
@@ -910,7 +995,7 @@
           <div class="project-title">${item.title}</div>
           <p class="project-desc muted">${item.description}</p>
           <div class="project-tags">
-            ${item.tags ? item.tags.map(t => `<span class="tag">${t}</span>`).join('') : ''}
+            ${item.tags ? item.tags.map(t => `<span class="tag ${getTagClass(t)}">${t}</span>`).join('') : ''}
           </div>
           <div style="display: flex; gap: 8px; margin-top: auto; flex-wrap: wrap;">
             ${linksHtml}
