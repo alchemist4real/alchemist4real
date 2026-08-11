@@ -1528,8 +1528,20 @@
           cloned.style.cursor = 'default';
           const zoomBtn = cloned.querySelector('.id-zoom-btn');
           if (zoomBtn) zoomBtn.style.display = 'none';
+          const topActions = cloned.querySelector('.id-top-actions');
+          if (topActions) topActions.style.display = 'none';
         }
       }
+      
+      const isVerified = document.body.classList.contains('verified-theme');
+      const qrTitle = document.getElementById('qr-float-title');
+      const qrSub = document.getElementById('qr-float-sub');
+      const qrImg = document.getElementById('qr-float-img');
+      
+      if (qrImg) qrImg.src = 'assets/qr/card.png';
+      if (qrTitle) qrTitle.textContent = isVerified ? 'DOWNLOAD VERIFIED CARD' : 'DOWNLOAD CARD ON PHONE';
+      if (qrSub) qrSub.textContent = isVerified ? 'Scan to view & save verified card on mobile' : 'Scan with phone camera to download card';
+
       document.getElementById('card-modal').classList.add('active');
     }
 
@@ -1736,11 +1748,11 @@
       <div id="card-modal-container" style="display: flex; justify-content: center; align-items: center; padding: 20px 0 10px;"></div>
       
       <div class="card-modal-actions">
-        <div class="qr-float-badge">
-          <img src="assets/qr/partner.png" alt="Profile QR" class="qr-float-img">
+        <div class="qr-float-badge" onclick="showQR('card')" style="cursor: pointer;" title="Click to enlarge QR code for scanning">
+          <img src="assets/qr/card.png" id="qr-float-img" alt="Mobile Download QR" class="qr-float-img">
           <div class="qr-float-info">
-            <span class="qr-float-title">VERIFIED CREST</span>
-            <span class="qr-float-sub">Scan to verify digital identity</span>
+            <span class="qr-float-title" id="qr-float-title">DOWNLOAD CARD ON PHONE</span>
+            <span class="qr-float-sub" id="qr-float-sub">Scan with phone camera to download card</span>
           </div>
         </div>
         <button onclick="downloadIDCardImage()" class="btn-download-card">
