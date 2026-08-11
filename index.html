@@ -173,47 +173,17 @@
     nav .brand-link:hover .brand-logo-img { transform: scale(1.12) rotate(-4deg); }
     nav .logo-text { text-transform: none; font-size: 13px; color: var(--fg); }
 
-    .hero { padding-top: 50px; padding-bottom: 60px; }
-    .intro-card {
-      background: var(--bg-card);
-      border: 1px solid var(--fg-faint);
-      border-radius: 2px;
-      padding: 36px 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-      position: relative;
-    }
-    .intro-header-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 36px;
-    }
-    .intro-bio { max-width: 580px; }
-    .intro-bio .display { margin: 10px 0 14px; }
-    .hero-crest { width: 150px; height: 150px; object-fit: contain; filter: drop-shadow(0 6px 18px rgba(0,0,0,0.06)); transition: transform 0.3s ease; flex-shrink: 0; }
-    .hero-crest:hover { transform: scale(1.05) rotate(1deg); }
+    .hero { min-height: calc(100vh - 52px); display: flex; align-items: center; padding-top: 40px; padding-bottom: 60px; }
+    .hero-simple-layout { display: flex; justify-content: space-between; align-items: center; gap: 48px; width: 100%; }
+    .hero-simple-content { max-width: 560px; }
+    .hero-simple-content .display { margin: 10px 0 16px; }
+    .hero-simple-crest { flex-shrink: 0; display: flex; justify-content: center; align-items: center; }
+    .hero-crest { width: 220px; height: 220px; object-fit: contain; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.07)); transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease; }
+    .hero-crest:hover { transform: scale(1.06) rotate(1deg); filter: drop-shadow(0 12px 32px rgba(0,0,0,0.14)); }
 
-    .intro-details-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      padding-top: 32px;
-      border-top: 1px solid var(--fg-faint);
-    }
-    .details-col { display: flex; flex-direction: column; }
-    
-    .compact-timeline { display: flex; flex-direction: column; gap: 14px; }
-    .compact-item { position: relative; padding-left: 14px; border-left: 2px solid var(--fg-faint); }
-    .compact-item.active { border-left-color: var(--fg); }
-    .compact-year { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--fg-muted); letter-spacing: 0.08em; display: block; margin-bottom: 2px; }
-    .compact-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--fg); line-height: 1.2; }
-    .compact-desc { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--fg-muted); line-height: 1.5; margin-top: 2px; }
-
-    .stats-row { display: flex; gap: 32px; margin: 0; flex-wrap: wrap; }
+    .stats-row { display: flex; gap: 40px; margin: 32px 0; flex-wrap: wrap; }
     .stat-item { display: flex; flex-direction: column; gap: 4px; }
-    .stat-number { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 2.5vw, 2.2rem); font-weight: 600; color: var(--fg); line-height: 1; }
+    .stat-number { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; color: var(--fg); line-height: 1; }
 
     #projects { padding-top: 80px; padding-bottom: 80px; }
     #projects .section-header { margin-bottom: 48px; }
@@ -306,12 +276,10 @@
     @media (max-width: 768px) {
       nav .nav-links { gap: 16px; }
       nav .nav-links a.hide-mobile { display: none; }
-      .hero { padding-top: 30px; padding-bottom: 40px; }
-      .intro-card { padding: 24px; gap: 24px; }
-      .intro-header-row { flex-direction: column-reverse; gap: 20px; }
-      .hero-crest { width: 110px; height: 110px; }
-      .intro-details-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-top: 24px; }
-      .stats-row { gap: 20px; }
+      .hero { min-height: auto; padding-top: 50px; padding-bottom: 50px; }
+      .hero-simple-layout { flex-direction: column-reverse; align-items: flex-start; gap: 28px; }
+      .hero-crest { width: 130px; height: 130px; }
+      .stats-row { gap: 24px; }
       .connect-grid { grid-template-columns: minmax(0, 1fr); }
       .project-list { grid-template-columns: minmax(0, 1fr); }
       .project-link { display: block; margin-top: 8px; }
@@ -338,80 +306,43 @@
 
   <main>
     <section class="hero container" id="top">
-      <div class="intro-card anim-glitch">
+      <div class="hero-simple-layout">
         
-        <!-- Header & Bio -->
-        <div class="intro-header-row">
-          <div class="intro-bio">
-            <span class="label anim-flicker">THE ALCHEMIST · LAB & PORTFOLIO</span>
-            <h1 class="display">digital alchemy<br>at scale.</h1>
-            <p class="body-text" style="font-size: 15px; line-height: 1.65; margin-top: 14px;">
-              Medical student (M.D. candidate) by day, experimental developer by night. Transmuting biomedical concepts into autonomous AI tools, decentralized edge systems, and brutalist web experiences.
-            </p>
+        <div class="hero-simple-content">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <span class="label anim-flicker">@alchemist4real</span>
+            <span style="font-family: 'DM Mono', monospace; font-size: 11px; padding: 2px 8px; border: 1px solid var(--fg-faint); border-radius: 12px; color: var(--fg-muted);">M.D. Candidate & Developer</span>
           </div>
-          <img src="assets/logo.png" alt="alchemist4real crest logo" class="hero-crest">
+
+          <h1 class="display anim-glitch">digital alchemy<br>at scale.</h1>
+
+          <p class="body-text anim-glitch" style="font-size: 15px; line-height: 1.7; max-width: 520px; margin-top: 16px; animation-delay: 0.15s;">
+            Medical student by day, experimental coder by night. Transmuting biomedical concepts into autonomous AI tools, decentralized edge software, and brutalist web experiences.
+          </p>
+
+          <div class="stats-row anim-glitch" style="animation-delay: 0.3s;">
+            <div class="stat-item">
+              <span class="stat-number" id="stat-projects">—</span>
+              <span class="label">Live Projects</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">M.D.</span>
+              <span class="label">Medical School</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="label">Server Uptime</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;" class="anim-glitch" style="animation-delay: 0.45s;">
+            <a href="#projects" class="btn-ghost">See Catalog ↓</a>
+            <a href="#connect" class="btn-ghost" style="border-color: var(--fg-faint); color: var(--fg-muted);">Connect →</a>
+          </div>
         </div>
 
-        <!-- 2-Column Details: Academic Trajectory & Stack/Stats -->
-        <div class="intro-details-grid" id="about">
-          
-          <!-- Column 1: Academic Trajectory -->
-          <div class="details-col">
-            <span class="label" style="display: block; margin-bottom: 16px; color: var(--fg);">Academic Trajectory</span>
-            <div class="compact-timeline">
-              <div class="compact-item active">
-                <span class="compact-year">2025 — PRESENT (SEM 2)</span>
-                <div class="compact-title">State University Medical School</div>
-                <div class="compact-desc">Pursuing Medical Doctor (M.D.) degree — intertwining biomedical sciences & clinical practice.</div>
-              </div>
-              <div class="compact-item">
-                <span class="compact-year">2022 — 2025</span>
-                <div class="compact-title">Elite State Islamic Science College</div>
-                <div class="compact-desc">Selective STEM senior high school program in advanced sciences, research & analytical thinking.</div>
-              </div>
-              <div class="compact-item">
-                <span class="compact-year">2013 — 2022</span>
-                <div class="compact-title">Islamic STEM & Boarding Foundations</div>
-                <div class="compact-desc">Middle & primary education combining national STEM standards with classical religious studies.</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Column 2: Tech Stack, Stats & Actions -->
-          <div class="details-col">
-            <span class="label" style="display: block; margin-bottom: 14px; color: var(--fg);">Technical Stack</span>
-            <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 24px;">
-              <span class="tag">Vanilla HTML/CSS/JS</span>
-              <span class="tag">TypeScript & Tailwind</span>
-              <span class="tag">Cloudflare Workers AI</span>
-              <span class="tag">Google Gemini API</span>
-              <span class="tag">Supabase / Web3</span>
-              <span class="tag">Vercel Edge / KV</span>
-              <span class="tag">Playwright / WebGL</span>
-            </div>
-
-            <span class="label" style="display: block; margin-bottom: 10px; color: var(--fg);">Status & Metrics</span>
-            <div class="stats-row" style="margin-bottom: 24px;">
-              <div class="stat-item">
-                <span class="stat-number" id="stat-projects">—</span>
-                <span class="label">Live Projects</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number">M.D.</span>
-                <span class="label">Degree Pursuit</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number">100%</span>
-                <span class="label">Uptime</span>
-              </div>
-            </div>
-
-            <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: auto;">
-              <a href="#projects" class="btn-ghost-sm" style="padding: 8px 18px; font-size: 12px;">See The Catalog ↓</a>
-              <a href="#connect" class="btn-ghost-sm" style="padding: 8px 18px; font-size: 12px;">Get In Touch →</a>
-            </div>
-          </div>
-
+        <div class="hero-simple-crest anim-glitch" style="animation-delay: 0.2s;">
+          <img src="assets/logo.png" alt="alchemist4real crest logo" class="hero-crest">
         </div>
 
       </div>
