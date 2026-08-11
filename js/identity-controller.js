@@ -200,9 +200,11 @@ class IdentityController {
       if (heroHandleEl) heroHandleEl.textContent = data.name;
       if (footerBrandEl) footerBrandEl.textContent = data.name;
       if (footerCopyrightEl) footerCopyrightEl.textContent = `© 2025 ${data.name} | Co-architect Sir. Yaon (@ghaffarsyafiq-arch)`;
-      if (badgeEl) badgeEl.textContent = `Sem 3`;
+      if (badgeEl) badgeEl.textContent = `Active -- Sem 3`;
       if (orgLabel) orgLabel.textContent = data.education ? data.education[0].institution : data.name;
-      if (roleEl) roleEl.textContent = 'M.D. Candidate — UNSOED';
+      if (roleEl) roleEl.textContent = data.role || 'M.D. Candidate';
+      const cardType = document.getElementById('id-card-type');
+      if (cardType) cardType.textContent = 'VERIFIED';
 
       // Show real photo in verified mode
       if (photoSilhouette) photoSilhouette.style.display = 'none';
@@ -265,9 +267,11 @@ class IdentityController {
       if (heroHandleEl) heroHandleEl.textContent = `@alchemist4real`;
       if (footerBrandEl) footerBrandEl.textContent = `alchemist4real`;
       if (footerCopyrightEl) footerCopyrightEl.textContent = `© 2025 @alchemist4real | Co-architect Sir. Yaon (@ghaffarsyafiq-arch)`;
-      if (badgeEl) badgeEl.textContent = `Sem 3`;
+      if (badgeEl) badgeEl.textContent = `Active -- Sem 3`;
       if (orgLabel) orgLabel.textContent = 'alchemist4real';
       if (roleEl) roleEl.textContent = 'M.D. Candidate';
+      const cardType = document.getElementById('id-card-type');
+      if (cardType) cardType.textContent = 'IDENTIFICATION';
 
       // Show silhouette in public mode
       if (photoSilhouette) photoSilhouette.style.display = 'block';

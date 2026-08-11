@@ -198,23 +198,30 @@
 
     .hero { min-height: calc(100vh - 52px); display: flex; align-items: center; justify-content: center; padding-top: 40px; padding-bottom: 60px; }
 
-    .id-card { border: 1px solid var(--fg-faint); max-width: 520px; width: 100%; padding: 0; position: relative; }
-    .id-card-header { display: flex; align-items: center; gap: 10px; padding: 14px 24px; border-bottom: 1px solid var(--fg-faint); }
-    .id-card-header .id-logo { width: 22px; height: 22px; object-fit: contain; }
-    .id-card-header .id-org { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
-    .id-card-body { display: flex; gap: 24px; padding: 24px; }
-    .id-photo { width: 100px; height: 120px; flex-shrink: 0; border: 1px solid var(--fg-faint); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: var(--bg); }
-    .id-photo-silhouette { width: 100%; height: 100%; object-fit: cover; opacity: 0.12; }
+    /* ID Card — CR-80 wallet card proportions */
+    .id-card { border: 1px solid var(--fg-faint); max-width: 540px; width: 100%; aspect-ratio: 1.586 / 1; position: relative; display: flex; flex-direction: column; overflow: hidden; }
+    .id-card-stripe { height: 6px; background: var(--fg); width: 100%; flex-shrink: 0; }
+    .id-card-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; border-bottom: 1px solid var(--fg-faint); flex-shrink: 0; }
+    .id-card-header-left { display: flex; align-items: center; gap: 8px; }
+    .id-card-header .id-logo { width: 18px; height: 18px; object-fit: contain; }
+    .id-card-header .id-org { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
+    .id-card-header .id-type { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-faint); }
+    .id-card-body { display: flex; gap: 20px; padding: 16px 20px; flex: 1; }
+    .id-photo { width: 90px; flex-shrink: 0; border: 1px solid var(--fg-faint); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: var(--bg); aspect-ratio: 3 / 4; }
+    .id-photo-silhouette { width: 100%; height: 100%; object-fit: cover; opacity: 0.08; color: var(--fg); }
     .id-photo-real { width: 100%; height: 100%; object-fit: cover; display: none; }
-    .id-photo-label { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-faint); padding: 3px 0; background: var(--bg); }
-    .id-info { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
-    .id-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.3rem, 3vw, 1.6rem); font-weight: 600; color: var(--fg); line-height: 1.2; }
-    .id-role { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--fg-muted); line-height: 1.4; }
-    .id-badge { display: inline-block; font-family: 'DM Mono', monospace; font-size: 10px; padding: 2px 8px; border: 1px solid var(--fg-faint); border-radius: 10px; color: var(--fg-muted); width: fit-content; }
-    .id-card-bio { padding: 0 24px 20px; font-size: 13px; line-height: 1.65; color: var(--fg-muted); font-family: 'DM Sans', sans-serif; border-bottom: 1px solid var(--fg-faint); }
-    .id-card-footer { padding: 16px 24px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-    #verified-badge-row { display: none; gap: 6px; flex-wrap: wrap; padding: 0 24px 16px; }
-    .id-card .btn-ghost { font-size: 12px; padding: 6px 14px; }
+    .id-photo-label { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; font-family: 'DM Mono', monospace; font-size: 7px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-faint); padding: 2px 0; background: var(--bg); border-top: 1px solid var(--fg-faint); }
+    .id-info { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 4px; min-width: 0; }
+    .id-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 600; color: var(--fg); line-height: 1.2; }
+    .id-field { display: flex; flex-direction: column; gap: 1px; }
+    .id-field-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-faint); }
+    .id-field-value { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--fg-muted); }
+    .id-card-bottom { border-top: 1px solid var(--fg-faint); padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+    .id-barcode { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.3em; color: var(--fg-faint); }
+    .id-card-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    #verified-badge-row { display: none; gap: 4px; flex-wrap: wrap; padding: 0 20px 8px; }
+    .id-card .btn-ghost { font-size: 10px; padding: 4px 10px; }
+    .id-card-bio { display: none; }
 
     #projects { padding-top: 80px; padding-bottom: 80px; }
     #projects .section-header { margin-bottom: 48px; }
@@ -308,10 +315,11 @@
       nav .nav-links { gap: 16px; }
       nav .nav-links a.hide-mobile { display: none; }
       .hero { min-height: auto; padding-top: 50px; padding-bottom: 50px; }
-      .id-card-body { gap: 16px; padding: 20px 16px; }
-      .id-photo { width: 80px; height: 100px; }
-      .id-card-header, .id-card-bio, .id-card-footer, #verified-badge-row { padding-left: 16px; padding-right: 16px; }
-      .id-card-footer { gap: 8px; }
+      .id-card { aspect-ratio: auto; max-width: 100%; }
+      .id-card-body { gap: 14px; padding: 14px 16px; }
+      .id-photo { width: 72px; }
+      .id-card-header, .id-card-bottom, #verified-badge-row { padding-left: 16px; padding-right: 16px; }
+      .id-card-actions { gap: 6px; }
       .connect-grid { grid-template-columns: minmax(0, 1fr); }
       .project-list { grid-template-columns: minmax(0, 1fr); }
       .project-link { display: block; margin-top: 8px; }
@@ -338,39 +346,49 @@
   <main>
     <section class="hero container" id="top">
       <div class="id-card anim-glitch">
+        <div class="id-card-stripe"></div>
 
         <div class="id-card-header">
-          <img src="assets/logo-icon.png" alt="logo" class="id-logo">
-          <span class="id-org" id="id-org-label">alchemist4real</span>
+          <div class="id-card-header-left">
+            <img src="assets/logo-icon.png" alt="logo" class="id-logo">
+            <span class="id-org" id="id-org-label">alchemist4real</span>
+          </div>
+          <span class="id-type" id="id-card-type">IDENTIFICATION</span>
         </div>
 
         <div class="id-card-body">
           <div class="id-photo">
-            <svg class="id-photo-silhouette" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="38" r="22" fill="currentColor"/>
-              <ellipse cx="50" cy="110" rx="38" ry="34" fill="currentColor"/>
+            <svg class="id-photo-silhouette" viewBox="0 0 100 130" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="40" r="20" fill="currentColor"/>
+              <ellipse cx="50" cy="115" rx="35" ry="30" fill="currentColor"/>
             </svg>
             <img id="id-photo-real" class="id-photo-real" src="" alt="">
             <span class="id-photo-label" id="id-photo-label">PHOTO</span>
           </div>
           <div class="id-info">
             <span class="id-name" id="hero-handle">@alchemist4real</span>
-            <span class="id-role" id="id-role">M.D. Candidate</span>
-            <span class="id-badge" id="sem-badge">Sem 3</span>
+            <div class="id-field">
+              <span class="id-field-label">ROLE</span>
+              <span class="id-field-value" id="id-role">M.D. Candidate</span>
+            </div>
+            <div class="id-field">
+              <span class="id-field-label">STATUS</span>
+              <span class="id-field-value" id="sem-badge">Active -- Sem 3</span>
+            </div>
           </div>
         </div>
 
         <div id="verified-badge-row"></div>
+        <p id="identity-bio" style="display:none;"></p>
 
-        <div class="id-card-bio" id="identity-bio">
-          Medical student by day, experimental coder by night. Transmuting biomedical concepts into autonomous AI tools, decentralized edge software, and brutalist web experiences.
-        </div>
-
-        <div class="id-card-footer">
-          <a href="#projects" class="btn-ghost">See Catalog</a>
-          <a href="#connect" class="btn-ghost" style="border-color: var(--fg-faint); color: var(--fg-muted);">Connect</a>
-          <a href="https://www.linkedin.com/in/alchemist4real/" id="verified-linkedin-btn" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="display: none; border-color: var(--fg); background: var(--fg); color: var(--bg);">LinkedIn</a>
-          <button onclick="showGeneratorModal()" id="verified-generator-btn" class="btn-ghost" style="display: none;">Link Generator</button>
+        <div class="id-card-bottom">
+          <span class="id-barcode" id="id-barcode">A4R-2025-0001</span>
+          <div class="id-card-actions">
+            <a href="#projects" class="btn-ghost">Catalog</a>
+            <a href="#connect" class="btn-ghost" style="border-color: var(--fg-faint); color: var(--fg-muted);">Connect</a>
+            <a href="https://www.linkedin.com/in/alchemist4real/" id="verified-linkedin-btn" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="display: none; border-color: var(--fg); background: var(--fg); color: var(--bg);">LinkedIn</a>
+            <button onclick="showGeneratorModal()" id="verified-generator-btn" class="btn-ghost" style="display: none;">Link Gen</button>
+          </div>
         </div>
 
       </div>
