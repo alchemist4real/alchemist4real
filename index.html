@@ -17,191 +17,168 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="js/identity-controller.js?v=20260811_16"></script>
+  <script src="js/identity-controller.js?v=20260811_17"></script>
   
-  <style>
-    /* =========================================================
-       PUBLIC THEME — Vibrant Harlequin Joker Crest Palette
+  <style>    /* =========================================================
+       PUBLIC THEME — Logo Color Palette (Warm Ochre & Crimson)
        ========================================================= */
     :root {
-      --bg: #FBF7F0; /* Soft warm cream parchment */
+      --bg: #F7F1E5; /* Authentic Warm Ochre Cream Base */
       --bg-card: #FFFFFF;
-      --fg: #0D111A; /* Deep obsidian navy */
-      --fg-muted: #4B5563;
-      --fg-faint: #E2D9C8;
-      --accent-gold: #E8A825; /* Harlequin Amber Gold */
-      --accent-red: #D62828; /* Harlequin Crimson Red */
-      --accent-teal: #059669; /* Harlequin Emerald Teal */
-      --accent-purple: #7C3AED; /* Harlequin Purple */
-      --live-dot: #D62828;
-      --tag-bg: #FFFBEB;
-      --tag-fg: #92400E;
+      --fg: #121722; /* Deep Obsidian Linework */
+      --fg-muted: #565C68;
+      --fg-faint: #E0D5C1;
+      --accent-gold: #E5982A; /* Signature Warm Ochre / Orange-Gold */
+      --accent-red: #C8392B; /* Crimson Accent */
+      --live-dot: #E5982A;
+      --tag-bg: #EFE5D3;
+      --tag-fg: #121722;
     }
 
-    /* Top Harlequin 4-Color Accent Line */
-    .harlequin-bar {
-      height: 4px;
-      width: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 10001;
-      background: linear-gradient(90deg, #D62828 0%, #E8A825 33%, #059669 66%, #7C3AED 100%);
-      transition: background 0.3s ease;
-    }
-
-    /* Public Mode ID Card & Web Colorful Enhancements */
+    /* Public Mode ID Card & UI Colors */
     body:not(.verified-theme) .id-card {
-      border: 2px solid transparent;
-      background: linear-gradient(#FFFFFF, #FFFFFF) padding-box, linear-gradient(135deg, #D62828, #E8A825, #059669, #7C3AED) border-box;
-      box-shadow: 0 12px 32px rgba(214, 40, 40, 0.12), 0 4px 12px rgba(232, 168, 37, 0.16);
+      border: 1.5px solid #121722;
+      background: #FFFFFF;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
     }
     body:not(.verified-theme) .id-card-title-main {
-      background: linear-gradient(90deg, #D62828, #E8A825);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #E5982A;
       font-weight: 700;
       letter-spacing: 0.18em;
     }
     body:not(.verified-theme) .id-photo-label {
-      background: linear-gradient(135deg, #D62828, #B91C1C);
+      background: #E5982A;
       color: #FFFFFF;
-      border: none;
+      border: 1px solid #E5982A;
       font-weight: 600;
     }
     body:not(.verified-theme) .id-stamp {
-      color: #D62828;
+      color: #C8392B;
       font-weight: 600;
     }
     body:not(.verified-theme) .id-zoom-btn {
-      border-color: #E8A825;
-      color: #D62828;
+      border-color: #E5982A;
+      color: #E5982A;
       font-weight: 600;
     }
     body:not(.verified-theme) .id-zoom-btn:hover {
-      background: #E8A825;
+      background: #E5982A;
       color: #FFFFFF;
     }
     body:not(.verified-theme) .id-qr-btn {
-      border-color: #E2D9C8;
-      color: #0D111A;
+      border-color: #E0D5C1;
+      color: #121722;
       font-weight: 500;
     }
-    body:not(.verified-theme) .id-qr-btn:nth-child(1):hover { background: #D62828; color: #FFF; border-color: #D62828; }
-    body:not(.verified-theme) .id-qr-btn:nth-child(2):hover { background: #059669; color: #FFF; border-color: #059669; }
-    body:not(.verified-theme) .id-qr-btn:nth-child(3):hover { background: #E8A825; color: #FFF; border-color: #E8A825; }
-    body:not(.verified-theme) .id-qr-btn:nth-child(4):hover { background: #7C3AED; color: #FFF; border-color: #7C3AED; }
+    body:not(.verified-theme) .id-qr-btn:hover {
+      background: #E5982A;
+      color: #FFFFFF;
+      border-color: #E5982A;
+    }
 
     /* Public Mode Filter Buttons */
     body:not(.verified-theme) .filter-btn {
-      border-color: #E2D9C8;
-      color: #4B5563;
+      border-color: #E0D5C1;
+      color: #565C68;
       font-weight: 500;
     }
     body:not(.verified-theme) .filter-btn:hover {
-      border-color: #D62828;
-      color: #D62828;
+      border-color: #E5982A;
+      color: #E5982A;
     }
     body:not(.verified-theme) .filter-btn.active {
-      background: linear-gradient(135deg, #D62828, #E8A825);
+      background: #E5982A;
       color: #FFFFFF;
-      border-color: transparent;
-      box-shadow: 0 4px 14px rgba(214, 40, 40, 0.25);
+      border-color: #E5982A;
     }
 
-    /* Public Mode Project Row Cards */
+    /* Public Mode Project Cards */
     body:not(.verified-theme) .project-row {
-      border: 1px solid #EAE4D8;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
-      transition: all 0.25s ease;
+      border: 1px solid #E0D5C1;
+      background: #FFFFFF;
+      transition: all 0.2s ease;
     }
     body:not(.verified-theme) .project-row:hover {
-      border-color: #E8A825;
-      box-shadow: 0 10px 30px rgba(232, 168, 37, 0.15), 0 4px 12px rgba(214, 40, 40, 0.08);
-      transform: translateY(-2px);
+      border-color: #E5982A;
     }
-    body:not(.verified-theme) ::selection {
-      background: #E8A825;
-      color: #0D111A;
-    }
-
-    /* Public Mode Colorful Tag Pills */
-    body:not(.verified-theme) .tag.tag-red { background: #FEE2E2; color: #991B1B; border: 1px solid #FCA5A5; font-weight: 500; }
-    body:not(.verified-theme) .tag.tag-gold { background: #FEF3C7; color: #92400E; border: 1px solid #FCD34D; font-weight: 500; }
-    body:not(.verified-theme) .tag.tag-teal { background: #D1FAE5; color: #065F46; border: 1px solid #6EE7B7; font-weight: 500; }
-    body:not(.verified-theme) .tag.tag-purple { background: #EDE9FE; color: #5B21B6; border: 1px solid #C4B5FD; font-weight: 500; }
-
-    /* =========================================================
-       PRIVATE / VERIFIED THEME — Dark Obsidian Laboratory
-       ========================================================= */
-    body.verified-theme {
-      --bg: #0B0F19; /* Sleek Dark Obsidian Laboratory */
-      --bg-card: #151F30;
-      --fg: #F8FAFC;
-      --fg-muted: #94A3B8;
-      --fg-faint: #334155;
-      --accent-gold: #0070F3;
-      --accent-red: #FF0080;
-      --live-dot: #00E5FF;
-      --tag-bg: #1E293B;
-      --tag-fg: #F8FAFC;
-    }
-    body.verified-theme .harlequin-bar {
-      background: linear-gradient(90deg, #0070F3 0%, #00E5FF 50%, #FF0080 100%);
-    }
-    body.verified-theme .id-card {
-      border: 1.5px solid #334155;
-      background: #151F30;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
-    }
-    body.verified-theme .id-card-title-main {
-      color: #F8FAFC;
-    }
-    body.verified-theme .id-photo-label {
-      background: #0070F3;
-      color: #FFFFFF;
-      border-color: #0070F3;
-    }
-    body.verified-theme .id-stamp {
-      color: #00E5FF;
+    body:not(.verified-theme) .tag {
+      background: #EFE5D3;
+      color: #121722;
+      border: 1px solid #D8CBB6;
       font-weight: 500;
     }
-    body.verified-theme .filter-btn.active {
-      background: #0070F3;
+    body:not(.verified-theme) ::selection {
+      background: #E5982A;
       color: #FFFFFF;
-      border-color: #0070F3;
-    }
-    body.verified-theme .project-row {
-      background: #151F30;
-      border-color: #1E293B;
-    }
-    body.verified-theme .project-row:hover {
-      border-color: #0070F3;
-      box-shadow: 0 8px 30px rgba(0, 112, 243, 0.2);
-    }
-    body.verified-theme .btn-ghost {
-      border-color: #F8FAFC;
-      color: #F8FAFC;
-    }
-    body.verified-theme .btn-ghost:hover {
-      background: #F8FAFC;
-      color: #0B0F19;
     }
 
-    /* Logo Visibility & Switching Filters */
-    .brand-logo-img, .id-logo, .id-card-watermark, #connect-modal-logo, #footer-logo {
-      transition: opacity 0.3s ease, transform 0.3s ease;
+    /* =========================================================
+       PRIVATE / VERIFIED THEME — Monochromatic Black & White
+       ========================================================= */
+    body.verified-theme {
+      --bg: #FAFAFA;
+      --bg-card: #FFFFFF;
+      --fg: #0D0D0D;
+      --fg-muted: #6B6B6B;
+      --fg-faint: #C4C4C4;
+      --accent-gold: #0D0D0D;
+      --accent-red: #0D0D0D;
+      --live-dot: #0D0D0D;
+      --tag-bg: #F0F0F0;
+      --tag-fg: #0D0D0D;
     }
+    body.verified-theme .id-card {
+      border: 1.5px solid #0D0D0D;
+      background: #FFFFFF;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+    body.verified-theme .id-card-title-main {
+      color: #0D0D0D;
+    }
+    body.verified-theme .id-photo-label {
+      background: #0D0D0D;
+      color: #FFFFFF;
+      border-color: #0D0D0D;
+    }
+    body.verified-theme .id-stamp {
+      color: #0D0D0D;
+    }
+    body.verified-theme .filter-btn.active {
+      background: #0D0D0D;
+      color: #FFFFFF;
+      border-color: #0D0D0D;
+    }
+    body.verified-theme .project-row {
+      background: #FFFFFF;
+      border-color: #C4C4C4;
+    }
+    body.verified-theme .project-row:hover {
+      border-color: #0D0D0D;
+    }
+    body.verified-theme .btn-ghost {
+      border-color: #0D0D0D;
+      color: #0D0D0D;
+    }
+    body.verified-theme .btn-ghost:hover {
+      background: #0D0D0D;
+      color: #FFFFFF;
+    }
+
+    /* Private Logo Inversion (Turns white logo-white.png into sharp solid black on white background) */
     body.verified-theme .brand-logo-img,
     body.verified-theme .id-logo,
     body.verified-theme #connect-modal-logo,
     body.verified-theme #footer-logo {
-      filter: drop-shadow(0 0 4px rgba(255,255,255,0.4));
+      filter: invert(1);
+    }
+    body.verified-theme #id-watermark {
+      filter: invert(1);
+      opacity: 0.06;
     }
 
-    /* Smooth Theme Transitions */
+    /* Smooth Transitions */
     body, .id-card, .card, nav, .qr-modal-content, .project-row {
-      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -690,7 +667,6 @@
   </style>
 </head>
 <body>
-  <div class="harlequin-bar"></div>
 
   <nav id="nav">
     <div class="container">
@@ -978,24 +954,8 @@
           }
         }
 
-        function getTagClass(tag) {
-          const t = tag.toLowerCase();
-          if (t.includes('ai') || t.includes('medical') || t.includes('nlp') || t.includes('genom') || t.includes('bio')) return 'tag-red';
-          if (t.includes('rust') || t.includes('system') || t.includes('cli') || t.includes('crypto')) return 'tag-gold';
-          if (t.includes('web') || t.includes('ui') || t.includes('extension') || t.includes('frontend')) return 'tag-teal';
-          return 'tag-purple';
-        }
-
-        return `
-        <div class="project-row reveal-item">
-          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
-            <span class="card-label label" style="margin: 0;">${item.id}</span>
-            <span class="live-dot" aria-label="live" style="width: 6px; height: 6px; border-radius: 50%; background: var(--live-dot); display: block;"></span>
-          </div>
-          <div class="project-title">${item.title}</div>
-          <p class="project-desc muted">${item.description}</p>
           <div class="project-tags">
-            ${item.tags ? item.tags.map(t => `<span class="tag ${getTagClass(t)}">${t}</span>`).join('') : ''}
+            ${item.tags ? item.tags.map(t => `<span class="tag">${t}</span>`).join('') : ''}
           </div>
           <div style="display: flex; gap: 8px; margin-top: auto; flex-wrap: wrap;">
             ${linksHtml}
