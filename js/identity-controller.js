@@ -226,7 +226,7 @@ class IdentityController {
       if (footerLogo) footerLogo.src = 'assets/logo-white.png';
 
       if (titleEl) titleEl.textContent = `${data.name} — Portfolio & Lab`;
-      if (handleEl) handleEl.textContent = data.name;
+      if (handleEl) handleEl.textContent = '@alchemist4real';
       if (heroHandleEl) heroHandleEl.textContent = data.name;
       if (footerBrandEl) footerBrandEl.textContent = data.name;
       if (footerCopyrightEl) footerCopyrightEl.textContent = `© 2025 ${data.name} | Co-architect Sir. Yaon (@ghaffarsyafiq-arch)`;
