@@ -337,7 +337,7 @@ class IdentityController {
 
       // Show public photo (Masked Alchemist) in public mode
       if (photoReal) {
-        photoReal.src = 'assets/public-photo.jpg';
+        photoReal.src = 'assets/public-photo.jpg?v=20260811_20';
         photoReal.alt = '@alchemist4real';
       }
       if (photoLabel) photoLabel.textContent = 'PUBLIC';
