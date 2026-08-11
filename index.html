@@ -16,7 +16,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <script src="js/identity-controller.js?v=20260811_9"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="js/identity-controller.js?v=20260811_10"></script>
   
   <style>
     :root {
@@ -296,6 +297,75 @@
     #card-modal-container .id-card-bottom { padding: 8px 24px !important; }
     #card-modal-container .id-stamp { font-size: 11px !important; }
 
+    /* Floating QR & Download Bar in Zoom Modal */
+    .card-modal-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 600px;
+      padding: 10px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--fg);
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      z-index: 10;
+    }
+    .qr-float-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .qr-float-img {
+      width: 42px;
+      height: 42px;
+      border-radius: 4px;
+      border: 1px solid var(--fg-faint);
+      background: #FFFFFF;
+      padding: 2px;
+    }
+    .qr-float-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .qr-float-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg);
+      line-height: 1.1;
+    }
+    .qr-float-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 8.5px;
+      color: var(--fg-muted);
+    }
+    .btn-download-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--fg);
+      color: var(--bg);
+      border: 1px solid var(--fg);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-download-card:hover {
+      background: transparent;
+      color: var(--fg);
+    }
+
     .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: center; }
     .hero-actions .btn-ghost { font-size: 12px; padding: 6px 16px; }
 
@@ -526,9 +596,23 @@
   </div>
 
   <div id="card-modal" class="qr-modal" onclick="closeCardModal()">
-    <div class="qr-modal-content" style="background: transparent; border: none; padding: 0; max-width: 95vw; position: relative;" onclick="event.stopPropagation()">
-      <button class="qr-close" onclick="closeCardModal()" style="color: var(--fg); font-size: 32px; right: -15px; top: -45px;">&times;</button>
-      <div id="card-modal-container" style="display: flex; justify-content: center; align-items: center; padding: 40px 0;"></div>
+    <div class="qr-modal-content" style="background: transparent; border: none; padding: 0; max-width: 95vw; position: relative; display: flex; flex-direction: column; align-items: center;" onclick="event.stopPropagation()">
+      <button class="qr-close" onclick="closeCardModal()" style="color: var(--fg); font-size: 32px; right: -10px; top: -45px;">&times;</button>
+      <div id="card-modal-container" style="display: flex; justify-content: center; align-items: center; padding: 20px 0 10px;"></div>
+      
+      <div class="card-modal-actions">
+        <div class="qr-float-badge">
+          <img src="assets/qr/partner.png" alt="Profile QR" class="qr-float-img">
+          <div class="qr-float-info">
+            <span class="qr-float-title">VERIFIED CREST</span>
+            <span class="qr-float-sub">Scan to verify digital identity</span>
+          </div>
+        </div>
+        <button onclick="downloadIDCardImage()" class="btn-download-card">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download PNG
+        </button>
+      </div>
     </div>
   </div>
 
@@ -799,11 +883,7 @@
         container.innerHTML = card.outerHTML;
         const cloned = container.querySelector('.id-card');
         if (cloned) {
-          cloned.style.transform = window.innerWidth > 768 ? 'scale(1.45)' : (window.innerWidth > 480 ? 'scale(1.18)' : 'scale(1.02)');
-          cloned.style.transformOrigin = 'center center';
-          cloned.style.margin = '40px 0';
           cloned.style.cursor = 'default';
-          cloned.style.boxShadow = '0 24px 60px rgba(0,0,0,0.35)';
           const zoomBtn = cloned.querySelector('.id-zoom-btn');
           if (zoomBtn) zoomBtn.style.display = 'none';
         }
@@ -814,6 +894,44 @@
     function closeCardModal() {
       const modal = document.getElementById('card-modal');
       if (modal) modal.classList.remove('active');
+    }
+
+    async function downloadIDCardImage() {
+      const card = document.querySelector('#card-modal-container .id-card');
+      if (!card) return;
+
+      const btn = document.querySelector('.btn-download-card');
+      const originalHTML = btn ? btn.innerHTML : '';
+      if (btn) btn.innerHTML = 'Rendering...';
+
+      try {
+        if (typeof html2canvas === 'undefined') {
+          await new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+          });
+        }
+
+        const canvas = await html2canvas(card, {
+          scale: 3,
+          useCORS: true,
+          backgroundColor: null,
+          logging: false
+        });
+
+        const link = document.createElement('a');
+        link.download = 'alchemist4real_id_card.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      } catch (err) {
+        console.error('Download failed:', err);
+        alert('Failed to download card image.');
+      } finally {
+        if (btn) btn.innerHTML = originalHTML;
+      }
     }
 
     function showQR(id) {
