@@ -366,6 +366,20 @@ class IdentityController {
         unlockBtn.style.display = 'none';
       }
     }
+
+    // Re-sync Zoom Preview Modal if open
+    const zoomCardContainer = document.getElementById('card-modal-container');
+    const cardModal = document.getElementById('card-modal');
+    const heroCard = document.querySelector('.hero .id-card');
+    if (zoomCardContainer && heroCard && cardModal && cardModal.classList.contains('active')) {
+      zoomCardContainer.innerHTML = heroCard.outerHTML;
+      const cloned = zoomCardContainer.querySelector('.id-card');
+      if (cloned) {
+        cloned.style.cursor = 'default';
+        const zoomBtn = cloned.querySelector('.id-zoom-btn');
+        if (zoomBtn) zoomBtn.style.display = 'none';
+      }
+    }
   }
 }
 
