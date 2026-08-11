@@ -384,6 +384,40 @@
       --tag-bg: #F0F0F0;
       --tag-fg: #0D0D0D;
     }
+
+    /* Private Mode Navbar Styling */
+    body.verified-theme nav {
+      background: #FFFFFF;
+      border-bottom: 1px solid #E2E2E2;
+    }
+    body.verified-theme nav.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    body.verified-theme nav .logo-text {
+      color: #0D0D0D !important;
+    }
+    body.verified-theme nav .nav-links a,
+    body.verified-theme nav .nav-links button {
+      color: #555555 !important;
+    }
+    body.verified-theme nav .nav-links a:hover,
+    body.verified-theme nav .nav-links button:hover {
+      color: #0D0D0D !important;
+    }
+    body.verified-theme .nav-unlock-pill {
+      background: #0D0D0D !important;
+      color: #FFFFFF !important;
+      border: 1px solid #0D0D0D !important;
+      font-weight: 700;
+    }
+    body.verified-theme .nav-unlock-pill:hover {
+      background: #C62828 !important;
+      border-color: #C62828 !important;
+      color: #FFFFFF !important;
+    }
+
     body.verified-theme .id-card {
       border: 1.5px solid #0D0D0D;
       background: #FFFFFF;
@@ -1087,6 +1121,7 @@
       nav .nav-links { gap: 8px; flex-shrink: 0; }
       nav .nav-links .label { font-size: 9.5px; }
       .nav-unlock-pill { font-size: 9px; padding: 2px 7px; height: 22px; }
+      #verified-linkedin-btn, #verified-generator-btn { display: none !important; }
 
       /* Mobile Footer Fix */
       footer { padding-top: 24px !important; padding-bottom: 24px !important; margin-top: 40px !important; }
