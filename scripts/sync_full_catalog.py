@@ -12,7 +12,7 @@ vercel_projects = [
     {"name": "markitdowninweb", "url": "https://markitdowninweb.vercel.app"},
     {"name": "mr-capsules", "url": "https://mr-capsules.vercel.app"},
     {"name": "phd-bioengineering-roadmap", "url": "https://phd-bioengineering-roadmap.vercel.app"},
-    {"name": "sehatin-booth", "url": "https://sehatin-booth.vercel.app"},
+    {"name": "photoboothapp-maple2026", "url": "https://photoboothapp-maple2026.vercel.app"},
     {"name": "gitrouter", "url": "https://gitrouter-one.vercel.app"},
     {"name": "dr.-been", "url": "https://dr-been.vercel.app"},
     {"name": "doctortablet", "url": "https://doctortablet.vercel.app"},
@@ -84,8 +84,8 @@ curated_projects = [
         "title": "SEHATIN BOOTH",
         "description": "community health screening kiosk & vitals tracker",
         "tags": ["Healthcare", "Kiosk", "Public Health"],
-        "link": "https://sehatin-booth.vercel.app/",
-        "repo_link": "https://github.com/alchemist4real/sehatin-booth"
+        "link": "https://photoboothapp-maple2026.vercel.app/",
+        "repo_link": "https://github.com/alchemist4real/PHOTOBOOTHAPP-MAPLE2026"
     },
     {
         "id": "06",
