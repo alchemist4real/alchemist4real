@@ -970,37 +970,40 @@
     @media (max-width: 768px) {
       nav .nav-links { gap: 14px; }
       nav .nav-links a.hide-mobile { display: none; }
-      .hero { min-height: auto; padding-top: 30px; padding-bottom: 30px; gap: 12px; }
+      .hero { min-height: auto; padding-top: 24px; padding-bottom: 24px; gap: 12px; }
       
-      /* Mobile Normal ID Card */
+      /* Mobile Normal ID Card -- Auto height prevents clipping/overflow on Android */
       .id-card { 
         max-width: 360px; 
         width: 100%; 
-        aspect-ratio: 1.586 / 1;
+        height: auto !important;
+        aspect-ratio: auto !important;
       }
-      .id-card-top { padding: 7px 42px 5px 12px !important; }
+      .id-card-top { padding: 8px 42px 6px 12px !important; }
       .id-card-top .id-logo { width: 18px; height: 18px; }
-      .id-card-title-main { font-size: 0.92rem !important; letter-spacing: 0.1em; }
+      .id-card-title-main { font-size: 0.9rem !important; letter-spacing: 0.1em; }
       .id-zoom-btn { font-size: 7.5px; padding: 1px 5px; right: 8px; top: 50%; transform: translateY(-50%); }
       .id-card-divider { margin: 0 12px; }
-      .id-card-body { gap: 8px; padding: 6px 12px 4px; flex: 1; min-height: 0; }
-      .id-photo { width: 68px !important; height: 86px !important; flex-shrink: 0; }
-      .id-fields { gap: 2.5px; min-width: 0; }
-      .id-row { gap: 4px; }
-      .id-row-label { min-width: 40px; font-size: 7.5px; }
+      .id-card-body { gap: 10px; padding: 8px 12px 6px; flex: initial; }
+      .id-photo { width: 72px !important; height: 92px !important; flex-shrink: 0; }
+      .id-photo-label { font-size: 6px !important; padding: 1px 3px !important; }
+      .id-fields { gap: 3px; min-width: 0; }
+      .id-row { gap: 5px; align-items: center; }
+      .id-row-label { min-width: 44px; font-size: 8px; }
       .id-row-value { font-size: 8.5px; }
       .id-row-value.id-name-value { font-size: 9px; }
-      .id-link-item { font-size: 7.5px; }
-      .id-qr-btn { font-size: 7px; padding: 0px 3px; }
-      .id-card-bio { font-size: 6.8px; line-height: 1.3; margin: 0 12px 3px; padding-top: 3px; }
-      .id-card-bottom { padding: 3px 12px 4px; }
-      .id-stamp { font-size: 7.5px; }
+      .id-link-item { font-size: 8px; }
+      .id-qr-btn { font-size: 7.5px; padding: 0px 3px; }
+      .id-card-bio { font-size: 7.5px !important; line-height: 1.35 !important; margin: 4px 12px 6px !important; padding-top: 4px !important; }
+      .id-card-bottom { padding: 5px 12px !important; }
+      .id-stamp { font-size: 8px; }
 
       /* Mobile Zoom Preview Modal Card */
       #card-modal-container .id-card {
         max-width: 360px !important;
         width: 92vw !important;
-        aspect-ratio: 1.586 / 1 !important;
+        height: auto !important;
+        aspect-ratio: auto !important;
         transform: none !important;
         box-shadow: 0 16px 40px rgba(0,0,0,0.4) !important;
         cursor: default !important;
@@ -1011,7 +1014,7 @@
       #card-modal-container .id-card-top .id-logo { width: 20px !important; height: 20px !important; }
       #card-modal-container .id-card-title-main { font-size: 0.95rem !important; }
       #card-modal-container .id-card-divider { margin: 0 12px !important; }
-      #card-modal-container .id-card-body { padding: 7px 12px 5px !important; gap: 10px !important; }
+      #card-modal-container .id-card-body { padding: 8px 12px 6px !important; gap: 10px !important; flex: initial !important; }
       #card-modal-container .id-photo { width: 72px !important; height: 92px !important; }
       #card-modal-container .id-photo-label { font-size: 7px !important; padding: 1px 4px !important; }
       #card-modal-container .id-fields { gap: 3px !important; }
@@ -1020,8 +1023,8 @@
       #card-modal-container .id-row-value.id-name-value { font-size: 9.5px !important; font-weight: 600 !important; }
       #card-modal-container .id-link-item { font-size: 8px !important; }
       #card-modal-container .id-qr-btn { font-size: 7.5px !important; padding: 0px 3px !important; }
-      #card-modal-container .id-card-bio { font-size: 7px !important; line-height: 1.35 !important; margin: 0 12px 4px !important; padding-top: 3px !important; }
-      #card-modal-container .id-card-bottom { padding: 4px 12px !important; }
+      #card-modal-container .id-card-bio { font-size: 7.5px !important; line-height: 1.35 !important; margin: 4px 12px 6px !important; padding-top: 4px !important; }
+      #card-modal-container .id-card-bottom { padding: 5px 12px !important; }
       #card-modal-container .id-stamp { font-size: 8px !important; }
 
       .card-modal-actions {
