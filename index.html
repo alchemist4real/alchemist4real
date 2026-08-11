@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="js/identity-controller.js?v=20260811_10"></script>
+  <script src="js/identity-controller.js?v=20260811_11"></script>
   
   <style>
     :root {
@@ -383,6 +383,45 @@
     .qr-modal-content img { display: block; max-width: 300px; width: 100%; height: auto; border: 1px solid var(--fg); }
     .qr-close { position: absolute; top: 0px; right: 4px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--fg); font-family: 'DM Mono', monospace; }
 
+    /* Connect Modal Styling */
+    .connect-modal-content {
+      background: var(--bg-card);
+      border: 1px solid var(--fg);
+      border-radius: 8px;
+      max-width: 480px;
+      width: 90vw;
+      padding: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .connect-card {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      border: 1px solid var(--fg-faint);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .connect-card:hover {
+      border-color: var(--fg);
+      background: var(--fg-faint);
+    }
+    .connect-card-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      text-transform: uppercase;
+      color: var(--fg-faint);
+      letter-spacing: 0.05em;
+    }
+    .connect-card-val {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--fg);
+      font-weight: 500;
+      margin-top: 2px;
+      word-break: break-all;
+    }
+
     .filter-btn.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 
     .project-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
@@ -488,7 +527,7 @@
       </a>
       <div class="nav-links">
         <a href="#projects" class="label">Projects</a>
-        <a href="#connect" class="label">Connect</a>
+        <button onclick="openConnectModal()" class="label" style="background:none; border:none; color:var(--fg-muted); cursor:pointer; font-family:'DM Mono', monospace; padding:0;">Connect</button>
         <button id="nav-unlock-btn" class="nav-unlock-pill" style="display: none;">LOCK</button>
       </div>
     </div>
@@ -564,7 +603,7 @@
 
       <div class="hero-actions anim-glitch" style="animation-delay: 0.15s;">
         <a href="#projects" class="btn-ghost">Catalog</a>
-        <a href="#connect" class="btn-ghost" style="border-color: var(--fg-faint); color: var(--fg-muted);">Connect</a>
+        <button onclick="openConnectModal()" class="btn-ghost" style="border-color: var(--fg-faint); color: var(--fg-muted);">Connect</button>
         <a href="https://www.linkedin.com/in/alchemist4real/" id="verified-linkedin-btn" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="display: none; border-color: var(--fg); background: var(--fg); color: var(--bg);">LinkedIn</a>
         <button onclick="showGeneratorModal()" id="verified-generator-btn" class="btn-ghost" style="display: none;">Link Generator</button>
       </div>
@@ -616,49 +655,60 @@
     </div>
   </div>
 
-  <footer class="container" id="connect" style="padding-top: 60px; padding-bottom: 60px; border-top: 1px solid var(--fg-faint); margin-top: 80px;">
-    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; margin-bottom: 48px;">
-      
-      <!-- Left: Brand Intro -->
-      <div style="max-width: 360px;">
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-          <img src="assets/logo-icon.png" alt="alchemist4real logo mark" style="height: 24px; width: 24px;">
-          <span class="label logo-text" id="footer-brand-text" style="font-size: 14px; color: var(--fg);">alchemist4real</span>
-        </div>
-        <p class="muted" style="font-size: 13px; line-height: 1.6;">
-          Medical student & experimental developer transmuting biomedical concepts into autonomous AI tools, edge software, and brutalist web experiences.
-        </p>
+  <div id="connect-modal" class="qr-modal" onclick="closeConnectModal()">
+    <div class="qr-modal-content connect-modal-content" onclick="event.stopPropagation()">
+      <button class="qr-close" onclick="closeConnectModal()">&times;</button>
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+        <img src="assets/logo-icon.png" alt="logo" style="width: 22px; height: 22px;">
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin: 0; color: var(--fg);">Connect // Lab</h3>
+      </div>
+      <p class="muted" style="font-size: 12px; margin-bottom: 20px; line-height: 1.5;">Direct channels & social profiles to transmute ideas into reality.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 20px;">
+        <a href="https://github.com/alchemist4real" target="_blank" rel="noopener noreferrer" class="connect-card">
+          <span class="connect-card-label">GitHub</span>
+          <span class="connect-card-val">@alchemist4real</span>
+        </a>
+        <a href="https://wa.me/6285778120332" target="_blank" rel="noopener noreferrer" class="connect-card">
+          <span class="connect-card-label">WhatsApp</span>
+          <span class="connect-card-val">+62 857-7812</span>
+        </a>
+        <a href="https://instagram.com/alchemist4real" target="_blank" rel="noopener noreferrer" class="connect-card">
+          <span class="connect-card-label">Instagram</span>
+          <span class="connect-card-val">@alchemist4real</span>
+        </a>
+        <a href="https://sociabuzz.com/alchemist4real/donate" target="_blank" rel="noopener noreferrer" class="connect-card">
+          <span class="connect-card-label">Donate</span>
+          <span class="connect-card-val">SociaBuzz</span>
+        </a>
+        <a href="https://www.linkedin.com/in/alchemist4real/" id="modal-linkedin-link" target="_blank" rel="noopener noreferrer" class="connect-card" style="display: none; grid-column: span 2;">
+          <span class="connect-card-label">LinkedIn</span>
+          <span class="connect-card-val">alchemist4real</span>
+        </a>
       </div>
 
-      <!-- Right: Direct Connect Links & QR Buttons -->
-      <div style="display: flex; gap: 48px; flex-wrap: wrap;">
-        <div>
-          <span class="label" style="display: block; margin-bottom: 14px; color: var(--fg);">Connect</span>
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <a href="https://github.com/alchemist4real" target="_blank" rel="noopener noreferrer" class="label" style="text-decoration: none;">GitHub</a>
-            <a href="https://wa.me/6285778120332" target="_blank" rel="noopener noreferrer" class="label" style="text-decoration: none;">WhatsApp</a>
-            <a href="https://instagram.com/alchemist4real" target="_blank" rel="noopener noreferrer" class="label" style="text-decoration: none;">Instagram</a>
-            <a href="https://sociabuzz.com/alchemist4real/donate" target="_blank" rel="noopener noreferrer" class="label" style="text-decoration: none;">Donate</a>
-          </div>
-        </div>
-
-        <div>
-          <span class="label" style="display: block; margin-bottom: 14px; color: var(--fg);">QR Modals</span>
-          <div style="display: flex; flex-direction: column; gap: 10px;">
-            <button onclick="showQR('github')" class="label" style="background:none; border:none; color:var(--fg-muted); cursor:pointer; text-align:left; font-family:'DM Mono', monospace; padding:0;">GitHub QR</button>
-            <button onclick="showQR('whatsapp')" class="label" style="background:none; border:none; color:var(--fg-muted); cursor:pointer; text-align:left; font-family:'DM Mono', monospace; padding:0;">WhatsApp QR</button>
-            <button onclick="showQR('instagram')" class="label" style="background:none; border:none; color:var(--fg-muted); cursor:pointer; text-align:left; font-family:'DM Mono', monospace; padding:0;">Instagram QR</button>
-            <button onclick="showQR('partner')" class="label" style="background:none; border:none; color:var(--fg-muted); cursor:pointer; text-align:left; font-family:'DM Mono', monospace; padding:0;">Partner QR</button>
-          </div>
+      <div style="border-top: 1px dashed var(--fg-faint); padding-top: 14px;">
+        <span class="label" style="display: block; margin-bottom: 10px; font-size: 9.5px; color: var(--fg-faint);">QUICK QR CODES</span>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+          <button onclick="showQR('github')" class="id-qr-btn" style="padding: 3px 8px; font-size: 9px;">GH QR</button>
+          <button onclick="showQR('whatsapp')" class="id-qr-btn" style="padding: 3px 8px; font-size: 9px;">WA QR</button>
+          <button onclick="showQR('instagram')" class="id-qr-btn" style="padding: 3px 8px; font-size: 9px;">IG QR</button>
+          <button onclick="showQR('partner')" class="id-qr-btn" style="padding: 3px 8px; font-size: 9px;">Partner QR</button>
         </div>
       </div>
-
     </div>
+  </div>
 
-    <!-- Footer Bar -->
-    <div style="padding-top: 24px; border-top: 1px solid var(--fg-faint); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-      <span class="muted" id="footer-copyright" style="font-size: 12px;">© 2025 @alchemist4real | Co-architect Sir. Yaon (@ghaffarsyafiq-arch)</span>
-      <a href="#top" class="label" style="text-decoration: none;">Top</a>
+  <footer class="container" style="padding-top: 40px; padding-bottom: 40px; border-top: 1px solid var(--fg-faint); margin-top: 80px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="assets/logo-icon.png" alt="alchemist4real logo mark" style="height: 20px; width: 20px;">
+        <span class="muted" id="footer-copyright" style="font-size: 12px;">© 2025 @alchemist4real | Co-architect Sir. Yaon (@ghaffarsyafiq-arch)</span>
+      </div>
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <button onclick="openConnectModal()" class="label" style="background:none; border:none; color:var(--fg-muted); cursor:pointer; font-family:'DM Mono', monospace;">Connect</button>
+        <a href="#top" class="label" style="text-decoration: none;">Top ↑</a>
+      </div>
     </div>
   </footer>
 
@@ -875,6 +925,16 @@
     loadGitHubStats();
 
     // Modal Logic
+    function openConnectModal() {
+      const modal = document.getElementById('connect-modal');
+      if (modal) modal.classList.add('active');
+    }
+
+    function closeConnectModal() {
+      const modal = document.getElementById('connect-modal');
+      if (modal) modal.classList.remove('active');
+    }
+
     function openCardModal(e) {
       if (e && (e.target.closest('a') || e.target.closest('button.id-qr-btn'))) return;
       const card = document.querySelector('.hero .id-card');

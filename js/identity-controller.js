@@ -245,6 +245,11 @@ class IdentityController {
         linkedinLink.style.display = 'inline';
         linkedinLink.href = data.links.linkedin;
       }
+      const modalLinkedinLink = document.getElementById('modal-linkedin-link');
+      if (modalLinkedinLink && data.links) {
+        modalLinkedinLink.style.display = 'flex';
+        modalLinkedinLink.href = data.links.linkedin;
+      }
 
       // Hide generator modal button from recruiters
       if (genModalBtn) {
@@ -310,6 +315,8 @@ class IdentityController {
       }
       const linkedinLink = document.getElementById('verified-linkedin-link');
       if (linkedinLink) linkedinLink.style.display = 'none';
+      const modalLinkedinLink = document.getElementById('modal-linkedin-link');
+      if (modalLinkedinLink) modalLinkedinLink.style.display = 'none';
 
       if (genModalBtn) {
         genModalBtn.style.display = 'none';
