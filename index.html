@@ -173,8 +173,8 @@
     nav .brand-link:hover .brand-logo-img { transform: scale(1.12) rotate(-4deg); }
     nav .logo-text { text-transform: none; font-size: 13px; color: var(--fg); }
 
-    .hero { min-height: calc(100vh - 52px); display: flex; align-items: center; }
-    .hero-layout { display: flex; justify-content: space-between; align-items: center; gap: 48px; width: 100%; }
+    .hero { padding-top: 60px; padding-bottom: 80px; display: flex; flex-direction: column; }
+    .hero-layout { display: flex; justify-content: space-between; align-items: flex-start; gap: 48px; width: 100%; }
     .hero-content { max-width: 540px; }
     .hero-content .display { margin: 12px 0 20px; }
     .hero-crest-container { flex-shrink: 0; display: flex; justify-content: center; align-items: center; }
@@ -308,11 +308,30 @@
     <section class="hero container" id="top">
       <div class="hero-layout">
         <div class="hero-content">
-          <span class="label anim-flicker">THE LAB</span>
+          <span class="label anim-flicker">THE LAB · THE ALCHEMIST</span>
           <h1 class="display anim-glitch">digital alchemy<br>at scale.</h1>
-          <p class="body-text anim-glitch" style="max-width:480px; animation-delay: 0.2s;">transmuting experimental concepts into autonomous ai tools, decentralized architectures, and raw web elements. no cap.</p>
+          <p class="body-text anim-glitch" style="max-width:520px; animation-delay: 0.15s; margin-top: 16px;">
+            med student by day, experimental coder by night. transmuting experimental concepts into autonomous ai tools, decentralized architectures, and raw web elements. no cap.
+          </p>
+          <p class="body-text anim-glitch" style="max-width:520px; animation-delay: 0.25s; margin-top: 10px; color: var(--fg-muted);">
+            deploying brutalist interfaces, ai-driven logic, and decentralized systems straight to the edge.
+          </p>
           
-          <div class="stats-row anim-glitch" style="animation-delay: 0.4s;">
+          <div class="anim-glitch" style="animation-delay: 0.35s; margin-top: 24px;">
+            <span class="label" style="display: block; margin-bottom: 10px;">Tech Stack</span>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="tag">Vanilla HTML/CSS/JS</span>
+              <span class="tag">TypeScript & Tailwind</span>
+              <span class="tag">Cloudflare Workers AI</span>
+              <span class="tag">Google Gemini API</span>
+              <span class="tag">Supabase / Web3</span>
+              <span class="tag">Vercel Edge / KV</span>
+              <span class="tag">Playwright / Puppeteer</span>
+              <span class="tag">WebGL / Canvas API</span>
+            </div>
+          </div>
+
+          <div class="stats-row anim-glitch" style="animation-delay: 0.45s;">
             <div class="stat-item">
               <span class="stat-number" id="stat-projects">—</span>
               <span class="label">Live Projects</span>
@@ -321,14 +340,56 @@
               <span class="stat-number">100%</span>
               <span class="label">Server Uptime</span>
             </div>
+            <div class="stat-item">
+              <span class="stat-number">M.D.</span>
+              <span class="label">Degree Pursuit</span>
+            </div>
           </div>
           
-          <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px;" class="anim-glitch" style="animation-delay: 0.6s;">
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px;" class="anim-glitch" style="animation-delay: 0.55s;">
             <a href="#projects" class="btn-ghost">See The Work</a>
+            <a href="#connect" class="btn-ghost">Get In Touch</a>
           </div>
         </div>
         <div class="hero-crest-container anim-glitch" style="animation-delay: 0.3s;">
           <img src="assets/logo.png" alt="alchemist4real crest logo" class="hero-crest">
+        </div>
+      </div>
+
+      <!-- Academic Trajectory Timeline -->
+      <div id="about" style="margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--fg-faint);">
+        <span class="label" style="color: var(--fg); display: block; margin-bottom: 24px;">Academic Trajectory</span>
+        <div class="timeline-grid">
+          <div class="timeline-item reveal-item active visible">
+            <span class="timeline-year">2025 — PRESENT (SEM 2)</span>
+            <div class="timeline-title">State University Medical School</div>
+            <div class="timeline-desc">Current pursuit. Intertwining biomedical sciences with clinical practice and public health to attain a Medical Doctor (M.D.) degree.</div>
+          </div>
+          <div class="timeline-item reveal-item visible">
+            <span class="timeline-year">2022 — 2025</span>
+            <div class="timeline-title">Elite State Islamic Science College</div>
+            <div class="timeline-desc">Rigorous, highly selective STEM-focused senior high school program emphasizing advanced sciences, research, and analytical thinking.</div>
+          </div>
+          <div class="timeline-item reveal-item visible">
+            <span class="timeline-year">2020 — 2022</span>
+            <div class="timeline-title">Integrated Islamic Middle School</div>
+            <div class="timeline-desc">Completed middle school with a dual-curriculum approach, successfully combining national STEM standards with core religious values.</div>
+          </div>
+          <div class="timeline-item reveal-item visible">
+            <span class="timeline-year">2019 — 2020</span>
+            <div class="timeline-title">Traditional Islamic Boarding Middle School</div>
+            <div class="timeline-desc">Grade 7 intensive immersion in classical religious studies and Arabic literature. Transferred later to pursue a more balanced national curriculum.</div>
+          </div>
+          <div class="timeline-item reveal-item visible">
+            <span class="timeline-year">2016 — 2019</span>
+            <div class="timeline-title">Islamic Boarding Primary School</div>
+            <div class="timeline-desc">Completed primary education within a disciplined, character-building boarding environment.</div>
+          </div>
+          <div class="timeline-item reveal-item visible">
+            <span class="timeline-year">2013 — 2016</span>
+            <div class="timeline-title">Local Islamic Primary School</div>
+            <div class="timeline-desc">Early foundational years (Grades 1-3). Transferred subsequently to seek a broader formal academic curriculum.</div>
+          </div>
         </div>
       </div>
     </section>
@@ -347,66 +408,6 @@
         <button class="filter-btn" data-filter="repos">Repos</button>
       </div>
       <div id="catalog-container" class="project-list"></div>
-    </section>
-
-    <section id="about" class="container">
-      <span class="label">The Alchemist</span>
-      <div class="about-grid">
-        <div class="about-text reveal-item">
-          <p class="body-text">med student by day, experimental coder by night. evolving past simple web experiences into the realms of headless ai, web3 surveillance, and interactive cognition.</p>
-          <p class="body-text">still keeping it raw. deploying brutalist interfaces, ai-driven logic, and decentralized systems straight to the edge.</p>
-        </div>
-        <div class="about-stack reveal-item">
-          <span class="label" style="margin-bottom: 16px; display: block;">Stack</span>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-            <span class="tag">Vanilla HTML/CSS/JS</span>
-            <span class="tag">TypeScript & Tailwind</span>
-            <span class="tag">Cloudflare Workers AI</span>
-            <span class="tag">Google Gemini API</span>
-            <span class="tag">Supabase / Web3</span>
-            <span class="tag">Vercel Edge / KV</span>
-            <span class="tag">Playwright / Puppeteer</span>
-            <span class="tag">WebGL / Canvas API</span>
-          </div>
-        </div>
-      </div>
-      
-      <div style="margin-top: 60px;">
-        <span class="label" style="color: var(--fg); display: block; margin-bottom: 16px;">Academic Trajectory</span>
-        <div class="timeline-grid">
-          <div class="timeline-item reveal-item active">
-            <span class="timeline-year">2025 — PRESENT (SEM 2)</span>
-            <div class="timeline-title">State University Medical School</div>
-            <div class="timeline-desc">Current pursuit. Intertwining biomedical sciences with clinical practice and public health to attain a Medical Doctor (M.D.) degree.</div>
-          </div>
-          <div class="timeline-item reveal-item">
-            <span class="timeline-year">2022 — 2025</span>
-            <div class="timeline-title">Elite State Islamic Science College</div>
-            <div class="timeline-desc">Rigorous, highly selective STEM-focused senior high school program emphasizing advanced sciences, research, and analytical thinking.</div>
-          </div>
-          <div class="timeline-item reveal-item">
-            <span class="timeline-year">2020 — 2022</span>
-            <div class="timeline-title">Integrated Islamic Middle School</div>
-            <div class="timeline-desc">Completed middle school with a dual-curriculum approach, successfully combining national STEM standards with core religious values.</div>
-          </div>
-          <div class="timeline-item reveal-item">
-            <span class="timeline-year">2019 — 2020</span>
-            <div class="timeline-title">Traditional Islamic Boarding Middle School</div>
-            <div class="timeline-desc">Grade 7 intensive immersion in classical religious studies and Arabic literature. Transferred later to pursue a more balanced national curriculum.</div>
-          </div>
-          <div class="timeline-item reveal-item">
-            <span class="timeline-year">2016 — 2019</span>
-            <div class="timeline-title">Islamic Boarding Primary School</div>
-            <div class="timeline-desc">Completed primary education within a disciplined, character-building boarding environment.</div>
-          </div>
-          <div class="timeline-item reveal-item">
-            <span class="timeline-year">2013 — 2016</span>
-            <div class="timeline-title">Local Islamic Primary School</div>
-            <div class="timeline-desc">Early foundational years (Grades 1-3). Transferred subsequently to seek a broader formal academic curriculum.</div>
-          </div>
-        </div>
-      </div>
-      </div>
     </section>
 
     <section id="connect" class="container">
