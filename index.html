@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="js/identity-controller.js?v=20260811_11"></script>
+  <script src="js/identity-controller.js?v=20260811_12"></script>
   
   <style>
     :root {
@@ -526,8 +526,10 @@
         <span class="label logo-text" id="identity-handle">@alchemist4real</span>
       </a>
       <div class="nav-links">
-        <a href="#projects" class="label">Projects</a>
+        <a href="#projects" class="label">Catalog</a>
         <button onclick="openConnectModal()" class="label" style="background:none; border:none; color:var(--fg-muted); cursor:pointer; font-family:'DM Mono', monospace; padding:0;">Connect</button>
+        <a href="https://www.linkedin.com/in/alchemist4real/" id="verified-linkedin-btn" target="_blank" rel="noopener noreferrer" class="label" style="display: none; text-decoration: none; color: var(--fg-muted);">LinkedIn</a>
+        <button onclick="showGeneratorModal()" id="verified-generator-btn" class="label" style="display: none; background:none; border:none; color:var(--fg-muted); cursor:pointer; font-family:'DM Mono', monospace; padding:0;">Generator</button>
         <button id="nav-unlock-btn" class="nav-unlock-pill" style="display: none;">LOCK</button>
       </div>
     </div>
@@ -599,13 +601,6 @@
           <span style="font-family:'DM Mono', monospace; font-size:7px; color:var(--fg-faint); letter-spacing:0.1em;">ALCH-2026</span>
         </div>
 
-      </div>
-
-      <div class="hero-actions anim-glitch" style="animation-delay: 0.15s;">
-        <a href="#projects" class="btn-ghost">Catalog</a>
-        <button onclick="openConnectModal()" class="btn-ghost" style="border-color: var(--fg-faint); color: var(--fg-muted);">Connect</button>
-        <a href="https://www.linkedin.com/in/alchemist4real/" id="verified-linkedin-btn" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="display: none; border-color: var(--fg); background: var(--fg); color: var(--bg);">LinkedIn</a>
-        <button onclick="showGeneratorModal()" id="verified-generator-btn" class="btn-ghost" style="display: none;">Link Generator</button>
       </div>
     </section>
 
