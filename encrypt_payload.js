@@ -5,6 +5,8 @@ const privB64 = fs.readFileSync('assets/priv_b64.txt', 'utf8').trim();
 
 const fullPayload = {
   name: 'Ahmad Muqorrobin',
+  role: 'Undergraduate Medical Student',
+  status: 'BIB 2025 Awardee -- Sem 3',
   bio: 'Undergraduate Medical Student at Universitas Jenderal Soedirman (UNSOED) | Awardee BIB 2025 | Google Student Ambassador 2025 | CIMSA UNSOED Field Lead. Transmuting biomedical research and autonomous AI systems.',
   badges: ['BIB 2025 Awardee', 'Google Student Ambassador 2025', 'CIMSA UNSOED Field Lead'],
   links: {
