@@ -232,18 +232,19 @@ class IdentityController {
       if (verifiedBadgeRow) {
         verifiedBadgeRow.style.display = 'flex';
         verifiedBadgeRow.innerHTML = data.badges.map(b => 
-          `<span style="font-family:'DM Mono', monospace; font-size:10px; padding:2px 8px; border:1px solid var(--fg); background:var(--fg); color:var(--bg); border-radius:10px; font-weight:500;">${b}</span>`
+          `<span style="font-family:'DM Mono', monospace; font-size:7.5px; padding:1px 5px; border:1px solid var(--fg); background:var(--fg); color:var(--bg); border-radius:2px; font-weight:500;">${b}</span>`
         ).join('');
       }
 
-      const linkedinRow = document.getElementById('id-linkedin-row');
       const linkedinLink = document.getElementById('verified-linkedin-link');
       if (linkedinBtn) {
         linkedinBtn.style.display = 'inline-flex';
         linkedinBtn.href = data.links.linkedin;
       }
-      if (linkedinRow) linkedinRow.style.display = 'flex';
-      if (linkedinLink && data.links) linkedinLink.href = data.links.linkedin;
+      if (linkedinLink && data.links) {
+        linkedinLink.style.display = 'inline';
+        linkedinLink.href = data.links.linkedin;
+      }
 
       // Hide generator modal button from recruiters
       if (genModalBtn) {
@@ -307,8 +308,8 @@ class IdentityController {
       if (linkedinBtn) {
         linkedinBtn.style.display = 'none';
       }
-      const linkedinRow = document.getElementById('id-linkedin-row');
-      if (linkedinRow) linkedinRow.style.display = 'none';
+      const linkedinLink = document.getElementById('verified-linkedin-link');
+      if (linkedinLink) linkedinLink.style.display = 'none';
 
       if (genModalBtn) {
         genModalBtn.style.display = 'none';
