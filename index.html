@@ -21,213 +21,285 @@
   
   <style>
     /* =========================================================
-       PUBLIC THEME — 4-Color Logo Palette (Flat, Bold)
-       Crimson #C62828 | Gold #D4A017 | Black #1A1A2E | Cream #F5EFE0
+       PUBLIC THEME — BOLD: Crimson Base, Gold Cards
        ========================================================= */
     :root {
-      --bg: #F5EFE0;
-      --bg-card: #FFFFFF;
-      --fg: #1A1A2E;
-      --fg-muted: #5A5A6E;
-      --fg-faint: #D8CCAE;
+      --bg: #B71C1C;
+      --bg-card: #D4A017;
+      --fg: #F5EFE0;
+      --fg-muted: #F5EFE0CC;
+      --fg-faint: #9A1515;
       --accent-gold: #D4A017;
       --accent-red: #C62828;
-      --live-dot: #C62828;
-      --tag-bg: #EDE5D0;
-      --tag-fg: #1A1A2E;
+      --live-dot: #D4A017;
+      --tag-bg: #1A1A2E;
+      --tag-fg: #F5EFE0;
     }
 
-    /* --- NAV: Gold bottom border --- */
+    /* --- NAV: Dark strip on crimson --- */
     body:not(.verified-theme) nav {
+      background: #1A1A2E;
       border-bottom: 2px solid #D4A017;
     }
     body:not(.verified-theme) nav .logo-text {
-      color: #1A1A2E;
+      color: #F5EFE0;
+    }
+    body:not(.verified-theme) nav .nav-links a {
+      color: #F5EFE0CC;
+    }
+    body:not(.verified-theme) nav .nav-links a:hover {
+      color: #D4A017;
+    }
+    body:not(.verified-theme) nav.scrolled {
+      background: #1A1A2Eee;
     }
 
-    /* --- ID CARD --- */
+    /* --- ID CARD: Gold card on crimson bg --- */
     body:not(.verified-theme) .id-card {
       border: 2px solid #1A1A2E;
-      background: #FFFFFF;
+      background: #D4A017;
     }
     body:not(.verified-theme) .id-card-title-main {
-      color: #C62828;
+      color: #1A1A2E;
       font-weight: 700;
       letter-spacing: 0.18em;
     }
     body:not(.verified-theme) .id-card-divider {
-      background: #D4A017;
+      background: #1A1A2E;
       height: 2px;
     }
     body:not(.verified-theme) .id-photo {
       border: 2px solid #1A1A2E;
+      background: #F5EFE0;
     }
     body:not(.verified-theme) .id-photo-label {
-      background: #C62828;
-      color: #FFFFFF;
-      border: none;
-      font-weight: 600;
-    }
-    body:not(.verified-theme) .id-stamp {
+      background: #1A1A2E;
       color: #D4A017;
+      border: none;
       font-weight: 700;
     }
+    body:not(.verified-theme) .id-stamp {
+      color: #1A1A2E;
+      font-weight: 700;
+      opacity: 1;
+    }
     body:not(.verified-theme) .id-card-bottom {
-      border-top: 2px solid #D4A017;
+      border-top: 2px solid #1A1A2E;
+    }
+    body:not(.verified-theme) .id-row-label {
+      color: #1A1A2EAA;
+    }
+    body:not(.verified-theme) .id-row-value {
+      color: #1A1A2E;
+    }
+    body:not(.verified-theme) .id-card-bio {
+      color: #1A1A2ECC;
+      border-top-color: #1A1A2E44;
+    }
+    body:not(.verified-theme) .id-link-item {
+      color: #1A1A2E;
+      text-decoration-color: #1A1A2E66;
+    }
+    body:not(.verified-theme) .id-link-item:hover {
+      text-decoration-color: #1A1A2E;
+      color: #1A1A2E;
+    }
+    body:not(.verified-theme) .id-link-sep {
+      color: #1A1A2E66;
     }
     body:not(.verified-theme) .id-zoom-btn {
-      border-color: #D4A017;
-      color: #D4A017;
-      font-weight: 600;
+      border-color: #1A1A2E;
+      color: #1A1A2E;
+      font-weight: 700;
     }
     body:not(.verified-theme) .id-zoom-btn:hover {
-      background: #D4A017;
-      color: #FFFFFF;
+      background: #1A1A2E;
+      color: #D4A017;
     }
     body:not(.verified-theme) .id-qr-btn {
       border: 1px solid #1A1A2E;
       color: #1A1A2E;
-      font-weight: 600;
+      font-weight: 700;
     }
     body:not(.verified-theme) .id-qr-btn:hover {
-      background: #C62828;
-      color: #FFFFFF;
-      border-color: #C62828;
-    }
-    body:not(.verified-theme) .id-row-label {
+      background: #1A1A2E;
       color: #D4A017;
+      border-color: #1A1A2E;
+    }
+    body:not(.verified-theme) .id-card-watermark {
+      opacity: 0.08;
     }
 
-    /* --- SECTION BORDERS: Alternating Gold & Red --- */
+    /* --- HERO TEXT on crimson --- */
+    body:not(.verified-theme) .display {
+      color: #F5EFE0;
+    }
+    body:not(.verified-theme) .heading {
+      color: #F5EFE0;
+    }
+    body:not(.verified-theme) .label {
+      color: #F5EFE0CC;
+    }
+    body:not(.verified-theme) .muted {
+      color: #F5EFE0BB;
+    }
+    body:not(.verified-theme) .body-text {
+      color: #F5EFE0;
+    }
+
+    /* --- SECTION BORDERS: Gold lines on crimson --- */
     body:not(.verified-theme) #projects {
-      border-top: 2px solid #C62828;
+      border-top: 2px solid #D4A017;
     }
     body:not(.verified-theme) #about {
       border-top: 2px solid #D4A017;
     }
     body:not(.verified-theme) footer {
-      border-top: 2px solid #C62828;
+      border-top: 2px solid #D4A017;
     }
 
-    /* --- SECTION HEADINGS --- */
-    body:not(.verified-theme) .heading {
-      color: #1A1A2E;
-    }
-    body:not(.verified-theme) .display {
-      color: #1A1A2E;
-    }
-
-    /* --- FILTER BUTTONS: Red active, Gold hover --- */
+    /* --- FILTER BUTTONS on crimson --- */
     body:not(.verified-theme) .filter-btn {
-      border: 1px solid #1A1A2E;
-      color: #1A1A2E;
+      border: 1px solid #F5EFE0;
+      color: #F5EFE0;
       font-weight: 600;
     }
     body:not(.verified-theme) .filter-btn:hover {
       background: #D4A017;
-      color: #FFFFFF;
+      color: #1A1A2E;
       border-color: #D4A017;
     }
     body:not(.verified-theme) .filter-btn.active {
-      background: #C62828;
-      color: #FFFFFF;
-      border-color: #C62828;
+      background: #1A1A2E;
+      color: #D4A017;
+      border-color: #1A1A2E;
     }
 
-    /* --- PROJECT CARDS --- */
+    /* --- PROJECT CARDS: Gold bg, black text --- */
     body:not(.verified-theme) .project-row {
-      border: 1px solid #D8CCAE;
-      background: #FFFFFF;
+      border: 1px solid #1A1A2E44;
+      background: #D4A017;
     }
     body:not(.verified-theme) .project-row:hover {
-      border-color: #D4A017;
-      box-shadow: 3px 3px 0 #D4A017;
+      border-color: #1A1A2E;
+      box-shadow: 3px 3px 0 #1A1A2E;
     }
     body:not(.verified-theme) .card-label {
-      color: #C62828;
+      color: #1A1A2E;
       font-weight: 700;
     }
     body:not(.verified-theme) .project-title {
       color: #1A1A2E;
     }
+    body:not(.verified-theme) .project-desc {
+      color: #1A1A2ECC;
+    }
     body:not(.verified-theme) .live-dot {
-      background: #C62828 !important;
+      background: #1A1A2E !important;
     }
 
-    /* --- TAGS: Bold cream pills --- */
+    /* --- TAGS: Dark pills on gold cards --- */
     body:not(.verified-theme) .project-tags .tag {
-      background: #EDE5D0;
-      color: #1A1A2E;
-      border: 1px solid #D4A017;
+      background: #1A1A2E;
+      color: #D4A017;
+      border: none;
       font-weight: 600;
     }
 
-    /* --- BUTTONS: Gold border, Red hover --- */
+    /* --- BUTTONS on gold cards --- */
     body:not(.verified-theme) .btn-ghost-sm {
-      border: 1px solid #D4A017;
+      border: 1px solid #1A1A2E;
       color: #1A1A2E;
-      font-weight: 600;
+      font-weight: 700;
     }
     body:not(.verified-theme) .btn-ghost-sm:hover {
       background: #1A1A2E;
-      color: #F5EFE0;
+      color: #D4A017;
       border-color: #1A1A2E;
     }
+
+    /* --- BUTTONS on crimson bg --- */
     body:not(.verified-theme) .btn-ghost {
-      border: 1.5px solid #1A1A2E;
-      color: #1A1A2E;
+      border: 1.5px solid #F5EFE0;
+      color: #F5EFE0;
     }
     body:not(.verified-theme) .btn-ghost:hover {
-      background: #C62828;
-      color: #FFFFFF;
-      border-color: #C62828;
+      background: #D4A017;
+      color: #1A1A2E;
+      border-color: #D4A017;
     }
 
-    /* --- TIMELINE DOTS: Alternating Red & Gold --- */
+    /* --- TIMELINE on crimson --- */
     body:not(.verified-theme) .timeline-item {
       border-top: 2px solid #D4A017;
     }
     body:not(.verified-theme) .timeline-item::before {
-      background: #C62828;
-      border-color: #C62828;
-    }
-    body:not(.verified-theme) .timeline-item.active::before {
       background: #D4A017;
       border-color: #D4A017;
     }
+    body:not(.verified-theme) .timeline-item.active::before {
+      background: #F5EFE0;
+      border-color: #F5EFE0;
+    }
     body:not(.verified-theme) .timeline-year {
-      color: #C62828;
+      color: #D4A017;
+    }
+    body:not(.verified-theme) .timeline-title {
+      color: #F5EFE0;
+    }
+    body:not(.verified-theme) .timeline-desc {
+      color: #F5EFE0BB;
     }
 
-    /* --- FOOTER --- */
+    /* --- ABOUT section text on crimson --- */
+    body:not(.verified-theme) #about p {
+      color: #F5EFE0CC;
+    }
+
+    /* --- FOOTER on crimson --- */
+    body:not(.verified-theme) .footer-links a {
+      color: #F5EFE0CC;
+    }
     body:not(.verified-theme) .footer-links a:hover {
-      color: #C62828;
+      color: #D4A017;
+    }
+    body:not(.verified-theme) .footer-quote {
+      color: #F5EFE0AA;
     }
 
-    /* --- UNLOCK PILL: Red solid --- */
+    /* --- CONNECT MODAL on crimson --- */
+    body:not(.verified-theme) .connect-card {
+      background: #D4A017;
+      border-color: #1A1A2E44;
+    }
+    body:not(.verified-theme) .connect-card:hover {
+      border-color: #1A1A2E;
+      background: #D4A017;
+    }
+    body:not(.verified-theme) .connect-card-label {
+      color: #1A1A2EAA;
+    }
+    body:not(.verified-theme) .connect-card-val {
+      color: #1A1A2E;
+    }
+
+    /* --- UNLOCK PILL: Gold on dark --- */
     body:not(.verified-theme) .nav-unlock-pill {
-      background: #C62828;
-      color: #FFFFFF;
-      border-color: #C62828;
+      background: #D4A017;
+      color: #1A1A2E;
+      border-color: #D4A017;
+      font-weight: 700;
     }
     body:not(.verified-theme) .nav-unlock-pill:hover {
-      background: #1A1A2E;
-      border-color: #1A1A2E;
-    }
-
-    /* --- LINK HOVER UNDERLINES --- */
-    body:not(.verified-theme) .id-link-item:hover {
-      text-decoration-color: #C62828;
-      color: #C62828;
-    }
-    body:not(.verified-theme) nav .nav-links a:hover {
-      color: #C62828;
+      background: #F5EFE0;
+      border-color: #F5EFE0;
+      color: #1A1A2E;
     }
 
     /* --- SELECTION --- */
     body:not(.verified-theme) ::selection {
       background: #D4A017;
-      color: #FFFFFF;
+      color: #1A1A2E;
     }
 
     /* =========================================================
