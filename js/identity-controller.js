@@ -139,6 +139,22 @@ class IdentityController {
     }
   }
 
+  async unlockWithPasscode(passcodeStr) {
+    if (!passcodeStr) return false;
+    const data = await this.decryptPayload(passcodeStr.trim());
+    if (data) {
+      this.isVerified = true;
+      this.isRecruiter = false;
+      this.verifiedData = data;
+      this.activeKey = passcodeStr.trim();
+      this.render();
+      return true;
+    } else {
+      alert("Invalid unlock key / passcode.");
+      return false;
+    }
+  }
+
   lockIdentity() {
     this.isVerified = false;
     this.isRecruiter = false;
