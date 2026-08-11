@@ -377,8 +377,9 @@
     .filter-btn { background: transparent; border: 1px solid var(--fg-faint); color: var(--fg-muted); padding: 8px 16px; border-radius: 20px; font-family: 'DM Mono', monospace; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; }
     .filter-btn:hover { border-color: var(--fg); color: var(--fg); }
 
-    .qr-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+    .qr-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 9990; align-items: center; justify-content: center; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
     .qr-modal.active { display: flex; }
+    #qr-modal { z-index: 10000; } /* Topmost overlay layer for single QR views */
     .qr-modal-content { background: var(--bg); padding: 24px; border: 1px solid var(--fg); position: relative; max-width: 90vw; }
     .qr-modal-content img { display: block; max-width: 300px; width: 100%; height: auto; border: 1px solid var(--fg); }
     .qr-close { position: absolute; top: 0px; right: 4px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--fg); font-family: 'DM Mono', monospace; }
@@ -622,77 +623,7 @@
 
   </main>
 
-  <div id="qr-modal" class="qr-modal">
-    <div class="qr-modal-content">
-      <button class="qr-close" onclick="closeQR()">&times;</button>
-      <img id="qr-image" src="" alt="QR Code">
-    </div>
-  </div>
 
-  <div id="card-modal" class="qr-modal" onclick="closeCardModal()">
-    <div class="qr-modal-content" style="background: transparent; border: none; padding: 0; max-width: 95vw; position: relative; display: flex; flex-direction: column; align-items: center;" onclick="event.stopPropagation()">
-      <button class="qr-close" onclick="closeCardModal()" style="color: var(--fg); font-size: 32px; right: -10px; top: -45px;">&times;</button>
-      <div id="card-modal-container" style="display: flex; justify-content: center; align-items: center; padding: 20px 0 10px;"></div>
-      
-      <div class="card-modal-actions">
-        <div class="qr-float-badge">
-          <img src="assets/qr/partner.png" alt="Profile QR" class="qr-float-img">
-          <div class="qr-float-info">
-            <span class="qr-float-title">VERIFIED CREST</span>
-            <span class="qr-float-sub">Scan to verify digital identity</span>
-          </div>
-        </div>
-        <button onclick="downloadIDCardImage()" class="btn-download-card">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          Download PNG
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div id="connect-modal" class="qr-modal" onclick="closeConnectModal()">
-    <div class="qr-modal-content connect-modal-content" onclick="event.stopPropagation()">
-      <button class="qr-close" onclick="closeConnectModal()">&times;</button>
-      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-        <img src="assets/logo-icon.png" alt="logo" style="width: 22px; height: 22px;">
-        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin: 0; color: var(--fg);">Connect // Lab</h3>
-      </div>
-      <p class="muted" style="font-size: 12px; margin-bottom: 20px; line-height: 1.5;">Direct channels & social profiles to transmute ideas into reality.</p>
-
-      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 20px;">
-        <a href="https://github.com/alchemist4real" target="_blank" rel="noopener noreferrer" class="connect-card">
-          <span class="connect-card-label">GitHub</span>
-          <span class="connect-card-val">@alchemist4real</span>
-        </a>
-        <a href="https://wa.me/6285778120332" target="_blank" rel="noopener noreferrer" class="connect-card">
-          <span class="connect-card-label">WhatsApp</span>
-          <span class="connect-card-val">+62 857-7812</span>
-        </a>
-        <a href="https://instagram.com/alchemist4real" target="_blank" rel="noopener noreferrer" class="connect-card">
-          <span class="connect-card-label">Instagram</span>
-          <span class="connect-card-val">@alchemist4real</span>
-        </a>
-        <a href="https://sociabuzz.com/alchemist4real/donate" target="_blank" rel="noopener noreferrer" class="connect-card">
-          <span class="connect-card-label">Donate</span>
-          <span class="connect-card-val">SociaBuzz</span>
-        </a>
-        <a href="https://www.linkedin.com/in/alchemist4real/" id="modal-linkedin-link" target="_blank" rel="noopener noreferrer" class="connect-card" style="display: none; grid-column: span 2;">
-          <span class="connect-card-label">LinkedIn</span>
-          <span class="connect-card-val">alchemist4real</span>
-        </a>
-      </div>
-
-      <div style="border-top: 1px dashed var(--fg-faint); padding-top: 14px;">
-        <span class="label" style="display: block; margin-bottom: 10px; font-size: 9.5px; color: var(--fg-faint);">QUICK QR CODES</span>
-        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-          <button onclick="showQR('github')" class="id-qr-btn" style="padding: 3px 8px; font-size: 9px;">GH QR</button>
-          <button onclick="showQR('whatsapp')" class="id-qr-btn" style="padding: 3px 8px; font-size: 9px;">WA QR</button>
-          <button onclick="showQR('instagram')" class="id-qr-btn" style="padding: 3px 8px; font-size: 9px;">IG QR</button>
-          <button onclick="showQR('partner')" class="id-qr-btn" style="padding: 3px 8px; font-size: 9px;">Partner QR</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <footer class="container" style="padding-top: 40px; padding-bottom: 40px; border-top: 1px solid var(--fg-faint); margin-top: 80px;">
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
@@ -1049,9 +980,78 @@
     init();
   </script>
 
-  <!-- RECRUITER LINK GENERATOR MODAL -->
-  <div id="generator-modal" class="qr-modal">
-    <div class="qr-modal-content" style="max-width: 480px; text-align: left;">
+  <!-- MODAL LAYER 1: BASE MODALS (z-index: 9990) -->
+  
+  <!-- 1. CONNECT MODAL -->
+  <div id="connect-modal" class="qr-modal" onclick="closeConnectModal()">
+    <div class="qr-modal-content connect-modal-content" onclick="event.stopPropagation()">
+      <button class="qr-close" onclick="closeConnectModal()">&times;</button>
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+        <img src="assets/logo-icon.png" alt="logo" style="width: 22px; height: 22px;">
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin: 0; color: var(--fg);">Connect // Lab</h3>
+      </div>
+      <p class="muted" style="font-size: 12px; margin-bottom: 20px; line-height: 1.5;">Direct channels & social profiles to transmute ideas into reality.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 20px;">
+        <a href="https://github.com/alchemist4real" target="_blank" rel="noopener noreferrer" class="connect-card">
+          <span class="connect-card-label">GitHub</span>
+          <span class="connect-card-val">@alchemist4real</span>
+        </a>
+        <a href="https://wa.me/6285778120332" target="_blank" rel="noopener noreferrer" class="connect-card">
+          <span class="connect-card-label">WhatsApp</span>
+          <span class="connect-card-val">+62 857-7812</span>
+        </a>
+        <a href="https://instagram.com/alchemist4real" target="_blank" rel="noopener noreferrer" class="connect-card">
+          <span class="connect-card-label">Instagram</span>
+          <span class="connect-card-val">@alchemist4real</span>
+        </a>
+        <a href="https://sociabuzz.com/alchemist4real/donate" target="_blank" rel="noopener noreferrer" class="connect-card">
+          <span class="connect-card-label">Donate</span>
+          <span class="connect-card-val">SociaBuzz</span>
+        </a>
+        <a href="https://www.linkedin.com/in/alchemist4real/" id="modal-linkedin-link" target="_blank" rel="noopener noreferrer" class="connect-card" style="display: none; grid-column: span 2;">
+          <span class="connect-card-label">LinkedIn</span>
+          <span class="connect-card-val">alchemist4real</span>
+        </a>
+      </div>
+
+      <div style="border-top: 1px dashed var(--fg-faint); padding-top: 14px;">
+        <span class="label" style="display: block; margin-bottom: 10px; font-size: 9.5px; color: var(--fg-faint);">QUICK QR CODES</span>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+          <button onclick="showQR('github')" class="id-qr-btn" style="padding: 3px 8px; font-size: 9px;">GH QR</button>
+          <button onclick="showQR('whatsapp')" class="id-qr-btn" style="padding: 3px 8px; font-size: 9px;">WA QR</button>
+          <button onclick="showQR('instagram')" class="id-qr-btn" style="padding: 3px 8px; font-size: 9px;">IG QR</button>
+          <button onclick="showQR('partner')" class="id-qr-btn" style="padding: 3px 8px; font-size: 9px;">Partner QR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. ID CARD ZOOM PREVIEW MODAL -->
+  <div id="card-modal" class="qr-modal" onclick="closeCardModal()">
+    <div class="qr-modal-content" style="background: transparent; border: none; padding: 0; max-width: 95vw; position: relative; display: flex; flex-direction: column; align-items: center;" onclick="event.stopPropagation()">
+      <button class="qr-close" onclick="closeCardModal()" style="color: var(--fg); font-size: 32px; right: -10px; top: -45px;">&times;</button>
+      <div id="card-modal-container" style="display: flex; justify-content: center; align-items: center; padding: 20px 0 10px;"></div>
+      
+      <div class="card-modal-actions">
+        <div class="qr-float-badge">
+          <img src="assets/qr/partner.png" alt="Profile QR" class="qr-float-img">
+          <div class="qr-float-info">
+            <span class="qr-float-title">VERIFIED CREST</span>
+            <span class="qr-float-sub">Scan to verify digital identity</span>
+          </div>
+        </div>
+        <button onclick="downloadIDCardImage()" class="btn-download-card">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download PNG
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. RECRUITER LINK GENERATOR MODAL -->
+  <div id="generator-modal" class="qr-modal" onclick="closeGeneratorModal()">
+    <div class="qr-modal-content" style="max-width: 480px; text-align: left;" onclick="event.stopPropagation()">
       <button class="qr-close" onclick="closeGeneratorModal()">&times;</button>
       <span class="label" style="display: block; margin-bottom: 8px; color: var(--fg);">RECRUITER LINK GENERATOR</span>
       <p class="muted" style="font-size: 12px; margin-bottom: 16px;">Generate a temporary auto-unlock URL to attach in job applications or CVs.</p>
@@ -1070,5 +1070,28 @@
       <input type="text" id="gen-output-url" readonly style="width: 100%; padding: 8px; border: 1px dashed var(--fg-faint); font-family: 'DM Mono', monospace; font-size: 11px; background: var(--bg); color: var(--fg-muted);">
     </div>
   </div>
+
+  <!-- 4. PASSCODE UNLOCK MODAL -->
+  <div id="unlock-modal" class="qr-modal" onclick="closeUnlockModal()">
+    <div class="qr-modal-content" style="max-width: 380px; text-align: left;" onclick="event.stopPropagation()">
+      <button class="qr-close" onclick="closeUnlockModal()">&times;</button>
+      <span class="label" style="display: block; margin-bottom: 8px; color: var(--fg);">VERIFIED IDENTITY ACCESS</span>
+      <p class="muted" style="font-size: 12px; margin-bottom: 16px;">Enter AES-256 decryption key or owner passcode.</p>
+      
+      <input type="password" id="passcode-input" placeholder="Enter key..." style="width: 100%; padding: 10px; border: 1px solid var(--fg); font-family: 'DM Mono', monospace; font-size: 13px; margin-bottom: 14px; background: var(--bg); color: var(--fg);">
+      <button onclick="submitPasscode()" class="btn-ghost" style="width:100%; padding: 10px;">Unlock Profile</button>
+    </div>
+  </div>
+
+  <!-- MODAL LAYER 2: OVERLAY MODAL (z-index: 10000 - Topmost) -->
+  
+  <!-- 5. SINGLE QR VIEW OVERLAY MODAL -->
+  <div id="qr-modal" class="qr-modal" onclick="closeQR()">
+    <div class="qr-modal-content" onclick="event.stopPropagation()">
+      <button class="qr-close" onclick="closeQR()">&times;</button>
+      <img id="qr-image" src="" alt="QR Code">
+    </div>
+  </div>
+
 </body>
 </html>
