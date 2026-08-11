@@ -1590,9 +1590,43 @@
       const title = document.getElementById('qr-modal-title');
       img.src = `assets/qr/${id}.png`;
       if (title) {
-        title.textContent = id === 'card' ? 'ID Card Verification QR' : 'LinkedIn Profile QR';
+        const titles = {
+          'card': 'ID Card Verification QR',
+          'linkedin': 'LinkedIn Profile QR',
+          'github': 'GitHub Profile QR',
+          'whatsapp': 'WhatsApp Contact QR',
+          'instagram': 'Instagram QR',
+          'partner': 'Partner Verification QR'
+        };
+        title.textContent = titles[id] || `${id.toUpperCase()} QR CODE`;
       }
       modal.classList.add('active');
+    }
+
+    async function downloadQRImage() {
+      const img = document.getElementById('qr-image');
+      const title = document.getElementById('qr-modal-title');
+      if (!img || !img.src) return;
+
+      try {
+        const response = await fetch(img.src);
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        const cleanTitle = (title && title.textContent) ? 
+          title.textContent.toLowerCase().replace(/[^a-z0-9]/g, '_') : 'qr_code';
+        link.href = url;
+        link.download = `alchemist4real_${cleanTitle}.png`;
+        link.click();
+        URL.revokeObjectURL(url);
+      } catch (e) {
+        console.error("QR download error:", e);
+        const link = document.createElement('a');
+        link.href = img.src;
+        link.download = 'alchemist4real_qr_code.png';
+        link.target = '_blank';
+        link.click();
+      }
     }
     
     function closeQR() {
@@ -1761,7 +1795,11 @@
         <span class="label" style="display: block; font-size: 9px; margin-bottom: 2px; color: var(--fg-faint);">SCAN CODE</span>
         <h4 id="qr-modal-title" style="font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--fg); margin-bottom: 12px; text-transform: uppercase;">QR CODE</h4>
       </div>
-      <img id="qr-image" src="" alt="QR Code">
+      <img id="qr-image" src="" alt="QR Code" style="margin-bottom: 14px;">
+      <button onclick="downloadQRImage()" class="btn-ghost-sm" style="width: 100%; padding: 8px 14px; font-size: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        Download QR PNG
+      </button>
     </div>
   </div>
 
