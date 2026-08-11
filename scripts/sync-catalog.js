@@ -78,13 +78,13 @@ async function sync() {
         matchedItem.type = 'extensions';
       }
       
-      if (isDuplicate) return;
-
       // Add new live repo
+      const rawDesc = repo.description || `open source repository for ${repo.name}`;
+      const cleanDesc = rawDesc.replace(/^(a|an|the)\s+/i, '').toLowerCase().replace(/[\.\s]+$/, '');
       allCatalogItems.push({
         id: "GH-" + repo.name.substring(0,3).toUpperCase(),
         title: repo.name.toUpperCase().replace(/-/g, ' '),
-        description: repo.description ? repo.description.toLowerCase() + (repo.description.endsWith('.') ? '' : '.') : "auto-synced repository.",
+        description: cleanDesc,
         tags: repo.topics && repo.topics.length > 0 ? repo.topics.slice(0, 2) : (repo.language ? [repo.language] : ['Code']),
         link: repo.homepage || repo.html_url,
         type: isExtension ? 'extensions' : 'repos'

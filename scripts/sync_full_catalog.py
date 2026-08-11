@@ -50,7 +50,7 @@ curated_projects = [
     {
         "id": "01",
         "title": "NO SMOKE",
-        "description": "a science-backed minimalist landing page addressing nicotine automaticity and urge regulation.",
+        "description": "science-backed landing page for nicotine urge regulation",
         "tags": ["Anti-Smoking", "Bilingual", "Dark"],
         "link": "https://nosmoke-six.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/nosmoke"
@@ -58,7 +58,7 @@ curated_projects = [
     {
         "id": "02",
         "title": "#SayNoToDrugs",
-        "description": "pretest -> 5 NAPZA topics -> posttest -> certificate.",
+        "description": "interactive drug education with pre/post-test & certificate",
         "tags": ["Anti-Drugs", "Certificate"],
         "link": "https://saynotodrugs-two.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/saynotodrugs"
@@ -66,7 +66,7 @@ curated_projects = [
     {
         "id": "03",
         "title": "#FuckAllRapist",
-        "description": "consent, UU TPKS, bystander 5D — no sugarcoating.",
+        "description": "anti-sexual violence guide covering consent & bystander action",
         "tags": ["Anti-Violence", "Certificate"],
         "link": "https://fuckallrapist.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/fuckallrapist"
@@ -74,7 +74,7 @@ curated_projects = [
     {
         "id": "04",
         "title": "174 ARCHIVE",
-        "description": "an immersive, dark-themed digital archive and web-based desktop simulation.",
+        "description": "dark-themed digital archive & desktop simulation",
         "tags": ["Academic", "Supabase", "Spotify"],
         "link": "https://174-three.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/MR-CAPSULES"
@@ -82,7 +82,7 @@ curated_projects = [
     {
         "id": "05",
         "title": "SEHATIN BOOTH",
-        "description": "interactive community health screening kiosk and vitals tracker.",
+        "description": "community health screening kiosk & vitals tracker",
         "tags": ["Healthcare", "Kiosk", "Public Health"],
         "link": "https://sehatin-booth.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/sehatin-booth"
@@ -90,7 +90,7 @@ curated_projects = [
     {
         "id": "06",
         "title": "DR. BEEN",
-        "description": "ai-powered clinical diagnostic assistant and medical knowledge agent.",
+        "description": "ai clinical diagnostic assistant & medical knowledge agent",
         "tags": ["AI", "Clinical", "Diagnostics"],
         "link": "https://dr-been.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/dr-been"
@@ -98,7 +98,7 @@ curated_projects = [
     {
         "id": "07",
         "title": "DOCTOR TABLET",
-        "description": "streamlined digital workspace for physicians and medical bedside consultations.",
+        "description": "digital workspace for bedside medical consultations",
         "tags": ["Medical", "Workspace", "EHR"],
         "link": "https://doctortablet.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/doctortablet"
@@ -106,7 +106,7 @@ curated_projects = [
     {
         "id": "08",
         "title": "PHD BIOENGINEERING ROADMAP",
-        "description": "interactive academic trajectory and curriculum guide for bioengineering & medical tech.",
+        "description": "academic trajectory guide for bioengineering & medtech",
         "tags": ["Academic", "Bioengineering", "Roadmap"],
         "link": "https://phd-bioengineering-roadmap.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/phd-bioengineering-roadmap"
@@ -114,7 +114,7 @@ curated_projects = [
     {
         "id": "09",
         "title": "LONGLIFEHISTO",
-        "description": "an interactive web-based histology simulator to practice microscopic slide identification.",
+        "description": "interactive histology simulator for slide identification",
         "tags": ["Histology", "Medical", "Simulation"],
         "link": "https://longlifehisto.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/longlifehisto"
@@ -122,7 +122,7 @@ curated_projects = [
     {
         "id": "10",
         "title": "PRISMA SIMULATOR",
-        "description": "national antibiotic distribution monitoring and e-prescription validator powered by blockchain.",
+        "description": "blockchain antibiotic distribution & e-prescription validator",
         "tags": ["Healthcare", "Surveillance", "Indonesia"],
         "link": "https://prisma-rdk-simulator.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/prisma-rdk-simulator"
@@ -130,7 +130,7 @@ curated_projects = [
     {
         "id": "11",
         "title": "SAY NO TO CHOLESTEROL",
-        "description": "program edukasi interaktif tentang kolesterol dan manajemen gaya hidup.",
+        "description": "interactive cholesterol & lifestyle education",
         "tags": ["Edukasi", "Kesehatan", "Kolesterol"],
         "link": "https://saynotocholestrol.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/saynotocholestrol"
@@ -138,7 +138,7 @@ curated_projects = [
     {
         "id": "12",
         "title": "HIPERTENSI MENGINTAI GEN Z",
-        "description": "interactive health education about hypertension for gen z.",
+        "description": "interactive hypertension health education for gen z",
         "tags": ["Health", "Education", "Hypertension"],
         "link": "https://hipertensimengintaigenz.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/hipertensimengintaigenz"
@@ -146,7 +146,7 @@ curated_projects = [
     {
         "id": "13",
         "title": "DERMAMAXXING",
-        "description": "skin intelligence system for automated dermatology anamnesis and tailored product routines.",
+        "description": "skin intelligence system for dermatology anamnesis",
         "tags": ["Dermatology", "Skincare", "System"],
         "link": "https://dermamaxxing.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/dermamaxxing"
@@ -154,7 +154,7 @@ curated_projects = [
     {
         "id": "14",
         "title": "NUTRI SOY BY ALTAF",
-        "description": "personalized ai nutrition coaching and habit tracking powered by physical product qr code redemptions.",
+        "description": "ai nutrition coaching & qr habit tracker",
         "tags": ["AI", "Nutrition", "Coaching"],
         "link": "https://soyproteinbyaltaf.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/soyproteinbyaltaf"
@@ -162,7 +162,7 @@ curated_projects = [
     {
         "id": "15",
         "title": "MARKITDOWN IN WEB",
-        "description": "web-based multi-format document to markdown converter powered by Microsoft MarkItDown.",
+        "description": "multi-format document to markdown converter",
         "tags": ["Markdown", "Converter", "Utility"],
         "link": "https://markitdowninweb.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/markitdowninweb"
@@ -170,7 +170,7 @@ curated_projects = [
     {
         "id": "16",
         "title": "COOK WITH ALCHEMIST",
-        "description": "unified masterclass web app and experimental recipe lab by @alchemist4real.",
+        "description": "masterclass web app & experimental recipe lab",
         "tags": ["Web", "Application", "Masterclass"],
         "link": "https://cookwithalchemist4real.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/cookwithalchemist4real"
@@ -178,7 +178,7 @@ curated_projects = [
     {
         "id": "17",
         "title": "AETHERIAL",
-        "description": "a spatial cognition test and mental rotation exercise.",
+        "description": "spatial cognition test & mental rotation exercise",
         "tags": ["Spatial", "Cognition", "Game"],
         "link": "https://aetherial-beta.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/aetherial"
@@ -186,7 +186,7 @@ curated_projects = [
     {
         "id": "18",
         "title": "SOEXSOEX",
-        "description": "an ai-powered collaborative question bank utilizing gemini content validation.",
+        "description": "ai collaborative question bank with gemini validation",
         "tags": ["AI", "Question Bank", "Education"],
         "link": "https://soexsoex.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/soexsoex"
@@ -194,7 +194,7 @@ curated_projects = [
     {
         "id": "19",
         "title": "LIVE VOICE GEMINI",
-        "description": "realtime voice conversations with gemini using web speech transcription.",
+        "description": "realtime voice conversations with gemini ai",
         "tags": ["Gemini", "Voice", "AI"],
         "link": "https://live-one-beta.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/live"
@@ -202,7 +202,7 @@ curated_projects = [
     {
         "id": "20",
         "title": "MSG FROM ORACLE",
-        "description": "the sarcastic ai oracle that feeds on your futile wishes, real-time news, and market odds.",
+        "description": "sarcastic ai oracle feeding on news & market odds",
         "tags": ["Web", "Application", "Oracle"],
         "link": "https://msgfromoracle.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/msgfromoracle"
@@ -210,7 +210,7 @@ curated_projects = [
     {
         "id": "21",
         "title": "BEENBOXD",
-        "description": "an ai-powered letterboxd logger.",
+        "description": "ai-powered letterboxd movie logger",
         "tags": ["Letterboxd", "Logger", "Movies"],
         "link": "https://beenboxd.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/beenboxd"
@@ -218,7 +218,7 @@ curated_projects = [
     {
         "id": "22",
         "title": "BEENTEXTER",
-        "description": "a brutalist retro-calculator style text generator with tactile vintage web aesthetics.",
+        "description": "brutalist retro-calculator style text generator",
         "tags": ["Retro", "Calculator", "Text Gen"],
         "link": "https://beentexter.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/beentexter"
@@ -226,7 +226,7 @@ curated_projects = [
     {
         "id": "23",
         "title": "BEENCODE",
-        "description": "industrial matrix encoder terminal. raw edge.",
+        "description": "industrial matrix encoder terminal",
         "tags": ["Encoder", "Industrial", "Utility"],
         "link": "https://beencode.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/beencode"
@@ -234,7 +234,7 @@ curated_projects = [
     {
         "id": "24",
         "title": "BEENHOLLOW",
-        "description": "ephemeral p2p file and message sharing directly into the void.",
+        "description": "ephemeral p2p file & message sharing",
         "tags": ["P2P", "File Sharing", "Real-time"],
         "link": "https://beenhollow.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/BEENHOLLOW"
@@ -242,7 +242,7 @@ curated_projects = [
     {
         "id": "25",
         "title": "LIMITLESS OMNIPRESENT",
-        "description": "gojo satoru technique simulator with 100k gpu particles.",
+        "description": "gojo satoru technique simulator with gpu particles",
         "tags": ["Simulator", "Mediapipe", "WebGL"],
         "link": "https://zenlimitless.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/zenlimitless"
@@ -250,7 +250,7 @@ curated_projects = [
     {
         "id": "26",
         "title": "PRISMA RDK GUIDE",
-        "description": "blockchain-powered health chain system documentation & guide.",
+        "description": "blockchain health chain documentation & guide",
         "tags": ["Blockchain", "Healthcare", "Antibiotics"],
         "link": "https://prisma-rdk-guide.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/prisma-rdk-guide"
@@ -261,29 +261,77 @@ curated_extensions = [
     {
         "id": "GH-TIM",
         "title": "TIMEMARU",
-        "description": "a browser extension merging daily productivity tools with an interactive, screen-roaming pixel art demon.",
+        "description": "productivity extension with interactive pixel art demon",
         "tags": ["Productivity", "Pixel Art", "Extension"],
         "link": "https://github.com/alchemist4real/timemaru"
     },
     {
         "id": "GH-OMN",
         "title": "OMNIFORM AUTOFILLER",
-        "description": "GForm dominator with robust React-safe injection.",
+        "description": "gform autofill extension with react-safe injection",
         "tags": ["Extension", "JavaScript", "Automation"],
         "link": "https://github.com/alchemist4real/OmniForm-Autofiller"
     },
     {
         "id": "GH-PEE",
         "title": "PEERASSESS NINJA",
-        "description": "Single-click peer assessment automation extension.",
+        "description": "single-click peer assessment automation extension",
         "tags": ["Extension", "JavaScript", "Automation"],
         "link": "https://github.com/alchemist4real/PeerAssess-Ninja"
     }
 ]
 
-# Track existing repo links & titles to build repos list without duplicates
-project_repo_links = set(p["repo_link"].lower().rstrip("/") for p in curated_projects if "repo_link" in p)
-project_web_links = set(p["link"].lower().rstrip("/") for p in curated_projects if "link" in p)
+curated_repo_descriptions = {
+    "markitdowninweb": "open source web document to markdown converter",
+    "mr-capsules": "medical student learning platform & digital archive",
+    "cookwithalchemist4real": "masterclass web app & experimental recipe lab",
+    "hipertensimengintaigenz": "hypertension health education web app for gen z",
+    "saynotocholestrol": "interactive cholesterol & lifestyle education app",
+    "fuckallrapist": "anti-sexual violence & consent education guide",
+    "saynotodrugs": "interactive drug education & certification platform",
+    "zenlimitless": "gojo satoru technique simulator with gpu particles",
+    "aetherial": "spatial cognition test & mental rotation exercise",
+    "beencode": "industrial matrix encoder terminal",
+    "soyproteinbyaltaf": "ai nutrition coaching & qr habit tracker",
+    "soexsoex": "ai collaborative question bank with gemini validation",
+    "sinxv": "headless whatsapp ai assistant controlled via telegram",
+    "saturday": "serverless ai assistant backend on cloudflare workers",
+    "prisma-rdk-guide": "blockchain health chain system documentation & guide",
+    "prisma-rdk-simulator": "blockchain antibiotic distribution & e-prescription validator",
+    "soalganjilgenap": "odd-even speed accuracy test generator for psych exams",
+    "monday": "minimalist chat app powered by cloudflare workers ai",
+    "msgfromoracle": "sarcastic ai oracle feeding on news & market odds",
+    "live": "realtime voice conversations with gemini ai",
+    "longlifehisto": "interactive histology simulator for slide identification",
+    "nosmoke": "science-backed landing page for nicotine urge regulation",
+    "cosxouboros": "autonomous web entity that rewrites its code via ai",
+    "beenonexamaccess": "decentralized web3 wallet protocol for exam access",
+    "friday": "dark-mode personal ai assistant on cloudflare workers",
+    "beentexter": "brutalist retro-calculator style text generator",
+    "geminibeenspace": "guide for students to unlock free 1-year gemini trial",
+    "beenboxd": "ai letterboxd movie logger & csv exporter",
+    "academiccontrolcenter": "gamified academic dashboard for task tracking",
+    "beenhollow": "ephemeral p2p file & message sharing",
+    "beenmoney": "minimalist dark-themed single-file budgeting app"
+}
+
+def format_desc(text):
+    if not text:
+        return ""
+    text = text.strip()
+    for prefix in ["a ", "an ", "the ", "A ", "An ", "The "]:
+        if text.startswith(prefix):
+            text = text[len(prefix):]
+            break
+    text = text.lower().rstrip(". ")
+    return text
+
+# Exclude repos specified by user to avoid redundancy on web catalog
+excluded_repo_names = {
+    "cookwithalchemist4real", "zenlimitless", "soexsoex", "sinxv", "saturday",
+    "prisma-rdk-simulator", "monday", "live", "longlifehisto", "cosxouboros",
+    "beenonexamaccess", "friday", "geminibeenspace", "academiccontrolcenter", "beenmoney"
+}
 
 repos_list = []
 
@@ -292,16 +340,20 @@ for r in gh_repos:
     name = r["name"]
     name_clean = name.lower().replace("-", "").replace(".", "").replace("_", "")
     
-    # Skip if extension
+    # Skip if excluded or extension
+    if name.lower() in excluded_repo_names:
+        continue
     if any(ext["link"].lower().rstrip("/") == html_url for ext in curated_extensions):
         continue
         
     live_link = vercel_map.get(name_clean) or r.get("homepage")
     
+    raw_desc = curated_repo_descriptions.get(name.lower()) or r.get("description") or f"open source repository for {name}"
+    
     repo_entry = {
         "id": "GH-" + name[:3].upper(),
         "title": name.upper().replace("-", " ").replace("_", " "),
-        "description": r.get("description") or f"open source repository for {name}.",
+        "description": format_desc(raw_desc),
         "tags": r.get("topics")[:2] if r.get("topics") else ([r.get("language")] if r.get("language") else ["Code"]),
         "link": r["html_url"]
     }
@@ -321,3 +373,4 @@ with open(DATA_FILE, "w", encoding="utf-8") as f:
     json.dump(new_data, f, indent=2)
 
 print(f"Successfully synced full catalog into data.json! Total projects: {len(curated_projects)}, Extensions: {len(curated_extensions)}, Repos: {len(repos_list)}")
+

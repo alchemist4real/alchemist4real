@@ -3,7 +3,7 @@
     {
       "id": "01",
       "title": "NO SMOKE",
-      "description": "a science-backed minimalist landing page addressing nicotine automaticity and urge regulation.",
+      "description": "science-backed landing page for nicotine urge regulation",
       "tags": [
         "Anti-Smoking",
         "Bilingual",
@@ -15,7 +15,7 @@
     {
       "id": "02",
       "title": "#SayNoToDrugs",
-      "description": "pretest -> 5 NAPZA topics -> posttest -> certificate.",
+      "description": "interactive drug education with pre/post-test & certificate",
       "tags": [
         "Anti-Drugs",
         "Certificate"
@@ -26,7 +26,7 @@
     {
       "id": "03",
       "title": "#FuckAllRapist",
-      "description": "consent, UU TPKS, bystander 5D — no sugarcoating.",
+      "description": "anti-sexual violence guide covering consent & bystander action",
       "tags": [
         "Anti-Violence",
         "Certificate"
@@ -37,7 +37,7 @@
     {
       "id": "04",
       "title": "174 ARCHIVE",
-      "description": "an immersive, dark-themed digital archive and web-based desktop simulation.",
+      "description": "dark-themed digital archive & desktop simulation",
       "tags": [
         "Academic",
         "Supabase",
@@ -49,7 +49,7 @@
     {
       "id": "05",
       "title": "SEHATIN BOOTH",
-      "description": "interactive community health screening kiosk and vitals tracker.",
+      "description": "community health screening kiosk & vitals tracker",
       "tags": [
         "Healthcare",
         "Kiosk",
@@ -61,7 +61,7 @@
     {
       "id": "06",
       "title": "DR. BEEN",
-      "description": "ai-powered clinical diagnostic assistant and medical knowledge agent.",
+      "description": "ai clinical diagnostic assistant & medical knowledge agent",
       "tags": [
         "AI",
         "Clinical",
@@ -73,7 +73,7 @@
     {
       "id": "07",
       "title": "DOCTOR TABLET",
-      "description": "streamlined digital workspace for physicians and medical bedside consultations.",
+      "description": "digital workspace for bedside medical consultations",
       "tags": [
         "Medical",
         "Workspace",
@@ -85,7 +85,7 @@
     {
       "id": "08",
       "title": "PHD BIOENGINEERING ROADMAP",
-      "description": "interactive academic trajectory and curriculum guide for bioengineering & medical tech.",
+      "description": "academic trajectory guide for bioengineering & medtech",
       "tags": [
         "Academic",
         "Bioengineering",
@@ -97,7 +97,7 @@
     {
       "id": "09",
       "title": "LONGLIFEHISTO",
-      "description": "an interactive web-based histology simulator to practice microscopic slide identification.",
+      "description": "interactive histology simulator for slide identification",
       "tags": [
         "Histology",
         "Medical",
@@ -109,7 +109,7 @@
     {
       "id": "10",
       "title": "PRISMA SIMULATOR",
-      "description": "national antibiotic distribution monitoring and e-prescription validator powered by blockchain.",
+      "description": "blockchain antibiotic distribution & e-prescription validator",
       "tags": [
         "Healthcare",
         "Surveillance",
@@ -121,7 +121,7 @@
     {
       "id": "11",
       "title": "SAY NO TO CHOLESTEROL",
-      "description": "program edukasi interaktif tentang kolesterol dan manajemen gaya hidup.",
+      "description": "interactive cholesterol & lifestyle education",
       "tags": [
         "Edukasi",
         "Kesehatan",
@@ -133,7 +133,7 @@
     {
       "id": "12",
       "title": "HIPERTENSI MENGINTAI GEN Z",
-      "description": "interactive health education about hypertension for gen z.",
+      "description": "interactive hypertension health education for gen z",
       "tags": [
         "Health",
         "Education",
@@ -145,7 +145,7 @@
     {
       "id": "13",
       "title": "DERMAMAXXING",
-      "description": "skin intelligence system for automated dermatology anamnesis and tailored product routines.",
+      "description": "skin intelligence system for dermatology anamnesis",
       "tags": [
         "Dermatology",
         "Skincare",
@@ -157,7 +157,7 @@
     {
       "id": "14",
       "title": "NUTRI SOY BY ALTAF",
-      "description": "personalized ai nutrition coaching and habit tracking powered by physical product qr code redemptions.",
+      "description": "ai nutrition coaching & qr habit tracker",
       "tags": [
         "AI",
         "Nutrition",
@@ -169,7 +169,7 @@
     {
       "id": "15",
       "title": "MARKITDOWN IN WEB",
-      "description": "web-based multi-format document to markdown converter powered by Microsoft MarkItDown.",
+      "description": "multi-format document to markdown converter",
       "tags": [
         "Markdown",
         "Converter",
@@ -181,7 +181,7 @@
     {
       "id": "16",
       "title": "COOK WITH ALCHEMIST",
-      "description": "unified masterclass web app and experimental recipe lab by @alchemist4real.",
+      "description": "masterclass web app & experimental recipe lab",
       "tags": [
         "Web",
         "Application",
@@ -193,7 +193,7 @@
     {
       "id": "17",
       "title": "AETHERIAL",
-      "description": "a spatial cognition test and mental rotation exercise.",
+      "description": "spatial cognition test & mental rotation exercise",
       "tags": [
         "Spatial",
         "Cognition",
@@ -205,7 +205,7 @@
     {
       "id": "18",
       "title": "SOEXSOEX",
-      "description": "an ai-powered collaborative question bank utilizing gemini content validation.",
+      "description": "ai collaborative question bank with gemini validation",
       "tags": [
         "AI",
         "Question Bank",
@@ -217,7 +217,7 @@
     {
       "id": "19",
       "title": "LIVE VOICE GEMINI",
-      "description": "realtime voice conversations with gemini using web speech transcription.",
+      "description": "realtime voice conversations with gemini ai",
       "tags": [
         "Gemini",
         "Voice",
@@ -229,7 +229,7 @@
     {
       "id": "20",
       "title": "MSG FROM ORACLE",
-      "description": "the sarcastic ai oracle that feeds on your futile wishes, real-time news, and market odds.",
+      "description": "sarcastic ai oracle feeding on news & market odds",
       "tags": [
         "Web",
         "Application",
@@ -241,7 +241,7 @@
     {
       "id": "21",
       "title": "BEENBOXD",
-      "description": "an ai-powered letterboxd logger.",
+      "description": "ai-powered letterboxd movie logger",
       "tags": [
         "Letterboxd",
         "Logger",
@@ -253,7 +253,7 @@
     {
       "id": "22",
       "title": "BEENTEXTER",
-      "description": "a brutalist retro-calculator style text generator with tactile vintage web aesthetics.",
+      "description": "brutalist retro-calculator style text generator",
       "tags": [
         "Retro",
         "Calculator",
@@ -265,7 +265,7 @@
     {
       "id": "23",
       "title": "BEENCODE",
-      "description": "industrial matrix encoder terminal. raw edge.",
+      "description": "industrial matrix encoder terminal",
       "tags": [
         "Encoder",
         "Industrial",
@@ -277,7 +277,7 @@
     {
       "id": "24",
       "title": "BEENHOLLOW",
-      "description": "ephemeral p2p file and message sharing directly into the void.",
+      "description": "ephemeral p2p file & message sharing",
       "tags": [
         "P2P",
         "File Sharing",
@@ -289,7 +289,7 @@
     {
       "id": "25",
       "title": "LIMITLESS OMNIPRESENT",
-      "description": "gojo satoru technique simulator with 100k gpu particles.",
+      "description": "gojo satoru technique simulator with gpu particles",
       "tags": [
         "Simulator",
         "Mediapipe",
@@ -301,7 +301,7 @@
     {
       "id": "26",
       "title": "PRISMA RDK GUIDE",
-      "description": "blockchain-powered health chain system documentation & guide.",
+      "description": "blockchain health chain documentation & guide",
       "tags": [
         "Blockchain",
         "Healthcare",
@@ -315,7 +315,7 @@
     {
       "id": "GH-TIM",
       "title": "TIMEMARU",
-      "description": "a browser extension merging daily productivity tools with an interactive, screen-roaming pixel art demon.",
+      "description": "productivity extension with interactive pixel art demon",
       "tags": [
         "Productivity",
         "Pixel Art",
@@ -326,7 +326,7 @@
     {
       "id": "GH-OMN",
       "title": "OMNIFORM AUTOFILLER",
-      "description": "GForm dominator with robust React-safe injection.",
+      "description": "gform autofill extension with react-safe injection",
       "tags": [
         "Extension",
         "JavaScript",
@@ -337,7 +337,7 @@
     {
       "id": "GH-PEE",
       "title": "PEERASSESS NINJA",
-      "description": "Single-click peer assessment automation extension.",
+      "description": "single-click peer assessment automation extension",
       "tags": [
         "Extension",
         "JavaScript",
@@ -351,7 +351,7 @@
     {
       "id": "GH-MAR",
       "title": "MARKITDOWNINWEB",
-      "description": "open source repository for markitdowninweb.",
+      "description": "open source web document to markdown converter",
       "tags": [
         "Python"
       ],
@@ -361,7 +361,7 @@
     {
       "id": "GH-MR-",
       "title": "MR CAPSULES",
-      "description": "A learning platform initiated in August 2025, evolving from simple HTML files shared among friends to a web-based iframe platform. What began as a collection of previous years' study materials has grown into a comprehensive resource featuring lecture notes, question banks, and faculty presentation slides.",
+      "description": "medical student learning platform & digital archive",
       "tags": [
         "HTML"
       ],
@@ -369,19 +369,9 @@
       "web_link": "https://mr-capsules.vercel.app"
     },
     {
-      "id": "GH-COO",
-      "title": "COOKWITHALCHEMIST4REAL",
-      "description": "Unified Masterclass Web App by @alchemist4real",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/cookwithalchemist4real",
-      "web_link": "https://cookwithalchemist4real.vercel.app"
-    },
-    {
       "id": "GH-HIP",
       "title": "HIPERTENSIMENGINTAIGENZ",
-      "description": "open source repository for hipertensimengintaigenz.",
+      "description": "hypertension health education web app for gen z",
       "tags": [
         "JavaScript"
       ],
@@ -391,7 +381,7 @@
     {
       "id": "GH-SAY",
       "title": "SAYNOTOCHOLESTROL",
-      "description": "open source repository for saynotocholestrol.",
+      "description": "interactive cholesterol & lifestyle education app",
       "tags": [
         "HTML"
       ],
@@ -401,7 +391,7 @@
     {
       "id": "GH-FUC",
       "title": "FUCKALLRAPIST",
-      "description": "open source repository for fuckallrapist.",
+      "description": "anti-sexual violence & consent education guide",
       "tags": [
         "HTML"
       ],
@@ -411,7 +401,7 @@
     {
       "id": "GH-SAY",
       "title": "SAYNOTODRUGS",
-      "description": "open source repository for saynotodrugs.",
+      "description": "interactive drug education & certification platform",
       "tags": [
         "HTML"
       ],
@@ -419,19 +409,9 @@
       "web_link": "https://saynotodrugs-two.vercel.app"
     },
     {
-      "id": "GH-ZEN",
-      "title": "ZENLIMITLESS",
-      "description": "open source repository for zenlimitless.",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/zenlimitless",
-      "web_link": "https://zenlimitless.vercel.app"
-    },
-    {
       "id": "GH-AET",
       "title": "AETHERIAL",
-      "description": "open source repository for aetherial.",
+      "description": "spatial cognition test & mental rotation exercise",
       "tags": [
         "JavaScript"
       ],
@@ -441,7 +421,7 @@
     {
       "id": "GH-BEE",
       "title": "BEENCODE",
-      "description": "open source repository for beencode.",
+      "description": "industrial matrix encoder terminal",
       "tags": [
         "JavaScript"
       ],
@@ -451,7 +431,7 @@
     {
       "id": "GH-SOY",
       "title": "SOYPROTEINBYALTAF",
-      "description": "personalized ai nutrition coaching and habit tracking powered by physical product qr code redemptions",
+      "description": "ai nutrition coaching & qr habit tracker",
       "tags": [
         "TypeScript"
       ],
@@ -459,38 +439,9 @@
       "web_link": "https://soyproteinbyaltaf.vercel.app"
     },
     {
-      "id": "GH-SOE",
-      "title": "SOEXSOEX",
-      "description": "an ai-powered collaborative question bank utilizing gemini content validation, grammar refinement, and vercel kv answer consolidation.",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/soexsoex",
-      "web_link": "https://soexsoex.vercel.app"
-    },
-    {
-      "id": "GH-SIN",
-      "title": "SINXV",
-      "description": "a headless whatsapp ai assistant controlled via telegram and powered by playwright and llms",
-      "tags": [
-        "Python"
-      ],
-      "link": "https://github.com/alchemist4real/sinxv",
-      "web_link": "https://sinxv.vercel.app"
-    },
-    {
-      "id": "GH-SAT",
-      "title": "SATURDAY",
-      "description": "a serverless ai assistant backend on cloudflare workers for audio transcription and structured command parsing",
-      "tags": [
-        "TypeScript"
-      ],
-      "link": "https://github.com/alchemist4real/saturday"
-    },
-    {
       "id": "GH-PRI",
       "title": "PRISMA RDK GUIDE",
-      "description": "a blockchain-powered health chain system designed to prevent antibiotic double-redeeming and mitigate antimicrobial resistance",
+      "description": "blockchain health chain system documentation & guide",
       "tags": [
         "HTML"
       ],
@@ -498,37 +449,18 @@
       "web_link": "https://prisma-rdk-guide.vercel.app"
     },
     {
-      "id": "GH-PRI",
-      "title": "PRISMA RDK SIMULATOR",
-      "description": "national antibiotic distribution monitoring and e-prescription validator powered by blockchain",
-      "tags": [
-        "TypeScript"
-      ],
-      "link": "https://github.com/alchemist4real/prisma-rdk-simulator",
-      "web_link": "https://prisma-rdk-simulator.vercel.app"
-    },
-    {
       "id": "GH-SOA",
       "title": "SOALGANJILGENAP",
-      "description": "a minimal tool to generate odd-even speed accuracy tests for psychological exam preparation",
+      "description": "odd-even speed accuracy test generator for psych exams",
       "tags": [
         "Code"
       ],
       "link": "https://github.com/alchemist4real/soalganjilgenap"
     },
     {
-      "id": "GH-MON",
-      "title": "MONDAY",
-      "description": "a sleek, minimalist chat application powered by cloudflare workers ai",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/monday"
-    },
-    {
       "id": "GH-MSG",
       "title": "MSGFROMORACLE",
-      "description": "the sarcastic ai oracle that feeds on your futile wishes, real-time news, and market odds to weave poetic desolation.",
+      "description": "sarcastic ai oracle feeding on news & market odds",
       "tags": [
         "HTML"
       ],
@@ -536,29 +468,9 @@
       "web_link": "https://msgfromoracle.vercel.app"
     },
     {
-      "id": "GH-LIV",
-      "title": "LIVE",
-      "description": "realtime voice conversations with gemini using web speech transcription and native gemini tts",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/live",
-      "web_link": "https://live-one-beta.vercel.app"
-    },
-    {
-      "id": "GH-LON",
-      "title": "LONGLIFEHISTO",
-      "description": "an interactive web-based histology simulator to practice microscopic slide identification",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/longlifehisto",
-      "web_link": "https://longlifehisto.vercel.app"
-    },
-    {
       "id": "GH-NOS",
       "title": "NOSMOKE",
-      "description": "a science-backed minimalist landing page addressing nicotine automaticity and urge regulation",
+      "description": "science-backed landing page for nicotine urge regulation",
       "tags": [
         "HTML"
       ],
@@ -566,38 +478,9 @@
       "web_link": "https://nosmoke-six.vercel.app"
     },
     {
-      "id": "GH-COS",
-      "title": "COSXOUBOROS",
-      "description": "an autonomous web entity that endlessly rewrites its own code via ai.",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/cosxouboros",
-      "web_link": "https://cosxouboros.vercel.app"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENONEXAMACCESS",
-      "description": "decentralized web3 wallet authentication protocol for secure exam access.",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/beenonexamaccess",
-      "web_link": "https://beenonexamaccess.vercel.app"
-    },
-    {
-      "id": "GH-FRI",
-      "title": "FRIDAY",
-      "description": "an aesthetic, dark-mode personal ai assistant powered by cloudflare workers ai.",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/friday"
-    },
-    {
       "id": "GH-BEE",
       "title": "BEENTEXTER",
-      "description": "a brutalist retro-calculator style text generator with tactile vintage web aesthetics.",
+      "description": "brutalist retro-calculator style text generator",
       "tags": [
         "HTML"
       ],
@@ -605,19 +488,9 @@
       "web_link": "https://beentexter.vercel.app"
     },
     {
-      "id": "GH-GEM",
-      "title": "GEMINIBEENSPACE",
-      "description": "an aesthetic, tailwind-powered guide for indonesian students to unlock their free 1-year google gemini trial.",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/geminibeenspace",
-      "web_link": "https://geminibeenspace.vercel.app"
-    },
-    {
       "id": "GH-BEE",
       "title": "BEENBOXD",
-      "description": "an ai-powered letterboxd logger and csv exporter with a slick glassmorphic interface.",
+      "description": "ai letterboxd movie logger & csv exporter",
       "tags": [
         "HTML"
       ],
@@ -625,32 +498,14 @@
       "web_link": "https://beenboxd.vercel.app"
     },
     {
-      "id": "GH-ACA",
-      "title": "ACADEMICCONTROLCENTER",
-      "description": "gamified single-page academic dashboard for task and mission tracking",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/academiccontrolcenter"
-    },
-    {
       "id": "GH-BEE",
       "title": "BEENHOLLOW",
-      "description": "ephemeral p2p file and message sharing directly into the void.",
+      "description": "ephemeral p2p file & message sharing",
       "tags": [
         "JavaScript"
       ],
       "link": "https://github.com/alchemist4real/BEENHOLLOW",
       "web_link": "https://beenhollow.vercel.app"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENMONEY",
-      "description": "a sleek, dark-themed single-file html budgeting app.",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/beenmoney"
     }
   ]
 }

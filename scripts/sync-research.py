@@ -112,7 +112,7 @@ def gemini_extract(file_path, api_key):
 Analyze the attached document and generate a JSON object with the following structure:
 {
   "title": "A catchy, uppercase title for this document (max 5 words)",
-  "description": "A brief, one-sentence lowercase description of what this document is about.",
+  "description": "A brief, direct 5-8 word lowercase phrase describing what this document is about without leading articles or trailing period.",
   "tags": ["Tag1", "Tag2", "Tag3"]
 }
 Do not include any markdown formatting like ```json or ``` in your response, just the raw JSON string. Make sure the output is perfectly valid JSON. Keep tags brief (1-2 words max, capitalize first letter)."""
