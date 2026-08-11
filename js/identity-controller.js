@@ -154,7 +154,7 @@ class IdentityController {
     const payload = {
       recipient: recipientName,
       exp: expSec,
-      key: this.activeKey || "alchemist2026",
+      key: this.activeKey,
       created: new Date().toISOString().split('T')[0]
     };
     const jsonStr = JSON.stringify(payload);
