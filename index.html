@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="js/identity-controller.js?v=20260811_18"></script>
+  <script src="js/identity-controller.js?v=20260811_19"></script>
   
   <style>
     /* =========================================================
@@ -712,7 +712,7 @@
     #projects .section-header .label { display: block; margin-bottom: 8px; }
     
     .filters { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
-    .filter-btn { background: transparent; border: 1px solid var(--fg-faint); color: var(--fg-muted); padding: 8px 16px; border-radius: 20px; font-family: 'DM Mono', monospace; font-size: 0.85rem; cursor: pointer; transition: all 0.2s; }
+    .filter-btn { background: transparent; border: 1px solid var(--fg-faint); color: var(--fg-muted); padding: 8px 16px; border-radius: 20px; font-family: 'DM Mono', monospace; font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; transition: all 0.2s; }
     .filter-btn:hover { border-color: var(--fg); color: var(--fg); }
 
     .qr-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 9990; align-items: center; justify-content: center; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
@@ -785,12 +785,12 @@
     .project-desc { margin-bottom: 24px; word-break: break-word; font-size: 0.9rem; }
     
     .project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
-    .project-tags .tag { padding: 4px 10px; border: 1px solid var(--fg-faint); font-size: 0.75rem; color: var(--fg-muted); background: transparent; border-radius: 20px; }
+    .project-tags .tag { padding: 4px 10px; border: 1px solid var(--fg-faint); font-size: 0.72rem; font-family: 'DM Mono', monospace; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--fg-muted); background: transparent; border-radius: 20px; }
     
     .btn-ghost-sm {
       border: 1px solid var(--fg); color: var(--fg); background: transparent; padding: 6px 12px;
-      font-family: 'DM Mono', monospace; font-weight: 500; font-size: 11px; cursor: pointer;
-      letter-spacing: 0.05em; transition: background 0s, color 0s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace; font-weight: 600; font-size: 11px; cursor: pointer;
+      text-transform: uppercase; letter-spacing: 0.08em; transition: background 0s, color 0s; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
     }
     .btn-ghost-sm:hover { background: var(--fg); color: var(--bg); }
 
@@ -830,8 +830,8 @@
     footer { padding-top: 40px; padding-bottom: 40px; border-top: 1px solid var(--fg-faint); margin-top: 80px; }
     .footer-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
     .footer-links { display: flex; gap: 20px; }
-    .footer-links a { text-decoration: none; color: var(--fg-muted); transition: color 0.2s; }
-    .footer-links a:hover { color: var(--fg); }
+    .footer-links a, .footer-links button { text-decoration: none; color: var(--fg-muted); transition: color 0.2s; font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+    .footer-links a:hover, .footer-links button:hover { color: var(--fg); }
     .footer-quote { font-style: italic; color: var(--fg-muted); font-size: 13px; font-family: 'Cormorant Garamond', serif; }
 
     /* Responsive */
@@ -946,7 +946,7 @@
     <section id="projects" class="container">
       <div class="section-header">
         <span class="label">The Catalog</span>
-        <h2 class="heading">what we shipped.</h2>
+        <h2 class="heading">Catalog & Projects</h2>
       </div>
 
       <div class="filters" id="catalog-filters">
@@ -1326,7 +1326,7 @@
       <button class="qr-close" onclick="closeConnectModal()">&times;</button>
       <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
         <img src="assets/logo-icon.png" id="connect-modal-logo" alt="logo" style="width: 22px; height: 22px;">
-        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin: 0; color: var(--fg);">Connect // Lab</h3>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; margin: 0; color: var(--fg);">Connect & Channels</h3>
       </div>
       <p class="muted" style="font-size: 12px; margin-bottom: 20px; line-height: 1.5;">Direct channels & social profiles to transmute ideas into reality.</p>
 
@@ -1391,7 +1391,7 @@
   <div id="generator-modal" class="qr-modal" onclick="closeGeneratorModal()">
     <div class="qr-modal-content" style="max-width: 480px; text-align: left;" onclick="event.stopPropagation()">
       <button class="qr-close" onclick="closeGeneratorModal()">&times;</button>
-      <span class="label" style="display: block; margin-bottom: 8px; color: var(--fg);">RECRUITER LINK GENERATOR</span>
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; color: var(--fg);">Recruiter Link Generator</h3>
       <p class="muted" style="font-size: 12px; margin-bottom: 16px;">Generate a temporary auto-unlock URL to attach in job applications or CVs.</p>
       
       <label class="label" style="display:block; margin-bottom:4px;">Recipient / Note:</label>
@@ -1413,7 +1413,7 @@
   <div id="unlock-modal" class="qr-modal" onclick="closeUnlockModal()">
     <div class="qr-modal-content" style="max-width: 380px; text-align: left;" onclick="event.stopPropagation()">
       <button class="qr-close" onclick="closeUnlockModal()">&times;</button>
-      <span class="label" style="display: block; margin-bottom: 8px; color: var(--fg);">VERIFIED IDENTITY ACCESS</span>
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; color: var(--fg);">Verified Identity Access</h3>
       <p class="muted" style="font-size: 12px; margin-bottom: 16px;">Enter AES-256 decryption key or owner passcode.</p>
       
       <input type="password" id="passcode-input" placeholder="Enter key..." style="width: 100%; padding: 10px; border: 1px solid var(--fg); font-family: 'DM Mono', monospace; font-size: 13px; margin-bottom: 14px; background: var(--bg); color: var(--fg);">
