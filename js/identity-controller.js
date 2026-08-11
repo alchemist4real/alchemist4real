@@ -204,7 +204,9 @@ class IdentityController {
       if (orgLabel) orgLabel.textContent = data.education ? data.education[0].institution : data.name;
       if (roleEl) roleEl.textContent = data.role || 'M.D. Candidate';
       const cardType = document.getElementById('id-card-type');
-      if (cardType) cardType.textContent = 'VERIFIED';
+      if (cardType) cardType.textContent = 'Verified Identity';
+      const stamp = document.getElementById('id-stamp');
+      if (stamp) stamp.textContent = data.name;
 
       // Show real photo in verified mode
       if (photoSilhouette) photoSilhouette.style.display = 'none';
@@ -271,7 +273,9 @@ class IdentityController {
       if (orgLabel) orgLabel.textContent = 'alchemist4real';
       if (roleEl) roleEl.textContent = 'M.D. Candidate';
       const cardType = document.getElementById('id-card-type');
-      if (cardType) cardType.textContent = 'IDENTIFICATION';
+      if (cardType) cardType.textContent = 'Identification Card';
+      const stamp = document.getElementById('id-stamp');
+      if (stamp) stamp.textContent = '@alchemist4real';
 
       // Show silhouette in public mode
       if (photoSilhouette) photoSilhouette.style.display = 'block';
