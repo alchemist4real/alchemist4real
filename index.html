@@ -196,17 +196,25 @@
       background: var(--fg-faint);
     }
 
-    .hero { min-height: calc(100vh - 52px); display: flex; align-items: center; padding-top: 40px; padding-bottom: 60px; }
-    .hero-simple-layout { display: flex; justify-content: space-between; align-items: center; gap: 48px; width: 100%; }
-    .hero-simple-content { max-width: 560px; }
-    .hero-simple-content .display { margin: 10px 0 16px; }
-    .hero-simple-crest { flex-shrink: 0; display: flex; justify-content: center; align-items: center; }
-    .hero-crest { width: 220px; height: 220px; object-fit: contain; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.07)); transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease; }
-    .hero-crest:hover { transform: scale(1.06) rotate(1deg); filter: drop-shadow(0 12px 32px rgba(0,0,0,0.14)); }
+    .hero { min-height: calc(100vh - 52px); display: flex; align-items: center; justify-content: center; padding-top: 40px; padding-bottom: 60px; }
 
-    .stats-row { display: flex; gap: 40px; margin: 32px 0; flex-wrap: wrap; }
-    .stat-item { display: flex; flex-direction: column; gap: 4px; }
-    .stat-number { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 600; color: var(--fg); line-height: 1; }
+    .id-card { border: 1px solid var(--fg-faint); max-width: 520px; width: 100%; padding: 0; position: relative; }
+    .id-card-header { display: flex; align-items: center; gap: 10px; padding: 14px 24px; border-bottom: 1px solid var(--fg-faint); }
+    .id-card-header .id-logo { width: 22px; height: 22px; object-fit: contain; }
+    .id-card-header .id-org { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-muted); }
+    .id-card-body { display: flex; gap: 24px; padding: 24px; }
+    .id-photo { width: 100px; height: 120px; flex-shrink: 0; border: 1px solid var(--fg-faint); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: var(--bg); }
+    .id-photo-silhouette { width: 100%; height: 100%; object-fit: cover; opacity: 0.12; }
+    .id-photo-real { width: 100%; height: 100%; object-fit: cover; display: none; }
+    .id-photo-label { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-faint); padding: 3px 0; background: var(--bg); }
+    .id-info { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+    .id-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.3rem, 3vw, 1.6rem); font-weight: 600; color: var(--fg); line-height: 1.2; }
+    .id-role { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--fg-muted); line-height: 1.4; }
+    .id-badge { display: inline-block; font-family: 'DM Mono', monospace; font-size: 10px; padding: 2px 8px; border: 1px solid var(--fg-faint); border-radius: 10px; color: var(--fg-muted); width: fit-content; }
+    .id-card-bio { padding: 0 24px 20px; font-size: 13px; line-height: 1.65; color: var(--fg-muted); font-family: 'DM Sans', sans-serif; border-bottom: 1px solid var(--fg-faint); }
+    .id-card-footer { padding: 16px 24px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    #verified-badge-row { display: none; gap: 6px; flex-wrap: wrap; padding: 0 24px 16px; }
+    .id-card .btn-ghost { font-size: 12px; padding: 6px 14px; }
 
     #projects { padding-top: 80px; padding-bottom: 80px; }
     #projects .section-header { margin-bottom: 48px; }
@@ -300,9 +308,10 @@
       nav .nav-links { gap: 16px; }
       nav .nav-links a.hide-mobile { display: none; }
       .hero { min-height: auto; padding-top: 50px; padding-bottom: 50px; }
-      .hero-simple-layout { flex-direction: column-reverse; align-items: flex-start; gap: 28px; }
-      .hero-crest { width: 130px; height: 130px; }
-      .stats-row { gap: 24px; }
+      .id-card-body { gap: 16px; padding: 20px 16px; }
+      .id-photo { width: 80px; height: 100px; }
+      .id-card-header, .id-card-bio, .id-card-footer, #verified-badge-row { padding-left: 16px; padding-right: 16px; }
+      .id-card-footer { gap: 8px; }
       .connect-grid { grid-template-columns: minmax(0, 1fr); }
       .project-list { grid-template-columns: minmax(0, 1fr); }
       .project-link { display: block; margin-top: 8px; }
@@ -328,47 +337,40 @@
 
   <main>
     <section class="hero container" id="top">
-      <div class="hero-simple-layout">
-        
-        <div class="hero-simple-content">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
-            <span class="label anim-flicker" id="hero-handle">@alchemist4real</span>
-            <span id="sem-badge" style="font-family: 'DM Mono', monospace; font-size: 11px; padding: 2px 8px; border: 1px solid var(--fg-faint); border-radius: 12px; color: var(--fg-muted);">M.D. Candidate (Sem 3)</span>
+      <div class="id-card anim-glitch">
+
+        <div class="id-card-header">
+          <img src="assets/logo-icon.png" alt="logo" class="id-logo">
+          <span class="id-org" id="id-org-label">alchemist4real</span>
+        </div>
+
+        <div class="id-card-body">
+          <div class="id-photo">
+            <svg class="id-photo-silhouette" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="38" r="22" fill="currentColor"/>
+              <ellipse cx="50" cy="110" rx="38" ry="34" fill="currentColor"/>
+            </svg>
+            <img id="id-photo-real" class="id-photo-real" src="" alt="">
+            <span class="id-photo-label" id="id-photo-label">PHOTO</span>
           </div>
-
-          <div id="verified-badge-row" style="display: none; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;"></div>
-
-          <h1 class="display anim-glitch">digital alchemy<br>at scale.</h1>
-
-          <p id="identity-bio" class="body-text anim-glitch" style="font-size: 15px; line-height: 1.7; max-width: 520px; margin-top: 16px; animation-delay: 0.15s;">
-            Medical student by day, experimental coder by night. Transmuting biomedical concepts into autonomous AI tools, decentralized edge software, and brutalist web experiences.
-          </p>
-
-          <div class="stats-row anim-glitch" style="animation-delay: 0.3s;">
-            <div class="stat-item">
-              <span class="stat-number" id="stat-projects">—</span>
-              <span class="label">Live Projects</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number" id="stat-semester">Sem 3</span>
-              <span class="label">M.D. Pursuit</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">100%</span>
-              <span class="label">Server Uptime</span>
-            </div>
-          </div>
-
-          <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center;" class="anim-glitch" style="animation-delay: 0.45s;">
-            <a href="#projects" class="btn-ghost">See Catalog</a>
-            <a href="https://www.linkedin.com/in/alchemist4real/" id="verified-linkedin-btn" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="display: none; border-color: var(--fg); background: var(--fg); color: var(--bg);">LinkedIn Profile</a>
-            <button onclick="showGeneratorModal()" id="verified-generator-btn" class="btn-ghost" style="display: none; border-color: var(--fg); color: var(--fg);">Recruiter Link Generator</button>
-            <a href="#connect" class="btn-ghost" style="border-color: var(--fg-faint); color: var(--fg-muted);">Connect</a>
+          <div class="id-info">
+            <span class="id-name" id="hero-handle">@alchemist4real</span>
+            <span class="id-role" id="id-role">M.D. Candidate</span>
+            <span class="id-badge" id="sem-badge">Sem 3</span>
           </div>
         </div>
 
-        <div class="hero-simple-crest anim-glitch" style="animation-delay: 0.2s;">
-          <img src="assets/logo.png" alt="alchemist4real crest logo" class="hero-crest">
+        <div id="verified-badge-row"></div>
+
+        <div class="id-card-bio" id="identity-bio">
+          Medical student by day, experimental coder by night. Transmuting biomedical concepts into autonomous AI tools, decentralized edge software, and brutalist web experiences.
+        </div>
+
+        <div class="id-card-footer">
+          <a href="#projects" class="btn-ghost">See Catalog</a>
+          <a href="#connect" class="btn-ghost" style="border-color: var(--fg-faint); color: var(--fg-muted);">Connect</a>
+          <a href="https://www.linkedin.com/in/alchemist4real/" id="verified-linkedin-btn" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="display: none; border-color: var(--fg); background: var(--fg); color: var(--bg);">LinkedIn</a>
+          <button onclick="showGeneratorModal()" id="verified-generator-btn" class="btn-ghost" style="display: none;">Link Generator</button>
         </div>
 
       </div>

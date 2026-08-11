@@ -185,6 +185,13 @@ class IdentityController {
     const unlockBtn = document.getElementById('nav-unlock-btn');
     const titleEl = document.querySelector('title');
 
+    // ID card elements
+    const orgLabel = document.getElementById('id-org-label');
+    const roleEl = document.getElementById('id-role');
+    const photoSilhouette = document.querySelector('.id-photo-silhouette');
+    const photoReal = document.getElementById('id-photo-real');
+    const photoLabel = document.getElementById('id-photo-label');
+
     if (this.isVerified && this.verifiedData) {
       const data = this.verifiedData;
 
@@ -193,7 +200,18 @@ class IdentityController {
       if (heroHandleEl) heroHandleEl.textContent = data.name;
       if (footerBrandEl) footerBrandEl.textContent = data.name;
       if (footerCopyrightEl) footerCopyrightEl.textContent = `© 2025 ${data.name} | Co-architect Sir. Yaon (@ghaffarsyafiq-arch)`;
-      if (badgeEl) badgeEl.textContent = `UNSOED Medical School (Sem 3)`;
+      if (badgeEl) badgeEl.textContent = `Sem 3`;
+      if (orgLabel) orgLabel.textContent = data.education ? data.education[0].institution : data.name;
+      if (roleEl) roleEl.textContent = 'M.D. Candidate — UNSOED';
+
+      // Show real photo in verified mode
+      if (photoSilhouette) photoSilhouette.style.display = 'none';
+      if (photoReal && data.photo) {
+        photoReal.src = data.photo;
+        photoReal.alt = data.name;
+        photoReal.style.display = 'block';
+      }
+      if (photoLabel) photoLabel.textContent = 'VERIFIED';
       
       if (bioEl) {
         bioEl.textContent = data.bio;
@@ -202,7 +220,7 @@ class IdentityController {
       if (verifiedBadgeRow) {
         verifiedBadgeRow.style.display = 'flex';
         verifiedBadgeRow.innerHTML = data.badges.map(b => 
-          `<span style="font-family:'DM Mono', monospace; font-size:11px; padding:3px 10px; border:1px solid var(--fg); background:var(--fg); color:var(--bg); border-radius:12px; font-weight:500;">VERIFIED | ${b}</span>`
+          `<span style="font-family:'DM Mono', monospace; font-size:10px; padding:2px 8px; border:1px solid var(--fg); background:var(--fg); color:var(--bg); border-radius:10px; font-weight:500;">${b}</span>`
         ).join('');
       }
 
@@ -247,7 +265,14 @@ class IdentityController {
       if (heroHandleEl) heroHandleEl.textContent = `@alchemist4real`;
       if (footerBrandEl) footerBrandEl.textContent = `alchemist4real`;
       if (footerCopyrightEl) footerCopyrightEl.textContent = `© 2025 @alchemist4real | Co-architect Sir. Yaon (@ghaffarsyafiq-arch)`;
-      if (badgeEl) badgeEl.textContent = `M.D. Candidate (Sem 3)`;
+      if (badgeEl) badgeEl.textContent = `Sem 3`;
+      if (orgLabel) orgLabel.textContent = 'alchemist4real';
+      if (roleEl) roleEl.textContent = 'M.D. Candidate';
+
+      // Show silhouette in public mode
+      if (photoSilhouette) photoSilhouette.style.display = 'block';
+      if (photoReal) photoReal.style.display = 'none';
+      if (photoLabel) photoLabel.textContent = 'PHOTO';
 
       if (bioEl) {
         bioEl.textContent = `Medical student by day, experimental coder by night. Transmuting biomedical concepts into autonomous AI tools, decentralized edge software, and brutalist web experiences.`;
