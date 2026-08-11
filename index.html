@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <script src="js/identity-controller.js?v=20260811_6"></script>
+  <script src="js/identity-controller.js?v=20260811_7"></script>
   
   <style>
     :root {
@@ -213,6 +213,12 @@
       border-radius: 8px; 
       background: var(--bg);
       box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .id-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
     }
     .id-card-watermark {
       position: absolute;
@@ -232,13 +238,17 @@
     .id-card-top .id-logo { width: 18px; height: 18px; object-fit: contain; }
     .id-card-title { text-align: center; flex-shrink: 0; }
     .id-card-title-main { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg); line-height: 1; }
+    .id-zoom-btn { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: transparent; border: 1px solid var(--fg-faint); color: var(--fg-muted); font-family: 'DM Mono', monospace; font-size: 7px; padding: 1px 5px; border-radius: 2px; cursor: pointer; letter-spacing: 0.05em; transition: all 0.15s; }
+    .id-zoom-btn:hover { border-color: var(--fg); color: var(--fg); background: var(--fg-faint); }
     .id-card-divider { height: 1px; background: var(--fg-faint); margin: 0 16px; flex-shrink: 0; position: relative; z-index: 1; }
     
-    .id-card-body { display: flex; gap: 14px; padding: 10px 16px; flex: 1; align-items: center; position: relative; z-index: 1; min-height: 0; }
-    .id-photo { width: 84px; height: 108px; flex-shrink: 0; border: 1px solid var(--fg); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: var(--bg); border-radius: 3px; }
+    .id-card-body { display: flex; gap: 14px; padding: 10px 16px; flex: 1; align-items: flex-start; position: relative; z-index: 1; min-height: 0; }
+    .id-photo-col { display: flex; flex-direction: column; gap: 3px; width: 84px; flex-shrink: 0; align-items: center; }
+    .id-photo { width: 84px; height: 94px; flex-shrink: 0; border: 1px solid var(--fg); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; background: var(--bg); border-radius: 3px; }
     .id-photo-silhouette { width: 100%; height: 100%; object-fit: cover; opacity: 0.06; color: var(--fg); }
     .id-photo-real { width: 100%; height: 100%; object-fit: cover; display: none; }
     .id-photo-label { position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%); font-family: 'DM Mono', monospace; font-size: 6px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-faint); background: var(--bg); padding: 1px 4px; border: 1px solid var(--fg-faint); border-radius: 2px; }
+    .id-photo-note { font-family: 'DM Mono', monospace; font-size: 5.5px; line-height: 1.3; color: var(--fg-muted); opacity: 0.85; text-align: left; border-top: 1px dashed var(--fg-faint); padding-top: 2px; width: 100%; word-break: break-word; }
     
     .id-fields { flex: 1; display: flex; flex-direction: column; gap: 3.5px; min-width: 0; justify-content: center; }
     .id-row { display: flex; gap: 6px; align-items: center; }
@@ -390,7 +400,7 @@
 
   <main>
     <section class="hero container" id="top">
-      <div class="id-card anim-glitch">
+      <div class="id-card anim-glitch" onclick="openCardModal(event)" title="Click to view large preview">
         <img src="assets/logo-monochrome.png" alt="watermark stamp" class="id-card-watermark">
 
         <div class="id-card-top">
@@ -398,14 +408,18 @@
           <div class="id-card-title">
             <span class="id-card-title-main" id="id-card-type">Identification Card</span>
           </div>
+          <button onclick="openCardModal(event)" class="id-zoom-btn" title="Expand Preview">⤢ ZOOM</button>
         </div>
 
         <div class="id-card-divider"></div>
 
         <div class="id-card-body">
-          <div class="id-photo">
-            <img id="id-photo-real" class="id-photo-real" src="assets/public-photo.jpg" alt="@alchemist4real" style="display: block; width: 100%; height: 100%; object-fit: cover;">
-            <span class="id-photo-label" id="id-photo-label">PUBLIC</span>
+          <div class="id-photo-col">
+            <div class="id-photo">
+              <img id="id-photo-real" class="id-photo-real" src="assets/public-photo.jpg" alt="@alchemist4real" style="display: block; width: 100%; height: 100%; object-fit: cover;">
+              <span class="id-photo-label" id="id-photo-label">PUBLIC</span>
+            </div>
+            <p id="identity-bio" class="id-photo-note">Medical student by day, experimental coder by night. Transmuting biomedical concepts into autonomous AI tools...</p>
           </div>
           <div class="id-fields">
             <div class="id-row">
@@ -453,8 +467,6 @@
 
       </div>
 
-      <p id="identity-bio" class="hero-bio-text">Medical student by day, experimental coder by night. Transmuting biomedical concepts into autonomous AI tools, decentralized edge software, and brutalist web experiences.</p>
-
       <div class="hero-actions anim-glitch" style="animation-delay: 0.15s;">
         <a href="#projects" class="btn-ghost">Catalog</a>
         <a href="#connect" class="btn-ghost" style="border-color: var(--fg-faint); color: var(--fg-muted);">Connect</a>
@@ -485,6 +497,13 @@
     <div class="qr-modal-content">
       <button class="qr-close" onclick="closeQR()">&times;</button>
       <img id="qr-image" src="" alt="QR Code">
+    </div>
+  </div>
+
+  <div id="card-modal" class="qr-modal" onclick="closeCardModal()">
+    <div class="qr-modal-content" style="background: transparent; border: none; padding: 0; max-width: 95vw; position: relative;" onclick="event.stopPropagation()">
+      <button class="qr-close" onclick="closeCardModal()" style="color: var(--fg); font-size: 32px; right: -15px; top: -45px;">&times;</button>
+      <div id="card-modal-container" style="display: flex; justify-content: center; align-items: center; padding: 40px 0;"></div>
     </div>
   </div>
 
@@ -747,6 +766,31 @@
     loadGitHubStats();
 
     // Modal Logic
+    function openCardModal(e) {
+      if (e && (e.target.closest('a') || e.target.closest('button.id-qr-btn'))) return;
+      const card = document.querySelector('.hero .id-card');
+      const container = document.getElementById('card-modal-container');
+      if (card && container) {
+        container.innerHTML = card.outerHTML;
+        const cloned = container.querySelector('.id-card');
+        if (cloned) {
+          cloned.style.transform = window.innerWidth > 768 ? 'scale(1.45)' : (window.innerWidth > 480 ? 'scale(1.18)' : 'scale(1.02)');
+          cloned.style.transformOrigin = 'center center';
+          cloned.style.margin = '40px 0';
+          cloned.style.cursor = 'default';
+          cloned.style.boxShadow = '0 24px 60px rgba(0,0,0,0.35)';
+          const zoomBtn = cloned.querySelector('.id-zoom-btn');
+          if (zoomBtn) zoomBtn.style.display = 'none';
+        }
+      }
+      document.getElementById('card-modal').classList.add('active');
+    }
+
+    function closeCardModal() {
+      const modal = document.getElementById('card-modal');
+      if (modal) modal.classList.remove('active');
+    }
+
     function showQR(id) {
       const modal = document.getElementById('qr-modal');
       const img = document.getElementById('qr-image');
