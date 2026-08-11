@@ -22,7 +22,6 @@ def main():
     # Files and folders to serve statically
     targets = [
         "index.html",
-        "dashboard.html",
         "viewer.html",
         "data.json",
         "heartbeat.json",
