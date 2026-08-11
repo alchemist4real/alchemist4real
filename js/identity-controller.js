@@ -215,6 +215,7 @@ class IdentityController {
       const cardTopLogo = document.getElementById('id-top-logo');
       const connectLogo = document.getElementById('connect-modal-logo');
       const footerLogo = document.getElementById('footer-logo');
+      const heroCrestLogo = document.getElementById('hero-crest-logo');
 
       if (navLogo) navLogo.src = 'assets/logo-white.png';
       if (cardWatermark) {
@@ -224,6 +225,7 @@ class IdentityController {
       if (cardTopLogo) cardTopLogo.src = 'assets/logo-white.png';
       if (connectLogo) connectLogo.src = 'assets/logo-white.png';
       if (footerLogo) footerLogo.src = 'assets/logo-white.png';
+      if (heroCrestLogo) heroCrestLogo.src = 'assets/logo-white.png';
 
       if (titleEl) titleEl.textContent = `${data.name} — Portfolio & Lab`;
       if (handleEl) handleEl.textContent = "ALCHEMIST4REAL'S PAGE";
@@ -312,6 +314,7 @@ class IdentityController {
       const cardTopLogo = document.getElementById('id-top-logo');
       const connectLogo = document.getElementById('connect-modal-logo');
       const footerLogo = document.getElementById('footer-logo');
+      const heroCrestLogo = document.getElementById('hero-crest-logo');
 
       if (navLogo) navLogo.src = 'assets/logo-icon.png';
       if (cardWatermark) {
@@ -321,6 +324,7 @@ class IdentityController {
       if (cardTopLogo) cardTopLogo.src = 'assets/logo-icon.png';
       if (connectLogo) connectLogo.src = 'assets/logo-icon.png';
       if (footerLogo) footerLogo.src = 'assets/logo-icon.png';
+      if (heroCrestLogo) heroCrestLogo.src = 'assets/logo-icon.png';
 
       if (titleEl) titleEl.textContent = `alchemist4real — The Lab`;
       if (handleEl) handleEl.textContent = "ALCHEMIST4REAL'S PAGE";

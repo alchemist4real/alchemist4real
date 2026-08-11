@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="js/identity-controller.js?v=20260811_23"></script>
+  <script src="js/identity-controller.js?v=20260811_24"></script>
   
   <style>
     /* =========================================================
@@ -425,7 +425,8 @@
     body.verified-theme .brand-logo-img,
     body.verified-theme .id-logo,
     body.verified-theme #connect-modal-logo,
-    body.verified-theme #footer-logo {
+    body.verified-theme #footer-logo,
+    body.verified-theme #hero-crest-logo {
       filter: invert(1);
     }
     body.verified-theme #id-watermark {
@@ -604,7 +605,25 @@
       background: var(--fg-faint);
     }
 
-    .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 52px; padding-bottom: 40px; }
+    /* Hero Emblem Crest Display */
+    .hero-emblem-wrapper {
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-crest-img {
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.3));
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .hero-emblem-wrapper:hover .hero-crest-img {
+      transform: scale(1.08) rotate(-3deg);
+    }
+
+    .hero { display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 40px; padding-bottom: 40px; }
 
     /* ID Card -- real wallet card */
     .id-card { 
@@ -943,6 +962,9 @@
 
   <main>
     <section class="hero container" id="top">
+      <div class="hero-emblem-wrapper anim-glitch">
+        <img src="assets/logo-icon.png" id="hero-crest-logo" alt="Identity Crest Emblem" class="hero-crest-img">
+      </div>
       <div class="id-card anim-glitch" onclick="openCardModal(event)" title="Click to view large preview">
         <img src="assets/logo-monochrome.png" id="id-watermark" alt="watermark stamp" class="id-card-watermark">
 
