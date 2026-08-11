@@ -81,9 +81,9 @@ curated_projects = [
     },
     {
         "id": "05",
-        "title": "SEHATIN BOOTH",
-        "description": "community health screening kiosk & vitals tracker",
-        "tags": ["Healthcare", "Kiosk", "Public Health"],
+        "title": "PHOTOBOOTH APP MAPLE 2026",
+        "description": "interactive digital photobooth & event photo app",
+        "tags": ["Photobooth", "Web", "Interactive"],
         "link": "https://photoboothapp-maple2026.vercel.app/",
         "repo_link": "https://github.com/alchemist4real/PHOTOBOOTHAPP-MAPLE2026"
     },
