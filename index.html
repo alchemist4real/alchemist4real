@@ -311,7 +311,7 @@
         <div class="hero-simple-content">
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
             <span class="label anim-flicker">@alchemist4real</span>
-            <span style="font-family: 'DM Mono', monospace; font-size: 11px; padding: 2px 8px; border: 1px solid var(--fg-faint); border-radius: 12px; color: var(--fg-muted);">M.D. Candidate & Developer</span>
+            <span id="sem-badge" style="font-family: 'DM Mono', monospace; font-size: 11px; padding: 2px 8px; border: 1px solid var(--fg-faint); border-radius: 12px; color: var(--fg-muted);">M.D. Candidate (Sem 3)</span>
           </div>
 
           <h1 class="display anim-glitch">digital alchemy<br>at scale.</h1>
@@ -326,8 +326,8 @@
               <span class="label">Live Projects</span>
             </div>
             <div class="stat-item">
-              <span class="stat-number">M.D.</span>
-              <span class="label">Medical School</span>
+              <span class="stat-number" id="stat-semester">Sem 3</span>
+              <span class="label">M.D. Pursuit</span>
             </div>
             <div class="stat-item">
               <span class="stat-number">100%</span>
@@ -523,6 +523,21 @@
       }
     }
     fetchStats();
+
+    // Auto-calculate Medical School Semester based on start date (August 2025 = Sem 1)
+    function updateMedicalSemester() {
+      const startDate = new Date('2025-08-01');
+      const now = new Date();
+      const totalMonths = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
+      const semester = Math.max(1, Math.floor(totalMonths / 6) + 1);
+      
+      const semStat = document.getElementById('stat-semester');
+      if (semStat) semStat.textContent = `Sem ${semester}`;
+      
+      const semBadge = document.getElementById('sem-badge');
+      if (semBadge) semBadge.textContent = `M.D. Candidate (Sem ${semester})`;
+    }
+    updateMedicalSemester();
 
     // Dynamic loading will handle Project Row Hover
 
