@@ -21,15 +21,16 @@
   
   <style>
     :root {
-      --bg: #FAFAFA;
+      --bg: #F7F4EE;
       --bg-card: #FFFFFF;
-      --fg: #0D0D0D;
-      --fg-muted: #6B6B6B;
-      --fg-faint: #C4C4C4;
-      --accent: #0D0D0D;
-      --live-dot: #22C55E;
-      --tag-bg: #F0F0F0;
-      --tag-fg: #3D3D3D;
+      --fg: #0D111A;
+      --fg-muted: #5C6270;
+      --fg-faint: #D8D2C6;
+      --accent-gold: #D4941B;
+      --accent-red: #C8392B;
+      --live-dot: #D4941B;
+      --tag-bg: #EFECE6;
+      --tag-fg: #0D111A;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -225,15 +226,14 @@
       position: absolute;
       right: -20px;
       bottom: -20px;
-      width: 190px;
-      height: 190px;
+      width: 200px;
+      height: 200px;
       object-fit: contain;
-      opacity: 0.07;
+      opacity: 0.12;
       pointer-events: none;
       user-select: none;
       transform: rotate(-12deg);
       z-index: 0;
-      filter: grayscale(100%);
     }
     .id-card-top { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 16px 7px; flex-shrink: 0; position: relative; z-index: 1; }
     .id-card-top .id-logo { width: 22px; height: 22px; object-fit: contain; }
