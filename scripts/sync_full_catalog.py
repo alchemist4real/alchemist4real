@@ -121,14 +121,6 @@ curated_projects = [
     },
     {
         "id": "10",
-        "title": "PRISMA SIMULATOR",
-        "description": "blockchain antibiotic distribution & e-prescription validator",
-        "tags": ["Healthcare", "Surveillance", "Indonesia"],
-        "link": "https://prisma-rdk-simulator.vercel.app/",
-        "repo_link": "https://github.com/alchemist4real/prisma-rdk-simulator"
-    },
-    {
-        "id": "11",
         "title": "SAY NO TO CHOLESTEROL",
         "description": "interactive cholesterol & lifestyle education",
         "tags": ["Edukasi", "Kesehatan", "Kolesterol"],
@@ -136,7 +128,7 @@ curated_projects = [
         "repo_link": "https://github.com/alchemist4real/saynotocholestrol"
     },
     {
-        "id": "12",
+        "id": "11",
         "title": "HIPERTENSI MENGINTAI GEN Z",
         "description": "interactive hypertension health education for gen z",
         "tags": ["Health", "Education", "Hypertension"],
@@ -144,7 +136,7 @@ curated_projects = [
         "repo_link": "https://github.com/alchemist4real/hipertensimengintaigenz"
     },
     {
-        "id": "13",
+        "id": "12",
         "title": "DERMAMAXXING",
         "description": "skin intelligence system for dermatology anamnesis",
         "tags": ["Dermatology", "Skincare", "System"],
@@ -152,7 +144,7 @@ curated_projects = [
         "repo_link": "https://github.com/alchemist4real/dermamaxxing"
     },
     {
-        "id": "14",
+        "id": "13",
         "title": "NUTRI SOY BY ALTAF",
         "description": "ai nutrition coaching & qr habit tracker",
         "tags": ["AI", "Nutrition", "Coaching"],
@@ -160,7 +152,7 @@ curated_projects = [
         "repo_link": "https://github.com/alchemist4real/soyproteinbyaltaf"
     },
     {
-        "id": "15",
+        "id": "14",
         "title": "MARKITDOWN IN WEB",
         "description": "multi-format document to markdown converter",
         "tags": ["Markdown", "Converter", "Utility"],
@@ -168,7 +160,7 @@ curated_projects = [
         "repo_link": "https://github.com/alchemist4real/markitdowninweb"
     },
     {
-        "id": "16",
+        "id": "15",
         "title": "COOK WITH ALCHEMIST",
         "description": "masterclass web app & experimental recipe lab",
         "tags": ["Web", "Application", "Masterclass"],
@@ -176,7 +168,7 @@ curated_projects = [
         "repo_link": "https://github.com/alchemist4real/cookwithalchemist4real"
     },
     {
-        "id": "17",
+        "id": "16",
         "title": "AETHERIAL",
         "description": "spatial cognition test & mental rotation exercise",
         "tags": ["Spatial", "Cognition", "Game"],
@@ -184,23 +176,7 @@ curated_projects = [
         "repo_link": "https://github.com/alchemist4real/aetherial"
     },
     {
-        "id": "18",
-        "title": "SOEXSOEX",
-        "description": "ai collaborative question bank with gemini validation",
-        "tags": ["AI", "Question Bank", "Education"],
-        "link": "https://soexsoex.vercel.app/",
-        "repo_link": "https://github.com/alchemist4real/soexsoex"
-    },
-    {
-        "id": "19",
-        "title": "LIVE VOICE GEMINI",
-        "description": "realtime voice conversations with gemini ai",
-        "tags": ["Gemini", "Voice", "AI"],
-        "link": "https://live-one-beta.vercel.app/",
-        "repo_link": "https://github.com/alchemist4real/live"
-    },
-    {
-        "id": "20",
+        "id": "17",
         "title": "MSG FROM ORACLE",
         "description": "sarcastic ai oracle feeding on news & market odds",
         "tags": ["Web", "Application", "Oracle"],
@@ -208,7 +184,7 @@ curated_projects = [
         "repo_link": "https://github.com/alchemist4real/msgfromoracle"
     },
     {
-        "id": "21",
+        "id": "18",
         "title": "BEENBOXD",
         "description": "ai-powered letterboxd movie logger",
         "tags": ["Letterboxd", "Logger", "Movies"],
@@ -216,7 +192,7 @@ curated_projects = [
         "repo_link": "https://github.com/alchemist4real/beenboxd"
     },
     {
-        "id": "22",
+        "id": "19",
         "title": "BEENTEXTER",
         "description": "brutalist retro-calculator style text generator",
         "tags": ["Retro", "Calculator", "Text Gen"],
@@ -224,7 +200,7 @@ curated_projects = [
         "repo_link": "https://github.com/alchemist4real/beentexter"
     },
     {
-        "id": "23",
+        "id": "20",
         "title": "BEENCODE",
         "description": "industrial matrix encoder terminal",
         "tags": ["Encoder", "Industrial", "Utility"],
@@ -232,7 +208,7 @@ curated_projects = [
         "repo_link": "https://github.com/alchemist4real/beencode"
     },
     {
-        "id": "24",
+        "id": "21",
         "title": "BEENHOLLOW",
         "description": "ephemeral p2p file & message sharing",
         "tags": ["P2P", "File Sharing", "Real-time"],
@@ -240,7 +216,7 @@ curated_projects = [
         "repo_link": "https://github.com/alchemist4real/BEENHOLLOW"
     },
     {
-        "id": "25",
+        "id": "22",
         "title": "LIMITLESS OMNIPRESENT",
         "description": "gojo satoru technique simulator with gpu particles",
         "tags": ["Simulator", "Mediapipe", "WebGL"],
@@ -248,7 +224,7 @@ curated_projects = [
         "repo_link": "https://github.com/alchemist4real/zenlimitless"
     },
     {
-        "id": "26",
+        "id": "23",
         "title": "PRISMA RDK GUIDE",
         "description": "blockchain health chain documentation & guide",
         "tags": ["Blockchain", "Healthcare", "Antibiotics"],
