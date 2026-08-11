@@ -86,6 +86,9 @@
     body:not(.verified-theme) .id-card-bottom {
       border-top: 2px solid #1A1A2E;
     }
+    body:not(.verified-theme) .id-card-bottom span {
+      color: #1A1A2E;
+    }
     body:not(.verified-theme) .id-row-label {
       color: #1A1A2EAA;
     }
@@ -115,6 +118,7 @@
     body:not(.verified-theme) .id-zoom-btn:hover {
       background: #8B1A1A;
       color: #F5EFE0;
+      border-color: #8B1A1A;
     }
     body:not(.verified-theme) .id-qr-btn {
       border: 1px solid #1A1A2E;
@@ -191,7 +195,8 @@
     body:not(.verified-theme) .project-title {
       color: #1A1A2E;
     }
-    body:not(.verified-theme) .project-desc {
+    body:not(.verified-theme) .project-desc,
+    body:not(.verified-theme) .project-row .muted {
       color: #1A1A2ECC;
     }
     body:not(.verified-theme) .live-dot {
@@ -257,30 +262,92 @@
     }
 
     /* --- FOOTER on crimson --- */
-    body:not(.verified-theme) .footer-links a {
+    body:not(.verified-theme) .footer-links a,
+    body:not(.verified-theme) footer a,
+    body:not(.verified-theme) footer button {
       color: #F5EFE0CC;
     }
-    body:not(.verified-theme) .footer-links a:hover {
+    body:not(.verified-theme) .footer-links a:hover,
+    body:not(.verified-theme) footer a:hover,
+    body:not(.verified-theme) footer button:hover {
       color: #D4A017;
     }
     body:not(.verified-theme) .footer-quote {
       color: #F5EFE0AA;
     }
 
-    /* --- CONNECT MODAL on crimson --- */
-    body:not(.verified-theme) .connect-card {
+    /* --- CONNECT MODAL on gold card --- */
+    body:not(.verified-theme) .connect-modal-content {
       background: #D4A017;
-      border-color: #1A1A2E44;
+      border: 1.5px solid #1A1A2E;
+    }
+    body:not(.verified-theme) .connect-modal-content h3 {
+      color: #1A1A2E;
+    }
+    body:not(.verified-theme) .connect-modal-content p,
+    body:not(.verified-theme) .connect-modal-content .muted {
+      color: #1A1A2ECC;
+    }
+    body:not(.verified-theme) .connect-modal-content .label {
+      color: #1A1A2EAA;
+    }
+    body:not(.verified-theme) .connect-modal-content .qr-close {
+      color: #1A1A2E;
+    }
+    body:not(.verified-theme) .connect-modal-content div[style*="border-top"] {
+      border-top-color: #1A1A2E44 !important;
+    }
+    body:not(.verified-theme) .connect-card {
+      background: #F5EFE0;
+      border: 1px solid #1A1A2E44;
     }
     body:not(.verified-theme) .connect-card:hover {
       border-color: #1A1A2E;
-      background: #D4A017;
+      background: #FFFFFF;
+      box-shadow: 2px 2px 0 #1A1A2E;
     }
     body:not(.verified-theme) .connect-card-label {
       color: #1A1A2EAA;
     }
     body:not(.verified-theme) .connect-card-val {
       color: #1A1A2E;
+    }
+
+    /* --- CARD MODAL (ZOOM PREVIEW) ACTIONS BAR --- */
+    body:not(.verified-theme) #card-modal .qr-close {
+      color: #F5EFE0;
+    }
+    body:not(.verified-theme) .card-modal-actions {
+      background: #D4A017;
+      border: 1.5px solid #1A1A2E;
+    }
+    body:not(.verified-theme) .qr-float-title {
+      color: #1A1A2E;
+    }
+    body:not(.verified-theme) .qr-float-sub {
+      color: #1A1A2ECC;
+    }
+    body:not(.verified-theme) .qr-float-img {
+      border-color: #1A1A2E44;
+    }
+    body:not(.verified-theme) .btn-download-card {
+      background: #1A1A2E;
+      color: #F5EFE0;
+      border: 1px solid #1A1A2E;
+    }
+    body:not(.verified-theme) .btn-download-card:hover {
+      background: #8B1A1A;
+      color: #F5EFE0;
+      border-color: #8B1A1A;
+    }
+
+    /* --- FORM CONTROLS & DROPDOWNS on crimson --- */
+    body:not(.verified-theme) input::placeholder {
+      color: #F5EFE088;
+    }
+    body:not(.verified-theme) select option {
+      background: #7B1818;
+      color: #F5EFE0;
     }
 
     /* --- UNLOCK PILL: Gold on dark --- */
