@@ -17,99 +17,116 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="js/identity-controller.js?v=20260811_17"></script>
+  <script src="js/identity-controller.js?v=20260811_18"></script>
   
-  <style>    /* =========================================================
-       PUBLIC THEME — Logo Color Palette (Warm Ochre & Crimson)
+  <style>
+    /* =========================================================
+       PUBLIC THEME — 4-Color Logo Palette (Flat, No Gradients)
+       Crimson Red #C62828 | Golden Amber #D4A017 | Deep Black #1A1A2E | Warm Cream #F5EFE0
        ========================================================= */
     :root {
-      --bg: #F7F1E5; /* Authentic Warm Ochre Cream Base */
+      --bg: #F5EFE0;
       --bg-card: #FFFFFF;
-      --fg: #121722; /* Deep Obsidian Linework */
-      --fg-muted: #565C68;
-      --fg-faint: #E0D5C1;
-      --accent-gold: #E5982A; /* Signature Warm Ochre / Orange-Gold */
-      --accent-red: #C8392B; /* Crimson Accent */
-      --live-dot: #E5982A;
-      --tag-bg: #EFE5D3;
-      --tag-fg: #121722;
+      --fg: #1A1A2E;
+      --fg-muted: #5A5A6E;
+      --fg-faint: #D8CCAE;
+      --accent-gold: #D4A017;
+      --accent-red: #C62828;
+      --live-dot: #C62828;
+      --tag-bg: #EDE5D0;
+      --tag-fg: #1A1A2E;
     }
 
-    /* Public Mode ID Card & UI Colors */
+    /* Public ID Card */
     body:not(.verified-theme) .id-card {
-      border: 1.5px solid #121722;
+      border: 1.5px solid #1A1A2E;
       background: #FFFFFF;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
     }
     body:not(.verified-theme) .id-card-title-main {
-      color: #E5982A;
+      color: #C62828;
       font-weight: 700;
       letter-spacing: 0.18em;
     }
     body:not(.verified-theme) .id-photo-label {
-      background: #E5982A;
+      background: #C62828;
       color: #FFFFFF;
-      border: 1px solid #E5982A;
+      border: 1px solid #C62828;
       font-weight: 600;
     }
     body:not(.verified-theme) .id-stamp {
-      color: #C8392B;
+      color: #D4A017;
       font-weight: 600;
     }
     body:not(.verified-theme) .id-zoom-btn {
-      border-color: #E5982A;
-      color: #E5982A;
+      border-color: #D4A017;
+      color: #D4A017;
       font-weight: 600;
     }
     body:not(.verified-theme) .id-zoom-btn:hover {
-      background: #E5982A;
+      background: #D4A017;
       color: #FFFFFF;
     }
     body:not(.verified-theme) .id-qr-btn {
-      border-color: #E0D5C1;
-      color: #121722;
+      border-color: #D8CCAE;
+      color: #1A1A2E;
       font-weight: 500;
     }
     body:not(.verified-theme) .id-qr-btn:hover {
-      background: #E5982A;
+      background: #D4A017;
       color: #FFFFFF;
-      border-color: #E5982A;
+      border-color: #D4A017;
     }
 
-    /* Public Mode Filter Buttons */
+    /* Public Filter Buttons — Red active, Gold hover */
     body:not(.verified-theme) .filter-btn {
-      border-color: #E0D5C1;
-      color: #565C68;
+      border-color: #D8CCAE;
+      color: #5A5A6E;
       font-weight: 500;
     }
     body:not(.verified-theme) .filter-btn:hover {
-      border-color: #E5982A;
-      color: #E5982A;
+      border-color: #D4A017;
+      color: #D4A017;
     }
     body:not(.verified-theme) .filter-btn.active {
-      background: #E5982A;
+      background: #C62828;
       color: #FFFFFF;
-      border-color: #E5982A;
+      border-color: #C62828;
     }
 
-    /* Public Mode Project Cards */
+    /* Public Project Cards — Gold hover border */
     body:not(.verified-theme) .project-row {
-      border: 1px solid #E0D5C1;
+      border: 1px solid #D8CCAE;
       background: #FFFFFF;
-      transition: all 0.2s ease;
+      transition: border-color 0.2s ease;
     }
     body:not(.verified-theme) .project-row:hover {
-      border-color: #E5982A;
+      border-color: #D4A017;
     }
+
+    /* Public Tags — Cream bg with dark text */
     body:not(.verified-theme) .tag {
-      background: #EFE5D3;
-      color: #121722;
-      border: 1px solid #D8CBB6;
+      background: #EDE5D0;
+      color: #1A1A2E;
+      border: 1px solid #D8CCAE;
       font-weight: 500;
     }
+
+    /* Public Selection */
     body:not(.verified-theme) ::selection {
-      background: #E5982A;
+      background: #D4A017;
       color: #FFFFFF;
+    }
+
+    /* Public Nav & Footer accents */
+    body:not(.verified-theme) .btn-ghost-sm:hover {
+      background: #1A1A2E;
+      color: #F5EFE0;
+    }
+    body:not(.verified-theme) .nav-unlock-pill {
+      background: #C62828;
+      color: #FFFFFF;
+      border-color: #C62828;
     }
 
     /* =========================================================
@@ -954,6 +971,14 @@
           }
         }
 
+        return `
+        <div class="project-row reveal-item">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
+            <span class="card-label label" style="margin: 0;">${item.id}</span>
+            <span class="live-dot" aria-label="live" style="width: 6px; height: 6px; border-radius: 50%; background: var(--live-dot); display: block;"></span>
+          </div>
+          <div class="project-title">${item.title}</div>
+          <p class="project-desc muted">${item.description}</p>
           <div class="project-tags">
             ${item.tags ? item.tags.map(t => `<span class="tag">${t}</span>`).join('') : ''}
           </div>
