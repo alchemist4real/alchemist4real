@@ -226,7 +226,7 @@ class IdentityController {
       if (footerLogo) footerLogo.src = 'assets/logo-white.png';
 
       if (titleEl) titleEl.textContent = `${data.name} — Portfolio & Lab`;
-      if (handleEl) handleEl.textContent = '@alchemist4real';
+      if (handleEl) handleEl.textContent = "ALCHEMIST4REAL'S PAGE";
       if (heroHandleEl) heroHandleEl.textContent = data.name;
       if (footerBrandEl) footerBrandEl.textContent = data.name;
       if (footerCopyrightEl) footerCopyrightEl.textContent = `© 2025 ${data.name} | Co-architect Sir. Yaon (@ghaffarsyafiq-arch)`;
@@ -323,7 +323,7 @@ class IdentityController {
       if (footerLogo) footerLogo.src = 'assets/logo-icon.png';
 
       if (titleEl) titleEl.textContent = `alchemist4real — The Lab`;
-      if (handleEl) handleEl.textContent = `@alchemist4real`;
+      if (handleEl) handleEl.textContent = "ALCHEMIST4REAL'S PAGE";
       if (heroHandleEl) heroHandleEl.textContent = `@alchemist4real`;
       if (footerBrandEl) footerBrandEl.textContent = `alchemist4real`;
       if (footerCopyrightEl) footerCopyrightEl.textContent = `© 2025 @alchemist4real | Co-architect Sir. Yaon (@ghaffarsyafiq-arch)`;
