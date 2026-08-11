@@ -847,12 +847,48 @@
     .filter-btn { background: transparent; border: 1px solid var(--fg-faint); color: var(--fg-muted); padding: 8px 16px; border-radius: 20px; font-family: 'DM Mono', monospace; font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; transition: all 0.2s; }
     .filter-btn:hover { border-color: var(--fg); color: var(--fg); }
 
-    .qr-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 9990; align-items: center; justify-content: center; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+    .qr-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 9990; align-items: center; justify-content: center; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
     .qr-modal.active { display: flex; }
     #qr-modal { z-index: 10000; } /* Topmost overlay layer for single QR views */
-    .qr-modal-content { background: var(--bg); padding: 24px; border: 1px solid var(--fg); position: relative; max-width: 90vw; }
-    .qr-modal-content img { display: block; max-width: 300px; width: 100%; height: auto; border: 1px solid var(--fg); }
-    .qr-close { position: absolute; top: 0px; right: 4px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--fg); font-family: 'DM Mono', monospace; }
+    .qr-modal-content { 
+      background: var(--bg-card); 
+      padding: 28px 20px 20px; 
+      border: 1.5px solid var(--fg); 
+      border-radius: 8px;
+      position: relative; 
+      max-width: 340px; 
+      width: 88vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .qr-modal-content img { 
+      display: block; 
+      max-width: 250px; 
+      width: 100%; 
+      height: auto; 
+      border: 1px solid var(--fg); 
+      border-radius: 6px;
+      background: #FFFFFF;
+      padding: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .qr-close { 
+      position: absolute; 
+      top: 6px; 
+      right: 10px; 
+      background: none; 
+      border: none; 
+      font-size: 24px; 
+      font-weight: 700;
+      cursor: pointer; 
+      color: var(--fg); 
+      font-family: 'DM Mono', monospace; 
+      line-height: 1;
+      padding: 4px 8px;
+    }
 
     /* Connect Modal Styling */
     .connect-modal-content {
@@ -1042,6 +1078,35 @@
       .connect-grid { grid-template-columns: minmax(0, 1fr); }
       .project-list { grid-template-columns: minmax(0, 1fr); }
       .project-link { display: block; margin-top: 8px; }
+      
+      /* Mobile Navbar Fix */
+      nav .container { padding: 0 12px; }
+      nav .brand-link { gap: 6px; flex-shrink: 0; }
+      nav .brand-logo-img { height: 22px; width: 22px; }
+      nav .logo-text { font-size: 9.5px !important; letter-spacing: 0.04em !important; white-space: nowrap; }
+      nav .nav-links { gap: 8px; flex-shrink: 0; }
+      nav .nav-links .label { font-size: 9.5px; }
+      .nav-unlock-pill { font-size: 9px; padding: 2px 7px; height: 22px; }
+
+      /* Mobile Footer Fix */
+      footer { padding-top: 24px !important; padding-bottom: 24px !important; margin-top: 40px !important; }
+      .footer-inner {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 14px !important;
+      }
+      .footer-brand-group {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 6px !important;
+        text-align: center !important;
+      }
+      #footer-copyright {
+        font-size: 10.5px !important;
+        line-height: 1.4 !important;
+        text-align: center !important;
+      }
       .footer-top { flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -1157,8 +1222,8 @@
 
 
   <footer class="container" style="padding-top: 30px; padding-bottom: 30px; border-top: 1px solid var(--fg-faint); margin-top: 50px;">
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-      <div style="display: flex; align-items: center; gap: 10px;">
+    <div class="footer-inner" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <div class="footer-brand-group" style="display: flex; align-items: center; gap: 10px;">
         <img src="assets/logo-icon.png" id="footer-logo" alt="alchemist4real logo mark" style="height: 20px; width: 20px;">
         <span class="muted" id="footer-copyright" style="font-size: 12px;">© 2025 @alchemist4real | Co-architect Sir. Yaon (@ghaffarsyafiq-arch)</span>
       </div>
@@ -1472,7 +1537,11 @@
     function showQR(id) {
       const modal = document.getElementById('qr-modal');
       const img = document.getElementById('qr-image');
+      const title = document.getElementById('qr-modal-title');
       img.src = `assets/qr/${id}.png`;
+      if (title) {
+        title.textContent = id === 'card' ? 'ID Card Verification QR' : 'LinkedIn Profile QR';
+      }
       modal.classList.add('active');
     }
     
@@ -1638,6 +1707,10 @@
   <div id="qr-modal" class="qr-modal" onclick="closeQR()">
     <div class="qr-modal-content" onclick="event.stopPropagation()">
       <button class="qr-close" onclick="closeQR()">&times;</button>
+      <div class="qr-modal-header">
+        <span class="label" style="display: block; font-size: 9px; margin-bottom: 2px; color: var(--fg-faint);">SCAN CODE</span>
+        <h4 id="qr-modal-title" style="font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--fg); margin-bottom: 12px; text-transform: uppercase;">QR CODE</h4>
+      </div>
       <img id="qr-image" src="" alt="QR Code">
     </div>
   </div>
