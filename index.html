@@ -297,7 +297,6 @@
       </a>
       <div class="nav-links">
         <a href="#projects" class="label">Projects</a>
-        <a href="#about" class="label hide-mobile">About</a>
         <a href="#connect" class="label">Connect</a>
         <a href="https://sociabuzz.com/alchemist4real/donate" target="_blank" rel="noopener noreferrer" class="label hide-mobile">Donate</a>
       </div>
@@ -364,113 +363,6 @@
       <div id="catalog-container" class="project-list"></div>
     </section>
 
-    <section id="connect" class="container">
-      <div class="connect-header">
-        <span class="label">Pull Up</span>
-        <h2 class="heading">let's connect.</h2>
-      </div>
-      <style>
-        .unified-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .unified-col { padding: 24px; border-right: 1px solid var(--fg-faint); display: flex; flex-direction: column; }
-        .unified-col:last-child { border-right: none; }
-        @media (max-width: 800px) {
-          .unified-card-grid { grid-template-columns: minmax(0, 1fr); }
-          .unified-col { border-right: none; border-bottom: 1px solid var(--fg-faint); }
-          .unified-col:last-child { border-bottom: none; }
-        }
-      </style>
-      <div class="card" style="padding: 0;">
-        <div class="unified-card-grid">
-          
-          <!-- GitHub Section -->
-          <div class="unified-col reveal-item">
-            <span class="card-label label">GITHUB</span>
-            <div class="card-handle">Open Source</div>
-            <p class="card-desc muted">source code lives here. open source health edu projects.</p>
-            <div class="card-meta">
-              <span>
-                <span class="body-text" id="gh-repos">—</span>
-                <span class="label">Repos</span>
-              </span>
-              <span>
-                <span class="body-text" id="gh-followers">—</span>
-                <span class="label">Followers</span>
-              </span>
-              <span>
-                <span class="body-text" id="gh-following">—</span>
-                <span class="label">Following</span>
-              </span>
-            </div>
-            <div style="display: flex; gap: 8px; margin-top: auto;">
-              <a href="https://github.com/alchemist4real" class="btn-ghost" target="_blank" rel="noopener noreferrer">View Profile</a>
-              <button onclick="showQR('github')" class="btn-ghost" style="padding: 8px 12px; display:flex; align-items:center; justify-content:center;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- WhatsApp Section -->
-          <div class="unified-col reveal-item">
-            <span class="card-label label">WHATSAPP BUSINESS</span>
-            <div class="card-handle">Direct Line</div>
-            <p class="card-desc muted">custom education web app? project collab? hit the line.</p>
-            <div class="card-meta">
-              <span>
-                <span class="body-text">24/7</span>
-                <span class="label">Availability</span>
-              </span>
-              <span>
-                <span class="body-text">&lt;1h</span>
-                <span class="label">Response</span>
-              </span>
-              <span>
-                <span class="body-text">ID</span>
-                <span class="label">Language</span>
-              </span>
-            </div>
-            <div style="display: flex; gap: 8px; margin-top: auto;">
-              <a href="https://wa.me/6285778120332" class="btn-ghost" target="_blank" rel="noopener noreferrer">Send Message</a>
-              <button onclick="showQR('whatsapp')" class="btn-ghost" style="padding: 8px 12px; display:flex; align-items:center; justify-content:center;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Instagram Section -->
-          <div class="unified-col">
-            <span class="card-label label">INSTAGRAM</span>
-            <div class="card-handle">Visual Diary</div>
-            <p class="card-desc muted">visual documentation, updates, and daily snippets.</p>
-            <div class="card-meta">
-              <span>
-                <span class="body-text">Daily</span>
-                <span class="label">Activity</span>
-              </span>
-              <span>
-                <span class="body-text">Visual</span>
-                <span class="label">Content</span>
-              </span>
-            </div>
-            <div style="display: flex; gap: 8px; margin-top: auto;">
-              <a href="https://instagram.com/alchemist4real" class="btn-ghost" target="_blank" rel="noopener noreferrer">View Profile</a>
-              <button onclick="showQR('instagram')" class="btn-ghost" style="padding: 8px 12px; display:flex; align-items:center; justify-content:center;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="partner-row reveal-item">
-        <span class="label">The Partner — Sir. Yaon</span>
-        <span class="muted">co-architect of the 174 Archive. @ghaffarsyafiq-arch on GitHub.</span>
-        <div style="display: flex; gap: 16px; align-items: center;">
-          <button onclick="showQR('partner')" class="label" style="background:none; border:none; color:var(--fg); cursor:pointer; text-decoration:underline; font-family:'DM Mono', monospace; font-size:13px; text-transform:uppercase; letter-spacing:0.05em; padding:0;">View QR -></button>
-          <a href="https://github.com/ghaffarsyafiq-arch" class="label" target="_blank" rel="noopener noreferrer">View Profile -></a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <div id="qr-modal" class="qr-modal">
@@ -479,18 +371,50 @@
       <img id="qr-image" src="" alt="QR Code">
     </div>
   </div>
-  <footer class="container">
-    <div class="footer-top">
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <img src="assets/logo-icon.png" alt="alchemist4real logo mark" style="height: 22px; width: 22px; opacity: 0.9;">
-        <span class="muted">© 2025 @alchemist4real · built with insomnia and vscode.</span>
+
+  <footer class="container" id="connect" style="padding-top: 60px; padding-bottom: 60px; border-top: 1px solid var(--fg-faint); margin-top: 80px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; margin-bottom: 48px;">
+      
+      <!-- Left: Brand Intro -->
+      <div style="max-width: 360px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+          <img src="assets/logo-icon.png" alt="alchemist4real logo mark" style="height: 24px; width: 24px;">
+          <span class="label logo-text" style="font-size: 14px; color: var(--fg);">alchemist4real</span>
+        </div>
+        <p class="muted" style="font-size: 13px; line-height: 1.6;">
+          Medical student & experimental developer transmuting biomedical concepts into autonomous AI tools, edge software, and brutalist web experiences.
+        </p>
       </div>
-      <div class="footer-links">
-        <a href="https://github.com/alchemist4real" class="label" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://wa.me/6285778120332" class="label" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-        <a href="https://sociabuzz.com/alchemist4real/donate" class="label" target="_blank" rel="noopener noreferrer">Donate</a>
-        <a href="#top" class="label">↑ Top</a>
+
+      <!-- Right: Direct Connect Links & QR Buttons -->
+      <div style="display: flex; gap: 48px; flex-wrap: wrap;">
+        <div>
+          <span class="label" style="display: block; margin-bottom: 14px; color: var(--fg);">Connect</span>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <a href="https://github.com/alchemist4real" target="_blank" rel="noopener noreferrer" class="label" style="text-decoration: none;">GitHub -></a>
+            <a href="https://wa.me/6285778120332" target="_blank" rel="noopener noreferrer" class="label" style="text-decoration: none;">WhatsApp -></a>
+            <a href="https://instagram.com/alchemist4real" target="_blank" rel="noopener noreferrer" class="label" style="text-decoration: none;">Instagram -></a>
+            <a href="https://sociabuzz.com/alchemist4real/donate" target="_blank" rel="noopener noreferrer" class="label" style="text-decoration: none;">Donate -></a>
+          </div>
+        </div>
+
+        <div>
+          <span class="label" style="display: block; margin-bottom: 14px; color: var(--fg);">QR Modals</span>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <button onclick="showQR('github')" class="label" style="background:none; border:none; color:var(--fg-muted); cursor:pointer; text-align:left; font-family:'DM Mono', monospace; padding:0;">GitHub QR</button>
+            <button onclick="showQR('whatsapp')" class="label" style="background:none; border:none; color:var(--fg-muted); cursor:pointer; text-align:left; font-family:'DM Mono', monospace; padding:0;">WhatsApp QR</button>
+            <button onclick="showQR('instagram')" class="label" style="background:none; border:none; color:var(--fg-muted); cursor:pointer; text-align:left; font-family:'DM Mono', monospace; padding:0;">Instagram QR</button>
+            <button onclick="showQR('partner')" class="label" style="background:none; border:none; color:var(--fg-muted); cursor:pointer; text-align:left; font-family:'DM Mono', monospace; padding:0;">Partner QR</button>
+          </div>
+        </div>
       </div>
+
+    </div>
+
+    <!-- Footer Bar -->
+    <div style="padding-top: 24px; border-top: 1px solid var(--fg-faint); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+      <span class="muted" style="font-size: 12px;">© 2025 @alchemist4real · Co-architect Sir. Yaon (@ghaffarsyafiq-arch)</span>
+      <a href="#top" class="label" style="text-decoration: none;">↑ Top</a>
     </div>
   </footer>
 
