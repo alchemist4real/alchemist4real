@@ -1,3 +1,5 @@
 .vercel
 dist/
 .dependencies/
+encrypt_payload.js
+assets/priv_b64.txt
