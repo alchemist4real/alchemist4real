@@ -659,11 +659,11 @@
       transform: rotate(-12deg);
       z-index: 0;
     }
-    .id-card-top { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 16px 7px; flex-shrink: 0; position: relative; z-index: 1; }
+    .id-card-top { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 10px 48px 7px 16px; flex-shrink: 0; position: relative; z-index: 1; }
     .id-card-top .id-logo { width: 22px; height: 22px; object-fit: contain; }
     .id-card-title { text-align: center; flex-shrink: 0; }
     .id-card-title-main { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg); line-height: 1; }
-    .id-zoom-btn { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: transparent; border: 1px solid var(--fg-faint); color: var(--fg-muted); font-family: 'DM Mono', monospace; font-size: 7px; padding: 1px 5px; border-radius: 2px; cursor: pointer; letter-spacing: 0.05em; transition: all 0.15s; }
+    .id-zoom-btn { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: transparent; border: 1px solid var(--fg-faint); color: var(--fg-muted); font-family: 'DM Mono', monospace; font-size: 7px; padding: 2px 6px; border-radius: 2px; cursor: pointer; letter-spacing: 0.05em; transition: all 0.15s; white-space: nowrap; }
     .id-zoom-btn:hover { border-color: var(--fg); color: var(--fg); background: var(--fg-faint); }
     .id-card-divider { height: 1px; background: var(--fg-faint); margin: 0 16px; flex-shrink: 0; position: relative; z-index: 1; }
     
@@ -932,7 +932,10 @@
       .id-row-value { font-size: 9.5px; }
       .id-row-value.id-name-value { font-size: 1rem; }
       .id-link-item { font-size: 8px; }
-      .id-card-bottom, .id-card-top { padding-left: 12px; padding-right: 12px; }
+      .id-card-bottom { padding-left: 12px; padding-right: 12px; }
+      .id-card-top { padding: 8px 42px 6px 12px; }
+      .id-card-title-main { font-size: 0.92rem !important; letter-spacing: 0.1em; }
+      .id-zoom-btn { font-size: 7.5px; padding: 2px 5px; right: 8px; top: 50%; transform: translateY(-50%); }
       .id-card-divider { margin: 0 12px; }
       .hero-actions { gap: 8px; }
       .connect-grid { grid-template-columns: minmax(0, 1fr); }
@@ -963,7 +966,7 @@
   <main>
     <section class="hero container" id="top">
       <div class="hero-emblem-wrapper anim-glitch">
-        <img src="assets/logo-icon.png" id="hero-crest-logo" alt="Identity Crest Emblem" class="hero-crest-img">
+        <img src="assets/logo-icon.png" id="hero-crest-logo" alt="Identity Crest Emblem" class="hero-crest-img" onclick="handleCrestClick()" style="cursor: pointer;" title="Click 5x to unlock verified identity">
       </div>
       <div class="id-card anim-glitch" onclick="openCardModal(event)" title="Click to view large preview">
         <img src="assets/logo-monochrome.png" id="id-watermark" alt="watermark stamp" class="id-card-watermark">
@@ -1066,6 +1069,24 @@
   </footer>
 
   <script>
+    // 5-Click Crest Logo Easter Egg Unlock
+    let crestClicks = 0;
+    let crestClickTimer = null;
+    function handleCrestClick() {
+      crestClicks++;
+      if (crestClickTimer) clearTimeout(crestClickTimer);
+      if (crestClicks >= 5) {
+        crestClicks = 0;
+        if (window.identityController) {
+          window.identityController.unlockWithPasscode('alchemist2026');
+        }
+      } else {
+        crestClickTimer = setTimeout(() => {
+          crestClicks = 0;
+        }, 2500);
+      }
+    }
+
     // Nav Scroll
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
