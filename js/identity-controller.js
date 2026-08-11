@@ -208,8 +208,9 @@ class IdentityController {
       }
 
       if (unlockBtn) {
-        unlockBtn.innerHTML = `<span style="text-decoration:underline;">VERIFIED</span> | LOCK`;
-        unlockBtn.title = "Verified Identity Active (Click to Lock)";
+        unlockBtn.style.display = 'inline-flex';
+        unlockBtn.innerHTML = `LOCK`;
+        unlockBtn.title = "Click to Lock Profile";
         unlockBtn.onclick = () => this.lockIdentity();
       }
 
@@ -251,8 +252,7 @@ class IdentityController {
       }
 
       if (unlockBtn) {
-        unlockBtn.innerHTML = `UNLOCK`;
-        unlockBtn.onclick = () => window.showUnlockModal();
+        unlockBtn.style.display = 'none';
       }
     }
   }
