@@ -240,7 +240,7 @@ class IdentityController {
 
       // Show decrypted private photo in verified mode
       if (photoReal) {
-        photoReal.src = data.photo || 'assets/public-photo.jpg';
+        photoReal.src = data.photo || 'assets/public-photo-v2.jpg';
         photoReal.alt = data.name;
       }
       if (photoLabel) photoLabel.textContent = 'VERIFIED';
@@ -337,7 +337,7 @@ class IdentityController {
 
       // Show public photo (Masked Alchemist) in public mode
       if (photoReal) {
-        photoReal.src = 'assets/public-photo.jpg?v=20260811_20';
+        photoReal.src = 'assets/public-photo-v2.jpg';
         photoReal.alt = '@alchemist4real';
       }
       if (photoLabel) photoLabel.textContent = 'PUBLIC';
