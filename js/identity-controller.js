@@ -164,7 +164,8 @@ class IdentityController {
       }
 
       if (unlockBtn) {
-        unlockBtn.innerHTML = `🔒 <span style="text-decoration:underline;">Verified Profile</span> · Lock`;
+        unlockBtn.innerHTML = `🔒 <span style="text-decoration:underline;">VERIFIED</span> · LOCK`;
+        unlockBtn.title = "Verified Identity Active (Click to Lock)";
         unlockBtn.onclick = () => this.lockIdentity();
       }
 

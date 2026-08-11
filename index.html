@@ -165,13 +165,36 @@
     nav { position: sticky; top: 0; z-index: 100; height: 52px; display: flex; align-items: center; background: var(--bg); border-bottom: 1px solid var(--fg-faint); transition: background 0.2s, backdrop-filter 0.2s; }
     nav.scrolled { background: rgba(250, 250, 250, 0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
     nav .container { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-    nav .nav-links { display: flex; gap: 28px; }
-    nav .nav-links a { text-decoration: none; color: var(--fg-muted); transition: color 0.2s; }
+    nav .nav-links { display: flex; gap: 24px; align-items: center; }
+    nav .nav-links a { text-decoration: none; color: var(--fg-muted); transition: color 0.2s; display: inline-flex; align-items: center; height: 100%; }
     nav .nav-links a:hover { color: var(--fg); }
     nav .brand-link { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg); }
     nav .brand-logo-img { height: 26px; width: 26px; object-fit: contain; transition: transform 0.25s ease, filter 0.25s ease; }
     nav .brand-link:hover .brand-logo-img { transform: scale(1.12) rotate(-4deg); }
-    nav .logo-text { text-transform: none; font-size: 13px; color: var(--fg); }
+    nav .logo-text { text-transform: none; font-size: 13px; color: var(--fg); font-weight: 500; }
+
+    .nav-unlock-pill {
+      background: none;
+      border: 1px solid var(--fg-faint);
+      border-radius: 12px;
+      padding: 4px 10px;
+      cursor: pointer;
+      color: var(--fg);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.03em;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      line-height: 1;
+      height: 26px;
+      box-sizing: border-box;
+    }
+    .nav-unlock-pill:hover {
+      border-color: var(--fg);
+      background: var(--fg-faint);
+    }
 
     .hero { min-height: calc(100vh - 52px); display: flex; align-items: center; padding-top: 40px; padding-bottom: 60px; }
     .hero-simple-layout { display: flex; justify-content: space-between; align-items: center; gap: 48px; width: 100%; }
@@ -298,7 +321,7 @@
       <div class="nav-links">
         <a href="#projects" class="label">Projects</a>
         <a href="#connect" class="label">Connect</a>
-        <button id="nav-unlock-btn" class="label" style="background:none; border:1px solid var(--fg-faint); border-radius:12px; padding:3px 10px; cursor:pointer; color:var(--fg); font-family:'DM Mono', monospace;">🔑 Unlock</button>
+        <button id="nav-unlock-btn" class="nav-unlock-pill">🔑 UNLOCK</button>
       </div>
     </div>
   </nav>
