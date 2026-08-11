@@ -126,6 +126,9 @@ class IdentityController {
 
   render() {
     const handleEl = document.getElementById('identity-handle');
+    const heroHandleEl = document.getElementById('hero-handle');
+    const footerBrandEl = document.getElementById('footer-brand-text');
+    const footerCopyrightEl = document.getElementById('footer-copyright');
     const badgeEl = document.getElementById('sem-badge');
     const bioEl = document.getElementById('identity-bio');
     const verifiedBadgeRow = document.getElementById('verified-badge-row');
@@ -139,6 +142,9 @@ class IdentityController {
 
       if (titleEl) titleEl.textContent = `${data.name} — Portfolio & Lab`;
       if (handleEl) handleEl.textContent = data.name;
+      if (heroHandleEl) heroHandleEl.textContent = data.name;
+      if (footerBrandEl) footerBrandEl.textContent = data.name;
+      if (footerCopyrightEl) footerCopyrightEl.textContent = `© 2025 ${data.name} · Co-architect Sir. Yaon (@ghaffarsyafiq-arch)`;
       if (badgeEl) badgeEl.textContent = `UNSOED Medical School (Sem 3)`;
       
       if (bioEl) {
@@ -178,6 +184,9 @@ class IdentityController {
     } else {
       if (titleEl) titleEl.textContent = `alchemist4real — The Lab`;
       if (handleEl) handleEl.textContent = `@alchemist4real`;
+      if (heroHandleEl) heroHandleEl.textContent = `@alchemist4real`;
+      if (footerBrandEl) footerBrandEl.textContent = `alchemist4real`;
+      if (footerCopyrightEl) footerCopyrightEl.textContent = `© 2025 @alchemist4real · Co-architect Sir. Yaon (@ghaffarsyafiq-arch)`;
       if (badgeEl) badgeEl.textContent = `M.D. Candidate (Sem 3)`;
 
       if (bioEl) {
