@@ -389,6 +389,33 @@
         "Code"
       ],
       "link": "https://github.com/alchemist4real/timemaru"
+    },
+    {
+      "id": "GH-OMN",
+      "title": "OMNIFORM AUTOFILLER",
+      "description": "gform dominator: ekstensi autofill canggih dengan react-safe injection",
+      "tags": [
+        "JavaScript"
+      ],
+      "link": "https://github.com/alchemist4real/OmniForm-Autofiller"
+    },
+    {
+      "id": "GH-PEE",
+      "title": "PEERASSESS NINJA",
+      "description": "ekstensi untuk membasmi kebosanan evaluasi peer assessment di google forms",
+      "tags": [
+        "JavaScript"
+      ],
+      "link": "https://github.com/alchemist4real/PeerAssess-Ninja"
+    },
+    {
+      "id": "GH-TIM",
+      "title": "TIMEMARU",
+      "description": "browser extension merging daily productivity tools with an interactive, screen-roaming pixel art demon",
+      "tags": [
+        "Code"
+      ],
+      "link": "https://github.com/alchemist4real/timemaru"
     }
   ],
   "research": [],
@@ -440,6 +467,169 @@
       ],
       "link": "https://mr-capsules.vercel.app",
       "repo_link": "https://github.com/alchemist4real/MR-CAPSULES"
+    },
+    {
+      "id": "GH-HIP",
+      "title": "HIPERTENSIMENGINTAIGENZ",
+      "description": "open source repository for hipertensimengintaigenz",
+      "tags": [
+        "JavaScript"
+      ],
+      "link": "https://github.com/alchemist4real/hipertensimengintaigenz"
+    },
+    {
+      "id": "GH-SAY",
+      "title": "SAYNOTOCHOLESTROL",
+      "description": "open source repository for saynotocholestrol",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://github.com/alchemist4real/saynotocholestrol"
+    },
+    {
+      "id": "GH-FUC",
+      "title": "FUCKALLRAPIST",
+      "description": "open source repository for fuckallrapist",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://github.com/alchemist4real/fuckallrapist"
+    },
+    {
+      "id": "GH-SAY",
+      "title": "SAYNOTODRUGS",
+      "description": "open source repository for saynotodrugs",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://github.com/alchemist4real/saynotodrugs"
+    },
+    {
+      "id": "GH-AET",
+      "title": "AETHERIAL",
+      "description": "open source repository for aetherial",
+      "tags": [
+        "JavaScript"
+      ],
+      "link": "https://github.com/alchemist4real/aetherial"
+    },
+    {
+      "id": "GH-BEE",
+      "title": "BEENCODE",
+      "description": "open source repository for beencode",
+      "tags": [
+        "JavaScript"
+      ],
+      "link": "https://github.com/alchemist4real/beencode"
+    },
+    {
+      "id": "GH-SOY",
+      "title": "SOYPROTEINBYALTAF",
+      "description": "personalized ai nutrition coaching and habit tracking powered by physical product qr code redemptions",
+      "tags": [
+        "TypeScript"
+      ],
+      "link": "https://soyproteinbyaltaf.vercel.app"
+    },
+    {
+      "id": "GH-PRI",
+      "title": "PRISMA RDK GUIDE",
+      "description": "blockchain-powered health chain system designed to prevent antibiotic double-redeeming and mitigate antimicrobial resistance",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://prisma-rdk-guide.vercel.app"
+    },
+    {
+      "id": "GH-SOA",
+      "title": "SOALGANJILGENAP",
+      "description": "minimal tool to generate odd-even speed accuracy tests for psychological exam preparation",
+      "tags": [
+        "Code"
+      ],
+      "link": "https://github.com/alchemist4real/soalganjilgenap"
+    },
+    {
+      "id": "GH-MSG",
+      "title": "MSGFROMORACLE",
+      "description": "sarcastic ai oracle that feeds on your futile wishes, real-time news, and market odds to weave poetic desolation",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://msgfromoracle.vercel.app"
+    },
+    {
+      "id": "GH-NOS",
+      "title": "NOSMOKE",
+      "description": "science-backed minimalist landing page addressing nicotine automaticity and urge regulation",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://nosmoke-six.vercel.app"
+    },
+    {
+      "id": "GH-BEE",
+      "title": "BEENTEXTER",
+      "description": "brutalist retro-calculator style text generator with tactile vintage web aesthetics",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://beentexter.vercel.app"
+    },
+    {
+      "id": "GH-BEE",
+      "title": "BEENBOXD",
+      "description": "ai-powered letterboxd logger and csv exporter with a slick glassmorphic interface",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://beenboxd.vercel.app"
+    },
+    {
+      "id": "GH-BEE",
+      "title": "BEENHOLLOW",
+      "description": "ephemeral p2p file and message sharing directly into the void",
+      "tags": [
+        "JavaScript"
+      ],
+      "link": "https://beenhollow.vercel.app"
+    },
+    {
+      "id": "GH-ALC",
+      "title": "ALCHEMIST4REAL",
+      "description": "open source repository for alchemist4real",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://alchemist4real.vercel.app"
+    },
+    {
+      "id": "GH-PHO",
+      "title": "PHOTOBOOTHAPP MAPLE2026",
+      "description": "interactive photobooth & academic burnout assessment web app for maple 2026 by cimsa unsoed",
+      "tags": [
+        "burnout-assessment",
+        "canvas-api"
+      ],
+      "link": "https://photoboothapp-maple2026.vercel.app"
+    },
+    {
+      "id": "GH-MAR",
+      "title": "MARKITDOWNINWEB",
+      "description": "open source repository for markitdowninweb",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://markitdowninweb.vercel.app"
+    },
+    {
+      "id": "GH-MR-",
+      "title": "MR CAPSULES",
+      "description": "learning platform initiated in august 2025, evolving from simple html files shared among friends to a web-based iframe platform. what began as a collection of previous years' study materials has grown into a comprehensive resource featuring lecture notes, question banks, and faculty presentation slides",
+      "tags": [
+        "HTML"
+      ],
+      "link": "https://mr-capsules.vercel.app"
     },
     {
       "id": "GH-HIP",
