@@ -285,6 +285,11 @@ class IdentityController {
         modalLinkedinLink.href = data.links.linkedin;
       }
 
+      const privateQrBtn = document.getElementById('id-qr-private-btn');
+      const linkedinQrBtn = document.getElementById('id-qr-linkedin-btn');
+      if (privateQrBtn) privateQrBtn.style.display = 'inline-flex';
+      if (linkedinQrBtn) linkedinQrBtn.style.display = 'inline-flex';
+
       // Hide generator modal button from recruiters
       if (genModalBtn) {
         genModalBtn.style.display = this.isRecruiter ? 'none' : 'inline-flex';
@@ -374,6 +379,11 @@ class IdentityController {
       const modalLinkedinLink = document.getElementById('modal-linkedin-link');
       if (modalLinkedinLink) modalLinkedinLink.style.display = 'none';
 
+      const privateQrBtn = document.getElementById('id-qr-private-btn');
+      const linkedinQrBtn = document.getElementById('id-qr-linkedin-btn');
+      if (privateQrBtn) privateQrBtn.style.display = 'none';
+      if (linkedinQrBtn) linkedinQrBtn.style.display = 'none';
+
       if (genModalBtn) {
         genModalBtn.style.display = 'none';
       }
@@ -384,16 +394,10 @@ class IdentityController {
     }
 
     // Re-sync Zoom Preview Modal if open
-    const zoomCardContainer = document.getElementById('card-modal-container');
-    const cardModal = document.getElementById('card-modal');
-    const heroCard = document.querySelector('.hero .id-card');
-    if (zoomCardContainer && heroCard && cardModal && cardModal.classList.contains('active')) {
-      zoomCardContainer.innerHTML = heroCard.outerHTML;
-      const cloned = zoomCardContainer.querySelector('.id-card');
-      if (cloned) {
-        cloned.style.cursor = 'default';
-        const zoomBtn = cloned.querySelector('.id-zoom-btn');
-        if (zoomBtn) zoomBtn.style.display = 'none';
+    if (typeof window !== 'undefined' && typeof window.openCardModal === 'function') {
+      const cardModal = document.getElementById('card-modal');
+      if (cardModal && cardModal.classList.contains('active')) {
+        window.openCardModal();
       }
     }
   }

@@ -17,7 +17,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="js/identity-controller.js?v=20260811_26"></script>
+  <script src="js/qrious.min.js"></script>
+  <script src="js/identity-controller.js?v=20260815_01"></script>
   
   <style>
     /* =========================================================
@@ -1223,6 +1224,9 @@
             <div class="id-row">
               <span class="id-row-label">QRs :</span>
               <div class="id-qr-group">
+                <button onclick="showQR('public_card')" class="id-qr-btn" id="id-qr-public-btn" title="Scan Public Card QR">Card QR</button>
+                <button onclick="showQR('private_card')" class="id-qr-btn" id="id-qr-private-btn" style="display: none;" title="Scan Verified Private Card QR">Verified QR</button>
+                <button onclick="showQR('linkedin')" class="id-qr-btn" id="id-qr-linkedin-btn" style="display: none;" title="LinkedIn QR">LinkedIn</button>
                 <button onclick="showQR('github')" class="id-qr-btn">GH</button>
                 <button onclick="showQR('whatsapp')" class="id-qr-btn">WA</button>
                 <button onclick="showQR('instagram')" class="id-qr-btn">IG</button>
@@ -1517,6 +1521,99 @@
       if (modal) modal.classList.remove('active');
     }
 
+    function getQRData(id) {
+      const origin = (window.location.origin && window.location.origin !== 'null') ? 
+        (window.location.origin + window.location.pathname) : 'https://alchemist4real.github.io/alchemist4real/';
+      
+      if (id === 'public_card' || id === 'card') {
+        return {
+          title: 'PUBLIC CARD DOWNLOAD QR',
+          sub: 'Scan with phone camera to view & download the Public Identification Card on another device.',
+          url: `${origin}?view=card&mode=public`,
+          fallback: 'assets/qr/public_card.png',
+          filename: 'alchemist4real_public_card_qr.png'
+        };
+      }
+      if (id === 'private_card' || id === 'verified_card') {
+        const key = (window.identityController && window.identityController.activeKey) || 'alchemist2026';
+        return {
+          title: 'VERIFIED IDENTITY CARD QR',
+          sub: 'Scan with phone camera to auto-unlock and download the Verified Private Card on another device.',
+          url: `${origin}?unlock=${encodeURIComponent(key)}&view=card&mode=private`,
+          fallback: 'assets/qr/private_card.png',
+          filename: 'alchemist4real_verified_card_qr.png'
+        };
+      }
+      if (id === 'linkedin') {
+        return {
+          title: 'LINKEDIN PROFILE QR',
+          sub: 'Scan to visit the official LinkedIn profile.',
+          url: 'https://www.linkedin.com/in/alchemist4real/',
+          fallback: 'assets/qr/linkedin.png',
+          filename: 'alchemist4real_linkedin_qr.png'
+        };
+      }
+      if (id === 'github') {
+        return {
+          title: 'GITHUB PROFILE QR',
+          sub: 'Scan to explore repositories and open-source contributions.',
+          url: 'https://github.com/alchemist4real',
+          fallback: 'assets/qr/github.png',
+          filename: 'alchemist4real_github_qr.png'
+        };
+      }
+      if (id === 'whatsapp') {
+        return {
+          title: 'WHATSAPP CONTACT QR',
+          sub: 'Scan to connect directly via WhatsApp.',
+          url: 'https://wa.me/6285778120332',
+          fallback: 'assets/qr/whatsapp.png',
+          filename: 'alchemist4real_whatsapp_qr.png'
+        };
+      }
+      if (id === 'instagram') {
+        return {
+          title: 'INSTAGRAM PROFILE QR',
+          sub: 'Scan to visit the Instagram page.',
+          url: 'https://instagram.com/alchemist4real',
+          fallback: 'assets/qr/instagram.png',
+          filename: 'alchemist4real_instagram_qr.png'
+        };
+      }
+      if (id === 'partner') {
+        return {
+          title: 'PARTNER CREST QR',
+          sub: 'Scan to verify digital partner credentials.',
+          url: `${origin}?partner=verify`,
+          fallback: 'assets/qr/partner.png',
+          filename: 'alchemist4real_partner_qr.png'
+        };
+      }
+      return {
+        title: `${id.toUpperCase()} QR CODE`,
+        sub: 'Scan QR code with your mobile camera.',
+        url: `${origin}`,
+        fallback: `assets/qr/${id}.png`,
+        filename: `alchemist4real_${id}_qr.png`
+      };
+    }
+
+    function generateQRDataURL(text) {
+      if (typeof QRious !== 'undefined') {
+        try {
+          const qr = new QRious({
+            value: text,
+            size: 360,
+            level: 'M'
+          });
+          return qr.toDataURL();
+        } catch(e) {
+          console.warn("QRious generation error:", e);
+        }
+      }
+      return null;
+    }
+
     function openCardModal(e) {
       if (e && (e.target.closest('a') || e.target.closest('button.id-qr-btn'))) return;
       const card = document.querySelector('.hero .id-card');
@@ -1534,13 +1631,21 @@
       }
       
       const isVerified = document.body.classList.contains('verified-theme');
+      const qrType = isVerified ? 'private_card' : 'public_card';
+      const qrData = getQRData(qrType);
+      const dynamicSrc = generateQRDataURL(qrData.url);
+
+      const qrImg = document.getElementById('qr-float-img');
       const qrTitle = document.getElementById('qr-float-title');
       const qrSub = document.getElementById('qr-float-sub');
-      const qrImg = document.getElementById('qr-float-img');
+      const qrBadge = document.querySelector('.qr-float-badge');
       
-      if (qrImg) qrImg.src = 'assets/qr/partner.png';
-      if (qrTitle) qrTitle.textContent = isVerified ? 'DOWNLOAD VERIFIED CARD' : 'DOWNLOAD CARD ON PHONE';
-      if (qrSub) qrSub.textContent = isVerified ? 'Scan to view & save verified card on mobile' : 'Scan with phone camera to download card';
+      if (qrImg) qrImg.src = dynamicSrc || qrData.fallback;
+      if (qrTitle) qrTitle.textContent = isVerified ? 'VERIFIED CARD QR' : 'PUBLIC CARD QR';
+      if (qrSub) qrSub.textContent = isVerified ? 'Scan to unlock & download verified card' : 'Scan with phone camera to download card';
+      if (qrBadge) {
+        qrBadge.onclick = () => showQR(qrType);
+      }
 
       document.getElementById('card-modal').classList.add('active');
     }
@@ -1600,43 +1705,48 @@
       const modal = document.getElementById('qr-modal');
       const img = document.getElementById('qr-image');
       const title = document.getElementById('qr-modal-title');
-      const qrFile = (id === 'card' || id === 'linkedin') ? 'partner.png' : `${id}.png`;
-      img.src = `assets/qr/${qrFile}`;
-      if (title) {
-        const titles = {
-          'card': 'ID Card Verification QR',
-          'linkedin': 'LinkedIn Profile QR',
-          'github': 'GitHub Profile QR',
-          'whatsapp': 'WhatsApp Contact QR',
-          'instagram': 'Instagram QR',
-          'partner': 'Partner Verification QR'
-        };
-        title.textContent = titles[id] || `${id.toUpperCase()} QR CODE`;
+      const sub = document.getElementById('qr-modal-sub');
+      const dlBtn = document.getElementById('qr-modal-dl-btn');
+
+      const qrData = getQRData(id);
+      const dynamicUrl = generateQRDataURL(qrData.url);
+
+      img.src = dynamicUrl || qrData.fallback;
+      if (title) title.textContent = qrData.title;
+      if (sub) sub.textContent = qrData.sub;
+      if (dlBtn) {
+        dlBtn.setAttribute('data-filename', qrData.filename);
       }
       modal.classList.add('active');
     }
 
     async function downloadQRImage() {
       const img = document.getElementById('qr-image');
-      const title = document.getElementById('qr-modal-title');
+      const dlBtn = document.getElementById('qr-modal-dl-btn');
+      const filename = (dlBtn && dlBtn.getAttribute('data-filename')) || 'alchemist4real_qr_code.png';
       if (!img || !img.src) return;
 
       try {
-        const response = await fetch(img.src);
-        const blob = await response.blob();
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        const cleanTitle = (title && title.textContent) ? 
-          title.textContent.toLowerCase().replace(/[^a-z0-9]/g, '_') : 'qr_code';
-        link.href = url;
-        link.download = `alchemist4real_${cleanTitle}.png`;
-        link.click();
-        URL.revokeObjectURL(url);
+        if (img.src.startsWith('data:')) {
+          const link = document.createElement('a');
+          link.href = img.src;
+          link.download = filename;
+          link.click();
+        } else {
+          const response = await fetch(img.src);
+          const blob = await response.blob();
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = filename;
+          link.click();
+          URL.revokeObjectURL(url);
+        }
       } catch (e) {
         console.error("QR download error:", e);
         const link = document.createElement('a');
         link.href = img.src;
-        link.download = 'alchemist4real_qr_code.png';
+        link.download = filename;
         link.target = '_blank';
         link.click();
       }
@@ -1691,6 +1801,18 @@
     document.getElementById('passcode-input')?.addEventListener('keypress', function(e) {
       if (e.key === 'Enter') submitPasscode();
     });
+
+    function init() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('view') === 'card' || params.get('download') === 'card') {
+        setTimeout(() => {
+          openCardModal();
+          if (params.get('download') === 'card') {
+            setTimeout(() => downloadIDCardImage(), 500);
+          }
+        }, 350);
+      }
+    }
 
     init();
   </script>
@@ -1805,11 +1927,12 @@
     <div class="qr-modal-content" onclick="event.stopPropagation()">
       <button class="qr-close" onclick="closeQR()">&times;</button>
       <div class="qr-modal-header">
-        <span class="label" style="display: block; font-size: 9px; margin-bottom: 2px; color: var(--fg-faint);">SCAN CODE</span>
-        <h4 id="qr-modal-title" style="font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--fg); margin-bottom: 12px; text-transform: uppercase;">QR CODE</h4>
+        <span class="label" style="display: block; font-size: 9px; margin-bottom: 2px; color: var(--fg-faint);">SCAN TO ACCESS</span>
+        <h4 id="qr-modal-title" style="font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--fg); margin-bottom: 4px; text-transform: uppercase;">QR CODE</h4>
+        <p id="qr-modal-sub" class="muted" style="font-size: 11px; margin-bottom: 12px; line-height: 1.4;">Scan with phone camera to download or view.</p>
       </div>
       <img id="qr-image" src="" alt="QR Code" style="margin-bottom: 14px;">
-      <button onclick="downloadQRImage()" class="btn-ghost-sm" style="width: 100%; padding: 8px 14px; font-size: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+      <button id="qr-modal-dl-btn" onclick="downloadQRImage()" class="btn-ghost-sm" style="width: 100%; padding: 8px 14px; font-size: 10px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
         Download QR PNG
       </button>
