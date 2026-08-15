@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document Viewer — alchemist4real</title>
+  <title>Document Viewer — Alchemist4real</title>
   
   <!-- FAVICON & BRANDING ASSETS -->
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
@@ -12,27 +12,51 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- marked.js for Markdown parsing -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  
-  <style>
-    :root {
-      --bg: #F7F4EE;
-      --fg: #0D111A;
-      --fg-muted: #5C6270;
-      --fg-faint: #D8D2C6;
+    <style>
+    @font-face {
+      font-family: 'Redaction 50';
+      src: url('fonts/woff2/Redaction_50-Regular.woff2') format('woff2'),
+           url('fonts/otf/Redaction50-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
     }
 
-    * { box-sizing: border-box; }
+    @font-face {
+      font-family: 'Redaction 50';
+      src: url('fonts/woff2/Redaction_50-Italic.woff2') format('woff2'),
+           url('fonts/otf/Redaction50-Italic.otf') format('opentype');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Redaction 50';
+      src: url('fonts/woff2/Redaction_50-Bold.woff2') format('woff2'),
+           url('fonts/otf/Redaction50-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #E9EA87;
+      --fg: #B60F06;
+      --fg-muted: #B60F06CC;
+      --fg-faint: rgba(182, 15, 6, 0.25);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      font-family: 'Redaction 50', serif;
+    }
 
     body {
       background: var(--bg);
       color: var(--fg);
-      font-family: 'DM Mono', monospace;
+      font-family: 'Redaction 50', serif;
+      font-weight: 400;
       margin: 0; 
       padding: 60px 24px;
       line-height: 1.8;
@@ -57,7 +81,8 @@
     }
 
     .back-btn {
-      display: inline-block; 
+      display: inline-block;
+      font-weight: 700; 
       margin-bottom: 48px; 
       text-decoration: none;
       border: 1px solid var(--fg); 
@@ -79,8 +104,8 @@
     }
 
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
+      font-family: 'Redaction 50', serif;
+      font-weight: 700;
       color: var(--fg);
       margin-top: 2em;
       margin-bottom: 0.5em;
@@ -104,11 +129,17 @@
       font-style: italic;
     }
 
+    em, i, cite, dfn, var, blockquote {
+      font-family: 'Redaction 50', serif !important;
+      font-style: italic !important;
+      font-weight: 400 !important;
+    }
+
     ul, ol { margin-bottom: 1.5em; padding-left: 24px; }
     li { margin-bottom: 0.5em; }
 
     pre {
-      background: #EAEAEA;
+      background: rgba(182, 15, 6, 0.08);
       padding: 20px;
       border-radius: 2px;
       overflow-x: auto;
@@ -118,11 +149,12 @@
     }
 
     code { 
-      font-family: 'DM Mono', monospace; 
-      background: #EAEAEA; 
+      font-family: 'Redaction 50', serif; 
+      background: rgba(182, 15, 6, 0.08); 
       padding: 2px 6px; 
       border-radius: 2px;
       font-size: 0.9em;
+      font-weight: 400;
     }
     pre code { background: transparent; padding: 0; }
 
@@ -146,15 +178,16 @@
       border: 1px solid var(--fg-faint);
       padding: 12px;
       text-align: left;
+      font-weight: 400;
     }
 
     th {
-      background: #EAEAEA;
-      font-weight: 500;
+      background: rgba(182, 15, 6, 0.08);
+      font-weight: 700;
     }
 
     .loading { font-style: italic; color: var(--fg-muted); }
-    .error { color: #DC2626; border: 1px solid #DC2626; padding: 16px; background: #FEF2F2; }
+    .error { color: #B60F06; border: 1px solid #B60F06; padding: 16px; background: #E9EA87; }
 
   </style>
 </head>
@@ -163,8 +196,8 @@
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
       <a href="index.html" class="back-btn" style="margin-bottom: 0;"><- Back to Lab</a>
       <a href="index.html" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--fg);">
-        <img src="assets/logo-icon.png" alt="alchemist4real logo mark" style="height: 28px; width: 28px;">
-        <span style="font-size: 13px; font-weight: 500;">alchemist4real</span>
+        <img src="assets/logo-icon.png" alt="Alchemist4real logo mark" style="height: 28px; width: 28px;">
+        <span style="font-size: 13px; font-weight: 400;">Alchemist4real</span>
       </a>
     </div>
     <div id="content" class="loading">Loading document...</div>
@@ -190,7 +223,7 @@
           .then(text => {
             contentDiv.innerHTML = marked.parse(text);
             const fileName = file.split('/').pop();
-            document.title = fileName + " — alchemist4real";
+            document.title = fileName + " — Alchemist4real";
           })
           .catch(err => {
             contentDiv.innerHTML = `<div class="error">Error loading document: ${err.message}</div>`;

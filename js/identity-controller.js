@@ -240,17 +240,17 @@ class IdentityController {
       if (heroCrestLogo) heroCrestLogo.src = 'assets/logo-white.png';
 
       if (titleEl) titleEl.textContent = `${data.name} — Portfolio & Lab`;
-      if (handleEl) handleEl.textContent = "ALCHEMIST4REAL'S PAGE";
+      if (handleEl) handleEl.textContent = "Alchemist4real's Page";
       if (heroHandleEl) heroHandleEl.textContent = data.name;
       if (footerBrandEl) footerBrandEl.textContent = data.name;
       if (footerCopyrightEl) footerCopyrightEl.textContent = `© 2025 ${data.name} | Co-architect Sir. Yaon (@ghaffarsyafiq-arch)`;
       if (badgeEl) badgeEl.textContent = data.status || `BIB 2025 Awardee -- Sem 3`;
-      if (orgLabel) orgLabel.textContent = 'alchemist4real';
+      if (orgLabel) orgLabel.textContent = 'Alchemist4real';
       if (roleEl) roleEl.textContent = data.role || 'Undergraduate Medical Student';
       const cardType = document.getElementById('id-card-type');
       if (cardType) cardType.textContent = 'Verified Identity';
       const stamp = document.getElementById('id-stamp');
-      if (stamp) stamp.textContent = `VERIFIED // ${data.name.toUpperCase()}`;
+      if (stamp) stamp.textContent = `VERIFIED // ${data.name}`;
 
       // Show decrypted private photo in verified mode
       if (photoReal) {
@@ -266,7 +266,7 @@ class IdentityController {
       if (verifiedBadgeRow) {
         verifiedBadgeRow.style.display = 'flex';
         verifiedBadgeRow.innerHTML = data.badges.map(b => 
-          `<span style="font-family:'DM Mono', monospace; font-size:7.5px; padding:1px 5px; border:1px solid var(--fg); background:var(--fg); color:var(--bg); border-radius:2px; font-weight:500;">${b}</span>`
+          `<span style="font-family:'Redaction 50', serif; font-size:7.5px; padding:1px 5px; border:1px solid var(--fg); background:var(--fg); color:var(--bg); border-radius:2px; font-weight:400;">${b}</span>`
         ).join('');
       }
 
@@ -343,23 +343,23 @@ class IdentityController {
       if (footerLogo) footerLogo.src = 'assets/logo-icon.png';
       if (heroCrestLogo) heroCrestLogo.src = 'assets/logo-icon.png';
 
-      if (titleEl) titleEl.textContent = `alchemist4real — The Lab`;
-      if (handleEl) handleEl.textContent = "ALCHEMIST4REAL'S PAGE";
-      if (heroHandleEl) heroHandleEl.textContent = `@alchemist4real`;
-      if (footerBrandEl) footerBrandEl.textContent = `alchemist4real`;
-      if (footerCopyrightEl) footerCopyrightEl.textContent = `© 2025 @alchemist4real | Co-architect Sir. Yaon (@ghaffarsyafiq-arch)`;
+      if (titleEl) titleEl.textContent = `Alchemist4real — The Lab`;
+      if (handleEl) handleEl.textContent = "Alchemist4real's Page";
+      if (heroHandleEl) heroHandleEl.textContent = `@Alchemist4real`;
+      if (footerBrandEl) footerBrandEl.textContent = `Alchemist4real`;
+      if (footerCopyrightEl) footerCopyrightEl.textContent = `© 2025 @Alchemist4real | Co-architect Sir. Yaon (@ghaffarsyafiq-arch)`;
       if (badgeEl) badgeEl.textContent = `Active -- Sem 3`;
-      if (orgLabel) orgLabel.textContent = 'alchemist4real';
+      if (orgLabel) orgLabel.textContent = 'Alchemist4real';
       if (roleEl) roleEl.textContent = 'M.D. Candidate';
       const cardType = document.getElementById('id-card-type');
       if (cardType) cardType.textContent = 'Identification Card';
       const stamp = document.getElementById('id-stamp');
-      if (stamp) stamp.textContent = 'ID // @alchemist4real';
+      if (stamp) stamp.textContent = 'ID // @Alchemist4real';
 
       // Show public photo (Masked Alchemist) in public mode
       if (photoReal) {
         photoReal.src = 'assets/public-photo-v2.jpg';
-        photoReal.alt = '@alchemist4real';
+        photoReal.alt = '@Alchemist4real';
       }
       if (photoLabel) photoLabel.textContent = 'PUBLIC';
 

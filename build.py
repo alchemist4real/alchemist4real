@@ -27,7 +27,8 @@ def main():
         "heartbeat.json",
         "assets",
         "research",
-        "js"
+        "js",
+        "fonts"
     ]
 
     for t in targets:

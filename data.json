@@ -2,66 +2,212 @@
   "projects": [
     {
       "id": "01",
-      "title": "NO SMOKE",
-      "description": "science-backed landing page for nicotine urge regulation",
+      "title": "ALCHEMIST4REAL",
+      "description": "portfolio architecture, identity card & brutalist core",
       "tags": [
-        "Anti-Smoking",
-        "Bilingual",
-        "Dark"
+        "Identity",
+        "Portfolio",
+        "Brutalist"
       ],
-      "link": "https://nosmoke-six.vercel.app/",
-      "repo_link": "https://github.com/alchemist4real/nosmoke"
+      "link": "https://alchemist4real.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/alchemist4real"
     },
     {
       "id": "02",
-      "title": "#SayNoToDrugs",
-      "description": "interactive drug education with pre/post-test & certificate",
+      "title": "BEENHOLLOW",
+      "description": "ephemeral p2p file & real-time message sharing",
       "tags": [
-        "Anti-Drugs",
-        "Certificate"
+        "P2P",
+        "File-Sharing",
+        "Real-Time"
       ],
-      "link": "https://saynotodrugs-two.vercel.app/",
-      "repo_link": "https://github.com/alchemist4real/saynotodrugs"
+      "link": "https://beenhollow.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/BEENHOLLOW"
     },
     {
       "id": "03",
-      "title": "#FuckAllRapist",
-      "description": "anti-sexual violence guide covering consent & bystander action",
-      "tags": [
-        "Anti-Violence",
-        "Certificate"
-      ],
-      "link": "https://fuckallrapist.vercel.app/",
-      "repo_link": "https://github.com/alchemist4real/fuckallrapist"
-    },
-    {
-      "id": "04",
-      "title": "174 ARCHIVE",
-      "description": "dark-themed digital archive & desktop simulation",
-      "tags": [
-        "Academic",
-        "Supabase",
-        "Spotify"
-      ],
-      "link": "https://174-three.vercel.app/",
-      "repo_link": "https://github.com/alchemist4real/MR-CAPSULES"
-    },
-    {
-      "id": "05",
       "title": "PHOTOBOOTH APP MAPLE 2026",
       "description": "interactive digital photobooth & event photo app",
       "tags": [
         "Photobooth",
-        "Web",
-        "Interactive"
+        "Canvas-API",
+        "CIMSA"
       ],
-      "link": "https://photoboothapp-maple2026.vercel.app/",
+      "link": "https://photoboothapp-maple2026.vercel.app",
       "repo_link": "https://github.com/alchemist4real/PHOTOBOOTHAPP-MAPLE2026"
     },
     {
+      "id": "04",
+      "title": "MARKITDOWN IN WEB",
+      "description": "multi-format document to markdown web converter",
+      "tags": [
+        "Markdown",
+        "Converter",
+        "Utility"
+      ],
+      "link": "https://markitdowninweb.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/markitdowninweb"
+    },
+    {
+      "id": "05",
+      "title": "MR CAPSULES",
+      "description": "comprehensive medical study platform & lecture archive",
+      "tags": [
+        "Medical",
+        "Platform",
+        "Archive"
+      ],
+      "link": "https://mr-capsules.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/MR-CAPSULES"
+    },
+    {
       "id": "06",
+      "title": "HIPERTENSI MENGINTAI GEN Z",
+      "description": "interactive hypertension education platform for gen z",
+      "tags": [
+        "Health",
+        "Hypertension",
+        "Gen-Z"
+      ],
+      "link": "https://hipertensimengintaigenz.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/hipertensimengintaigenz"
+    },
+    {
+      "id": "07",
+      "title": "SAY NO TO CHOLESTEROL",
+      "description": "interactive cholesterol & cardiovascular education",
+      "tags": [
+        "Education",
+        "Health",
+        "Cardiology"
+      ],
+      "link": "https://saynotocholestrol.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/saynotocholestrol"
+    },
+    {
+      "id": "08",
+      "title": "#FuckAllRapist",
+      "description": "anti-sexual violence & bystander action guide",
+      "tags": [
+        "Anti-Violence",
+        "Consent",
+        "Guide"
+      ],
+      "link": "https://fuckallrapist.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/fuckallrapist"
+    },
+    {
+      "id": "09",
+      "title": "#SayNoToDrugs",
+      "description": "interactive drug education & certification simulator",
+      "tags": [
+        "Anti-Drugs",
+        "Education",
+        "Certificate"
+      ],
+      "link": "https://saynotodrugs-two.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/saynotodrugs"
+    },
+    {
+      "id": "10",
+      "title": "AETHERIAL",
+      "description": "spatial cognition assessment & mental rotation exercise",
+      "tags": [
+        "Spatial",
+        "Cognition",
+        "Neuro"
+      ],
+      "link": "https://aetherial-beta.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/aetherial"
+    },
+    {
+      "id": "11",
+      "title": "BEENCODE",
+      "description": "industrial matrix encoder & terminal utility",
+      "tags": [
+        "Encoder",
+        "Matrix",
+        "Terminal"
+      ],
+      "link": "https://beencode.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/beencode"
+    },
+    {
+      "id": "12",
+      "title": "NUTRI SOY BY ALTAF",
+      "description": "ai nutrition coach & qr redemption habit tracker",
+      "tags": [
+        "AI",
+        "Nutrition",
+        "Coaching"
+      ],
+      "link": "https://soyproteinbyaltaf.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/soyproteinbyaltaf"
+    },
+    {
+      "id": "13",
+      "title": "PRISMA RDK GUIDE",
+      "description": "blockchain prescription verification architecture",
+      "tags": [
+        "Blockchain",
+        "Healthcare",
+        "AMR"
+      ],
+      "link": "https://prisma-rdk-guide.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/prisma-rdk-guide"
+    },
+    {
+      "id": "14",
+      "title": "MSG FROM ORACLE",
+      "description": "sarcastic ai oracle analyzing news & market odds",
+      "tags": [
+        "AI-Oracle",
+        "News",
+        "Market-Odds"
+      ],
+      "link": "https://msgfromoracle.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/msgfromoracle"
+    },
+    {
+      "id": "15",
+      "title": "NOSMOKE",
+      "description": "nicotine urge regulation & cessation landing page",
+      "tags": [
+        "Anti-Smoking",
+        "Bilingual",
+        "Health"
+      ],
+      "link": "https://nosmoke-six.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/nosmoke"
+    },
+    {
+      "id": "16",
+      "title": "BEENTEXTER",
+      "description": "tactile retro-calculator style text generator",
+      "tags": [
+        "Retro",
+        "Typography",
+        "Generator"
+      ],
+      "link": "https://beentexter.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/beentexter"
+    },
+    {
+      "id": "17",
+      "title": "BEENBOXD",
+      "description": "ai-assisted letterboxd movie logger & exporter",
+      "tags": [
+        "Letterboxd",
+        "AI",
+        "Movies"
+      ],
+      "link": "https://beenboxd.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/beenboxd"
+    },
+    {
+      "id": "18",
       "title": "DR. BEEN",
-      "description": "ai clinical diagnostic assistant & medical knowledge agent",
+      "description": "ai clinical diagnostic assistant & medical agent",
       "tags": [
         "AI",
         "Clinical",
@@ -71,9 +217,9 @@
       "repo_link": "https://github.com/alchemist4real/dr-been"
     },
     {
-      "id": "07",
+      "id": "19",
       "title": "DOCTOR TABLET",
-      "description": "digital workspace for bedside medical consultations",
+      "description": "digital clinical workspace for bedside medical consults",
       "tags": [
         "Medical",
         "Workspace",
@@ -83,9 +229,9 @@
       "repo_link": "https://github.com/alchemist4real/doctortablet"
     },
     {
-      "id": "08",
+      "id": "20",
       "title": "PHD BIOENGINEERING ROADMAP",
-      "description": "academic trajectory guide for bioengineering & medtech",
+      "description": "academic trajectory roadmap for bioengineering & medtech",
       "tags": [
         "Academic",
         "Bioengineering",
@@ -95,9 +241,9 @@
       "repo_link": "https://github.com/alchemist4real/phd-bioengineering-roadmap"
     },
     {
-      "id": "09",
+      "id": "21",
       "title": "LONGLIFEHISTO",
-      "description": "interactive histology simulator for slide identification",
+      "description": "interactive histology simulator for tissue identification",
       "tags": [
         "Histology",
         "Medical",
@@ -107,31 +253,7 @@
       "repo_link": "https://github.com/alchemist4real/longlifehisto"
     },
     {
-      "id": "10",
-      "title": "SAY NO TO CHOLESTEROL",
-      "description": "interactive cholesterol & lifestyle education",
-      "tags": [
-        "Edukasi",
-        "Kesehatan",
-        "Kolesterol"
-      ],
-      "link": "https://saynotocholestrol.vercel.app/",
-      "repo_link": "https://github.com/alchemist4real/saynotocholestrol"
-    },
-    {
-      "id": "11",
-      "title": "HIPERTENSI MENGINTAI GEN Z",
-      "description": "interactive hypertension health education for gen z",
-      "tags": [
-        "Health",
-        "Education",
-        "Hypertension"
-      ],
-      "link": "https://hipertensimengintaigenz.vercel.app/",
-      "repo_link": "https://github.com/alchemist4real/hipertensimengintaigenz"
-    },
-    {
-      "id": "12",
+      "id": "22",
       "title": "DERMAMAXXING",
       "description": "skin intelligence system for dermatology anamnesis",
       "tags": [
@@ -143,945 +265,93 @@
       "repo_link": "https://github.com/alchemist4real/dermamaxxing"
     },
     {
-      "id": "13",
-      "title": "NUTRI SOY BY ALTAF",
-      "description": "ai nutrition coaching & qr habit tracker",
-      "tags": [
-        "AI",
-        "Nutrition",
-        "Coaching"
-      ],
-      "link": "https://soyproteinbyaltaf.vercel.app/",
-      "repo_link": "https://github.com/alchemist4real/soyproteinbyaltaf"
-    },
-    {
-      "id": "14",
-      "title": "MARKITDOWN IN WEB",
-      "description": "multi-format document to markdown converter",
-      "tags": [
-        "Markdown",
-        "Converter",
-        "Utility"
-      ],
-      "link": "https://markitdowninweb.vercel.app/",
-      "repo_link": "https://github.com/alchemist4real/markitdowninweb"
-    },
-    {
-      "id": "15",
+      "id": "23",
       "title": "COOK WITH ALCHEMIST",
-      "description": "masterclass web app & experimental recipe lab",
+      "description": "culinary masterclass app & experimental recipe lab",
       "tags": [
-        "Web",
-        "Application",
-        "Masterclass"
+        "Masterclass",
+        "Lab",
+        "Culinary"
       ],
       "link": "https://cookwithalchemist4real.vercel.app/",
       "repo_link": "https://github.com/alchemist4real/cookwithalchemist4real"
     },
     {
-      "id": "16",
-      "title": "AETHERIAL",
-      "description": "spatial cognition test & mental rotation exercise",
-      "tags": [
-        "Spatial",
-        "Cognition",
-        "Game"
-      ],
-      "link": "https://aetherial-beta.vercel.app/",
-      "repo_link": "https://github.com/alchemist4real/aetherial"
-    },
-    {
-      "id": "17",
-      "title": "MSG FROM ORACLE",
-      "description": "sarcastic ai oracle feeding on news & market odds",
-      "tags": [
-        "Web",
-        "Application",
-        "Oracle"
-      ],
-      "link": "https://msgfromoracle.vercel.app/",
-      "repo_link": "https://github.com/alchemist4real/msgfromoracle"
-    },
-    {
-      "id": "18",
-      "title": "BEENBOXD",
-      "description": "ai-powered letterboxd movie logger",
-      "tags": [
-        "Letterboxd",
-        "Logger",
-        "Movies"
-      ],
-      "link": "https://beenboxd.vercel.app/",
-      "repo_link": "https://github.com/alchemist4real/beenboxd"
-    },
-    {
-      "id": "19",
-      "title": "BEENTEXTER",
-      "description": "brutalist retro-calculator style text generator",
-      "tags": [
-        "Retro",
-        "Calculator",
-        "Text Gen"
-      ],
-      "link": "https://beentexter.vercel.app/",
-      "repo_link": "https://github.com/alchemist4real/beentexter"
-    },
-    {
-      "id": "20",
-      "title": "BEENCODE",
-      "description": "industrial matrix encoder terminal",
-      "tags": [
-        "Encoder",
-        "Industrial",
-        "Utility"
-      ],
-      "link": "https://beencode.vercel.app/",
-      "repo_link": "https://github.com/alchemist4real/beencode"
-    },
-    {
-      "id": "21",
-      "title": "BEENHOLLOW",
-      "description": "ephemeral p2p file & message sharing",
-      "tags": [
-        "P2P",
-        "File Sharing",
-        "Real-time"
-      ],
-      "link": "https://beenhollow.vercel.app/",
-      "repo_link": "https://github.com/alchemist4real/BEENHOLLOW"
-    },
-    {
-      "id": "22",
+      "id": "24",
       "title": "LIMITLESS OMNIPRESENT",
-      "description": "gojo satoru technique simulator with gpu particles",
+      "description": "interactive gpu particle physics visual simulation",
       "tags": [
-        "Simulator",
-        "Mediapipe",
-        "WebGL"
+        "GPU-Particles",
+        "Simulation",
+        "Interactive"
       ],
       "link": "https://zenlimitless.vercel.app/",
       "repo_link": "https://github.com/alchemist4real/zenlimitless"
     },
     {
-      "id": "23",
-      "title": "PRISMA RDK GUIDE",
-      "description": "blockchain health chain documentation & guide",
+      "id": "25",
+      "title": "174 ARCHIVE",
+      "description": "dark brutalist digital archive & desktop simulation",
       "tags": [
-        "Blockchain",
-        "Healthcare",
-        "Antibiotics"
+        "Academic",
+        "Supabase",
+        "Spotify"
       ],
-      "link": "https://prisma-rdk-guide.vercel.app/",
-      "repo_link": "https://github.com/alchemist4real/prisma-rdk-guide"
+      "link": "https://174-three.vercel.app/",
+      "repo_link": "https://github.com/alchemist4real/174-three"
     }
   ],
   "extensions": [
     {
-      "id": "GH-TIM",
-      "title": "TIMEMARU",
-      "description": "productivity extension with interactive pixel art demon",
+      "id": "EXT-01",
+      "title": "OMNIFORM AUTOFILLER",
+      "description": "google forms autofill extension with react-safe injection",
       "tags": [
+        "Chrome-Extension",
+        "GForm",
+        "Automation"
+      ],
+      "link": "https://github.com/alchemist4real/OmniForm-Autofiller",
+      "repo_link": "https://github.com/alchemist4real/OmniForm-Autofiller"
+    },
+    {
+      "id": "EXT-02",
+      "title": "PEERASSESS NINJA",
+      "description": "google forms automation tool for peer assessments",
+      "tags": [
+        "Chrome-Extension",
+        "Automation",
+        "Education"
+      ],
+      "link": "https://github.com/alchemist4real/PeerAssess-Ninja",
+      "repo_link": "https://github.com/alchemist4real/PeerAssess-Ninja"
+    },
+    {
+      "id": "EXT-03",
+      "title": "TIMEMARU",
+      "description": "productivity suite with interactive pixel art demon",
+      "tags": [
+        "Extension",
         "Productivity",
-        "Pixel Art",
-        "Extension"
+        "Pixel-Art"
       ],
-      "link": "https://github.com/alchemist4real/timemaru"
-    },
-    {
-      "id": "GH-OMN",
-      "title": "OMNIFORM AUTOFILLER",
-      "description": "gform autofill extension with react-safe injection",
-      "tags": [
-        "Extension",
-        "JavaScript",
-        "Automation"
-      ],
-      "link": "https://github.com/alchemist4real/OmniForm-Autofiller"
-    },
-    {
-      "id": "GH-PEE",
-      "title": "PEERASSESS NINJA",
-      "description": "single-click peer assessment automation extension",
-      "tags": [
-        "Extension",
-        "JavaScript",
-        "Automation"
-      ],
-      "link": "https://github.com/alchemist4real/PeerAssess-Ninja"
-    },
-    {
-      "id": "GH-OMN",
-      "title": "OMNIFORM AUTOFILLER",
-      "description": "gform dominator: ekstensi autofill canggih dengan react-safe injection",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/OmniForm-Autofiller"
-    },
-    {
-      "id": "GH-PEE",
-      "title": "PEERASSESS NINJA",
-      "description": "ekstensi untuk membasmi kebosanan evaluasi peer assessment di google forms",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/PeerAssess-Ninja"
-    },
-    {
-      "id": "GH-TIM",
-      "title": "TIMEMARU",
-      "description": "browser extension merging daily productivity tools with an interactive, screen-roaming pixel art demon",
-      "tags": [
-        "Code"
-      ],
-      "link": "https://github.com/alchemist4real/timemaru"
-    },
-    {
-      "id": "GH-OMN",
-      "title": "OMNIFORM AUTOFILLER",
-      "description": "gform dominator: ekstensi autofill canggih dengan react-safe injection",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/OmniForm-Autofiller"
-    },
-    {
-      "id": "GH-PEE",
-      "title": "PEERASSESS NINJA",
-      "description": "ekstensi untuk membasmi kebosanan evaluasi peer assessment di google forms",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/PeerAssess-Ninja"
-    },
-    {
-      "id": "GH-TIM",
-      "title": "TIMEMARU",
-      "description": "browser extension merging daily productivity tools with an interactive, screen-roaming pixel art demon",
-      "tags": [
-        "Code"
-      ],
-      "link": "https://github.com/alchemist4real/timemaru"
-    },
-    {
-      "id": "GH-OMN",
-      "title": "OMNIFORM AUTOFILLER",
-      "description": "gform dominator: ekstensi autofill canggih dengan react-safe injection",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/OmniForm-Autofiller"
-    },
-    {
-      "id": "GH-PEE",
-      "title": "PEERASSESS NINJA",
-      "description": "ekstensi untuk membasmi kebosanan evaluasi peer assessment di google forms",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/PeerAssess-Ninja"
-    },
-    {
-      "id": "GH-TIM",
-      "title": "TIMEMARU",
-      "description": "browser extension merging daily productivity tools with an interactive, screen-roaming pixel art demon",
-      "tags": [
-        "Code"
-      ],
-      "link": "https://github.com/alchemist4real/timemaru"
-    },
-    {
-      "id": "GH-OMN",
-      "title": "OMNIFORM AUTOFILLER",
-      "description": "gform dominator: ekstensi autofill canggih dengan react-safe injection",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/OmniForm-Autofiller"
-    },
-    {
-      "id": "GH-PEE",
-      "title": "PEERASSESS NINJA",
-      "description": "ekstensi untuk membasmi kebosanan evaluasi peer assessment di google forms",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/PeerAssess-Ninja"
-    },
-    {
-      "id": "GH-TIM",
-      "title": "TIMEMARU",
-      "description": "browser extension merging daily productivity tools with an interactive, screen-roaming pixel art demon",
-      "tags": [
-        "Code"
-      ],
-      "link": "https://github.com/alchemist4real/timemaru"
+      "link": "https://github.com/alchemist4real/timemaru",
+      "repo_link": "https://github.com/alchemist4real/timemaru"
     }
   ],
   "research": [],
   "repos": [
     {
       "id": "GH-SOA",
-      "title": "SOALGANJILGENAP",
+      "title": "SOAL GANJIL GENAP",
       "description": "odd-even speed accuracy test generator for psych exams",
       "tags": [
-        "Code"
-      ],
-      "link": "https://github.com/alchemist4real/soalganjilgenap"
-    },
-    {
-      "id": "GH-ALC",
-      "title": "ALCHEMIST4REAL",
-      "description": "open source repository for alchemist4real",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://alchemist4real.vercel.app",
-      "repo_link": "https://github.com/alchemist4real/alchemist4real"
-    },
-    {
-      "id": "GH-PHO",
-      "title": "PHOTOBOOTHAPP MAPLE2026",
-      "description": "interactive photobooth & academic burnout assessment web app for maple 2026 by cimsa unsoed",
-      "tags": [
-        "burnout-assessment",
-        "canvas-api"
-      ],
-      "link": "https://photoboothapp-maple2026.vercel.app"
-    },
-    {
-      "id": "GH-MAR",
-      "title": "MARKITDOWNINWEB",
-      "description": "open source repository for markitdowninweb",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://markitdowninweb.vercel.app"
-    },
-    {
-      "id": "GH-MR-",
-      "title": "MR CAPSULES",
-      "description": "learning platform initiated in august 2025, evolving from simple html files shared among friends to a web-based iframe platform. what began as a collection of previous years' study materials has grown into a comprehensive resource featuring lecture notes, question banks, and faculty presentation slides",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://mr-capsules.vercel.app",
-      "repo_link": "https://github.com/alchemist4real/MR-CAPSULES"
-    },
-    {
-      "id": "GH-HIP",
-      "title": "HIPERTENSIMENGINTAIGENZ",
-      "description": "open source repository for hipertensimengintaigenz",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/hipertensimengintaigenz"
-    },
-    {
-      "id": "GH-SAY",
-      "title": "SAYNOTOCHOLESTROL",
-      "description": "open source repository for saynotocholestrol",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/saynotocholestrol"
-    },
-    {
-      "id": "GH-FUC",
-      "title": "FUCKALLRAPIST",
-      "description": "open source repository for fuckallrapist",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/fuckallrapist"
-    },
-    {
-      "id": "GH-SAY",
-      "title": "SAYNOTODRUGS",
-      "description": "open source repository for saynotodrugs",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/saynotodrugs"
-    },
-    {
-      "id": "GH-AET",
-      "title": "AETHERIAL",
-      "description": "open source repository for aetherial",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/aetherial"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENCODE",
-      "description": "open source repository for beencode",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/beencode"
-    },
-    {
-      "id": "GH-SOY",
-      "title": "SOYPROTEINBYALTAF",
-      "description": "personalized ai nutrition coaching and habit tracking powered by physical product qr code redemptions",
-      "tags": [
-        "TypeScript"
-      ],
-      "link": "https://soyproteinbyaltaf.vercel.app"
-    },
-    {
-      "id": "GH-PRI",
-      "title": "PRISMA RDK GUIDE",
-      "description": "blockchain-powered health chain system designed to prevent antibiotic double-redeeming and mitigate antimicrobial resistance",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://prisma-rdk-guide.vercel.app"
-    },
-    {
-      "id": "GH-SOA",
-      "title": "SOALGANJILGENAP",
-      "description": "minimal tool to generate odd-even speed accuracy tests for psychological exam preparation",
-      "tags": [
-        "Code"
-      ],
-      "link": "https://github.com/alchemist4real/soalganjilgenap"
-    },
-    {
-      "id": "GH-MSG",
-      "title": "MSGFROMORACLE",
-      "description": "sarcastic ai oracle that feeds on your futile wishes, real-time news, and market odds to weave poetic desolation",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://msgfromoracle.vercel.app"
-    },
-    {
-      "id": "GH-NOS",
-      "title": "NOSMOKE",
-      "description": "science-backed minimalist landing page addressing nicotine automaticity and urge regulation",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://nosmoke-six.vercel.app"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENTEXTER",
-      "description": "brutalist retro-calculator style text generator with tactile vintage web aesthetics",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://beentexter.vercel.app"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENBOXD",
-      "description": "ai-powered letterboxd logger and csv exporter with a slick glassmorphic interface",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://beenboxd.vercel.app"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENHOLLOW",
-      "description": "ephemeral p2p file and message sharing directly into the void",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://beenhollow.vercel.app"
-    },
-    {
-      "id": "GH-ALC",
-      "title": "ALCHEMIST4REAL",
-      "description": "open source repository for alchemist4real",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://alchemist4real.vercel.app"
-    },
-    {
-      "id": "GH-PHO",
-      "title": "PHOTOBOOTHAPP MAPLE2026",
-      "description": "interactive photobooth & academic burnout assessment web app for maple 2026 by cimsa unsoed",
-      "tags": [
-        "burnout-assessment",
-        "canvas-api"
-      ],
-      "link": "https://photoboothapp-maple2026.vercel.app"
-    },
-    {
-      "id": "GH-MAR",
-      "title": "MARKITDOWNINWEB",
-      "description": "open source repository for markitdowninweb",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://markitdowninweb.vercel.app"
-    },
-    {
-      "id": "GH-MR-",
-      "title": "MR CAPSULES",
-      "description": "learning platform initiated in august 2025, evolving from simple html files shared among friends to a web-based iframe platform. what began as a collection of previous years' study materials has grown into a comprehensive resource featuring lecture notes, question banks, and faculty presentation slides",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://mr-capsules.vercel.app"
-    },
-    {
-      "id": "GH-HIP",
-      "title": "HIPERTENSIMENGINTAIGENZ",
-      "description": "open source repository for hipertensimengintaigenz",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/hipertensimengintaigenz"
-    },
-    {
-      "id": "GH-SAY",
-      "title": "SAYNOTOCHOLESTROL",
-      "description": "open source repository for saynotocholestrol",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/saynotocholestrol"
-    },
-    {
-      "id": "GH-FUC",
-      "title": "FUCKALLRAPIST",
-      "description": "open source repository for fuckallrapist",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/fuckallrapist"
-    },
-    {
-      "id": "GH-SAY",
-      "title": "SAYNOTODRUGS",
-      "description": "open source repository for saynotodrugs",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/saynotodrugs"
-    },
-    {
-      "id": "GH-AET",
-      "title": "AETHERIAL",
-      "description": "open source repository for aetherial",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/aetherial"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENCODE",
-      "description": "open source repository for beencode",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/beencode"
-    },
-    {
-      "id": "GH-SOY",
-      "title": "SOYPROTEINBYALTAF",
-      "description": "personalized ai nutrition coaching and habit tracking powered by physical product qr code redemptions",
-      "tags": [
-        "TypeScript"
-      ],
-      "link": "https://soyproteinbyaltaf.vercel.app"
-    },
-    {
-      "id": "GH-PRI",
-      "title": "PRISMA RDK GUIDE",
-      "description": "blockchain-powered health chain system designed to prevent antibiotic double-redeeming and mitigate antimicrobial resistance",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://prisma-rdk-guide.vercel.app"
-    },
-    {
-      "id": "GH-SOA",
-      "title": "SOALGANJILGENAP",
-      "description": "minimal tool to generate odd-even speed accuracy tests for psychological exam preparation",
-      "tags": [
-        "Code"
-      ],
-      "link": "https://github.com/alchemist4real/soalganjilgenap"
-    },
-    {
-      "id": "GH-MSG",
-      "title": "MSGFROMORACLE",
-      "description": "sarcastic ai oracle that feeds on your futile wishes, real-time news, and market odds to weave poetic desolation",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://msgfromoracle.vercel.app"
-    },
-    {
-      "id": "GH-NOS",
-      "title": "NOSMOKE",
-      "description": "science-backed minimalist landing page addressing nicotine automaticity and urge regulation",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://nosmoke-six.vercel.app"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENTEXTER",
-      "description": "brutalist retro-calculator style text generator with tactile vintage web aesthetics",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://beentexter.vercel.app"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENBOXD",
-      "description": "ai-powered letterboxd logger and csv exporter with a slick glassmorphic interface",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://beenboxd.vercel.app"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENHOLLOW",
-      "description": "ephemeral p2p file and message sharing directly into the void",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://beenhollow.vercel.app"
-    },
-    {
-      "id": "GH-ALC",
-      "title": "ALCHEMIST4REAL",
-      "description": "open source repository for alchemist4real",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://alchemist4real.vercel.app"
-    },
-    {
-      "id": "GH-PHO",
-      "title": "PHOTOBOOTHAPP MAPLE2026",
-      "description": "interactive photobooth & academic burnout assessment web app for maple 2026 by cimsa unsoed",
-      "tags": [
-        "burnout-assessment",
-        "canvas-api"
-      ],
-      "link": "https://photoboothapp-maple2026.vercel.app"
-    },
-    {
-      "id": "GH-MAR",
-      "title": "MARKITDOWNINWEB",
-      "description": "open source repository for markitdowninweb",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://markitdowninweb.vercel.app"
-    },
-    {
-      "id": "GH-MR-",
-      "title": "MR CAPSULES",
-      "description": "learning platform initiated in august 2025, evolving from simple html files shared among friends to a web-based iframe platform. what began as a collection of previous years' study materials has grown into a comprehensive resource featuring lecture notes, question banks, and faculty presentation slides",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://mr-capsules.vercel.app"
-    },
-    {
-      "id": "GH-HIP",
-      "title": "HIPERTENSIMENGINTAIGENZ",
-      "description": "open source repository for hipertensimengintaigenz",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/hipertensimengintaigenz"
-    },
-    {
-      "id": "GH-SAY",
-      "title": "SAYNOTOCHOLESTROL",
-      "description": "open source repository for saynotocholestrol",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/saynotocholestrol"
-    },
-    {
-      "id": "GH-FUC",
-      "title": "FUCKALLRAPIST",
-      "description": "open source repository for fuckallrapist",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/fuckallrapist"
-    },
-    {
-      "id": "GH-SAY",
-      "title": "SAYNOTODRUGS",
-      "description": "open source repository for saynotodrugs",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/saynotodrugs"
-    },
-    {
-      "id": "GH-AET",
-      "title": "AETHERIAL",
-      "description": "open source repository for aetherial",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/aetherial"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENCODE",
-      "description": "open source repository for beencode",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/beencode"
-    },
-    {
-      "id": "GH-SOY",
-      "title": "SOYPROTEINBYALTAF",
-      "description": "personalized ai nutrition coaching and habit tracking powered by physical product qr code redemptions",
-      "tags": [
-        "TypeScript"
-      ],
-      "link": "https://soyproteinbyaltaf.vercel.app"
-    },
-    {
-      "id": "GH-PRI",
-      "title": "PRISMA RDK GUIDE",
-      "description": "blockchain-powered health chain system designed to prevent antibiotic double-redeeming and mitigate antimicrobial resistance",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://prisma-rdk-guide.vercel.app"
-    },
-    {
-      "id": "GH-SOA",
-      "title": "SOALGANJILGENAP",
-      "description": "minimal tool to generate odd-even speed accuracy tests for psychological exam preparation",
-      "tags": [
-        "Code"
-      ],
-      "link": "https://github.com/alchemist4real/soalganjilgenap"
-    },
-    {
-      "id": "GH-MSG",
-      "title": "MSGFROMORACLE",
-      "description": "sarcastic ai oracle that feeds on your futile wishes, real-time news, and market odds to weave poetic desolation",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://msgfromoracle.vercel.app"
-    },
-    {
-      "id": "GH-NOS",
-      "title": "NOSMOKE",
-      "description": "science-backed minimalist landing page addressing nicotine automaticity and urge regulation",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://nosmoke-six.vercel.app"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENTEXTER",
-      "description": "brutalist retro-calculator style text generator with tactile vintage web aesthetics",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://beentexter.vercel.app"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENBOXD",
-      "description": "ai-powered letterboxd logger and csv exporter with a slick glassmorphic interface",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://beenboxd.vercel.app"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENHOLLOW",
-      "description": "ephemeral p2p file and message sharing directly into the void",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://beenhollow.vercel.app"
-    },
-    {
-      "id": "GH-ALC",
-      "title": "ALCHEMIST4REAL",
-      "description": "open source repository for alchemist4real",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://alchemist4real.vercel.app"
-    },
-    {
-      "id": "GH-PHO",
-      "title": "PHOTOBOOTHAPP MAPLE2026",
-      "description": "interactive photobooth & academic burnout assessment web app for maple 2026 by cimsa unsoed",
-      "tags": [
-        "burnout-assessment",
-        "canvas-api"
-      ],
-      "link": "https://photoboothapp-maple2026.vercel.app"
-    },
-    {
-      "id": "GH-MAR",
-      "title": "MARKITDOWNINWEB",
-      "description": "open source repository for markitdowninweb",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://markitdowninweb.vercel.app"
-    },
-    {
-      "id": "GH-MR-",
-      "title": "MR CAPSULES",
-      "description": "learning platform initiated in august 2025, evolving from simple html files shared among friends to a web-based iframe platform. what began as a collection of previous years' study materials has grown into a comprehensive resource featuring lecture notes, question banks, and faculty presentation slides",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://mr-capsules.vercel.app"
-    },
-    {
-      "id": "GH-HIP",
-      "title": "HIPERTENSIMENGINTAIGENZ",
-      "description": "open source repository for hipertensimengintaigenz",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/hipertensimengintaigenz"
-    },
-    {
-      "id": "GH-SAY",
-      "title": "SAYNOTOCHOLESTROL",
-      "description": "open source repository for saynotocholestrol",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/saynotocholestrol"
-    },
-    {
-      "id": "GH-FUC",
-      "title": "FUCKALLRAPIST",
-      "description": "open source repository for fuckallrapist",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/fuckallrapist"
-    },
-    {
-      "id": "GH-SAY",
-      "title": "SAYNOTODRUGS",
-      "description": "open source repository for saynotodrugs",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://github.com/alchemist4real/saynotodrugs"
-    },
-    {
-      "id": "GH-AET",
-      "title": "AETHERIAL",
-      "description": "open source repository for aetherial",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/aetherial"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENCODE",
-      "description": "open source repository for beencode",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://github.com/alchemist4real/beencode"
-    },
-    {
-      "id": "GH-SOY",
-      "title": "SOYPROTEINBYALTAF",
-      "description": "personalized ai nutrition coaching and habit tracking powered by physical product qr code redemptions",
-      "tags": [
-        "TypeScript"
-      ],
-      "link": "https://soyproteinbyaltaf.vercel.app"
-    },
-    {
-      "id": "GH-PRI",
-      "title": "PRISMA RDK GUIDE",
-      "description": "blockchain-powered health chain system designed to prevent antibiotic double-redeeming and mitigate antimicrobial resistance",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://prisma-rdk-guide.vercel.app"
-    },
-    {
-      "id": "GH-SOA",
-      "title": "SOALGANJILGENAP",
-      "description": "minimal tool to generate odd-even speed accuracy tests for psychological exam preparation",
-      "tags": [
-        "Code"
-      ],
-      "link": "https://github.com/alchemist4real/soalganjilgenap"
-    },
-    {
-      "id": "GH-MSG",
-      "title": "MSGFROMORACLE",
-      "description": "sarcastic ai oracle that feeds on your futile wishes, real-time news, and market odds to weave poetic desolation",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://msgfromoracle.vercel.app"
-    },
-    {
-      "id": "GH-NOS",
-      "title": "NOSMOKE",
-      "description": "science-backed minimalist landing page addressing nicotine automaticity and urge regulation",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://nosmoke-six.vercel.app"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENTEXTER",
-      "description": "brutalist retro-calculator style text generator with tactile vintage web aesthetics",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://beentexter.vercel.app"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENBOXD",
-      "description": "ai-powered letterboxd logger and csv exporter with a slick glassmorphic interface",
-      "tags": [
-        "HTML"
-      ],
-      "link": "https://beenboxd.vercel.app"
-    },
-    {
-      "id": "GH-BEE",
-      "title": "BEENHOLLOW",
-      "description": "ephemeral p2p file and message sharing directly into the void",
-      "tags": [
-        "JavaScript"
-      ],
-      "link": "https://beenhollow.vercel.app"
+        "Psychology",
+        "Testing",
+        "Tool"
+      ],
+      "link": "https://github.com/alchemist4real/soalganjilgenap",
+      "repo_link": "https://github.com/alchemist4real/soalganjilgenap"
     }
   ]
 }

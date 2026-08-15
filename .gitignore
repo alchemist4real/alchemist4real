@@ -3,3 +3,6 @@ dist/
 .dependencies/
 encrypt_payload.js
 assets/priv_b64.txt
+*.png
+*.pyc
+__pycache__/
