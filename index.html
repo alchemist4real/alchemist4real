@@ -1889,14 +1889,14 @@
       <div id="card-modal-container" style="display: flex; justify-content: center; align-items: center; padding: 20px 0 10px;"></div>
       
       <div class="card-modal-actions">
-        <div class="qr-float-badge" onclick="showQR('partner')" style="cursor: pointer;" title="Click to enlarge QR code for scanning">
-          <img src="assets/qr/partner.png" id="qr-float-img" alt="Mobile Download QR" class="qr-float-img">
+        <div class="qr-float-badge" onclick="showQR(document.body.classList.contains('verified-theme') ? 'private_card' : 'public_card')" style="cursor: pointer;" title="Click to enlarge QR code for scanning">
+          <img src="assets/qr/public_card.png" id="qr-float-img" alt="Mobile Download QR" class="qr-float-img">
           <div class="qr-float-info">
-            <span class="qr-float-title" id="qr-float-title">DOWNLOAD CARD ON PHONE</span>
-            <span class="qr-float-sub" id="qr-float-sub">Scan with phone camera to download card</span>
+            <span class="qr-float-title" id="qr-float-title">PUBLIC CARD QR</span>
+            <span class="qr-float-sub" id="qr-float-sub">Scan to auto-download public card</span>
           </div>
         </div>
-        <button onclick="downloadIDCardImage()" class="btn-download-card">
+        <button onclick="downloadIDCardImage(event)" class="btn-download-card">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
           Download PNG
         </button>
@@ -1957,5 +1957,580 @@
     </div>
   </div>
 
+  <!-- MAIN SCRIPT (Runs after all DOM elements & modals are parsed) -->
+  <script>
+    // 5-Click Crest Logo Easter Egg Unlock
+    let crestClicks = 0;
+    let crestClickTimer = null;
+    function handleCrestClick() {
+      crestClicks++;
+      if (crestClickTimer) clearTimeout(crestClickTimer);
+      if (crestClicks >= 5) {
+        crestClicks = 0;
+        if (window.identityController) {
+          window.identityController.unlockWithPasscode('alchemist2026');
+        }
+      } else {
+        crestClickTimer = setTimeout(() => {
+          crestClicks = 0;
+        }, 2500);
+      }
+    }
+
+    // Nav Scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        nav?.classList.add('scrolled');
+      } else {
+        nav?.classList.remove('scrolled');
+      }
+    });
+
+    // Github Stats Fetch
+    async function fetchStats() {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3000);
+      try {
+        const response = await fetch('https://api.github.com/users/alchemist4real', { signal: controller.signal });
+        if (!response.ok) throw new Error('Fetch failed');
+        const data = await response.json();
+        if (data.public_repos !== undefined) document.getElementById('gh-repos').textContent = data.public_repos;
+        if (data.followers !== undefined) document.getElementById('gh-followers').textContent = data.followers;
+        if (data.following !== undefined) document.getElementById('gh-following').textContent = data.following;
+      } catch (err) {
+        // Silently leave fallback
+      } finally {
+        clearTimeout(timeoutId);
+      }
+    }
+    fetchStats();
+
+    // Auto-calculate Medical School Semester
+    function updateMedicalSemester() {
+      const startDate = new Date('2025-08-01');
+      const now = new Date();
+      const totalMonths = (now.getFullYear() - startDate.getFullYear()) * 12 + (now.getMonth() - startDate.getMonth());
+      const semester = Math.max(1, Math.floor(totalMonths / 6) + 1);
+      
+      const semStat = document.getElementById('stat-semester');
+      if (semStat) semStat.textContent = `Sem ${semester}`;
+      
+      const semBadge = document.getElementById('sem-badge');
+      if (semBadge) semBadge.textContent = `Active -- Sem ${semester}`;
+    }
+    updateMedicalSemester();
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+          const navHeight = 52;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      });
+    });
+
+    // Fade In on Scroll (Staggered Reveal)
+    let itemsToReveal = [];
+    let staggerTimeout = null;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          itemsToReveal.push(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+      
+      if (itemsToReveal.length > 0 && !staggerTimeout) {
+        staggerTimeout = setInterval(() => {
+          if (itemsToReveal.length === 0) {
+            clearInterval(staggerTimeout);
+            staggerTimeout = null;
+            return;
+          }
+          const el = itemsToReveal.shift();
+          el.classList.add('visible');
+        }, 100);
+      }
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal-item').forEach(el => observer.observe(el));
+
+    // Dynamic Data Loader
+    let allCatalogItems = [];
+
+    async function loadCatalog() {
+      try {
+        const res = await fetch('data.json');
+        const data = await res.json();
+        
+        allCatalogItems = [
+          ...(data.projects || []).map(item => ({ ...item, type: 'projects' })),
+          ...(data.extensions || []).map(item => ({ ...item, type: 'extensions' })),
+          ...(data.research || []).map(item => ({ ...item, type: 'research' })),
+          ...(data.repos || []).map(item => ({ ...item, type: 'repos' }))
+        ];
+
+        renderCatalog(allCatalogItems);
+
+        const statProjects = document.getElementById('stat-projects');
+        if(statProjects) statProjects.textContent = allCatalogItems.length;
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            
+            const filter = e.target.getAttribute('data-filter');
+            if (filter === 'all') {
+              renderCatalog(allCatalogItems);
+            } else {
+              renderCatalog(allCatalogItems.filter(item => item.type === filter));
+            }
+          });
+        });
+
+      } catch (err) {
+        console.error("Failed to load catalog data:", err);
+      }
+    }
+
+    function renderCatalog(items) {
+      const container = document.getElementById('catalog-container');
+      if (!container) return;
+      
+      container.innerHTML = items.map(item => {
+        let linksHtml = '';
+        
+        if (item.type === 'research') {
+          const whatsappMsg = encodeURIComponent(`Hello Alchemist, I would like to request full access to your research document: ${item.title}`);
+          let fileUrl = `research/${item.file_name}`;
+          if (item.file_name && item.file_name.toLowerCase().endsWith('.md')) {
+            fileUrl = `viewer.html?file=${encodeURIComponent(fileUrl)}`;
+          }
+          linksHtml = `
+            <a href="${fileUrl}" class="btn-ghost-sm" target="_blank" rel="noopener noreferrer">Display File</a>
+            <a href="https://wa.me/6285778120332?text=${whatsappMsg}" class="btn-ghost-sm" target="_blank" rel="noopener noreferrer">Full Access</a>
+          `;
+        } else {
+          const isGithubLink = item.link && item.link.includes('github.com');
+          const webUrl = item.web_link || (!isGithubLink ? item.link : null);
+          const repoUrl = item.repo_link || (isGithubLink ? item.link : null);
+          
+          if (webUrl) {
+            linksHtml += `<a href="${webUrl}" class="btn-ghost-sm" target="_blank" rel="noopener noreferrer">Visit Web</a> `;
+          }
+          if (repoUrl && repoUrl !== webUrl) {
+            linksHtml += `<a href="${repoUrl}" class="btn-ghost-sm" target="_blank" rel="noopener noreferrer">Visit Repo</a>`;
+          }
+          if (!webUrl && !repoUrl && item.link) {
+             linksHtml = `<a href="${item.link}" class="btn-ghost-sm" target="_blank" rel="noopener noreferrer">Visit</a>`;
+          }
+        }
+
+        return `
+        <div class="project-row reveal-item">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
+            <span class="card-label label" style="margin: 0;">${item.id}</span>
+            <span class="live-dot" aria-label="live" style="width: 6px; height: 6px; border-radius: 50%; background: var(--live-dot); display: block;"></span>
+          </div>
+          <div class="project-title">${item.title}</div>
+          <p class="project-desc muted">${item.description}</p>
+          <div class="project-tags">
+            ${item.tags ? item.tags.map(t => `<span class="tag">${t}</span>`).join('') : ''}
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: auto; flex-wrap: wrap;">
+            ${linksHtml}
+          </div>
+        </div>
+      `}).join('');
+
+      document.querySelectorAll('.project-row').forEach(row => {
+        row.addEventListener('mouseenter', () => row.classList.add('active'));
+        row.addEventListener('mouseleave', () => row.classList.remove('active'));
+        observer.observe(row);
+      });
+    }
+    
+    loadCatalog();
+
+    // Modal Logic
+    function openConnectModal() {
+      const modal = document.getElementById('connect-modal');
+      if (modal) modal.classList.add('active');
+    }
+
+    function closeConnectModal() {
+      const modal = document.getElementById('connect-modal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    function getQRData(id) {
+      const origin = (window.location.origin && window.location.origin !== 'null') ? 
+        (window.location.origin + window.location.pathname) : 'https://alchemist4real.github.io/alchemist4real/';
+      
+      if (id === 'public_card' || id === 'card') {
+        return {
+          title: 'PUBLIC CARD DOWNLOAD QR',
+          sub: 'Scan with phone camera to directly download the Public Identification Card on another device.',
+          url: `${origin}?download=card&mode=public`,
+          fallback: 'assets/qr/public_card.png',
+          filename: 'alchemist4real_public_card_qr.png'
+        };
+      }
+      if (id === 'private_card' || id === 'verified_card') {
+        const key = (window.identityController && window.identityController.activeKey) || 'alchemist2026';
+        return {
+          title: 'VERIFIED IDENTITY CARD QR',
+          sub: 'Scan with phone camera to auto-unlock and directly download the Verified Private Card on another device.',
+          url: `${origin}?unlock=${encodeURIComponent(key)}&download=card&mode=private`,
+          fallback: 'assets/qr/private_card.png',
+          filename: 'alchemist4real_verified_card_qr.png'
+        };
+      }
+      if (id === 'linkedin') {
+        return {
+          title: 'LINKEDIN PROFILE QR',
+          sub: 'Scan to visit the official LinkedIn profile.',
+          url: 'https://www.linkedin.com/in/alchemist4real/',
+          fallback: 'assets/qr/linkedin.png',
+          filename: 'alchemist4real_linkedin_qr.png'
+        };
+      }
+      if (id === 'github') {
+        return {
+          title: 'GITHUB PROFILE QR',
+          sub: 'Scan to explore repositories and open-source contributions.',
+          url: 'https://github.com/alchemist4real',
+          fallback: 'assets/qr/github.png',
+          filename: 'alchemist4real_github_qr.png'
+        };
+      }
+      if (id === 'whatsapp') {
+        return {
+          title: 'WHATSAPP CONTACT QR',
+          sub: 'Scan to connect directly via WhatsApp.',
+          url: 'https://wa.me/6285778120332',
+          fallback: 'assets/qr/whatsapp.png',
+          filename: 'alchemist4real_whatsapp_qr.png'
+        };
+      }
+      if (id === 'instagram') {
+        return {
+          title: 'INSTAGRAM PROFILE QR',
+          sub: 'Scan to visit the Instagram page.',
+          url: 'https://instagram.com/alchemist4real',
+          fallback: 'assets/qr/instagram.png',
+          filename: 'alchemist4real_instagram_qr.png'
+        };
+      }
+      if (id === 'partner') {
+        return {
+          title: 'PARTNER CREST QR',
+          sub: 'Scan to verify digital partner credentials.',
+          url: `${origin}?partner=verify`,
+          fallback: 'assets/qr/partner.png',
+          filename: 'alchemist4real_partner_qr.png'
+        };
+      }
+      return {
+        title: `${id.toUpperCase()} QR CODE`,
+        sub: 'Scan QR code with your mobile camera.',
+        url: `${origin}`,
+        fallback: `assets/qr/${id}.png`,
+        filename: `alchemist4real_${id}_qr.png`
+      };
+    }
+
+    function generateQRDataURL(text) {
+      if (typeof QRious !== 'undefined') {
+        try {
+          const qr = new QRious({
+            value: text,
+            size: 360,
+            level: 'M'
+          });
+          return qr.toDataURL();
+        } catch(e) {
+          console.warn("QRious generation error:", e);
+        }
+      }
+      return null;
+    }
+
+    function openCardModal(e) {
+      if (e && (e.target.closest('a') || e.target.closest('button.id-qr-btn'))) return;
+      const card = document.querySelector('.hero .id-card');
+      const container = document.getElementById('card-modal-container');
+      if (card && container) {
+        container.innerHTML = card.outerHTML;
+        const cloned = container.querySelector('.id-card');
+        if (cloned) {
+          cloned.style.cursor = 'default';
+          const zoomBtn = cloned.querySelector('.id-zoom-btn');
+          if (zoomBtn) zoomBtn.style.display = 'none';
+          const topActions = cloned.querySelector('.id-top-actions');
+          if (topActions) topActions.style.display = 'none';
+        }
+      }
+      
+      const isVerified = document.body.classList.contains('verified-theme');
+      const qrType = isVerified ? 'private_card' : 'public_card';
+      const qrData = getQRData(qrType);
+      const dynamicSrc = generateQRDataURL(qrData.url);
+
+      const qrImg = document.getElementById('qr-float-img');
+      const qrTitle = document.getElementById('qr-float-title');
+      const qrSub = document.getElementById('qr-float-sub');
+      const qrBadge = document.querySelector('.qr-float-badge');
+      
+      if (qrImg) qrImg.src = dynamicSrc || qrData.fallback;
+      if (qrTitle) qrTitle.textContent = isVerified ? 'VERIFIED CARD QR' : 'PUBLIC CARD QR';
+      if (qrSub) qrSub.textContent = isVerified ? 'Scan to auto-download verified card' : 'Scan to auto-download public card';
+      if (qrBadge) {
+        qrBadge.onclick = () => showQR(qrType);
+      }
+
+      document.getElementById('card-modal')?.classList.add('active');
+    }
+
+    function closeCardModal() {
+      const modal = document.getElementById('card-modal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    async function downloadIDCardImage(event) {
+      if (event) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
+      let card = document.querySelector('#card-modal-container .id-card') || document.querySelector('.hero .id-card');
+      if (!card) {
+        openCardModal();
+        card = document.querySelector('#card-modal-container .id-card') || document.querySelector('.hero .id-card');
+      }
+      if (!card) return;
+
+      const isVerified = document.body.classList.contains('verified-theme');
+      const filename = isVerified ? 'alchemist4real_verified_id.png' : 'alchemist4real_public_id.png';
+
+      const btn = event ? (event.currentTarget || event.target) : document.querySelector('.btn-download-card');
+      const originalHTML = btn ? btn.innerHTML : '';
+      if (btn) btn.innerHTML = 'Downloading...';
+
+      try {
+        if (typeof html2canvas === 'undefined') {
+          await new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+          });
+        }
+
+        await new Promise(r => setTimeout(r, 120));
+
+        const canvas = await html2canvas(card, {
+          scale: 3,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: null,
+          logging: false
+        });
+
+        const dataUrl = canvas.toDataURL('image/png');
+        triggerDownload(dataUrl, filename);
+
+        if (canvas.toBlob) {
+          canvas.toBlob((blob) => {
+            if (blob) {
+              const blobUrl = URL.createObjectURL(blob);
+              triggerDownload(blobUrl, filename);
+              setTimeout(() => URL.revokeObjectURL(blobUrl), 5000);
+            }
+          }, 'image/png');
+        }
+      } catch (err) {
+        console.error('Download failed:', err);
+        alert('Failed to download card image: ' + err.message);
+      } finally {
+        if (btn) btn.innerHTML = originalHTML;
+      }
+    }
+
+    function triggerDownload(url, filename) {
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = url;
+      link.target = '_self';
+      document.body.appendChild(link);
+      link.click();
+      setTimeout(() => {
+        if (link.parentNode) link.parentNode.removeChild(link);
+      }, 100);
+    }
+
+    function showQR(id) {
+      const modal = document.getElementById('qr-modal');
+      const img = document.getElementById('qr-image');
+      const title = document.getElementById('qr-modal-title');
+      const sub = document.getElementById('qr-modal-sub');
+      const dlBtn = document.getElementById('qr-modal-dl-btn');
+
+      const qrData = getQRData(id);
+      const dynamicUrl = generateQRDataURL(qrData.url);
+
+      img.src = dynamicUrl || qrData.fallback;
+      if (title) title.textContent = qrData.title;
+      if (sub) sub.textContent = qrData.sub;
+      if (dlBtn) {
+        dlBtn.setAttribute('data-filename', qrData.filename);
+      }
+      modal?.classList.add('active');
+    }
+
+    async function downloadQRImage() {
+      const img = document.getElementById('qr-image');
+      const dlBtn = document.getElementById('qr-modal-dl-btn');
+      const filename = (dlBtn && dlBtn.getAttribute('data-filename')) || 'alchemist4real_qr_code.png';
+      if (!img || !img.src) return;
+
+      try {
+        if (img.src.startsWith('data:')) {
+          triggerDownload(img.src, filename);
+        } else {
+          const response = await fetch(img.src);
+          const blob = await response.blob();
+          const url = URL.createObjectURL(blob);
+          triggerDownload(url, filename);
+          setTimeout(() => URL.revokeObjectURL(url), 2000);
+        }
+      } catch (e) {
+        console.error("QR download error:", e);
+        triggerDownload(img.src, filename);
+      }
+    }
+    
+    function closeQR() {
+      document.getElementById('qr-modal')?.classList.remove('active');
+    }
+    
+    // Close on click outside
+    document.getElementById('qr-modal')?.addEventListener('click', function(e) {
+      if (e.target === this) closeQR();
+    });
+
+    // Passcode & Generator Modal Functions
+    window.showUnlockModal = function() {
+      document.getElementById('unlock-modal')?.classList.add('active');
+      document.getElementById('passcode-input')?.focus();
+    };
+
+    window.closeUnlockModal = function() {
+      document.getElementById('unlock-modal')?.classList.remove('active');
+    };
+
+    window.submitPasscode = async function() {
+      const input = document.getElementById('passcode-input');
+      const pass = input.value;
+      if (await window.identityController.unlockWithPasscode(pass)) {
+        input.value = '';
+        closeUnlockModal();
+      }
+    };
+
+    window.showGeneratorModal = function() {
+      document.getElementById('generator-modal')?.classList.add('active');
+    };
+
+    window.closeGeneratorModal = function() {
+      document.getElementById('generator-modal')?.classList.remove('active');
+    };
+
+    window.generateAndCopyToken = function() {
+      const recipient = document.getElementById('gen-recipient').value || "Recruiter";
+      const days = parseInt(document.getElementById('gen-days').value) || 30;
+      const res = window.identityController.generateRecruiterToken(recipient, days);
+      const out = document.getElementById('gen-output-url');
+      out.value = res.fullUrl;
+      navigator.clipboard.writeText(res.fullUrl);
+      alert(`Copied shareable recruiter URL to clipboard!\nRecipient: ${recipient}\nValid until: ${res.expDate}`);
+    };
+
+    document.getElementById('passcode-input')?.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') submitPasscode();
+    });
+
+    // Auto-init Handler for View / Download params
+    async function initDownloadAndModals() {
+      const params = new URLSearchParams(window.location.search);
+      const isDownload = params.get('download') === 'card';
+      const isView = params.get('view') === 'card';
+      const unlockKey = params.get('unlock');
+
+      if (isDownload || isView || unlockKey) {
+        if (unlockKey && window.identityController) {
+          await window.identityController.unlockWithPasscode(unlockKey);
+        }
+
+        openCardModal();
+
+        if (isDownload) {
+          // Display a floating prompt for mobile user gestures
+          const toast = document.createElement('div');
+          toast.id = 'download-toast';
+          toast.style.cssText = `
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--fg);
+            color: var(--bg);
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            z-index: 100000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+          `;
+          toast.innerHTML = `<span>📥 Generating & Downloading Card...</span>`;
+          toast.onclick = () => downloadIDCardImage();
+          document.body.appendChild(toast);
+
+          setTimeout(async () => {
+            await downloadIDCardImage();
+            toast.innerHTML = `<span>✓ Tap to re-download card</span>`;
+            setTimeout(() => {
+              if (toast.parentNode) toast.parentNode.removeChild(toast);
+            }, 8000);
+          }, 450);
+        }
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', initDownloadAndModals);
+    } else {
+      initDownloadAndModals();
+    }
+  </script>
 </body>
 </html>
