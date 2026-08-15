@@ -1528,8 +1528,8 @@
       if (id === 'public_card' || id === 'card') {
         return {
           title: 'PUBLIC CARD DOWNLOAD QR',
-          sub: 'Scan with phone camera to view & download the Public Identification Card on another device.',
-          url: `${origin}?view=card&mode=public`,
+          sub: 'Scan with phone camera to directly download the Public Identification Card on another device.',
+          url: `${origin}?download=card&mode=public`,
           fallback: 'assets/qr/public_card.png',
           filename: 'alchemist4real_public_card_qr.png'
         };
@@ -1538,8 +1538,8 @@
         const key = (window.identityController && window.identityController.activeKey) || 'alchemist2026';
         return {
           title: 'VERIFIED IDENTITY CARD QR',
-          sub: 'Scan with phone camera to auto-unlock and download the Verified Private Card on another device.',
-          url: `${origin}?unlock=${encodeURIComponent(key)}&view=card&mode=private`,
+          sub: 'Scan with phone camera to auto-unlock and directly download the Verified Private Card on another device.',
+          url: `${origin}?unlock=${encodeURIComponent(key)}&download=card&mode=private`,
           fallback: 'assets/qr/private_card.png',
           filename: 'alchemist4real_verified_card_qr.png'
         };
@@ -1642,7 +1642,7 @@
       
       if (qrImg) qrImg.src = dynamicSrc || qrData.fallback;
       if (qrTitle) qrTitle.textContent = isVerified ? 'VERIFIED CARD QR' : 'PUBLIC CARD QR';
-      if (qrSub) qrSub.textContent = isVerified ? 'Scan to unlock & download verified card' : 'Scan with phone camera to download card';
+      if (qrSub) qrSub.textContent = isVerified ? 'Scan to auto-download verified card' : 'Scan to auto-download public card';
       if (qrBadge) {
         qrBadge.onclick = () => showQR(qrType);
       }
@@ -1668,7 +1668,7 @@
 
       const btn = event ? (event.currentTarget || event.target) : document.querySelector('.btn-download-card');
       const originalHTML = btn ? btn.innerHTML : '';
-      if (btn) btn.innerHTML = 'Rendering...';
+      if (btn) btn.innerHTML = 'Downloading...';
 
       try {
         if (typeof html2canvas === 'undefined') {
@@ -1689,16 +1689,36 @@
           logging: false
         });
 
-        const link = document.createElement('a');
-        link.download = filename;
-        link.href = canvas.toDataURL('image/png');
-        link.click();
+        if (canvas.toBlob) {
+          canvas.toBlob((blob) => {
+            if (!blob) {
+              const dataUrl = canvas.toDataURL('image/png');
+              triggerDownload(dataUrl, filename);
+              return;
+            }
+            const blobUrl = URL.createObjectURL(blob);
+            triggerDownload(blobUrl, filename);
+            setTimeout(() => URL.revokeObjectURL(blobUrl), 2000);
+          }, 'image/png');
+        } else {
+          const dataUrl = canvas.toDataURL('image/png');
+          triggerDownload(dataUrl, filename);
+        }
       } catch (err) {
         console.error('Download failed:', err);
         alert('Failed to download card image: ' + err.message);
       } finally {
         if (btn) btn.innerHTML = originalHTML;
       }
+    }
+
+    function triggerDownload(url, filename) {
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = url;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
 
     function showQR(id) {
@@ -1728,27 +1748,17 @@
 
       try {
         if (img.src.startsWith('data:')) {
-          const link = document.createElement('a');
-          link.href = img.src;
-          link.download = filename;
-          link.click();
+          triggerDownload(img.src, filename);
         } else {
           const response = await fetch(img.src);
           const blob = await response.blob();
           const url = URL.createObjectURL(blob);
-          const link = document.createElement('a');
-          link.href = url;
-          link.download = filename;
-          link.click();
-          URL.revokeObjectURL(url);
+          triggerDownload(url, filename);
+          setTimeout(() => URL.revokeObjectURL(url), 2000);
         }
       } catch (e) {
         console.error("QR download error:", e);
-        const link = document.createElement('a');
-        link.href = img.src;
-        link.download = filename;
-        link.target = '_blank';
-        link.click();
+        triggerDownload(img.src, filename);
       }
     }
     
@@ -1802,15 +1812,23 @@
       if (e.key === 'Enter') submitPasscode();
     });
 
-    function init() {
+    async function init() {
       const params = new URLSearchParams(window.location.search);
-      if (params.get('view') === 'card' || params.get('download') === 'card') {
-        setTimeout(() => {
-          openCardModal();
-          if (params.get('download') === 'card') {
-            setTimeout(() => downloadIDCardImage(), 500);
-          }
-        }, 350);
+      const isDownload = params.get('download') === 'card';
+      const isView = params.get('view') === 'card';
+
+      if (isDownload || isView) {
+        if (params.get('unlock') && window.identityController) {
+          await window.identityController.unlockWithPasscode(params.get('unlock'));
+        }
+
+        openCardModal();
+
+        if (isDownload) {
+          setTimeout(async () => {
+            await downloadIDCardImage();
+          }, 450);
+        }
       }
     }
 
