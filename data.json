@@ -2,6 +2,18 @@
   "projects": [
     {
       "id": "01",
+      "title": "REMOTE4REAL",
+      "description": "ultra-low latency wireless pc touchpad & gamepad controller",
+      "tags": [
+        "Low-Latency",
+        "Gamepad",
+        "Touchpad"
+      ],
+      "link": "https://remote4real-showcase.vercel.app",
+      "repo_link": "https://github.com/alchemist4real/REMOTE4REAL"
+    },
+    {
+      "id": "02",
       "title": "ALCHEMIST4REAL",
       "description": "portfolio architecture, identity card & brutalist core",
       "tags": [
@@ -13,7 +25,7 @@
       "repo_link": "https://github.com/alchemist4real/alchemist4real"
     },
     {
-      "id": "02",
+      "id": "03",
       "title": "BEENHOLLOW",
       "description": "ephemeral p2p file & real-time message sharing",
       "tags": [
@@ -25,7 +37,7 @@
       "repo_link": "https://github.com/alchemist4real/BEENHOLLOW"
     },
     {
-      "id": "03",
+      "id": "04",
       "title": "PHOTOBOOTH APP MAPLE 2026",
       "description": "interactive digital photobooth & event photo app",
       "tags": [
@@ -37,7 +49,7 @@
       "repo_link": "https://github.com/alchemist4real/PHOTOBOOTHAPP-MAPLE2026"
     },
     {
-      "id": "04",
+      "id": "05",
       "title": "MARKITDOWN IN WEB",
       "description": "multi-format document to markdown web converter",
       "tags": [
@@ -49,7 +61,7 @@
       "repo_link": "https://github.com/alchemist4real/markitdowninweb"
     },
     {
-      "id": "05",
+      "id": "06",
       "title": "MR CAPSULES",
       "description": "comprehensive medical study platform & lecture archive",
       "tags": [
@@ -61,7 +73,7 @@
       "repo_link": "https://github.com/alchemist4real/MR-CAPSULES"
     },
     {
-      "id": "06",
+      "id": "07",
       "title": "HIPERTENSI MENGINTAI GEN Z",
       "description": "interactive hypertension education platform for gen z",
       "tags": [
@@ -73,7 +85,7 @@
       "repo_link": "https://github.com/alchemist4real/hipertensimengintaigenz"
     },
     {
-      "id": "07",
+      "id": "08",
       "title": "SAY NO TO CHOLESTEROL",
       "description": "interactive cholesterol & cardiovascular education",
       "tags": [
@@ -85,7 +97,7 @@
       "repo_link": "https://github.com/alchemist4real/saynotocholestrol"
     },
     {
-      "id": "08",
+      "id": "09",
       "title": "#FuckAllRapist",
       "description": "anti-sexual violence & bystander action guide",
       "tags": [
@@ -97,7 +109,7 @@
       "repo_link": "https://github.com/alchemist4real/fuckallrapist"
     },
     {
-      "id": "09",
+      "id": "10",
       "title": "#SayNoToDrugs",
       "description": "interactive drug education & certification simulator",
       "tags": [
@@ -109,7 +121,7 @@
       "repo_link": "https://github.com/alchemist4real/saynotodrugs"
     },
     {
-      "id": "10",
+      "id": "11",
       "title": "AETHERIAL",
       "description": "spatial cognition assessment & mental rotation exercise",
       "tags": [
@@ -121,7 +133,7 @@
       "repo_link": "https://github.com/alchemist4real/aetherial"
     },
     {
-      "id": "11",
+      "id": "12",
       "title": "BEENCODE",
       "description": "industrial matrix encoder & terminal utility",
       "tags": [
@@ -133,7 +145,7 @@
       "repo_link": "https://github.com/alchemist4real/beencode"
     },
     {
-      "id": "12",
+      "id": "13",
       "title": "NUTRI SOY BY ALTAF",
       "description": "ai nutrition coach & qr redemption habit tracker",
       "tags": [
@@ -145,7 +157,7 @@
       "repo_link": "https://github.com/alchemist4real/soyproteinbyaltaf"
     },
     {
-      "id": "13",
+      "id": "14",
       "title": "PRISMA RDK GUIDE",
       "description": "blockchain prescription verification architecture",
       "tags": [
@@ -157,7 +169,7 @@
       "repo_link": "https://github.com/alchemist4real/prisma-rdk-guide"
     },
     {
-      "id": "14",
+      "id": "15",
       "title": "MSG FROM ORACLE",
       "description": "sarcastic ai oracle analyzing news & market odds",
       "tags": [
@@ -169,7 +181,7 @@
       "repo_link": "https://github.com/alchemist4real/msgfromoracle"
     },
     {
-      "id": "15",
+      "id": "16",
       "title": "NOSMOKE",
       "description": "nicotine urge regulation & cessation landing page",
       "tags": [
@@ -181,7 +193,7 @@
       "repo_link": "https://github.com/alchemist4real/nosmoke"
     },
     {
-      "id": "16",
+      "id": "17",
       "title": "BEENTEXTER",
       "description": "tactile retro-calculator style text generator",
       "tags": [
@@ -193,7 +205,7 @@
       "repo_link": "https://github.com/alchemist4real/beentexter"
     },
     {
-      "id": "17",
+      "id": "18",
       "title": "BEENBOXD",
       "description": "ai-assisted letterboxd movie logger & exporter",
       "tags": [
@@ -205,7 +217,7 @@
       "repo_link": "https://github.com/alchemist4real/beenboxd"
     },
     {
-      "id": "18",
+      "id": "19",
       "title": "DR. BEEN",
       "description": "ai clinical diagnostic assistant & medical agent",
       "tags": [
@@ -217,7 +229,7 @@
       "repo_link": "https://github.com/alchemist4real/dr-been"
     },
     {
-      "id": "19",
+      "id": "20",
       "title": "DOCTOR TABLET",
       "description": "digital clinical workspace for bedside medical consults",
       "tags": [
@@ -229,7 +241,7 @@
       "repo_link": "https://github.com/alchemist4real/doctortablet"
     },
     {
-      "id": "20",
+      "id": "21",
       "title": "PHD BIOENGINEERING ROADMAP",
       "description": "academic trajectory roadmap for bioengineering & medtech",
       "tags": [
@@ -241,7 +253,7 @@
       "repo_link": "https://github.com/alchemist4real/phd-bioengineering-roadmap"
     },
     {
-      "id": "21",
+      "id": "22",
       "title": "LONGLIFEHISTO",
       "description": "interactive histology simulator for tissue identification",
       "tags": [
@@ -253,7 +265,7 @@
       "repo_link": "https://github.com/alchemist4real/longlifehisto"
     },
     {
-      "id": "22",
+      "id": "23",
       "title": "DERMAMAXXING",
       "description": "skin intelligence system for dermatology anamnesis",
       "tags": [
@@ -265,7 +277,7 @@
       "repo_link": "https://github.com/alchemist4real/dermamaxxing"
     },
     {
-      "id": "23",
+      "id": "24",
       "title": "COOK WITH ALCHEMIST",
       "description": "culinary masterclass app & experimental recipe lab",
       "tags": [
@@ -277,7 +289,7 @@
       "repo_link": "https://github.com/alchemist4real/cookwithalchemist4real"
     },
     {
-      "id": "24",
+      "id": "25",
       "title": "LIMITLESS OMNIPRESENT",
       "description": "interactive gpu particle physics visual simulation",
       "tags": [
@@ -289,7 +301,7 @@
       "repo_link": "https://github.com/alchemist4real/zenlimitless"
     },
     {
-      "id": "25",
+      "id": "26",
       "title": "174 ARCHIVE",
       "description": "dark brutalist digital archive & desktop simulation",
       "tags": [
